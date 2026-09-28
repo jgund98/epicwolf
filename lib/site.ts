@@ -101,7 +101,7 @@ export const pillars: Pillar[] = [
       { name: "Vehicle graphics", href: "/vehicle-wraps" },
       { name: "Print and brand goods", href: "/print" },
     ],
-    img: "/img/brand/ew-van-2.jpg",
+    img: "/img/brand/ew-van-3.jpg",
   },
   {
     slug: "digital-marketing",

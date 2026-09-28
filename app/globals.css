@@ -457,8 +457,7 @@ header[data-htone="dark"] .btn-flare:hover {
   }
 }
 
-/* The wolf in the W. On arrival its head rises and the ears prick up; on the
-   header logo, hovering makes them twitch. */
+/* The W's orange stroke rises into place on arrival. */
 .ew-ears {
   transform-box: fill-box;
   transform-origin: 50% 100%;
@@ -478,27 +477,9 @@ header[data-htone="dark"] .btn-flare:hover {
     transform: scaleY(1);
   }
 }
-.logo-link:hover .ew-ears {
-  animation: ew-twitch 0.55s ease-in-out;
-}
-@keyframes ew-twitch {
-  0%,
-  100% {
-    transform: none;
-  }
-  30% {
-    transform: scaleY(1.14) rotate(-4deg);
-  }
-  60% {
-    transform: scaleY(0.96) rotate(3deg);
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .ew-ears-in {
     transform: none;
-    animation: none;
-  }
-  .logo-link:hover .ew-ears {
     animation: none;
   }
 }

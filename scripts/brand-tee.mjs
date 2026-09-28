@@ -12,5 +12,5 @@ const print = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}
 await sharp("public/img/stock/tee.jpg")
   .composite([{ input: Buffer.from(print), left: 1010 - W / 2, top: 560 }])
   .jpeg({ quality: 84, mozjpeg: true })
-  .toFile("public/img/brand/ew-tee-2.jpg")
+  .toFile("public/img/brand/ew-tee-3.jpg")
 console.log("tee ok")

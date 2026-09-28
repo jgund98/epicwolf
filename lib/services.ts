@@ -608,7 +608,7 @@ export const services: Service[] = [
       },
     ],
     related: ["branding", "vehicle-wraps", "print"],
-    image: "/img/brand/ew-storefront-2.jpg",
+    image: "/img/brand/ew-storefront-3.jpg",
     imageAlt: "A storefront with the Epic Wolf wordmark across the sign band",
   },
 
@@ -709,7 +709,7 @@ export const services: Service[] = [
       },
     ],
     related: ["signs", "branding", "print"],
-    image: "/img/brand/ew-van-2.jpg",
+    image: "/img/brand/ew-van-3.jpg",
     imageAlt: "A cargo van wrapped in Epic Wolf black and orange on a seawall",
   },
 
@@ -810,7 +810,7 @@ export const services: Service[] = [
       },
     ],
     related: ["branding", "signs", "business-development"],
-    image: "/img/brand/ew-tote-2.jpg",
+    image: "/img/brand/ew-tote-3.jpg",
     imageAlt: "A canvas tote printed with the Epic Wolf mark",
   },
 ]

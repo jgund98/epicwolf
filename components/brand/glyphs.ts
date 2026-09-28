@@ -10,9 +10,8 @@
  * letters (P C O) take a 38 radius outside and 16 inside, the way an extended
  * grotesk would.
  *
- * The wolf: in the W, that orange stroke is a geometric wolf's head, ears
- * pricked, muzzle resting on the bar. In the E it is still a plain arm, so the
- * wolf only appears once the E has turned into the W.
+ * (An orange wolf-head version of the W's stroke was tried and rejected; the
+ * stroke stays a clean bar.)
  *
  * (A monoline tracked alternative was tried on 2026-09-28 and rejected by
  * Jordan in favor of this one.)
@@ -37,7 +36,7 @@ export const WOLF_BAR = "M39 34L50 34L61 34L61 78L50 78L39 78Z"
 export const W: Glyph = {
   w: 100,
   body: "M0 0H22V78H78V0H100V100H0Z",
-  accent: WOLF_HEAD,
+  accent: WOLF_BAR,
 }
 
 export const P: Glyph = {

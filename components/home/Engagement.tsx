@@ -2,12 +2,12 @@
 
 import { useRef, useState } from "react"
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react"
-import { W, WOLF_BAR, WOLF_HEAD } from "@/components/brand/glyphs"
+import { W, WOLF_BAR } from "@/components/brand/glyphs"
 
 /**
  * Chapter five. How an engagement runs, told with the logo's own idea: a
- * giant E turns a little with every phase and lands as the W on the last one,
- * where its orange arm becomes the wolf's head. The brand is built as you read.
+ * giant E turns a little with every phase and lands as the W on the last one.
+ * The brand is built as you read.
  *
  * Drawn as the W turned back a quarter (which is exactly the E), then turned
  * home to 0deg; the accent morphs between two six-point shapes.
@@ -41,7 +41,7 @@ function Glyph({ className, style, wolf = false }: { className?: string; style?:
       <path d={W.body} fill="currentColor" />
       <motion.path
         initial={false}
-        animate={{ d: wolf ? WOLF_HEAD : WOLF_BAR }}
+        animate={{ d: WOLF_BAR }}
         transition={{ duration: 0.8, ease: [0.34, 1.4, 0.64, 1] }}
         fill="var(--color-flare)"
       />
