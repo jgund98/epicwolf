@@ -73,10 +73,8 @@ export default function About() {
             </p>
             <div className="prose-ew t-body muted-light mt-8 max-w-[62ch]">
               <p>
-                Epic Wolf was started to fix that. Shawn has put brands on storefronts, apparel and printed goods since
-                founding SM Wolf Creative Agency in 2001. Jordan built Epic Development Solutions around websites,
-                software and the systems growing companies run on. Together they lead an agency where the strategy,
-                the story and the execution come from one place.
+                Epic Wolf was started to fix that. Its partners, Jordan Gundlach and Shawn Wolf, lead an agency where
+                the strategy, the story and the execution come from one place and answer to one standard.
               </p>
               <p>
                 We are based in {site.city} and work with companies across Palm Beach County, South Florida and

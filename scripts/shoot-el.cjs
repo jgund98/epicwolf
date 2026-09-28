@@ -15,7 +15,7 @@ const puppeteer = require("C:/Users/Lucky/gus-renny/node_modules/puppeteer")
     const off = +(offStr || 0)
     await p.evaluate((css, off) => { const el = document.querySelector(css); window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY + off * window.innerHeight) }, css, off)
     await new Promise((r) => setTimeout(r, 1600))
-    await p.screenshot({ path: `shots/el-${i++}.jpg`, type: "jpeg", quality: 80 })
+    await p.screenshot({ path: `shots/${process.env.PREFIX || "el"}-${i++}.jpg`, type: "jpeg", quality: 80 })
   }
   await b.close()
   console.log("ok", i)

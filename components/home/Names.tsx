@@ -8,9 +8,8 @@ import { EPIC, EPIC_W, WOLF, WOLF_W, layout, type Glyph } from "@/components/bra
 import { useRange } from "@/lib/motion"
 
 /**
- * Chapter six. The name is literal: Epic is the company Jordan built, Wolf is
- * Shawn's name. Each partner stands in front of his half of the wordmark on
- * signal orange. As you scroll, the halves slide together until the page
+ * Chapter six. The two partners, each standing in front of half of the
+ * wordmark on signal orange. As you scroll, the halves slide together until the page
  * reads EPIC WOLF with the two of them shoulder to shoulder.
  *
  * The portraits are cut from their backgrounds and normalized in
@@ -61,14 +60,13 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
         <div className="md:col-span-7">
           <p className="label label-paper">{label}</p>
           <h2 id="names-title" className="t-h2 mt-4 max-w-[16ch]">
-            <span className="font-[300]">Two names.</span> One agency.
+            <span className="font-[300]">Two partners.</span> One agency.
           </h2>
         </div>
         <div className="md:col-span-5">
         <p className="t-body">
-          Epic is the company Jordan built around websites, software and growth. Wolf is Shawn&rsquo;s name, on the door
-          of his West Palm Beach creative shop since 2001. Put them together and you get the thinking and the making at
-          one table.
+          Epic Wolf is led by its partners. One lives in strategy, digital and growth. The other lives in brand and
+          everything people can see and touch. Every client gets both, at the same table, from the first conversation.
         </p>
         {cta && (
           <Link href="/about" className="link-draw mt-5 inline-block font-bold">

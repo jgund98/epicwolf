@@ -11,12 +11,13 @@ Dev `npm run dev` (3640), prod `next build && next start -p 3641`.
 3. **The orange band** (kinetic rows) and **The craft**: three disciplines only (Branding, Digital
    Marketing, Business Development). PR, websites/software, signs, vehicle graphics and print live
    inside them as capability pages for search, never as a menu.
-4. **Try it on.** Visitors type their name and see it on an identity sheet, an AI answer, a website,
-   a billboard, a van, a tee and a storefront (real four-point homography onto photos).
+4. **The standard.** "Every surface. One standard." A wave-cut frame of drifting columns showing the
+   Epic Wolf identity in the world (van, storefront, tote, tee, screens, type, color, mark, Palm Beach
+   light), with UNMISTAKABLE. breaking over its edge. (Replaced an interactive "type your name" demo.)
 5. **The engagement.** Listen, decide, build, go live, keep score. The logo's E turns a quarter turn
    across the five phases and lands as the W.
-6. **The names.** Epic (Jordan's company) and Wolf (Shawn's name): matched B&W cutouts in front of
-   their half of the wordmark on orange; the halves slide together.
+6. **The partners.** Jordan and Shawn as matched B&W cutouts, each in front of half of the wordmark
+   on orange; the halves slide together. (Copy deliberately does not mention their separate companies.)
 7. **Home.** 561 with the West Palm Beach skyline inside the numerals, coordinates, South Florida towns.
 8. FAQ, then "Your move." with the inquiry form.
 
@@ -37,8 +38,7 @@ Dev `npm run dev` (3640), prod `next build && next start -p 3641`.
   `lib/site.ts` once there is a public office; this helps the map pack.
 - **Lead form** posts to `/api/lead` (Brevo). Set `BREVO_API_KEY` and `LEAD_TO_EMAIL` in Vercel;
   until then inquiries are only logged.
-- Claims to approve: "A partner reads every inquiry and replies personally", "since 2001" for
-  Shawn's shop, the "How we work" principles on About, the investment ranges in the form.
+- Claims to approve: "A partner reads every inquiry and replies personally", the "How we work" principles on About, the investment ranges in the form.
 - Service pages include agent-written timelines ("six to ten weeks" for identity work) and one
   published market range for wraps (sourced). Review before launch.
 - Not yet done off-site (biggest SEO/AI-answer levers): Google Business Profile, Clutch/DesignRush/

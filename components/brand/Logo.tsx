@@ -17,7 +17,7 @@ function Glyphs({ items, y = 0, accent, draw, offset = 0 }: { items: { g: Glyph;
         <g key={i} transform={`translate(${x} ${y})`}>
           <g className={draw ? "ew-rise" : undefined} style={draw ? ({ "--i": offset + i } as CSSProperties) : undefined}>
             <path d={g.body} fillRule="evenodd" fill="currentColor" />
-            {g.accent && <path d={g.accent} fill={accent} className={draw ? "ew-accent" : undefined} />}
+            {g.accent && <path d={g.accent} fill={accent} className={g === W ? "ew-ears" + (draw ? " ew-ears-in" : "") : draw ? "ew-accent" : undefined} />}
           </g>
         </g>
       ))}

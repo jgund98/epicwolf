@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/Hero"
 import { Manifesto } from "@/components/home/Manifesto"
 import { Disciplines } from "@/components/home/Disciplines"
-import { Everywhere } from "@/components/home/Everywhere"
+import { BrandWorld } from "@/components/home/BrandWorld"
 import { Kinetic } from "@/components/home/Kinetic"
 import { Engagement } from "@/components/home/Engagement"
 import { Names } from "@/components/home/Names"
@@ -29,7 +29,7 @@ export default function Home() {
       <Manifesto />
       <Kinetic />
       <Disciplines />
-      <Everywhere />
+      <BrandWorld />
       <Engagement />
       <Names />
       <Local />

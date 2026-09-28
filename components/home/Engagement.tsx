@@ -2,12 +2,15 @@
 
 import { useRef, useState } from "react"
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react"
-import { E } from "@/components/brand/glyphs"
+import { W, WOLF_BAR, WOLF_HEAD } from "@/components/brand/glyphs"
 
 /**
  * Chapter five. How an engagement runs, told with the logo's own idea: a
- * giant E turns a little with every phase and lands as the W on the last one.
- * The brand is literally built as you read.
+ * giant E turns a little with every phase and lands as the W on the last one,
+ * where its orange arm becomes the wolf's head. The brand is built as you read.
+ *
+ * Drawn as the W turned back a quarter (which is exactly the E), then turned
+ * home to 0deg; the accent morphs between two six-point shapes.
  */
 const PHASES = [
   {
@@ -32,11 +35,16 @@ const PHASES = [
   },
 ]
 
-function Glyph({ className, style }: { className?: string; style?: React.CSSProperties }) {
+function Glyph({ className, style, wolf = false }: { className?: string; style?: React.CSSProperties; wolf?: boolean }) {
   return (
     <svg viewBox="0 0 100 100" className={className} style={style} aria-hidden>
-      <path d={E.body} fill="currentColor" />
-      <path d={E.accent} fill="var(--color-flare)" />
+      <path d={W.body} fill="currentColor" />
+      <motion.path
+        initial={false}
+        animate={{ d: wolf ? WOLF_HEAD : WOLF_BAR }}
+        transition={{ duration: 0.8, ease: [0.34, 1.4, 0.64, 1] }}
+        fill="var(--color-flare)"
+      />
     </svg>
   )
 }
@@ -47,7 +55,7 @@ export function Engagement() {
   const [active, setActive] = useState(0)
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] })
   useMotionValueEvent(p, "change", (v) => setActive(Math.min(PHASES.length - 1, Math.max(0, Math.floor(v * PHASES.length * 0.999)))))
-  const turn = useSpring(useTransform(p, [0.06, 0.94], [0, -90]), { stiffness: 90, damping: 22 })
+  const turn = useSpring(useTransform(p, [0.06, 0.94], [90, 0]), { stiffness: 90, damping: 22 })
 
   return (
     <section ref={ref} data-tone="dark" className={`on-dark relative ${reduce ? "" : "lg:h-[380vh]"}`} aria-labelledby="engagement-title">
@@ -60,7 +68,7 @@ export function Engagement() {
               <span className="font-[300]">How a brand</span> gets built here
             </h2>
             <motion.div className="mt-12 w-[min(22vw,19rem)] text-paper" style={{ rotate: turn }}>
-              <Glyph className="block h-auto w-full" />
+              <Glyph className="block h-auto w-full" wolf={active === PHASES.length - 1} />
             </motion.div>
           </div>
           <div className="col-span-6 col-start-7">
@@ -111,7 +119,7 @@ export function Engagement() {
           <ol className="mt-12 border-t border-white/12">
             {PHASES.map((ph, i) => (
               <li key={ph.t} className="grid grid-cols-[3rem_1fr] gap-5 border-b border-white/12 py-8">
-                <Glyph className="mt-1 h-10 w-10 text-paper" style={{ transform: `rotate(${(-90 * i) / (PHASES.length - 1)}deg)` }} />
+                <Glyph className="mt-1 h-10 w-10 text-paper" style={{ transform: `rotate(${90 - (90 * i) / (PHASES.length - 1)}deg)` }} wolf={i === PHASES.length - 1} />
                 <div>
                   <p className="t-h3">{ph.t}</p>
                   <p className="t-body muted-dark mt-2">{ph.b}</p>

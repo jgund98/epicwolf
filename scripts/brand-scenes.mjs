@@ -16,7 +16,7 @@ const wordmark = (color, accent) => glyphs(layout(EPIC), color, accent) + glyphs
     <g transform="translate(${w * 0.07} ${h * 0.4}) scale(${s})">${wordmark("#ffffff", FLARE)}</g>
     <rect x="${w * 0.07}" y="${h * 0.4 + 100 * s + 22}" width="${w * 0.18}" height="6" fill="#ffffff" opacity=".85"/>
   </svg>`
-  await sharp("public/img/stock/van.jpg").composite([{ input: Buffer.from(wrap), left: x, top: y, blend: "multiply" }]).jpeg({ quality: 82, mozjpeg: true }).toFile("public/img/brand/ew-van.jpg")
+  await sharp("public/img/stock/van.jpg").composite([{ input: Buffer.from(wrap), left: x, top: y, blend: "multiply" }]).jpeg({ quality: 82, mozjpeg: true }).toFile("public/img/brand/ew-van-2.jpg")
 }
 // Storefront: white letters on the dark fascia band, the mark on the glass.
 {
@@ -32,12 +32,12 @@ const wordmark = (color, accent) => glyphs(layout(EPIC), color, accent) + glyphs
       { input: Buffer.from(glass), left: 1215 - 85, top: 610, blend: "multiply" },
     ])
     .jpeg({ quality: 82, mozjpeg: true })
-    .toFile("public/img/brand/ew-storefront.jpg")
+    .toFile("public/img/brand/ew-storefront-2.jpg")
 }
 // Tote: the mark, screen printed.
 {
   const S = 1.9
   const mark = `<svg xmlns="http://www.w3.org/2000/svg" width="${100 * S}" height="${100 * S}"><g transform="scale(${S})"><path d="${W.body}" fill="#141416"/><path d="${W.accent}" fill="${FLARE}"/></g></svg>`
-  await sharp("public/img/stock/tote.jpg").composite([{ input: Buffer.from(mark), left: 1000 - 95, top: 700, blend: "multiply" }]).jpeg({ quality: 82, mozjpeg: true }).toFile("public/img/brand/ew-tote.jpg")
+  await sharp("public/img/stock/tote.jpg").composite([{ input: Buffer.from(mark), left: 1000 - 95, top: 700, blend: "multiply" }]).jpeg({ quality: 82, mozjpeg: true }).toFile("public/img/brand/ew-tote-2.jpg")
 }
 console.log("scenes ok")

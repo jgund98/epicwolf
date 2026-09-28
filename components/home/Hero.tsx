@@ -36,9 +36,24 @@ export function Hero() {
   const [maxScale, setMaxScale] = useState(40)
   const measureRef = useRef<HTMLSpanElement>(null)
 
-  /* Fit IMPOSSIBLE to the shell width, capped so the whole headline fits the fold. */
+  /* Touch devices: the mask is scaled as a GPU texture instead of being
+     re-rasterized every frame, which is what made phones stutter. */
+  const [touch, setTouch] = useState(false)
+  useLayoutEffect(() => setTouch(window.matchMedia("(pointer: coarse)").matches), [])
+
+  /* Fit IMPOSSIBLE to the shell width, capped so the whole headline fits the fold.
+     Height-only changes are ignored: on phones the address bar collapsing
+     mid-scroll changes the viewport height, and refitting giant type then is
+     a full relayout per frame. */
   useLayoutEffect(() => {
-    const fit = () => {
+    let lastW = 0
+    let lastH = 0
+    const fit = (force?: boolean) => {
+      const vwNow = window.innerWidth
+      const vhNow = window.innerHeight
+      if (!force && vwNow === lastW && Math.abs(vhNow - lastH) < 180) return
+      lastW = vwNow
+      lastH = vhNow
       const m = measureRef.current
       if (!m) return
       const box = m.parentElement!
@@ -56,9 +71,9 @@ export function Hero() {
       const byHeight = vw < 768 ? vh * 0.12 : vh * 0.2
       setFs(Math.floor(Math.min(byWidth, byHeight)))
     }
-    fit()
-    document.fonts?.ready.then(fit)
-    const ro = new ResizeObserver(fit)
+    fit(true)
+    document.fonts?.ready.then(() => fit(true))
+    const ro = new ResizeObserver(() => fit())
     ro.observe(document.documentElement)
     return () => ro.disconnect()
   }, [])
@@ -84,7 +99,7 @@ export function Hero() {
       const x = ox + stem.center
       const y = oy + l.offsetHeight * 0.5
       setOrigin(`${x}px ${y}px`)
-      setMaxScale((Math.max(window.innerWidth, window.innerHeight) / stem.width) * 2.2)
+      setMaxScale((Math.max(window.innerWidth, window.innerHeight) / stem.width) * 1.6)
     }
     read()
     const t = setTimeout(read, 300)
@@ -144,7 +159,7 @@ export function Hero() {
           data-mask-layer
           aria-hidden
           className="absolute inset-0 mix-blend-multiply"
-          style={{ scale: reduce ? 1 : scale, transformOrigin: origin, willChange: "auto", backgroundColor: "#000" }}
+          style={{ scale: reduce ? 1 : scale, transformOrigin: origin, willChange: touch ? "transform" : "auto", backgroundColor: "#000" }}
         >
           <HeadLayout mode="mask" fs={fs} headRef={maskHead} lRef={maskL} />
         </motion.div>

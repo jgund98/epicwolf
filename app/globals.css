@@ -410,7 +410,12 @@ html.lenis body {
   text-transform: uppercase;
   letter-spacing: -0.035em;
   line-height: 0.92;
-  font-size: clamp(3.2rem, 11vw, 11.5rem);
+  font-size: clamp(3.4rem, 14vw, 11.5rem);
+}
+@media (min-width: 768px) {
+  .t-kinetic {
+    font-size: clamp(3.4rem, 11vw, 11.5rem);
+  }
 }
 
 /* The wave cut: one sweeping corner, the system's signature crop. */
@@ -432,4 +437,62 @@ html.lenis body {
   line-height: 0.8;
   font-size: clamp(9rem, 41vw, 46rem);
   padding: 0.04em 0.04em 0;
+}
+
+/* The word that breaks over the brand-world frame. */
+.t-world {
+  font-size: clamp(2.4rem, 8.6vw, 12.8rem);
+}
+@media (max-width: 767px) {
+  .t-world {
+    font-variation-settings: "wdth" 80;
+    font-size: 12.4vw;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* The wolf in the W. On arrival its head rises and the ears prick up; on the
+   header logo, hovering makes them twitch. */
+.ew-ears {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.ew-ears-in {
+  transform: scaleY(0);
+  animation: ew-prick 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+@keyframes ew-prick {
+  0% {
+    transform: scaleY(0);
+  }
+  60% {
+    transform: scaleY(1.12);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.logo-link:hover .ew-ears {
+  animation: ew-twitch 0.55s ease-in-out;
+}
+@keyframes ew-twitch {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: scaleY(1.14) rotate(-4deg);
+  }
+  60% {
+    transform: scaleY(0.96) rotate(3deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ew-ears-in {
+    transform: none;
+    animation: none;
+  }
+  .logo-link:hover .ew-ears {
+    animation: none;
+  }
 }

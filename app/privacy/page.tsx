@@ -32,11 +32,6 @@ export default function Privacy() {
               Inquiries are delivered by email through a transactional email provider, and the site is hosted by a
               cloud provider. Both process data on our behalf and only as needed to deliver the service.
             </p>
-            <h2>On this device</h2>
-            <p>
-              If you type a business name into the homepage preview, it is kept in your browser for the length of your
-              visit so the contact form can suggest it. It never leaves your device unless you send the form.
-            </p>
             <h2>Your choices</h2>
             <p>
               To see, correct or delete what you have sent us, call {site.phone} and we will take care of it.

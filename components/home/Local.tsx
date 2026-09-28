@@ -85,7 +85,7 @@ export function Local() {
                     <span className="px-6">{pl}</span>
                     <svg viewBox="0 0 100 100" className="h-2.5 w-2.5" aria-hidden>
                       <path d="M0 0H22V78H78V0H100V100H0Z" fill="currentColor" />
-                      <path d="M39 34H61V78H39Z" fill="var(--color-flare)" />
+                      <path d="M39 18L50 31L61 18L61 50L50 78L39 50Z" fill="var(--color-flare)" />
                     </svg>
                   </span>
                 ))}
