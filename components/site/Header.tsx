@@ -57,6 +57,7 @@ export function Header() {
   return (
     <>
       <header
+        data-htone={dark ? "dark" : "light"}
         className="fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow] duration-500"
         style={{
           height: "var(--header-h)",

@@ -8,9 +8,10 @@ import { site } from "@/lib/site"
 
 /**
  * Chapter seven. Home, said the way locals say it: 561. The area code is set
- * enormous with the real West Palm Beach skyline, filmed from the island,
- * playing inside the numerals (the hero's cutout technique, reprised). The
- * footage drifts as you scroll; the numerals hold still.
+ * enormous with a fast-cut montage of the county playing inside the numerals
+ * (the Jupiter lighthouse at golden hour, boats into the sunset, the West Palm
+ * skyline at night, fireworks over Flagler, the neon tree at The Square). The
+ * hero's cutout technique, reprised. Footage credits live in HANDOFF.md.
  */
 const PLACES = [
   "West Palm Beach",
@@ -49,7 +50,7 @@ export function Local() {
       <div className="relative mt-6 isolate" aria-hidden>
         <div className="absolute inset-0 overflow-hidden">
           <motion.div className="absolute inset-[-8%]" style={{ y: reduce ? 0 : drift, scale: reduce ? 1.05 : zoom }}>
-            <LazyVideo src="/video/skyline.mp4" poster="/video/skyline.jpg" className="h-full w-full object-cover" />
+            <LazyVideo src="/video/561.mp4" poster="/video/561.jpg" className="h-full w-full object-cover" />
           </motion.div>
         </div>
         <div className="relative flex items-center justify-center mix-blend-multiply" style={{ backgroundColor: "#000" }}>

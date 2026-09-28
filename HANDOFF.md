@@ -50,3 +50,27 @@ Dev `npm run dev` (3640), prod `next build && next start -p 3641`.
   `lib/motion.ts` `useRange` for scroll-linked opacity.
 - Year-long cache headers are production-only in `next.config.ts` (in dev they pin stale CSS).
 - Portraits: `scripts/cutout.mjs` (background removal) then `scripts/partners.mjs` (scale match).
+
+## Media to license (owner said we'll contact the owners)
+**561 montage** (`public/video/561.mp4`, cut from these; standard-license YouTube unless noted):
+- Jupiter Inlet Lighthouse golden hour, StreeTart: https://youtu.be/5KQmg0hyn_A
+- Boats into the sunset at Jupiter Inlet, Blue Eye Visuals: https://youtu.be/XH7D28xkAmQ
+- WPB skyline night timelapse, MrCobas: https://youtu.be/rHjiVk81mfY
+- 4th on Flagler fireworks, Troy Collier: https://youtu.be/de4TQN1Swes
+- The Square neon tree timelapse, Glowing Globetrotter: https://youtu.be/Q44dSSzqSY8
+
+**Photography** (Unsplash/Pexels licenses; credit is courteous):
+- Causeway light trails (Digital Marketing), Michael J. Vega: https://unsplash.com/photos/gPPi3cEPiwc
+- Lake Worth Lagoon at dusk (Business Development), Clay LeConey (Unsplash)
+- WPB marina blue hour, Clay LeConey (Unsplash)
+- Tower traced in amber light (Branding page), Maksim Shutov (Unsplash)
+- Palm shadow wall, Kaue Martins Bergamasco (Unsplash); white arches, Kings Lee (Unsplash);
+  Palm Beach arcade, Hector Falcon: https://unsplash.com/photos/GZy6Vnb_EJM
+- Full source list with URLs: see the sourcing manifests (disc/MANIFEST.md, vid561/MANIFEST.md)
+  copied into `raw/` locally.
+
+## Logo in progress
+Jordan supplied a new block logo (EPIC WOLF with a wolf's head carved into the W and an orange
+ear). A by-eye recreation is parked in `components/brand/glyphs-draft.ts` (not imported). Next
+step: trace the original art file, then swap it into glyphs.ts (header, footer, favicon, OG,
+scenes, intro, chapter five).

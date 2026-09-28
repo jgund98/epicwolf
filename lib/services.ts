@@ -204,8 +204,8 @@ export const services: Service[] = [
       },
     ],
     related: ["public-relations", "signs", "web-design"],
-    image: "/img/stock/sketch.jpg",
-    imageAlt: "Hands sketching logo concepts in pencil on a spiral notebook",
+    image: "/img/disc/branding.jpg",
+    imageAlt: "A dark tower traced in lines of orange light at night",
   },
 
   /* ------------------------------------------------------------------ */
@@ -305,8 +305,8 @@ export const services: Service[] = [
       },
     ],
     related: ["web-design", "public-relations", "business-development"],
-    image: "/img/stock/ew-digital.jpg",
-    imageAlt: "The Epic Wolf website shown on a laptop and a phone",
+    image: "/img/disc/digital.jpg",
+    imageAlt: "Long-exposure light trails on a South Florida causeway beneath the skyline at night",
   },
 
   /* ------------------------------------------------------------------ */
@@ -406,8 +406,8 @@ export const services: Service[] = [
       },
     ],
     related: ["public-relations", "digital-marketing", "print"],
-    image: "/img/stock/deal.jpg",
-    imageAlt: "Sailboats moored along Flagler Drive below the West Palm Beach skyline",
+    image: "/img/disc/lagoon-dusk.jpg",
+    imageAlt: "The West Palm Beach skyline across the Lake Worth Lagoon at dusk",
   },
 
   /* ------------------------------------------------------------------ */

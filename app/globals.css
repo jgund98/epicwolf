@@ -206,10 +206,16 @@ html.lenis body {
 .btn-flare:hover {
   color: var(--color-paper);
 }
-.on-dark .btn-flare::after {
+/* On anything dark (a dark section, or the header while it sits over one) the
+   hover fill is paper, never ink: an ink wipe on ink makes the button vanish. */
+.on-dark .btn-flare::after,
+[data-tone="dark"] .btn-flare::after,
+header[data-htone="dark"] .btn-flare::after {
   background: var(--color-paper);
 }
-.on-dark .btn-flare:hover {
+.on-dark .btn-flare:hover,
+[data-tone="dark"] .btn-flare:hover,
+header[data-htone="dark"] .btn-flare:hover {
   color: var(--color-ink);
 }
 .btn-ink {

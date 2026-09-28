@@ -101,7 +101,7 @@ export const pillars: Pillar[] = [
       { name: "Vehicle graphics", href: "/vehicle-wraps" },
       { name: "Print and brand goods", href: "/print" },
     ],
-    img: "/img/stock/sketch.jpg",
+    img: "/img/brand/ew-van-2.jpg",
   },
   {
     slug: "digital-marketing",
@@ -114,7 +114,7 @@ export const pillars: Pillar[] = [
       { name: "Websites and software", href: "/web-design" },
       { name: "Analytics and reporting" },
     ],
-    img: "/img/stock/ew-digital.jpg",
+    img: "/img/disc/digital.jpg",
   },
   {
     slug: "business-development",
@@ -126,7 +126,7 @@ export const pillars: Pillar[] = [
       { name: "Partnerships and sponsorships" },
       { name: "Pitch decks and sales materials" },
     ],
-    img: "/img/stock/deal.jpg",
+    img: "/img/disc/lagoon-dusk.jpg",
   },
 ]
 

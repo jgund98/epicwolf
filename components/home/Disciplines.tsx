@@ -81,7 +81,7 @@ export function Disciplines() {
                 </p>
               </div>
               <div className="cut-sm relative mt-6 aspect-[16/9] overflow-hidden md:hidden">
-                <Image src={p.img} alt="" fill sizes="92vw" className="object-cover object-top" />
+                <Image src={p.img} alt="" fill sizes="92vw" className="object-cover" />
               </div>
             </Link>
           ))}
@@ -103,7 +103,7 @@ export function Disciplines() {
                     className="cut-sm absolute -translate-y-1/2 translate-x-10 overflow-hidden shadow-[0_40px_80px_-30px_rgba(0,0,0,.8)]"
                     style={{ width: "min(26vw, 380px)", aspectRatio: "4 / 3" }}
                   >
-                    <Image src={pillars[active].img} alt="" fill sizes="380px" className="object-cover object-top" />
+                    <Image src={pillars[active].img} alt="" fill sizes="380px" className="object-cover" />
                   </motion.div>
                 )}
               </AnimatePresence>

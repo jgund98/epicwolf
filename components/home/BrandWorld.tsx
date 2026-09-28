@@ -70,25 +70,25 @@ const COLUMNS: Tile[][] = [
     { kind: "img", src: "/img/brand/ew-van-2.jpg", alt: "A cargo van wrapped in Epic Wolf black and orange", ratio: "4/3", pos: "62% 55%" },
     { kind: "node", node: <TypeTile />, ratio: "4/5" },
     { kind: "img", src: "/img/stock/press.jpg", alt: "West Palm Beach across the Intracoastal", ratio: "4/5" },
-    { kind: "img", src: "/img/stock/ew-web.jpg", alt: "The Epic Wolf website on desktop and phone", ratio: "4/3" },
+    { kind: "img", src: "/img/disc/palm-shadow.jpg", alt: "Palm fronds casting shadows on a white wall", ratio: "4/3" },
   ],
   [
     { kind: "node", node: <ColorTile />, ratio: "1/1" },
     { kind: "img", src: "/img/brand/ew-storefront-2.jpg", alt: "The Epic Wolf wordmark on a storefront sign band", ratio: "4/3", pos: "50% 20%" },
     { kind: "img", src: "/img/brand/ew-tee-2.jpg", alt: "A black tee printed with the Epic Wolf wordmark", ratio: "4/5", pos: "52% 40%" },
-    { kind: "img", src: "/img/stock/intracoastal-sunrise.jpg", alt: "Sunrise over the Intracoastal from the Flagler Memorial Bridge", ratio: "1/1" },
+    { kind: "img", src: "/img/disc/bizdev.jpg", alt: "The West Palm Beach marina from above at blue hour", ratio: "1/1", pos: "50% 80%" },
   ],
   [
     { kind: "img", src: "/img/stock/ew-web.jpg", alt: "The Epic Wolf website on desktop and phone", ratio: "16/10" },
     { kind: "img", src: "/img/brand/ew-tote-2.jpg", alt: "A tote printed with the Epic Wolf mark", ratio: "3/4", pos: "50% 55%" },
     { kind: "node", node: <LineTile />, ratio: "4/3" },
-    { kind: "img", src: "/img/brand/ew-van-2.jpg", alt: "", ratio: "4/5", pos: "58% 60%" },
+    { kind: "img", src: "/img/disc/pb-arcade.jpg", alt: "A pink Mediterranean arcade and palms in Palm Beach", ratio: "4/5" },
   ],
   [
     { kind: "img", src: "/img/stock/worth-ave.jpg", alt: "Palms along Worth Avenue in Palm Beach", ratio: "3/4" },
     { kind: "node", node: <MarkTile />, ratio: "1/1" },
     { kind: "img", src: "/img/stock/ew-digital.jpg", alt: "Epic Wolf web pages", ratio: "16/10" },
-    { kind: "img", src: "/img/stock/flagler-night.jpg", alt: "The West Palm Beach skyline at night from Flagler Drive", ratio: "4/5" },
+    { kind: "img", src: "/img/disc/arches.jpg", alt: "White arches in hard light", ratio: "4/5", pos: "40% 50%" },
   ],
 ]
 
