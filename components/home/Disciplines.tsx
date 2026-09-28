@@ -53,7 +53,7 @@ export function Disciplines() {
             <Link
               key={p.slug}
               href={`/${p.slug}`}
-              data-cursor="Open"
+             
               onPointerEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
               className="group relative block border-b border-white/12 py-8 md:py-12"

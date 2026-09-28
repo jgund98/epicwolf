@@ -34,8 +34,8 @@ export function Local() {
   const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] })
-  const drift = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"])
-  const zoom = useTransform(scrollYProgress, [0, 1], [1.18, 1.02])
+  const drift = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"])
+  const zoom = useTransform(scrollYProgress, [0, 1], [1.04, 1])
 
   return (
     <section ref={ref} data-tone="dark" className="relative overflow-hidden pt-24 text-paper md:pt-32" style={{ backgroundColor: "#000" }} aria-labelledby="local-title">
@@ -49,8 +49,8 @@ export function Local() {
       {/* 561, with the skyline inside it */}
       <div className="relative mt-6 isolate" aria-hidden>
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div className="absolute inset-[-8%]" style={{ y: reduce ? 0 : drift, scale: reduce ? 1.05 : zoom }}>
-            <LazyVideo src="/video/561.mp4" poster="/video/561.jpg" className="h-full w-full object-cover" />
+          <motion.div className="absolute inset-[-3.5%]" style={{ y: reduce ? 0 : drift, scale: reduce ? 1 : zoom }}>
+            <LazyVideo src="/video/561-hd.mp4" srcMobile="/video/561-m.mp4" poster="/video/561-hd.jpg" className="h-full w-full object-cover" />
           </motion.div>
         </div>
         <div className="relative flex items-center justify-center mix-blend-multiply" style={{ backgroundColor: "#000" }}>
