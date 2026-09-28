@@ -21,6 +21,11 @@ const WORDS = ["brand", "launch", "story", "pitch", "name"]
  * never scales, so when the stem swallows the screen the footage is at its
  * native sharpness. Then the chapter copy lands over it.
  *
+ * Motion: where the browser supports CSS scroll-driven animations, the whole
+ * choreography (zoom, fades, chapter copy) runs as native keyframes on a view
+ * timeline, on the compositor, in lockstep with the finger on a phone. Older
+ * browsers fall back to the same curves driven by motion in JavaScript.
+ *
  * The headline is laid out twice from the same component: once as the mask
  * (white letters, everything else hidden) and once as the readable content
  * (big words transparent, everything else visible). Same flow, so they can
@@ -39,7 +44,12 @@ export function Hero() {
   /* Touch devices: the mask is scaled as a GPU texture instead of being
      re-rasterized every frame, which is what made phones stutter. */
   const [touch, setTouch] = useState(false)
-  useLayoutEffect(() => setTouch(window.matchMedia("(pointer: coarse)").matches), [])
+  const [sd, setSd] = useState(false)
+  useLayoutEffect(() => {
+    setTouch(window.matchMedia("(pointer: coarse)").matches)
+    setSd(typeof CSS !== "undefined" && CSS.supports("animation-timeline: view()"))
+  }, [])
+  const native = sd && !reduce
 
   /* Fit IMPOSSIBLE to the shell width, capped so the whole headline fits the fold.
      Height-only changes are ignored: on phones the address bar collapsing
@@ -123,9 +133,10 @@ export function Hero() {
       ref={section}
       data-tone="dark"
       className="relative bg-ink"
-      style={{ height: reduce ? "auto" : "300vh" }}
+      style={{ height: reduce ? "auto" : "300vh", ...(native ? ({ viewTimelineName: "--hero" } as React.CSSProperties) : {}) }}
       aria-labelledby="hero-title"
     >
+      {native && <style>{heroKeyframes(maxScale)}</style>}
       <div className={reduce ? "relative min-h-[100svh] overflow-hidden" : "sticky top-0 h-[100svh] overflow-hidden"}>
         {/* Width probe for the fit. Never visible. */}
         <div className="shell pointer-events-none invisible absolute inset-x-0 top-0" aria-hidden>
@@ -158,19 +169,19 @@ export function Hero() {
         <motion.div
           data-mask-layer
           aria-hidden
-          className="absolute inset-0 mix-blend-multiply"
-          style={{ scale: reduce ? 1 : scale, transformOrigin: origin, willChange: touch ? "transform" : "auto", backgroundColor: "#000" }}
+          className={`absolute inset-0 mix-blend-multiply ${native ? "hsd-mask" : ""}`}
+          style={{ scale: reduce || native ? undefined : scale, transformOrigin: origin, willChange: touch || native ? "transform" : "auto", backgroundColor: "#000" }}
         >
           <HeadLayout mode="mask" fs={fs} headRef={maskHead} lRef={maskL} />
         </motion.div>
 
         {/* The readable layer */}
         <div className="absolute inset-0 text-paper">
-          <HeadLayout mode="content" fs={fs} upY={reduce ? undefined : upY} downY={reduce ? undefined : downY} fade={reduce ? undefined : contentOpacity} />
+          <HeadLayout mode="content" fs={fs} native={native} upY={reduce || native ? undefined : upY} downY={reduce || native ? undefined : downY} fade={reduce || native ? undefined : contentOpacity} />
         </div>
 
         {/* Chapter copy over the footage, once the L has swallowed the screen */}
-        {!reduce && <Chapter p={p} scrim={scrim} />}
+        {!reduce && <Chapter p={p} scrim={scrim} native={native} />}
       </div>
     </section>
   )
@@ -225,7 +236,9 @@ function HeadLayout({
   upY,
   downY,
   fade,
+  native,
 }: {
+  native?: boolean
   mode: "mask" | "content"
   fs: number | null
   headRef?: React.Ref<HTMLSpanElement>
@@ -244,7 +257,7 @@ function HeadLayout({
   return (
     <div className="shell flex h-full flex-col justify-center pb-[max(1.5rem,4svh)] pt-[calc(var(--header-h)+1rem)] md:pb-10">
       <H1 id={mask ? undefined : "hero-title"} className="relative">
-        <motion.span style={{ y: upY, opacity: fade, ...hide }} className="block">
+        <motion.span style={{ y: upY, opacity: fade, ...hide }} className={`block ${native ? "hsd-up" : ""}`}>
           <span className="label mb-5 md:mb-7" style={hide}>
             West Palm Beach branding and marketing agency
           </span>
@@ -276,7 +289,7 @@ function HeadLayout({
 
       <motion.div
         style={{ y: downY, opacity: fade, ...hide }}
-        className="mt-6 grid gap-6 md:mt-9 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10"
+        className={`${native ? "hsd-down " : ""}mt-6 grid gap-6 md:mt-9 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10`}
       >
         <p className="t-lead max-w-[46ch] text-paper/85" style={hide}>
           Branding, digital marketing and business development for companies that intend to lead their market.
@@ -295,7 +308,7 @@ function HeadLayout({
   )
 }
 
-function Chapter({ p, scrim }: { p: MotionValue<number>; scrim: MotionValue<number> }) {
+function Chapter({ p, scrim, native }: { p: MotionValue<number>; scrim: MotionValue<number>; native: boolean }) {
   const lines = [
     { text: "Over six million people live in South Florida.", at: 0.56 },
     { text: "Every one of them is busy.", at: 0.62 },
@@ -303,13 +316,27 @@ function Chapter({ p, scrim }: { p: MotionValue<number>; scrim: MotionValue<numb
   ]
   return (
     <div className="pointer-events-none absolute inset-0">
-      <motion.div className="absolute inset-0 bg-ink" style={{ opacity: scrim }} />
+      <motion.div className={`absolute inset-0 bg-ink ${native ? "hsd-scrim" : ""}`} style={native ? undefined : { opacity: scrim }} />
       <div className="shell relative flex h-full flex-col justify-center gap-[0.35em]">
-        <ChapterLabel p={p} />
-        {lines.map((l) => (
-          <ChapterLine key={l.text} p={p} at={l.at} text={l.text} />
-        ))}
-        <ChapterLine p={p} at={0.76} text="Yet." flare />
+        {native ? (
+          <>
+            <p className="label hsd-label mb-4 text-paper">Chapter one · The noise</p>
+            {lines.map((l, i) => (
+              <p key={l.text} className={`t-h2 max-w-[20ch] text-paper hsd-line-${i}`}>
+                {l.text}
+              </p>
+            ))}
+            <p className="t-h2 hsd-line-3 max-w-[20ch] text-flare">Yet.</p>
+          </>
+        ) : (
+          <>
+            <ChapterLabel p={p} />
+            {lines.map((l) => (
+              <ChapterLine key={l.text} p={p} at={l.at} text={l.text} />
+            ))}
+            <ChapterLine p={p} at={0.76} text="Yet." flare />
+          </>
+        )}
       </div>
     </div>
   )
@@ -337,3 +364,38 @@ function ChapterLine({ p, at, text, flare }: { p: MotionValue<number>; at: numbe
   )
 }
 
+
+/**
+ * The hero's choreography as native scroll-driven keyframes on the section's
+ * view timeline. Same curves as the JavaScript fallback: the zoom is an
+ * eased exponential (sampled finely so it reads as continuous), content lifts
+ * and fades, then the scrim and the chapter lines arrive.
+ */
+function heroKeyframes(maxScale: number) {
+  const pct = (v: number) => `${(v * 100).toFixed(2)}%`
+  const zoom: string[] = ["0% { transform: scale(1) }", "6% { transform: scale(1) }"]
+  for (let i = 1; i <= 40; i++) {
+    const t = i / 40
+    const eased = t * t * (3 - 2 * t)
+    zoom.push(`${pct(0.06 + t * 0.5)} { transform: scale(${Math.exp(eased * Math.log(maxScale)).toFixed(4)}) }`)
+  }
+  zoom.push(`100% { transform: scale(${maxScale.toFixed(4)}) }`)
+  const tl = "animation-timeline: --hero; animation-range: contain 0% contain 100%;"
+  const line = (i: number, at: number) => `
+    @keyframes hsd-line-${i} { 0%, ${pct(at)} { opacity: 0; transform: translateY(40px) } ${pct(at + 0.05)} { opacity: 1 } ${pct(at + 0.06)}, 100% { opacity: 1; transform: none } }
+    .hsd-line-${i} { animation: hsd-line-${i} linear both; ${tl} }`
+  return `
+    @keyframes hsd-mask { ${zoom.join(" ")} }
+    @keyframes hsd-up { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(-40%) } }
+    @keyframes hsd-down { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(60%) } }
+    @keyframes hsd-fade { 0%, 8% { opacity: 1 } 26%, 100% { opacity: 0 } }
+    @keyframes hsd-scrim { 0%, 50% { opacity: 0 } 70%, 100% { opacity: 0.55 } }
+    @keyframes hsd-label { 0%, 52% { opacity: 0 } 58%, 100% { opacity: 1 } }
+    .hsd-mask { animation: hsd-mask linear both; ${tl} }
+    .hsd-up { animation: hsd-up linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
+    .hsd-down { animation: hsd-down linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
+    .hsd-scrim { animation: hsd-scrim linear both; ${tl} }
+    .hsd-label { animation: hsd-label linear both; ${tl} }
+    ${line(0, 0.56)} ${line(1, 0.62)} ${line(2, 0.68)} ${line(3, 0.76)}
+  `
+}

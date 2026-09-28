@@ -58,21 +58,22 @@ export function Engagement() {
   const turn = useSpring(useTransform(p, [0.06, 0.94], [90, 0]), { stiffness: 90, damping: 22 })
 
   return (
-    <section ref={ref} data-tone="dark" className={`on-dark relative ${reduce ? "" : "lg:h-[380vh]"}`} aria-labelledby="engagement-title">
-      {/* Desktop: pinned stage */}
-      <div className={reduce ? "hidden" : "sticky top-0 hidden h-[100svh] overflow-hidden lg:block"}>
-        <div className="shell grid h-full grid-cols-12 items-center gap-10 pt-[var(--header-h)]">
-          <div className="col-span-5 flex flex-col justify-center">
+    <section ref={ref} data-tone="dark" className={`on-dark relative ${reduce ? "" : "h-[420vh] lg:h-[380vh]"}`} aria-labelledby="engagement-title">
+      {/* Pinned stage, every screen size */}
+      <div className={reduce ? "hidden" : "sticky top-0 h-[100svh] overflow-hidden"}>
+        <div className="shell flex h-full flex-col justify-center gap-6 pt-[var(--header-h)] lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          <div className="flex flex-col justify-center lg:col-span-5">
             <p className="label">Chapter five · The engagement</p>
-            <h2 id="engagement-title" className="t-h2 mt-4 max-w-[12ch]">
+            <h2 id="engagement-title" className="t-h2 mt-3 max-w-[12ch] lg:mt-4">
               <span className="font-[300]">How a brand</span> gets built here
             </h2>
-            <motion.div className="mt-12 w-[min(22vw,19rem)] text-paper" style={{ rotate: turn }}>
+            <motion.div className="mt-8 w-[34vw] max-w-[10rem] text-paper lg:mt-12 lg:w-[min(22vw,19rem)] lg:max-w-none" style={{ rotate: turn }}>
               <Glyph className="block h-auto w-full" wolf={active === PHASES.length - 1} />
             </motion.div>
           </div>
-          <div className="col-span-6 col-start-7">
-            <ol className="space-y-1">
+          <div className="lg:col-span-6 lg:col-start-7">
+            {/* Desktop: the whole list, the active line lit */}
+            <ol className="hidden space-y-1 lg:block">
               {PHASES.map((ph, i) => (
                 <li key={ph.t}>
                   <p
@@ -84,7 +85,23 @@ export function Engagement() {
                 </li>
               ))}
             </ol>
-            <div className="relative mt-10 min-h-[7.5rem]">
+            {/* Phones: only the active line, set large */}
+            <div className="relative h-[3.2rem] overflow-hidden lg:hidden">
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.p
+                  key={active}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-x-0 top-0 whitespace-nowrap text-[clamp(2.1rem,10vw,3rem)] font-[850] leading-none tracking-[-0.035em] text-paper"
+                  style={{ fontVariationSettings: '"wdth" 112' }}
+                >
+                  {PHASES[active].t}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <div className="relative mt-4 min-h-[6.5rem] lg:mt-10 lg:min-h-[7.5rem]">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={active}
@@ -98,7 +115,7 @@ export function Engagement() {
                 </motion.p>
               </AnimatePresence>
             </div>
-            <div className="mt-8 flex gap-2" aria-hidden>
+            <div className="mt-4 flex gap-2 lg:mt-8" aria-hidden>
               {PHASES.map((_, i) => (
                 <span key={i} className="h-[4px] flex-1 origin-left bg-white/15">
                   <span className="block h-full bg-flare transition-transform duration-500" style={{ transform: `scaleX(${i <= active ? 1 : 0})`, transformOrigin: "left" }} />
@@ -109,26 +126,28 @@ export function Engagement() {
         </div>
       </div>
 
-      {/* Phones, tablets and reduced motion: the same story, stacked */}
-      <div className={reduce ? "py-24" : "py-24 lg:hidden"}>
-        <div className="shell">
-          <p className="label">Chapter five · The engagement</p>
-          <h2 className="t-h2 mt-4 max-w-[12ch]">
-            <span className="font-[300]">How a brand</span> gets built here
-          </h2>
-          <ol className="mt-12 border-t border-white/12">
-            {PHASES.map((ph, i) => (
-              <li key={ph.t} className="grid grid-cols-[3rem_1fr] gap-5 border-b border-white/12 py-8">
-                <Glyph className="mt-1 h-10 w-10 text-paper" style={{ transform: `rotate(${90 - (90 * i) / (PHASES.length - 1)}deg)` }} wolf={i === PHASES.length - 1} />
-                <div>
-                  <p className="t-h3">{ph.t}</p>
-                  <p className="t-body muted-dark mt-2">{ph.b}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+      {/* Reduced motion: the same story, stacked */}
+      {reduce && (
+        <div className="py-24">
+          <div className="shell">
+            <p className="label">Chapter five · The engagement</p>
+            <h2 className="t-h2 mt-4 max-w-[12ch]">
+              <span className="font-[300]">How a brand</span> gets built here
+            </h2>
+            <ol className="mt-12 border-t border-white/12">
+              {PHASES.map((ph, i) => (
+                <li key={ph.t} className="grid grid-cols-[3rem_1fr] gap-5 border-b border-white/12 py-8">
+                  <Glyph className="mt-1 h-10 w-10 text-paper" style={{ transform: `rotate(${90 - (90 * i) / (PHASES.length - 1)}deg)` }} wolf={false} />
+                  <div>
+                    <p className="t-h3">{ph.t}</p>
+                    <p className="t-body muted-dark mt-2">{ph.b}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }

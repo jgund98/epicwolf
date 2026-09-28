@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Logo } from "@/components/brand/Logo"
 import { pillars, site } from "@/lib/site"
-import { Reveal } from "@/components/ui/Reveal"
+import { FooterMark } from "./FooterMark"
 
 /**
  * Deliberately short. A prestige agency's footer is a few doors, not an
@@ -72,9 +72,7 @@ export function Footer() {
         </div>
       </div>
 
-      <Reveal className="shell" y={60}>
-        <Logo className="block h-auto w-full" />
-      </Reveal>
+      <FooterMark />
 
       <div className="shell mt-10 flex flex-col gap-2 border-t border-white/10 py-6 text-sm text-[#8b8b91] sm:flex-row sm:items-center sm:justify-between">
         <p>

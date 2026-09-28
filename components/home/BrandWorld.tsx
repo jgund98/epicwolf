@@ -106,8 +106,15 @@ export function BrandWorld() {
     return () => mq.removeEventListener("change", read)
   }, [])
 
-  /* On phones the four columns fold into two, keeping every tile. */
-  const columns = cols === 4 ? COLUMNS : [[...COLUMNS[0], ...COLUMNS[2]], [...COLUMNS[1], ...COLUMNS[3]]]
+  /* Phones: two columns of five tiles that glide on their own (pure CSS on the
+     GPU, nothing tied to the scroll), so it stays smooth on any phone. */
+  const mobile = cols === 2
+  const columns = mobile
+    ? [
+        [COLUMNS[0][0], COLUMNS[0][1], COLUMNS[2][1], COLUMNS[0][2], COLUMNS[2][2]],
+        [COLUMNS[1][0], COLUMNS[1][1], COLUMNS[3][0], COLUMNS[1][2], COLUMNS[3][1]],
+      ]
+    : COLUMNS
 
   return (
     <section ref={ref} data-tone="light" className="on-light relative overflow-hidden pt-24 md:pt-36" aria-labelledby="world-title">
@@ -126,18 +133,26 @@ export function BrandWorld() {
 
       <div className="relative mt-12 md:mt-16">
         <div className="shell">
-          <div className="cut relative h-[104svh] overflow-hidden bg-ink md:h-[108svh]">
-            <div className={`absolute inset-x-[2.5%] -top-[12%] grid gap-3 md:gap-4 ${cols === 4 ? "grid-cols-4" : "grid-cols-2"}`}>
-              {columns.map((col, i) => (
-                <Column key={`${cols}-${i}`} tiles={col} p={p} index={i} still={!!reduce} />
-              ))}
-            </div>
+          <div className="cut-md relative h-[86svh] overflow-hidden rounded-[22px] bg-ink md:h-[108svh]">
+            {mobile ? (
+              <div className="absolute inset-x-[3%] top-0 grid grid-cols-2 gap-3">
+                {columns.map((col, i) => (
+                  <GlideColumn key={i} tiles={col} reverse={i === 1} still={!!reduce} />
+                ))}
+              </div>
+            ) : (
+              <div className="absolute inset-x-[2.5%] -top-[12%] grid grid-cols-4 gap-4">
+                {columns.map((col, i) => (
+                  <Column key={i} tiles={col} p={p} index={i} still={!!reduce} />
+                ))}
+              </div>
+            )}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-ink via-ink/75 to-transparent" />
           </div>
         </div>
         <p
           aria-hidden
-          className="t-mega t-world pointer-events-none absolute bottom-[-0.1em] left-0 right-0 whitespace-nowrap text-center text-paper mix-blend-difference"
+          className="t-mega t-world pointer-events-none absolute bottom-[0.45em] left-0 right-0 whitespace-nowrap text-center text-paper md:bottom-[-0.1em] md:mix-blend-difference"
         >
           Unmistakable.
         </p>
@@ -169,5 +184,32 @@ function Column({ tiles, p, index, still }: { tiles: Tile[]; p: MotionValue<numb
         </div>
       ))}
     </motion.div>
+  )
+}
+
+/* A column that loops forever: two identical stacks, the track slides exactly
+   one stack's height, so the seam never shows. */
+function GlideColumn({ tiles, reverse, still }: { tiles: Tile[]; reverse: boolean; still: boolean }) {
+  const stack = (dup: boolean) => (
+    <div className="flex flex-col gap-3 pb-3" aria-hidden={dup || undefined}>
+      {tiles.map((t, k) => (
+        <div key={k} className="relative overflow-hidden rounded-[14px]" style={{ aspectRatio: t.ratio }}>
+          {t.kind === "img" ? (
+            <Image src={t.src} alt={dup ? "" : t.alt} fill sizes="46vw" quality={70} className="object-cover" style={{ objectPosition: t.pos }} />
+          ) : (
+            t.node
+          )}
+        </div>
+      ))}
+    </div>
+  )
+  return (
+    <div
+      className={still ? "" : "glide-y"}
+      style={{ animationDirection: reverse ? "reverse" : "normal", animationDuration: reverse ? "46s" : "38s" }}
+    >
+      {stack(false)}
+      {stack(true)}
+    </div>
   )
 }

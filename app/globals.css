@@ -451,8 +451,8 @@ header[data-htone="dark"] .btn-flare:hover {
 }
 @media (max-width: 767px) {
   .t-world {
-    font-variation-settings: "wdth" 80;
-    font-size: 12.4vw;
+    font-variation-settings: "wdth" 76;
+    font-size: 10.4vw;
     letter-spacing: -0.03em;
   }
 }
@@ -481,5 +481,47 @@ header[data-htone="dark"] .btn-flare:hover {
   .ew-ears-in {
     transform: none;
     animation: none;
+  }
+}
+
+/* Vertical glide for the brand-world columns on phones. */
+@keyframes glide-y {
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+.glide-y {
+  animation: glide-y 40s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glide-y {
+    animation: none;
+  }
+}
+
+/* Footer wordmark: the arrival animation, held until the footer is on screen. */
+.fw .ew-rise,
+.fw .ew-ears-in,
+.fw .ew-accent {
+  animation-play-state: paused;
+}
+.fw.is-in .ew-rise,
+.fw.is-in .ew-ears-in,
+.fw.is-in .ew-accent {
+  animation-play-state: running;
+}
+.fw .ew-rise {
+  transform: translateY(60px);
+  animation-duration: 1s;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+/* The wave cut from tablet up; phones keep a plain rounded frame so nothing
+   laid over the corner gets clipped. */
+@media (min-width: 768px) {
+  .cut-md {
+    border-radius: 22px 22px 34% 22px / 22px 22px 56% 22px;
   }
 }
