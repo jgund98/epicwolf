@@ -15,9 +15,16 @@ import { useRange } from "@/lib/motion"
  * The portraits are cut from their backgrounds and normalized in
  * scripts/partners.mjs so heads, eye lines and waistlines match exactly.
  */
-function Word({ glyphs, w }: { glyphs: Glyph[]; w: number }) {
+/* Both halves share one letter height: WOLF fills its column, EPIC takes the
+   same scale (its true width ratio) and sits against the center line. */
+function Word({ glyphs, w, align }: { glyphs: Glyph[]; w: number; align: "end" | "start" }) {
   return (
-    <svg viewBox={`0 0 ${w} 100`} className="block h-auto w-full" aria-hidden>
+    <svg
+      viewBox={`0 0 ${w} 100`}
+      className={`block h-auto ${align === "end" ? "ml-auto" : ""}`}
+      style={{ width: `${(w / WOLF_W) * 100}%` }}
+      aria-hidden
+    >
       {layout(glyphs).map(({ g, x }, i) => (
         <g key={i} transform={`translate(${x} 0)`}>
           <path d={g.body} fillRule="evenodd" fill="#0a0a0b" />
@@ -39,14 +46,14 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
 
   const halves = [
     {
-      word: <Word glyphs={EPIC} w={EPIC_W} />,
+      word: <Word glyphs={EPIC} w={EPIC_W} align="end" />,
       img: "/img/team/jordan-cut.webp",
       name: "Jordan Gundlach",
       role: "Partner. Digital and growth.",
       x: left,
     },
     {
-      word: <Word glyphs={WOLF} w={WOLF_W} />,
+      word: <Word glyphs={WOLF} w={WOLF_W} align="start" />,
       img: "/img/team/shawn-cut.webp",
       name: "Shawn Wolf",
       role: "Partner. Brand and street.",
