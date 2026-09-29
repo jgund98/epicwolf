@@ -1,9 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import { useLayoutEffect, useRef, useState } from "react"
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react"
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
 import { RotatingWord } from "./RotatingWord"
+import { HERO_MASK } from "./heroMask"
 import { useRange } from "@/lib/motion"
 
 const WORDS = ["brand", "launch", "story", "pitch", "name"]
@@ -11,45 +12,33 @@ const WORDS = ["brand", "launch", "story", "pitch", "name"]
 /**
  * Chapter one. "Make your brand impossible to ignore." with IMPOSSIBLE TO
  * IGNORE cut out of the black so a real South Florida coastline aerial plays
- * through the letters.
+ * through the letters. Scrolling flies into the first I until its stem is the
+ * whole screen, then the chapter copy lands over the footage.
  *
- * How the cutout works: the video sits full-bleed at the back. Over it is an
- * ink layer with the big words set in white, blended with multiply: white keeps
- * the video, ink kills it. No canvas, no SVG masks, works on every phone.
+ * How the cutout works: the video sits full-bleed at the back. Over it is one
+ * screen-sized canvas, painted black with the letters punched out. Every frame
+ * the canvas is redrawn from scratch at the current zoom, from outline paths
+ * baked out of the same Archivo instances the page uses (scripts/build-hero-mask.mjs).
  *
- * Scrolling scales ONLY that ink layer, into the first I. The video
- * never scales, so when the stem swallows the screen the footage is at its
- * native sharpness. Then the chapter copy lands over it.
+ * Why a canvas and not a scaled layer: scaling a full-screen layer 50x asks the
+ * browser for a texture it can't raster, which shows up as blur, stale tiles on
+ * the way back up, and stutter on phones. A canvas never grows. The zoom is
+ * just a different transform on a few paths, so it stays razor sharp at any
+ * scale, in both directions, at a cost of well under a millisecond a frame.
  *
- * Motion: where the browser supports CSS scroll-driven animations, the whole
- * choreography (zoom, fades, chapter copy) runs as native keyframes on a view
- * timeline, on the compositor, in lockstep with the finger on a phone. Older
- * browsers fall back to the same curves driven by motion in JavaScript.
- *
- * The headline is laid out twice from the same component: once as the mask
- * (white letters, everything else hidden) and once as the readable content
- * (big words transparent, everything else visible). Same flow, so they can
- * never drift apart.
+ * The readable headline is real text laid out by the page (transparent where
+ * the canvas shows the letters), so search engines and screen readers get it,
+ * and the canvas takes its positions from that layout.
  */
 export function Hero() {
   const reduce = useReducedMotion()
   const section = useRef<HTMLElement>(null)
-  const maskHead = useRef<HTMLSpanElement>(null)
-  const maskL = useRef<HTMLSpanElement>(null)
+  const stage = useRef<HTMLDivElement>(null)
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const lineRefs = [useRef<HTMLSpanElement>(null), useRef<HTMLSpanElement>(null)]
+  const probeRefs = [useRef<HTMLSpanElement>(null), useRef<HTMLSpanElement>(null)]
   const [fs, setFs] = useState<number | null>(null)
-  const [origin, setOrigin] = useState("50% 50%")
-  const [maxScale, setMaxScale] = useState(40)
   const measureRef = useRef<HTMLSpanElement>(null)
-
-  /* Touch devices: the mask is scaled as a GPU texture instead of being
-     re-rasterized every frame, which is what made phones stutter. */
-  const [touch, setTouch] = useState(false)
-  const [sd, setSd] = useState(false)
-  useLayoutEffect(() => {
-    setTouch(window.matchMedia("(pointer: coarse)").matches)
-    setSd(typeof CSS !== "undefined" && CSS.supports("animation-timeline: view()"))
-  }, [])
-  const native = sd && !reduce
 
   /* Fit IMPOSSIBLE to the shell width, capped so the whole headline fits the fold.
      Height-only changes are ignored: on phones the address bar collapsing
@@ -75,10 +64,8 @@ export function Hero() {
         probes[0].getBoundingClientRect().width / 100,
         probes[1].getBoundingClientRect().width / 100,
       )
-      const vh = window.innerHeight
-      const vw = window.innerWidth
       const byWidth = (shell / perEm) * 0.99
-      const byHeight = vw < 768 ? vh * 0.12 : vh * 0.2
+      const byHeight = vwNow < 768 ? vhNow * 0.12 : vhNow * 0.2
       setFs(Math.floor(Math.min(byWidth, byHeight)))
     }
     fit(true)
@@ -88,64 +75,131 @@ export function Hero() {
     return () => ro.disconnect()
   }, [])
 
-  /* Zoom target: the middle of the first I, measured off the rendered glyph. */
-  useLayoutEffect(() => {
-    if (!fs) return
-    const read = () => {
-      const l = maskL.current
-      const layer = maskHead.current?.closest("[data-mask-layer]") as HTMLElement | null
-      if (!l || !layer) return
-      /* Layout offsets, not client rects: the layer may already be scaled
-         when this runs (a resize mid-scroll), and offsets ignore transforms. */
-      let ox = 0
-      let oy = 0
-      let el: HTMLElement | null = l
-      while (el && el !== layer) {
-        ox += el.offsetLeft
-        oy += el.offsetTop
-        el = el.offsetParent as HTMLElement | null
-      }
-      const stem = findStem(l, fs, "I")
-      const x = ox + stem.center
-      const y = oy + l.offsetHeight * 0.5
-      setOrigin(`${x}px ${y}px`)
-      /* Capped: a black layer scaled 80x becomes a texture too large to raster
-         whole, and scrolling back up then shows stale partial tiles. The zoom
-         stops at 14x and the layer dissolves into the footage instead. */
-      setMaxScale(Math.min(14, (Math.max(window.innerWidth, window.innerHeight) / stem.width) * 1.6))
-    }
-    read()
-    const t = setTimeout(read, 300)
-    return () => clearTimeout(t)
-  }, [fs])
-
   const { scrollYProgress: p } = useScroll({ target: section, offset: ["start start", "end end"] })
 
-  const scale = useTransform(p, (v) => {
-    const t = Math.min(Math.max((v - 0.06) / 0.5, 0), 1)
-    const eased = t * t * (3 - 2 * t)
-    return Math.exp(eased * Math.log(maxScale))
-  })
+  /* ---------- The canvas mask ---------- */
+
+  const paths = useMemo(() => {
+    if (typeof window === "undefined") return null
+    return {
+      wide: HERO_MASK.wide.lines.map((l) => new Path2D(l.d)),
+      narrow: HERO_MASK.narrow.lines.map((l) => new Path2D(l.d)),
+    }
+  }, [])
+
+  type Geo = {
+    face: "wide" | "narrow"
+    w: number
+    h: number
+    dpr: number
+    lines: { x: number; b: number; k: number; hr: number }[]
+    ox: number
+    oy: number
+    end: number
+  }
+  const geo = useRef<Geo | null>(null)
+  const last = useRef(-1)
+
+  const draw = useCallback(
+    (v: number, force?: boolean) => {
+      const c = canvas.current
+      const g = geo.current
+      if (!c || !g || !paths) return
+      /* Eased exponential zoom: every stretch of scroll multiplies the scale by
+         the same factor, which reads as one continuous flight into the letter. */
+      const t = reduce ? 0 : Math.min(Math.max((v - 0.06) / 0.5, 0), 1)
+      const eased = t * t * (3 - 2 * t)
+      if (!force && eased === last.current) return
+      last.current = eased
+      const ctx = c.getContext("2d")
+      if (!ctx) return
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
+      ctx.globalCompositeOperation = "source-over"
+      ctx.clearRect(0, 0, c.width, c.height)
+      if (eased >= 1) return // the stem is the whole screen: nothing left to cover
+      const s = Math.exp(eased * Math.log(g.end))
+      ctx.fillStyle = "#000"
+      ctx.fillRect(0, 0, c.width, c.height)
+      ctx.globalCompositeOperation = "destination-out"
+      const face = paths[g.face]
+      g.lines.forEach((l, i) => {
+        const k = l.k * s * g.dpr
+        ctx.setTransform(k * l.hr, 0, 0, k, g.dpr * (g.ox + s * (l.x - g.ox)), g.dpr * (g.oy + s * (l.b - g.oy)))
+        ctx.fill(face[i])
+      })
+    },
+    [paths, reduce]
+  )
+
+  /* Read where the page laid the big words out, size the canvas, find the zoom target. */
+  const measure = useCallback(() => {
+    const c = canvas.current
+    const st = stage.current
+    if (!c || !st || !fs) return
+    const sr = st.getBoundingClientRect()
+    const face: Geo["face"] = window.matchMedia("(max-width: 767px)").matches ? "narrow" : "wide"
+    const data = HERO_MASK[face]
+    const lines = lineRefs.map((ref, i) => {
+      const line = ref.current!.getBoundingClientRect()
+      const probe = probeRefs[i].current!.getBoundingClientRect()
+      const k = fs / 1000
+      /* Horizontal trim so the paths land exactly on the page's own text width. */
+      const hr = line.width / (data.lines[i].adv * k)
+      return { x: probe.left - sr.left, b: probe.top - sr.top, k, hr: Number.isFinite(hr) && hr > 0.8 && hr < 1.2 ? hr : 1 }
+    })
+    const l0 = lines[0]
+    const stemW = (data.stem.x1 - data.stem.x0) * l0.k * l0.hr
+    const stemH = data.stem.cap * l0.k
+    const ox = l0.x + ((data.stem.x0 + data.stem.x1) / 2) * l0.k * l0.hr
+    const oy = l0.b - stemH / 2
+    const w = sr.width
+    const h = sr.height
+    /* Zoom until the stem covers the screen edge to edge, with a hair of margin. */
+    const end = 1.04 * Math.max((2 * Math.max(ox, w - ox)) / stemW, (2 * Math.max(oy, h - oy)) / stemH)
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    const pw = Math.round(w * dpr)
+    const ph = Math.round(h * dpr)
+    if (c.width !== pw || c.height !== ph) {
+      c.width = pw
+      c.height = ph
+    }
+    geo.current = { face, w, h, dpr, lines, ox, oy, end }
+    draw(p.get(), true)
+    c.style.backgroundColor = "transparent"
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fs, draw, p])
+
+  useLayoutEffect(() => {
+    if (!fs) return
+    measure()
+    document.fonts?.ready.then(measure)
+    const ro = new ResizeObserver(() => measure())
+    if (stage.current) ro.observe(stage.current)
+    return () => ro.disconnect()
+  }, [fs, measure])
+
+  useMotionValueEvent(p, "change", (v) => draw(v))
+
+  /* ---------- The rest of the choreography ---------- */
+
   const upY = useTransform(p, [0.04, 0.3], ["0%", "-40%"])
   const downY = useTransform(p, [0.04, 0.3], ["0%", "60%"])
   const contentOpacity = useRange(p, [0.08, 0.26], [1, 0])
   const scrim = useRange(p, [0.5, 0.7], [0, 0.55])
-  const maskOpacity = useRange(p, [0.34, 0.54], [1, 0])
 
   return (
     <section
       ref={section}
       data-tone="dark"
       className="relative bg-ink"
-      style={{ height: reduce ? "auto" : "300vh", ...(native ? ({ viewTimelineName: "--hero" } as React.CSSProperties) : {}) }}
+      style={{ height: reduce ? "auto" : "300vh" }}
       aria-labelledby="hero-title"
     >
-      {native && <style>{heroKeyframes(maxScale)}</style>}
       {/* The stage fills the LARGEST viewport, so when a phone's toolbar
           collapses mid-scroll there is never a band below the footage. The
           readable layout inside sits in the SMALL viewport, so nothing is ever
           hidden behind the toolbar. */}
-      <div className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
+      <div ref={stage} className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
         {/* Width probe for the fit. Never visible. */}
         <div className="shell pointer-events-none invisible absolute inset-x-0 top-0" aria-hidden>
           <span ref={measureRef} className="hero-word inline-block whitespace-nowrap" style={{ fontSize: 100 }}>
@@ -173,137 +227,83 @@ export function Hero() {
           <source src="/video/coast.mp4" type="video/mp4" />
         </video>
 
-        {/* The ink layer with the letter cutouts */}
-        <motion.div
-          data-mask-layer
-          aria-hidden
-          className={`absolute inset-0 mix-blend-multiply ${native ? "hsd-mask" : ""}`}
-          style={{ scale: reduce || native ? undefined : scale, opacity: reduce || native ? undefined : maskOpacity, transformOrigin: origin, willChange: touch || native ? "transform" : "auto", backgroundColor: "#000" }}
-        >
-          <HeadLayout mode="mask" fs={fs} headRef={maskHead} lRef={maskL} />
-        </motion.div>
+        {/* Black until the first frame is drawn, so the footage never flashes uncut. */}
+        <canvas ref={canvas} aria-hidden className="absolute inset-0 h-full w-full" style={{ backgroundColor: "#000" }} />
 
         {/* The readable layer */}
         <div className="absolute inset-0 text-paper">
-          <HeadLayout mode="content" fs={fs} native={native} upY={reduce || native ? undefined : upY} downY={reduce || native ? undefined : downY} fade={reduce || native ? undefined : contentOpacity} />
+          <HeadLayout
+            fs={fs}
+            lineRefs={lineRefs}
+            probeRefs={probeRefs}
+            upY={reduce ? undefined : upY}
+            downY={reduce ? undefined : downY}
+            fade={reduce ? undefined : contentOpacity}
+          />
         </div>
 
-        {/* Chapter copy over the footage, once the L has swallowed the screen */}
-        {!reduce && <Chapter p={p} scrim={scrim} native={native} />}
+        {/* Chapter copy over the footage, once the I has swallowed the screen */}
+        {!reduce && <Chapter p={p} scrim={scrim} />}
       </div>
     </section>
   )
 }
 
-/**
- * Find the glyph's stem in pixels by drawing the glyph with the live font and
- * scanning one row. Beats guessing side bearings per breakpoint.
- */
-function findStem(l: HTMLElement, fs: number, ch: string) {
-  const fallback = { center: fs * 0.17, width: fs * 0.22 }
-  try {
-    const cs = getComputedStyle(l)
-    const c = document.createElement("canvas")
-    const w = Math.ceil(fs * 1.2)
-    const h = Math.ceil(fs * 1.4)
-    c.width = w
-    c.height = h
-    const ctx = c.getContext("2d")
-    if (!ctx) return fallback
-    ctx.font = `${cs.fontWeight} ${cs.fontStretch === "normal" ? "" : cs.fontStretch} ${fs}px ${cs.fontFamily}`.replace(/\s+/g, " ")
-    ;(ctx as CanvasRenderingContext2D & { fontStretch?: string }).fontStretch = "expanded"
-    ctx.textBaseline = "alphabetic"
-    ctx.fillStyle = "#000"
-    ctx.fillText(ch, 0, fs)
-    const row = ctx.getImageData(0, Math.round(fs * 0.55), w, 1).data
-    let a = -1
-    let b = -1
-    for (let x = 0; x < w; x++) {
-      const on = row[x * 4 + 3] > 128
-      if (on && a < 0) a = x
-      if (!on && a >= 0) {
-        b = x
-        break
-      }
-    }
-    if (a < 0 || b < 0 || b - a < fs * 0.08) return fallback
-    /* Canvas can't take the width axis everywhere; scale the result by the
-       ratio of the DOM glyph's advance to the canvas glyph's advance. */
-    const ratio = l.offsetWidth / Math.max(ctx.measureText(ch).width, 1)
-    return { center: ((a + b) / 2) * ratio, width: (b - a) * ratio }
-  } catch {
-    return fallback
-  }
-}
-
 function HeadLayout({
-  mode,
   fs,
-  headRef,
-  lRef,
+  lineRefs,
+  probeRefs,
   upY,
   downY,
   fade,
-  native,
 }: {
-  native?: boolean
-  mode: "mask" | "content"
   fs: number | null
-  headRef?: React.Ref<HTMLSpanElement>
-  lRef?: React.Ref<HTMLSpanElement>
+  lineRefs: React.RefObject<HTMLSpanElement | null>[]
+  probeRefs: React.RefObject<HTMLSpanElement | null>[]
   upY?: MotionValue<string>
   downY?: MotionValue<string>
   fade?: MotionValue<number>
 }) {
-  const mask = mode === "mask"
-  const hide = mask ? { visibility: "hidden" as const } : undefined
   const size = fs ?? 120
   const small = size * 0.44
-
-  const H1 = mask ? "div" : "h1"
+  const big = ["Impossible", "To ignore."]
 
   return (
     <div className="shell flex h-[100svh] flex-col justify-center pb-[max(1.5rem,4svh)] pt-[calc(var(--header-h)+1rem)] md:pb-10">
-      <H1 id={mask ? undefined : "hero-title"} className="relative">
-        <motion.span style={{ y: upY, opacity: fade, ...hide }} className={`block ${native ? "hsd-up" : ""}`}>
-          <span className="label mb-5 md:mb-7" style={hide}>
-            West Palm Beach branding and marketing agency
-          </span>
-          <span className="hero-word block whitespace-nowrap text-paper" style={{ fontSize: small, ...hide }}>
+      <h1 id="hero-title" className="relative">
+        <motion.span style={{ y: upY, opacity: fade }} className="block will-change-transform">
+          <span className="label mb-5 md:mb-7">West Palm Beach branding and marketing agency</span>
+          <span className="hero-word block whitespace-nowrap text-paper" style={{ fontSize: small }}>
             Make your{" "}
             <span className="inline-block align-top text-flare">
-              {mask ? "brand" : <RotatingWord words={WORDS} />}
+              <RotatingWord words={WORDS} />
             </span>
           </span>
         </motion.span>
 
-        <span
-          ref={headRef}
-          className="hero-word my-[0.04em] block"
-          style={{
-            fontSize: size,
-            color: mask ? "#fff" : "transparent",
-            opacity: fs ? 1 : 0,
-            transition: "opacity .4s",
-          }}
-        >
-          <span className="block whitespace-nowrap">
-            <span ref={lRef} className="inline-block">I</span>MPOSSIBLE
-          </span>
-          <span className="block whitespace-nowrap">To ignore.</span>
+        {/* The big words: laid out for real, drawn by the canvas. */}
+        <span className="hero-word my-[0.04em] block" style={{ fontSize: size, color: "transparent" }}>
+          {big.map((w, i) => (
+            <span key={w} className="block whitespace-nowrap">
+              <span ref={lineRefs[i]} className="inline-block">
+                {/* Zero-size marker whose top edge sits exactly on the baseline */}
+                <span ref={probeRefs[i]} className="inline-block h-0 w-0 align-baseline" aria-hidden />
+                {w}
+              </span>
+            </span>
+          ))}
         </span>
-
-      </H1>
+      </h1>
 
       <motion.div
-        style={{ y: downY, opacity: fade, ...hide }}
-        className={`${native ? "hsd-down " : ""}mt-6 grid gap-6 md:mt-9 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10`}
+        style={{ y: downY, opacity: fade }}
+        className="mt-6 grid gap-6 will-change-transform md:mt-9 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-10"
       >
-        <p className="t-lead max-w-[46ch] text-paper/85" style={hide}>
+        <p className="t-lead max-w-[46ch] text-paper/85">
           Branding, digital marketing and business development for companies that intend to lead their market.
           Built in West Palm Beach. Made to be noticed anywhere.
         </p>
-        <div className="on-dark flex flex-wrap gap-2.5 !bg-transparent sm:gap-3" style={hide}>
+        <div className="on-dark flex flex-wrap gap-2.5 !bg-transparent sm:gap-3">
           <Link href="/contact" className="btn btn-flare">
             Start a project <span className="arrow" aria-hidden>→</span>
           </Link>
@@ -316,7 +316,7 @@ function HeadLayout({
   )
 }
 
-function Chapter({ p, scrim, native }: { p: MotionValue<number>; scrim: MotionValue<number>; native: boolean }) {
+function Chapter({ p, scrim }: { p: MotionValue<number>; scrim: MotionValue<number> }) {
   const lines = [
     { text: "Over six million people live in South Florida.", at: 0.56 },
     { text: "Every one of them is busy.", at: 0.62 },
@@ -324,27 +324,13 @@ function Chapter({ p, scrim, native }: { p: MotionValue<number>; scrim: MotionVa
   ]
   return (
     <div className="pointer-events-none absolute inset-0">
-      <motion.div className={`absolute inset-0 bg-ink ${native ? "hsd-scrim" : ""}`} style={native ? undefined : { opacity: scrim }} />
+      <motion.div className="absolute inset-0 bg-ink" style={{ opacity: scrim }} />
       <div className="shell relative flex h-[100svh] flex-col justify-center gap-[0.35em]">
-        {native ? (
-          <>
-            <p className="label hsd-label mb-4 text-paper">Chapter one · The noise</p>
-            {lines.map((l, i) => (
-              <p key={l.text} className={`t-h2 max-w-[20ch] text-paper hsd-line-${i}`}>
-                {l.text}
-              </p>
-            ))}
-            <p className="t-h2 hsd-line-3 max-w-[20ch] text-flare">Yet.</p>
-          </>
-        ) : (
-          <>
-            <ChapterLabel p={p} />
-            {lines.map((l) => (
-              <ChapterLine key={l.text} p={p} at={l.at} text={l.text} />
-            ))}
-            <ChapterLine p={p} at={0.76} text="Yet." flare />
-          </>
-        )}
+        <ChapterLabel p={p} />
+        {lines.map((l) => (
+          <ChapterLine key={l.text} p={p} at={l.at} text={l.text} />
+        ))}
+        <ChapterLine p={p} at={0.76} text="Yet." flare />
       </div>
     </div>
   )
@@ -361,53 +347,10 @@ function ChapterLabel({ p }: { p: MotionValue<number> }) {
 
 function ChapterLine({ p, at, text, flare }: { p: MotionValue<number>; at: number; text: string; flare?: boolean }) {
   const o = useRange(p, [at, at + 0.05], [0, 1])
-  const y = useTransform(p, [at, at + 0.06], [40, 0])
+  const y = useRange(p, [at, at + 0.06], [40, 0])
   return (
-    <motion.p
-      style={{ opacity: o, y }}
-      className={`t-h2 max-w-[20ch] ${flare ? "text-flare" : "text-paper"}`}
-    >
+    <motion.p style={{ opacity: o, y }} className={`t-h2 max-w-[20ch] ${flare ? "text-flare" : "text-paper"}`}>
       {text}
     </motion.p>
   )
-}
-
-
-/**
- * The hero's choreography as native scroll-driven keyframes on the section's
- * view timeline. Same curves as the JavaScript fallback: the zoom is an
- * eased exponential (sampled finely so it reads as continuous), content lifts
- * and fades, then the scrim and the chapter lines arrive.
- */
-function heroKeyframes(maxScale: number) {
-  const pct = (v: number) => `${(v * 100).toFixed(2)}%`
-  /* Zoom into the I, and over the last stretch dissolve the black layer into
-     the footage (opacity 1 until 34%, 0 by 54%). */
-  const op = (v: number) => (v <= 0.34 ? 1 : v >= 0.54 ? 0 : 1 - (v - 0.34) / 0.2)
-  const zoom: string[] = ["0% { transform: scale(1); opacity: 1 }", "6% { transform: scale(1); opacity: 1 }"]
-  for (let i = 1; i <= 40; i++) {
-    const t = i / 40
-    const eased = t * t * (3 - 2 * t)
-    const at = 0.06 + t * 0.5
-    zoom.push(`${pct(at)} { transform: scale(${Math.exp(eased * Math.log(maxScale)).toFixed(4)}); opacity: ${op(at).toFixed(3)} }`)
-  }
-  zoom.push(`100% { transform: scale(${maxScale.toFixed(4)}); opacity: 0 }`)
-  const tl = "animation-timeline: --hero; animation-range: contain 0% contain 100%;"
-  const line = (i: number, at: number) => `
-    @keyframes hsd-line-${i} { 0%, ${pct(at)} { opacity: 0; transform: translateY(40px) } ${pct(at + 0.05)} { opacity: 1 } ${pct(at + 0.06)}, 100% { opacity: 1; transform: none } }
-    .hsd-line-${i} { animation: hsd-line-${i} linear both; ${tl} }`
-  return `
-    @keyframes hsd-mask { ${zoom.join(" ")} }
-    @keyframes hsd-up { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(-40%) } }
-    @keyframes hsd-down { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(60%) } }
-    @keyframes hsd-fade { 0%, 8% { opacity: 1 } 26%, 100% { opacity: 0 } }
-    @keyframes hsd-scrim { 0%, 50% { opacity: 0 } 70%, 100% { opacity: 0.55 } }
-    @keyframes hsd-label { 0%, 52% { opacity: 0 } 58%, 100% { opacity: 1 } }
-    .hsd-mask { animation: hsd-mask linear both; ${tl} }
-    .hsd-up { animation: hsd-up linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
-    .hsd-down { animation: hsd-down linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
-    .hsd-scrim { animation: hsd-scrim linear both; ${tl} }
-    .hsd-label { animation: hsd-label linear both; ${tl} }
-    ${line(0, 0.56)} ${line(1, 0.62)} ${line(2, 0.68)} ${line(3, 0.76)}
-  `
 }
