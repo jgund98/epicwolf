@@ -115,8 +115,8 @@ type Half = { word: React.ReactNode; img: string; name: string; role: string }
 
 /**
  * Phones. The desktop move (two halves sliding together) is too small at 390px,
- * so the scene is staged for a tall screen and pinned: EPIC and WOLF, set huge
- * and stacked, sweep in from opposite edges, then the partners come in from the
+ * so the scene is pinned and oversized: epic and wolf on one line, bigger than
+ * the screen, sweep in from opposite edges, then the partners come in from the
  * sides and settle shoulder to shoulder in front of the words, and the ledge
  * with their names lands last. Transforms and opacity only.
  */
@@ -138,11 +138,14 @@ function MobileStage({ halves }: { halves: Half[] }) {
   return (
     <div ref={ref} className={`relative md:hidden ${still ? "" : "h-[240svh]"}`}>
       <div className={`${still ? "relative" : "sticky top-0"} h-[100svh] overflow-hidden`}>
-        <div className="absolute inset-x-0 top-[25%] flex flex-col items-center gap-[1vw]" aria-hidden>
-          <motion.div className="w-[89.7vw] will-change-transform" style={{ x: still ? 0 : epicX, opacity: still ? 1 : words }}>
+        {/* One line, like desktop: epic behind Jordan, wolf behind Shawn, oversized
+            and running off both edges, set at head height (tied to the figures'
+            size, so it lines up on any phone). */}
+        <div className="absolute inset-x-0 flex justify-center gap-[3vw] whitespace-nowrap" style={{ bottom: "calc(84px + 84vw * 1.12 * 0.6)" }} aria-hidden>
+          <motion.div className="w-[66vw] shrink-0 will-change-transform" style={{ x: still ? 0 : epicX, opacity: still ? 1 : words }}>
             <StackWord word={WM_EPIC} />
           </motion.div>
-          <motion.div className="w-[94vw] will-change-transform" style={{ x: still ? 0 : wolfX, opacity: still ? 1 : words }}>
+          <motion.div className="w-[69.2vw] shrink-0 will-change-transform" style={{ x: still ? 0 : wolfX, opacity: still ? 1 : words }}>
             <StackWord word={WM_WOLF} />
           </motion.div>
         </div>
