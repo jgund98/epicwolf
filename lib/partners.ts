@@ -1,10 +1,11 @@
 import type { Faq } from "./types"
 
 /**
- * The partners' own pages. Facts only, checked against their companies' sites:
- * Shawn founded SM WOLF in West Palm Beach in 2001 (smwolf.com); Jordan runs
- * Epic Development Solutions (epicdevsolutions.com). No pronouns in the copy:
- * written with names and roles instead. Copy laws in VOICE.md.
+ * The partners' own pages: about the people, what each brings to the table and
+ * why they formed Epic Wolf. Jordan's rule: the pages do not promote the
+ * partners' other companies and do not pitch direct contact. The "why" is the
+ * agency's stated reason (see the About page), not an invented anecdote.
+ * No pronouns: written with names and roles. Copy laws in VOICE.md.
  */
 export type Partner = {
   slug: string
@@ -17,13 +18,15 @@ export type Partner = {
   metaDescription: string
   headline: string
   lead: string
-  background: string[]
-  facts: { k: string; v: string; href?: string }[]
+  background: { label: string; body: string }[]
+  facts: { k: string; v: string }[]
   leads: { t: string; b: string; href: string }[]
   knowsAbout: string[]
-  company: { name: string; url: string; foundingDate?: string }
   faqs: Faq[]
 }
+
+const WHY =
+  "Most companies hire one firm for the story, another for the website, a third for the ads and someone else for the sign. Each does fine work and none of it adds up to one brand. Jordan and Shawn formed Epic Wolf to fix that: one partner-led team, one strategy and one standard from the first conversation to the front door."
 
 export const partners: Partner[] = [
   {
@@ -35,19 +38,25 @@ export const partners: Partner[] = [
     cut: "/img/team/jordan-cut.webp",
     metaTitle: "Jordan Gundlach | Partner, Digital and Growth | Epic Wolf",
     metaDescription:
-      "Jordan Gundlach leads digital marketing, websites and growth systems at Epic Wolf in West Palm Beach, and runs Epic Development Solutions.",
-    headline: "The part of the brand people find",
+      "Jordan Gundlach leads digital marketing, websites and growth at Epic Wolf in West Palm Beach, bringing an engineer's rigor to how a brand gets found.",
+    headline: "Marketing built like software",
     lead: "Jordan leads digital at Epic Wolf: the website, the search presence and the systems that turn attention into signed work.",
     background: [
-      "Jordan runs Epic Development Solutions, a West Palm Beach studio that builds websites, mobile apps, custom software and AI automation for businesses across South Florida and beyond.",
-      "That work sits where marketing meets engineering: sites built to rank and convert, lead funnels that follow up in seconds, client portals and the reporting that shows what is working. Jordan has also built and launched original software products, which is why every client pipeline gets treated like a product.",
-      "At Epic Wolf, Jordan leads digital marketing, the website and every system behind the inquiry, so the brand gets found and the attention turns into revenue.",
+      {
+        label: "The background",
+        body: "Jordan came to marketing from the build side: websites, apps, custom software and automation for businesses across South Florida. That shapes how digital runs at Epic Wolf. A site is treated as a product, a campaign as a system, and every claim gets measured.",
+      },
+      {
+        label: "What Jordan brings",
+        body: "The part of a brand most agencies hand off. The search presence people find, the site that turns a visit into an inquiry and the follow-up that turns an inquiry into a meeting. Built fast, measured plainly and owned by the client.",
+      },
+      { label: "Why Epic Wolf", body: `${WHY} Jordan owns everything digital.` },
     ],
     facts: [
       { k: "Role", v: "Partner, Digital and Growth" },
       { k: "Based in", v: "West Palm Beach, Florida" },
-      { k: "Also runs", v: "Epic Development Solutions", href: "https://epicdevsolutions.com" },
-      { k: "Builds", v: "Websites, apps, custom software and AI automation" },
+      { k: "Leads", v: "Digital marketing, websites and growth systems" },
+      { k: "Brings", v: "An engineer's rigor to marketing" },
     ],
     leads: [
       { t: "Digital marketing", b: "Search, local search, paid social and content, measured against inquiries and revenue.", href: "/digital-marketing" },
@@ -55,19 +64,18 @@ export const partners: Partner[] = [
       { t: "Business development", b: "The pipeline behind the brand: follow-up, CRM and the reporting partners actually read.", href: "/business-development" },
     ],
     knowsAbout: ["Digital marketing", "Search engine optimization", "Local SEO", "Web design", "Custom software development", "Marketing automation", "Lead generation", "Business development"],
-    company: { name: "Epic Development Solutions", url: "https://epicdevsolutions.com" },
     faqs: [
       {
         q: "What does Jordan Gundlach do at Epic Wolf?",
         a: "Jordan Gundlach is the partner who leads digital and growth at Epic Wolf. That covers digital marketing, search and paid programs, the website and the systems behind every inquiry, from instant follow-up to the reporting that shows which work is paying off.",
       },
       {
-        q: "Is Jordan Gundlach connected to Epic Development Solutions?",
-        a: "Yes. Jordan runs Epic Development Solutions, a West Palm Beach studio that builds websites, mobile apps, custom software and AI automation. That engineering background is why Epic Wolf's digital work is built to be measured, not just launched.",
+        q: "What does Jordan bring to a brand?",
+        a: "A builder's discipline. Jordan came to marketing from websites, software and automation, so digital work at Epic Wolf is engineered to be found, to convert and to be measured, and it always matches the brand the client sees everywhere else.",
       },
       {
-        q: "Can I work with Jordan directly?",
-        a: "Yes. Epic Wolf is partner-led, so clients work directly with Jordan on digital strategy, websites and growth. Call or text (561) 247-5514, or start a project through the site and a partner replies personally.",
+        q: "Why did Jordan and Shawn start Epic Wolf?",
+        a: "Because most companies end up with a different firm for the story, the website, the ads and the sign, and the pieces never add up to one brand. Jordan and Shawn formed Epic Wolf so one partner-led team carries a single strategy from the first conversation to the front door.",
       },
     ],
   },
@@ -80,19 +88,25 @@ export const partners: Partner[] = [
     cut: "/img/team/shawn-cut.webp",
     metaTitle: "Shawn Wolf | Partner, Brand and Street | Epic Wolf",
     metaDescription:
-      "Shawn Wolf leads brand and every surface customers see in person at Epic Wolf. Shawn founded SM WOLF in West Palm Beach in 2001.",
+      "Shawn Wolf leads brand at Epic Wolf and has been building brands for South Florida businesses since 2001, from identity to the storefront.",
     headline: "Building South Florida brands since 2001",
     lead: "Shawn leads brand at Epic Wolf: strategy, identity and every place customers meet the brand in person.",
     background: [
-      "Shawn founded SM WOLF in West Palm Beach in 2001: a creative production company for print, promotional products, branded apparel, signage, displays and packaging, still led hands-on today.",
-      "More than two decades of producing brands in the physical world show exactly where a brand lives: on the front of the building, the side of the truck, the shirt on the crew and the menu on the table. Shawn sources, proofs and produces that work directly and knows what a design has to survive to look right at full size.",
-      "At Epic Wolf, Shawn leads brand strategy and identity, and every surface where customers meet the brand in person, held to one standard from the first sketch to the install.",
+      {
+        label: "The background",
+        body: "Shawn has been producing brands for South Florida businesses since 2001: storefront signs, fleet graphics, apparel, print and packaging. More than two decades of that work show exactly where a brand lives. On the front of the building, the side of the truck, the shirt on the crew and the menu on the table.",
+      },
+      {
+        label: "What Shawn brings",
+        body: "The eye of someone who has watched designs meet the real world for more than twenty years. A mark that looks right on a screen can fail at forty feet or across a curved van panel. Shawn knows what a design has to survive and builds the brand for it from the first sketch.",
+      },
+      { label: "Why Epic Wolf", body: `${WHY} Shawn owns the brand and everything people can see and touch.` },
     ],
     facts: [
       { k: "Role", v: "Partner, Brand and Street" },
       { k: "Building brands since", v: "2001, in West Palm Beach" },
-      { k: "Founded", v: "SM WOLF (2001)", href: "https://www.smwolf.com" },
-      { k: "Produces", v: "Signage, apparel, print, promotional products and packaging" },
+      { k: "Leads", v: "Brand strategy, identity and the physical brand" },
+      { k: "Brings", v: "Two decades of making brands real at full size" },
     ],
     leads: [
       { t: "Brand strategy and identity", b: "Positioning, naming and the identity system that has to hold up everywhere it shows up.", href: "/branding" },
@@ -100,19 +114,18 @@ export const partners: Partner[] = [
       { t: "Vehicles, apparel and print", b: "Fleet graphics, crew apparel and printed pieces produced to the same standard as the logo.", href: "/vehicle-wraps" },
     ],
     knowsAbout: ["Brand strategy", "Brand identity", "Signage", "Storefront graphics", "Vehicle graphics", "Branded apparel", "Commercial printing", "Promotional products", "Packaging"],
-    company: { name: "SM WOLF", url: "https://www.smwolf.com", foundingDate: "2001" },
     faqs: [
       {
         q: "What does Shawn Wolf do at Epic Wolf?",
         a: "Shawn Wolf is the partner who leads brand at Epic Wolf: strategy and identity, and every surface where customers meet the brand in person, from storefront signs and window graphics to fleet graphics, apparel and print.",
       },
       {
-        q: "How long has Shawn Wolf been building brands in West Palm Beach?",
-        a: "Since 2001. Shawn founded SM WOLF in West Palm Beach that year and has produced print, promotional products, apparel, signage and packaging for South Florida businesses ever since, which is the production experience behind Epic Wolf's brand work.",
+        q: "How long has Shawn Wolf been building brands in South Florida?",
+        a: "Since 2001. Shawn has spent more than two decades producing signs, fleet graphics, apparel, print and packaging for South Florida businesses, and that production experience is behind every identity Epic Wolf builds.",
       },
       {
-        q: "Can I work with Shawn directly?",
-        a: "Yes. Epic Wolf is partner-led, so clients work directly with Shawn on brand strategy, identity and everything the brand needs in the physical world. Call or text (561) 247-5514, or start a project through the site.",
+        q: "Why did Jordan and Shawn start Epic Wolf?",
+        a: "Because most companies end up with a different firm for the story, the website, the ads and the sign, and the pieces never add up to one brand. Jordan and Shawn formed Epic Wolf so one partner-led team carries a single strategy from the first conversation to the front door.",
       },
     ],
   },

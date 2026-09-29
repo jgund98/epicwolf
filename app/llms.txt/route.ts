@@ -21,7 +21,7 @@ export function GET() {
     ...pillars.map((p) => `- [${p.name}](${abs(`/${p.slug}`)}): ${p.line} Includes ${p.caps.map((c) => c.name.toLowerCase()).join(", ")}.`),
     "",
     "## Partners",
-    ...partners.map((p) => `- [${p.name}](${abs(`/about/${p.slug}`)}): ${p.role}. ${p.background[0]}`),
+    ...partners.map((p) => `- [${p.name}](${abs(`/about/${p.slug}`)}): ${p.role}. ${p.background[0].body}`),
     "",
     "## Service pages",
     ...services.map((s) => `- [${s.name}](${abs(`/${s.slug}`)}): ${s.summary}`),

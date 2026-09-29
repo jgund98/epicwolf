@@ -38,15 +38,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ partne
     description: p.lead,
     url: `${site.url}${path}`,
     image: `${site.url}${p.img}`,
-    worksFor: [
-      { "@id": ORG_ID },
-      {
-        "@type": "Organization",
-        name: p.company.name,
-        url: p.company.url,
-        ...(p.company.foundingDate ? { foundingDate: p.company.foundingDate, founder: { "@id": `${site.url}${path}#person` } } : {}),
-      },
-    ],
+    worksFor: { "@id": ORG_ID },
     workLocation: { "@type": "Place", name: `${site.city}, ${site.regionName}` },
     knowsAbout: p.knowsAbout,
   }
@@ -91,11 +83,14 @@ export default async function PartnerPage({ params }: { params: Promise<{ partne
       <section data-tone="light" className="on-light py-24 md:py-32">
         <div className="shell grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
-            <p className="label">Background</p>
+            <p className="label">{p.first}</p>
             <h2 className="t-h2 mt-4 max-w-[18ch]">{p.headline}</h2>
-            <div className="prose-ew t-body muted-light mt-8 max-w-[62ch]">
+            <div className="mt-10 max-w-[62ch] space-y-9">
               {p.background.map((b) => (
-                <p key={b.slice(0, 24)}>{b}</p>
+                <div key={b.label}>
+                  <h3 className="text-lg font-bold tracking-[-0.01em]">{b.label}</h3>
+                  <p className="t-body muted-light mt-2">{b.body}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -104,15 +99,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ partne
               {p.facts.map((f) => (
                 <div key={f.k} className="border-b border-ink/12 py-5">
                   <dt className="text-sm font-semibold muted-light">{f.k}</dt>
-                  <dd className="mt-1 text-lg font-bold tracking-[-0.01em]">
-                    {f.href ? (
-                      <a href={f.href} className="link-draw" rel="noopener">
-                        {f.v}
-                      </a>
-                    ) : (
-                      f.v
-                    )}
-                  </dd>
+                  <dd className="mt-1 text-lg font-bold tracking-[-0.01em]">{f.v}</dd>
                 </div>
               ))}
             </dl>
@@ -166,7 +153,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ partne
         </div>
       </section>
 
-      <CtaBand line={`Talk to ${p.first} directly.`} />
+      <CtaBand />
     </>
   )
 }
