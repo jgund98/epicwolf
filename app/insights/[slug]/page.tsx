@@ -21,7 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const g = guideBySlug(slug)
   if (!g) return {}
   /* Brand suffix only when the whole title still fits in search results (~65 chars). */
-  const title = `${g.title} | Epic Wolf`.length <= 65 ? `${g.title} | Epic Wolf` : g.title
+  /* Search-result titles that must stay under ~65 characters; the on-page headline keeps its full wording. */
+  const SEARCH_TITLE: Record<string, string> = { "get-found-in-ai-search-local-business": "How a Palm Beach Business Gets Found in AI Search" }
+  const base = SEARCH_TITLE[g.slug] ?? g.title
+  const title = `${base} | Epic Wolf`.length <= 65 ? `${base} | Epic Wolf` : base
   return pageMeta({ title, description: g.description, path: `/insights/${g.slug}`, type: "article" })
 }
 
@@ -205,6 +208,31 @@ export default async function Guide({ params }: { params: Promise<{ slug: string
                 })}
               </p>
             )}
+
+            {/* Keep reading: the two guides that share the most topics with this one */}
+            {(() => {
+              const next = guides
+                .filter((o) => o.slug !== g.slug)
+                .map((o) => ({ o, n: o.related.filter((r) => g.related.includes(r)).length }))
+                .filter((x) => x.n > 0)
+                .sort((a, b) => b.n - a.n)
+                .slice(0, 2)
+              return next.length ? (
+                <div className="mt-14 border-t border-ink/12">
+                  <p className="label mt-8">Keep reading</p>
+                  <ul className="mt-4">
+                    {next.map(({ o }) => (
+                      <li key={o.slug} className="border-b border-ink/12">
+                        <Link href={`/insights/${o.slug}`} className="group flex items-start justify-between gap-6 py-5">
+                          <span className="text-lg font-bold tracking-[-0.01em] group-hover:text-flare-deep">{o.title}</span>
+                          <span aria-hidden className="text-flare">→</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null
+            })()}
           </div>
         </div>
       </article>

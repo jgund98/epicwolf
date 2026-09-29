@@ -14,6 +14,7 @@ import { ParallaxImage } from "@/components/ui/ParallaxImage"
 import { PhotoPair } from "@/components/site/PhotoPair"
 import { Filmstrip } from "@/components/site/Filmstrip"
 import { KineticBand } from "@/components/site/KineticBand"
+import { guides } from "@/lib/guides"
 
 export const dynamicParams = false
 
@@ -224,6 +225,37 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           )}
         </div>
       </section>
+
+      {/* The guides that go deeper on this service: builds the topic cluster (service <-> guides). */}
+      {(() => {
+        const reading = guides
+          .filter((g) => g.related.includes(s.slug))
+          .sort((a, b) => a.related.indexOf(s.slug) - b.related.indexOf(s.slug))
+          .slice(0, 3)
+        return reading.length ? (
+          <section data-tone="light" className="on-light py-20 md:py-28">
+            <div className="shell grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <p className="label">Read the guides</p>
+                <h2 className="t-h2 mt-4 max-w-[12ch]">Go deeper on {s.name.toLowerCase()}</h2>
+              </div>
+              <ul className="border-t border-ink/12 md:col-span-8">
+                {reading.map((g) => (
+                  <li key={g.slug} className="border-b border-ink/12">
+                    <Link href={`/insights/${g.slug}`} className="group flex items-start justify-between gap-6 py-6">
+                      <span>
+                        <span className="block text-lg font-bold tracking-[-0.01em] group-hover:text-flare-deep">{g.title}</span>
+                        <span className="t-small muted-light mt-1 block max-w-[60ch]">{g.description}</span>
+                      </span>
+                      <span aria-hidden className="mt-1 text-flare">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null
+      })()}
 
       <section data-tone="light" className="bg-paper-2 py-24 text-ink md:py-32">
         <div className="shell grid gap-12 md:grid-cols-12">

@@ -27,7 +27,10 @@ export function Manifesto() {
       <div className="shell">
         <p className="label">Chapter two · The signal</p>
         <div ref={ref} className="mt-8">
-          <p className="t-display !normal-case !tracking-[-0.035em] max-w-[22ch] !leading-[1]" style={{ fontVariationSettings: '"wdth" 112' }}>
+          {/* The sentence as plain text for screen readers and crawlers; the
+              word-by-word reveal below is decoration. */}
+          <p className="sr-only">{TEXT.map((t) => t.w).join(" ")}</p>
+          <p aria-hidden className="t-display !normal-case !tracking-[-0.035em] max-w-[22ch] !leading-[1]" style={{ fontVariationSettings: '"wdth" 112' }}>
             {TEXT.map((t, i) => (
               <Word key={i} p={scrollYProgress} i={i} n={TEXT.length} hot={t.hot} still={!!reduce}>
                 {t.w}
