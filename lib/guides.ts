@@ -7,6 +7,194 @@ import type { Guide } from "./types"
  */
 const all: Guide[] = [
   {
+    slug: "market-a-palm-beach-business-without-looking-loud",
+    title: "How to Market a Palm Beach Business Without Looking Loud",
+    description:
+      "Marketing on the island of Palm Beach: what buyers respond to, the channels that fit, Town sign and storefront approvals, the season and a checklist.",
+    published: "2026-09-28",
+    updated: "2026-09-28",
+    summary:
+      "Market a Palm Beach business the way the island already works: through introductions, craft and a few consistent touchpoints, never volume. Referrals, club and philanthropic life, local press and beautifully made print carry the most weight, and a composed website and Google profile confirm what people have heard. The Town reinforces the same standard in law. Signs, awnings and storefront changes go through design review, banners are banned, and sale signs are allowed only from April 1 to October 31.",
+    sections: [
+      {
+        h2: "What Palm Beach buyers respond to",
+        answer:
+          "Buyers on the island respond to proof, craft and familiarity. They choose businesses a trusted friend has used, spaces that look considered rather than promoted and brands that say the same thing every time. The Town's own Worth Avenue Design Guidelines criticize storefronts remodeled piecemeal to catch the eye, and call the combined effect visual clutter.",
+        body: [
+          "Those guidelines date to 1991, were revised in 1998 and are adopted into the Town's zoning code for the Worth Avenue district, known as C-WA. They single out a building that works without loud colors, crass materials or overpowering signs. It is a zoning document, but it reads like a brand brief for the whole island.",
+          "The sign code starts in the same place. Its statement of findings says Palm Beach is internationally known and has become a worldwide synonym for beauty, quality and value, and that a proliferation of unregulated signs can become a visual blight. A brand that wants to belong here should start from that standard rather than work against it.",
+          "In practice, the name arrives first. Most island clients hear about a business before they ever search for it, so the job of marketing is to make sure everything they find afterward confirms what they were told.",
+        ],
+      },
+      {
+        h2: "Why discretion matters more than exposure",
+        answer:
+          "Many island clients value privacy as much as service. A business that posts client names, photographs homes or guests without permission or trades on a relationship in public puts at risk the trust that brought the referral. Treat every client, guest list and donor relationship as confidential unless someone agrees otherwise in writing.",
+        list: [
+          "Get written permission before naming a client, quoting one or showing a home, a boat or an event",
+          "Keep testimonials anonymous by default, with a role or a neighborhood instead of a name",
+          "Photograph spaces and objects rather than people unless everyone in frame has agreed",
+          "Never post from inside a private club or a private home",
+          "Keep donor, guest and member lists out of any system that sends marketing mail",
+          "Let the client decide whether a project becomes a press story",
+        ],
+      },
+      {
+        h2: "Which marketing channels fit the island",
+        answer:
+          "The channels that fit travel through trust: referrals, club and philanthropic life, local press, beautifully made print and a storefront that meets the Town's standard. Search and a Google Business Profile matter too, because a referral usually ends in a quiet search. Banners, flash promotions and high-frequency paid social do not fit.",
+        body: [
+          "Philanthropy deserves the most care. The Town's code requires a charitable solicitation permit for any request for money or other value made on the representation that it will be used for a charitable purpose. The Town Clerk requires a staff appointment before the online application, and the fee is $500 when the application is filed 60 days or more before the event and $750 inside that window. Support causes you believe in for years, not for one season, and plan partnerships early.",
+        ],
+        table: {
+          head: ["Channel", "Fit on the island", "Why"],
+          rows: [
+            ["Referrals and word of mouth", "Strong", "Most island clients arrive through someone they trust, so make every referral easy to confirm"],
+            ["Clubs and philanthropy", "Strong with care", "Long-term support builds standing; charity events that solicit money need a Town permit"],
+            ["Print, invitations and stationery", "Strong", "Paper, finish and typography are read as signs of quality"],
+            ["Storefront and signage", "Strong within the code", "Sign area, placement and lighting are reviewed by the Town before anything goes up"],
+            ["Local press", "Strong for real stories", "The Palm Beach Daily News and Palm Beach Illustrated cover island life; coverage is earned with news"],
+            ["Search and Google Business Profile", "Essential", "Referrals end in a search, and Google weighs relevance, distance and prominence"],
+            ["A restrained digital presence", "Essential", "A composed website and an occasional, considered social presence confirm the reputation"],
+            ["Banners and sale signs", "Poor", "Banners are banned in the Town, and sale signs are limited to April 1 through October 31"],
+            ["High-frequency paid social", "Poor", "Volume reads as need on the island; fewer, better placements do more"],
+          ],
+        },
+      },
+      {
+        h2: "How local press works on the island",
+        answer:
+          "Island press rewards news, people and taste, not promotion. The Palm Beach Daily News, known locally as the Shiny Sheet, traces its history to 1897 and focuses on the news and social affairs of the island. Palm Beach Illustrated covers the Palm Beach lifestyle. Treat both as places a real story could land. No honest firm guarantees coverage.",
+        body: [
+          "What earns attention is a genuine story, good timing and a spokesperson ready to talk. An opening, a restoration, a milestone for a foundation or a principal with a clear point of view can all qualify. Advertising and sponsored content are separate paid products, and they do a different job from coverage an editor chose to run.",
+          "Time the story to the island. The Town's code sets its tightest construction limits from November through April, which says a lot about when the island expects to be full. Pitch before the season fills the calendar, not in the middle of it.",
+        ],
+      },
+      {
+        h2: "How search and Google fit a quiet brand",
+        answer:
+          "Search is where a referral gets checked, so a quiet brand still needs to be found by name and by category. Google says local results weigh relevance, distance and prominence, and that prominence draws on links and reviews. A complete and accurate Google Business Profile and a clear website do more on the island than volume ever will.",
+        body: [
+          "Google's profile rules also reward honesty. A business that serves clients at their homes or offices rather than at its own premises is a service-area business and should hide its address, and Google does not allow a virtual office to be listed unless it is staffed during business hours. The business name must be the real name, with no added keywords or locations. A firm based in West Palm Beach that serves the island should say exactly that.",
+          "Keep the website as composed as the storefront: one clear message, real photography, fast pages and plain answers to the questions a careful buyer asks before calling. Reviews help, and on the island they carry the most weight when they come from real clients who chose to write them.",
+        ],
+      },
+      {
+        h2: "What the Town approves before a storefront changes",
+        answer:
+          "In the Town of Palm Beach, almost every visible change to a storefront goes through design review. The Architectural Commission (ARCOM) reviews buildings that are not landmarked, and the Landmarks Preservation Commission reviews landmarked ones. The Town's review matrix decides whether a change goes to staff, to the commission chair or to a full commission hearing.",
+        table: {
+          head: ["Change", "Review path in the Town's matrix"],
+          rows: [
+            ["Non-illuminated sign", "Staff approval"],
+            ["Illuminated sign", "Full commission review (ARCOM major), plus special exception approval under the sign code"],
+            ["New awning or recovering an awning", "Staff approval"],
+            ["Paint color change on a commercial or landmarked building", "Commission chair review, which can send it to staff or to the commission"],
+            ["Street-facing window and door changes in the Worth Avenue district (C-WA)", "ARCOM minor project"],
+            ["Major facade alteration that affects architectural style", "ARCOM major project"],
+            ["Outdoor seating furnishings", "Staff approval"],
+            ["Any change that needs a variance", "ARCOM major project, or Landmarks review for landmarked buildings"],
+          ],
+        },
+        body: [
+          "Commission projects follow a published calendar. On the Town's 2026 schedule, a pre-application request sent by September 2 leads to a virtual pre-application meeting, two rounds of submittals and staff comments, and an ARCOM hearing on November 20. A request sent by September 30 reaches the December 18 meeting. Incomplete submittals push a project to a later agenda, and staff can fast-track some scopes.",
+          "Staff review is not a formality. The Town's Administrative Review Guide asks for an enlarged plan of each sign's copy area, the total square footage of all the tenant's signs and the linear length of the storefront, and the matrix says staff review requires full compliance with the zoning code. A separate building permit may still be required. Landmarked properties go to the Landmarks Preservation Commission, which the Town says meets monthly on the third Wednesday and protects more than 328 landmark properties, sites and vistas.",
+        ],
+      },
+      {
+        h2: "What the sign code allows on a Palm Beach storefront",
+        answer:
+          "The Town's commercial sign rules are specific and strict. Business signage is capped at 10 square feet for a frontage under 18 feet and 20 square feet at 18 feet or more, window and door lettering counts toward that total, and a logo must fit inside a 12-inch square. Signs stay on the first floor.",
+        list: [
+          "Every sign needs a permit and architectural review to go up, change, be repainted or be lit",
+          "Business signs show only the name on the business tax receipt, a logo and the nature of the business",
+          "One logo per street frontage, within a 12-inch square and counted toward sign area",
+          "No business sign above the first floor or 15 feet, whichever is lower",
+          "No lettering, logos or illustrations on an awning visible from a street",
+          "No banners of any kind and no flashing or animated signs",
+          "No neon or strip lighting outlining a building, and no neon that draws attention to a tenant space",
+          "A shop inside a via may hang one perpendicular sign of up to two square feet with eight feet of clearance",
+          "A restaurant may place one menu sign of up to two square feet within four feet of its entrance",
+          "Every sign carries its manufacturer's name in small, legible letters",
+        ],
+        body: [
+          "These limits are why island brands have to work small. A mark that only reads at four feet wide will not survive a 12-inch logo box, and a storefront that depends on light for impact faces the hardest review path. Design the identity for the storefront the code allows, not the one you wish it allowed.",
+        ],
+      },
+      {
+        h2: "How the season shapes a Palm Beach marketing calendar",
+        answer:
+          "Plan around the season the Town writes into its code. From November through April, construction is limited to weekday daytime hours and barred on weekends and holidays, and temporary sale signs are allowed only from April 1 to October 31. That makes summer the time for storefront work and early fall the time to file approvals and prepare launches.",
+        list: [
+          "May to August: design and build storefront changes; in the Worth Avenue district, construction may run from 8 a.m. to 8 p.m. from May through October, except Sundays and legal holidays",
+          "Early September: send ARCOM pre-application requests for anything that must be finished before the season",
+          "October: finish printed pieces, invitations, press materials and the website",
+          "November to April: launch, host and be present; keep exterior work within the Town's weekday hours",
+          "April 1 to October 31: temporary sale or event signs are permitted, on an easel inside the display window",
+        ],
+      },
+      {
+        h2: "A checklist for marketing a Palm Beach business",
+        answer:
+          "Before you spend on anything visible, check it against this list. Each item protects either the reputation you are building or the approval you will need from the Town. Most mistakes on the island come from doing the right thing at the wrong volume or at the wrong time of year.",
+        body: [
+          "For how Epic Wolf works with businesses on the island, from sign approvals to press, see our Palm Beach page under Where we work.",
+        ],
+        list: [
+          "One clear positioning sentence that every piece repeats",
+          "An identity that works at the Town's sign sizes, including a logo that fits a 12-inch square",
+          "Storefront changes checked against the Town's review matrix before the design is final",
+          "A pre-application request sent on the Town's calendar, well before the season",
+          "Printed pieces proofed on the real paper and finish",
+          "Written permission on file for every client name, quote and photograph",
+          "A complete Google Business Profile that is honest about where you are based",
+          "A website that answers a careful buyer's questions in plain words",
+          "A short list of causes you will support for years, with permits planned early",
+          "A real story ready for local editors and a spokesperson prepared to talk",
+          "Success measured in inquiries, introductions and revenue, never impressions",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can a Palm Beach store put a banner or a sale sign in its window?",
+        a: "Not a banner, and a sale sign only from April through October. The Town's code prohibits banner signs of any kind. One temporary sign for a special sale or event is allowed from April 1 to October 31, on a freestanding easel in the display area rather than taped to the glass, at no more than two square feet for each 18 feet of frontage. It can go up 15 days before the event and must come down within 24 hours after.",
+      },
+      {
+        q: "Do awnings need approval in the Town of Palm Beach?",
+        a: "Yes. New awnings and recovering an existing awning are listed for staff approval in the Town's review matrix, and the administrative review guide asks for elevations, a materials and finishes sheet and product images. The sign code also bars lettering, logos and illustrations on any awning visible from a street, so the brand has to live on the sign and the glass instead. A separate building permit may also be required.",
+      },
+      {
+        q: "How long does ARCOM review take for a storefront?",
+        a: "It depends on the review path. Staff-level items such as non-illuminated signs and awnings go through administrative review, while commission projects follow the Town's published calendar. On the 2026 schedule, a pre-application request sent September 2 reaches the November 20 ARCOM meeting, about eleven weeks later. Incomplete submittals push a project to a later agenda, so accuracy up front saves the most time.",
+      },
+      {
+        q: "Should a business list a Palm Beach address on Google if it has no office there?",
+        a: "No. Google's guidelines say a service-area business should hide its address, and a virtual office can be listed only if it is staffed during business hours. List where you are really based, include the island in your service area and keep the business name free of added keywords or place names. Honesty here protects both the profile and the reputation, and island clients notice when a claim does not hold up.",
+      },
+      {
+        q: "Do charity events in Palm Beach need a permit?",
+        a: "Often, yes. The Town's code requires a charitable solicitation permit for any request for money or other value made on the representation that it will be used for a charitable purpose. The Town Clerk's office issues it after a mandatory staff appointment, and the fee is $500 when filed at least 60 days ahead or $750 inside that window. Confirm the details for your event with the Town Clerk before committing to a date.",
+      },
+    ],
+    related: ["branding", "public-relations", "signs", "digital-marketing"],
+    sources: [
+      { label: "Town of Palm Beach: Planning, Zoning and Development Review", href: "https://townofpalmbeach.com/1292/Planning-Zoning-Development-Review" },
+      { label: "Town of Palm Beach: ARCOM and LPC Project Designation Matrix (PDF)", href: "https://townofpalmbeach.com/DocumentCenter/View/16181/APPROVAL-MATRIX-_ADOPTED_7132022" },
+      { label: "Town of Palm Beach: Administrative Review Guide (PDF)", href: "https://www.townofpalmbeach.com/DocumentCenter/View/27903/ADMIN-REVIEW_GUIDE_071625" },
+      { label: "Town of Palm Beach: 2026 Schedule of Development Review Deadlines (PDF)", href: "https://www.townofpalmbeach.com/DocumentCenter/View/28990/Development-Review-Calendar_AUG26-DEC26-Tentative-JAN27" },
+      { label: "Town of Palm Beach: Worth Avenue Design Guidelines (PDF)", href: "https://www.townofpalmbeach.com/DocumentCenter/View/165/Worth-Avenue-Design-Guidelines" },
+      { label: "Town of Palm Beach Code: Article XI Signs", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI_DIV3CODI_S134-2450GOSI" },
+      { label: "Town of Palm Beach Code: Section 134-232 Worth Avenue Design Guidelines in C-WA", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTIIAD_DIV4SPEXVADIWA_SDIIISPEX_S134-232APWOAVDEGUDI" },
+      { label: "Town of Palm Beach Code: Chapter 42 Environment (hours for construction work)", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH42EN" },
+      { label: "Town of Palm Beach: Permits and Licenses", href: "https://www.townofpalmbeach.com/423/Permits-and-Licenses" },
+      { label: "Wikipedia: Palm Beach Daily News", href: "https://en.wikipedia.org/wiki/Palm_Beach_Daily_News" },
+      { label: "Palm Beach Illustrated", href: "https://www.palmbeachillustrated.com/" },
+      { label: "Google Business Profile Help: Guidelines for representing your business", href: "https://support.google.com/business/answer/3038177" },
+      { label: "Google Business Profile Help: How to improve your local ranking", href: "https://support.google.com/business/answer/7091" },
+    ],
+  },
+  {
     slug: "vehicle-wrap-cost-palm-beach-county",
     title: "How Much Does a Vehicle Wrap Cost in Palm Beach County",
     description:
@@ -1254,6 +1442,7 @@ const all: Guide[] = [
 /* Lead with the strategic guides; the trade guides follow. */
 const ORDER = [
   "how-to-choose-a-branding-agency-palm-beach",
+  "market-a-palm-beach-business-without-looking-loud",
   "get-found-in-ai-search-local-business",
   "choosing-a-pr-firm-west-palm-beach",
   "branding-agency-vs-marketing-agency",
