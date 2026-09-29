@@ -1,17 +1,19 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, type ReactNode } from "react"
 import { motion, useReducedMotion, useScroll, type MotionValue } from "motion/react"
 import { useRange } from "@/lib/motion"
+import { Marker } from "@/components/ui/Marker"
 
 /**
  * Chapter two. One statement, read at the speed you scroll: each word inks in
- * from a pale gray as it passes. The flare phrase is the thesis.
+ * from a pale gray as it passes. The one word that matters gets circled by
+ * hand in flare.
  */
-const TEXT: { w: string; hot?: boolean }[] = [
-  ..."Attention is rented.".split(" ").map((w) => ({ w })),
-  ..."Reputation is owned.".split(" ").map((w) => ({ w, hot: true })),
-  ..."We build the kind that compounds: a brand people remember, a story people repeat and a pipeline that turns both into revenue."
+const TEXT: { w: string; hot?: boolean; mark?: boolean }[] = [
+  ..."Nobody remembers the second billboard on I-95.".split(" ").map((w) => ({ w })),
+  ..."We build the first one.".split(" ").map((w) => ({ w, mark: w === "first" })),
+  ..."A brand people know at seventy miles an hour, a story they repeat at dinner and a pipeline that turns both into revenue."
     .split(" ")
     .map((w) => ({ w })),
 ]
@@ -29,7 +31,7 @@ export function Manifesto() {
           <p className="t-display !normal-case !tracking-[-0.035em] max-w-[22ch] !leading-[1]" style={{ fontVariationSettings: '"wdth" 112' }}>
             {TEXT.map((t, i) => (
               <Word key={i} p={scrollYProgress} i={i} n={TEXT.length} hot={t.hot} still={!!reduce}>
-                {t.w}
+                {t.mark ? <Marker>{t.w}</Marker> : t.w}
               </Word>
             ))}
           </p>
@@ -47,7 +49,7 @@ function Word({
   hot,
   still,
 }: {
-  children: string
+  children: ReactNode
   p: MotionValue<number>
   i: number
   n: number

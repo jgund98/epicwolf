@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/ui/ContactForm"
 import { LineReveal } from "@/components/ui/Reveal"
 import { site } from "@/lib/site"
+import { Marker } from "@/components/ui/Marker"
 
 /** The last chapter. One enormous line, then the form, on ink. */
 export function FinalCta() {
@@ -8,7 +9,7 @@ export function FinalCta() {
     <section data-tone="dark" className="on-dark relative overflow-hidden py-28 md:py-40" aria-labelledby="cta-title" id="inquire">
       <div className="shell">
         <p className="label">The last chapter · Your move</p>
-        <LineReveal id="cta-title" as="h2" className="t-mega mt-6" lines={["Your", <span key="m" className="text-flare">move.</span>]} />
+        <LineReveal id="cta-title" as="h2" className="t-mega mt-6" lines={["Your", <Marker key="m" kind="underline" delay={0.9}><span className="text-paper">move.</span></Marker>]} />
         <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="t-lead text-paper/85">

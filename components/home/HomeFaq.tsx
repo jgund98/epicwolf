@@ -8,7 +8,7 @@ export function HomeFaq() {
         <div className="md:col-span-4">
           <p className="label">Questions</p>
           <h2 id="faq-title" className="t-h2 mt-4 max-w-[10ch]">
-            <span className="font-[300]">Before</span> you call.
+            Before you call.
           </h2>
         </div>
         <div className="md:col-span-8">

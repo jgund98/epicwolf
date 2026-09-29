@@ -29,13 +29,13 @@ export function Disciplines() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="label">Chapter three · The craft</p>
-            <h2 id="disciplines-title" className="t-h2 mt-4 max-w-[16ch]">
-              <span className="font-[300]">Three disciplines.</span> One point of view.
+            <h2 id="disciplines-title" className="t-h2 mt-4 max-w-[13ch]">
+              We only do three things
             </h2>
           </div>
           <p className="t-body muted-dark max-w-[38ch]">
-            We keep the list short on purpose. Everything we make serves one of these, and all three answer to the
-            same strategy.
+            Ask a big agency for its capabilities and you get a menu. Ours is short on purpose. Everything we make
+            serves one of these, and all three answer to the same strategy.
           </p>
         </div>
 

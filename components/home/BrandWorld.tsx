@@ -122,12 +122,12 @@ export function BrandWorld() {
         <div className="md:col-span-7">
           <p className="label">Chapter four · The standard</p>
           <h2 id="world-title" className="t-h2 mt-4 max-w-[14ch]">
-            <span className="font-[300]">Every surface.</span> One standard.
+            It has to work on a van too
           </h2>
         </div>
         <p className="t-body muted-light md:col-span-5">
-          A brand only works if it holds up everywhere it shows up. We design the whole world around it, then make every
-          piece, from the first impression online to the sign over the door. This is ours.
+          Your brand has to hold up on a phone screen, over a door on Clematis and on the side of a work van doing
+          seventy on I-95. We design the whole world around it, then make every piece. The one below is ours.
         </p>
       </div>
 

@@ -6,6 +6,7 @@ import { useRef } from "react"
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { EPIC, EPIC_W, WOLF, WOLF_W, layout, type Glyph } from "@/components/brand/glyphs"
 import { useRange } from "@/lib/motion"
+import { Marker } from "@/components/ui/Marker"
 
 /**
  * Chapter six. The two partners, each standing in front of half of the
@@ -67,7 +68,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
         <div className="md:col-span-7">
           <p className="label label-paper">{label}</p>
           <h2 id="names-title" className="t-h2 mt-4 max-w-[16ch]">
-            <span className="font-[300]">Two partners.</span> One agency.
+            You get <Marker kind="underline" color="#0a0a0b">both</Marker> of us
           </h2>
         </div>
         <div className="md:col-span-5">

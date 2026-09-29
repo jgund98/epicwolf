@@ -272,10 +272,10 @@ header[data-htone="dark"] .btn-flare:hover {
   color: var(--color-ink);
 }
 .muted-dark {
-  color: #a6a6ad;
+  color: #c4c4ca;
 }
 .muted-light {
-  color: var(--color-graphite);
+  color: #3f3f45;
 }
 
 /* Film grain for dark bands: kills banding, adds tooth. Static, cheap. */
