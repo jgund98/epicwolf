@@ -34,8 +34,8 @@ export function Disciplines() {
             </h2>
           </div>
           <p className="t-body muted-dark max-w-[38ch]">
-            We keep the list short on purpose. Everything we make serves one of these, and all three answer to the
-            same strategy.
+            A short list is a clear signal. Everything we make serves one of these three, and all three answer to
+            one strategy.
           </p>
         </div>
 

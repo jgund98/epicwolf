@@ -13,7 +13,7 @@ export const cities: City[] = [
     name: "West Palm Beach",
     metaTitle: "Branding and PR Agency in West Palm Beach FL | Epic Wolf",
     metaDescription:
-      "A West Palm Beach agency for branding, public relations, digital marketing and business development, built for the finance and hospitality city downtown.",
+      "West Palm Beach branding agency and PR firm for the city's finance, real estate and hospitality companies, plus digital marketing and business development.",
     headline: "A West Palm Beach Agency for the City It Has Become",
     intro: [
       "West Palm Beach changed faster than most of its marketing did. Finance firms took space in the towers along Flagler Drive and around CityPlace, and the Business Development Board now pitches the county as Wall Street South. Clematis Street restaurants compete with the island across the bridge. Brightline put a station downtown on Evernia Street, so the person walking past your door may have boarded in Miami this morning.",

@@ -15,13 +15,13 @@ export const services: Service[] = [
     kicker: "Public relations firm in West Palm Beach",
     metaTitle: "Public Relations and PR Firm in West Palm Beach | Epic Wolf",
     metaDescription:
-      "West Palm Beach PR firm for media relations, launches, crisis communications and thought leadership, with the website and storefront the story points to.",
+      "West Palm Beach PR firm for media relations, launches, crisis communications and thought leadership, backed by a brand that holds up when readers look closer.",
     summary:
-      "Media relations, launches, crisis communications and reputation work for Palm Beach County companies, from strategists who can also build the page the story links to and hang the sign it points at.",
+      "Media relations, launches, crisis communications and reputation work, run inside our branding practice so the story, the website and the first impression all say the same thing.",
     intro: [
       "Public relations is the work of getting the right people to hear about you from someone other than you. In Palm Beach County that means the reporters and editors at the Palm Beach Post, the Palm Beach Daily News, the South Florida Business Journal and local TV, plus the trade press that covers your industry nationally. It also means the neighbors, investors and boards who read those stories over coffee on Clematis Street and decide whether you are worth a call.",
       "We run PR the way a newsroom thinks. Find the angle that is actually news. Write it so an editor can use it in ten minutes. Pitch it to the few people who cover that beat, and have the photos, the facts and the spokesperson ready before anyone asks. No blast lists. No press release sprayed at hundreds of inboxes in hope.",
-      "The difference is what happens after a story runs. Most PR firms hand you a clip and a report. We connect the coverage to the rest of the business: a landing page that turns readers into inquiries, a website that backs up every claim in the piece, and a storefront, van or event booth that looks like the company the article described. Coverage is borrowed attention. We make sure it lands somewhere.",
+      "The difference is what happens after a story runs. Most PR firms hand you a clip and a report. We connect the coverage to the rest of the business: a landing page that turns readers into inquiries, a website that backs up every claim in the piece, and an in-person first impression that matches the company the article described. Coverage is borrowed attention. We make sure it lands somewhere.",
     ],
     deliverables: [
       { name: "Media relations", detail: "Targeted pitching to local, business and trade reporters on the beats that fit your story." },
@@ -53,7 +53,7 @@ export const services: Service[] = [
       },
     ],
     oneTeam:
-      "PR is the discipline that forces everything else to be ready, which is why it sits in the same house as the build and the street. When a client opens a second location, the announcement, the updated website, the Google Business Profile, the storefront sign and the grand opening tees ship the same week in the same voice, reviewed by the same people. A reporter who clicks through finds a site that matches the pitch. A customer who reads the article and drives by sees a storefront that matches the photo. PR firms that cannot touch the website or the sign are hoping someone else gets it right. We just do it.",
+      "PR is the discipline that forces everything else to be ready, which is why it lives inside branding here. When a client opens a second location, the announcement, the updated website, the Google Business Profile and the new storefront arrive the same week in the same voice, reviewed by the same people. A reporter who clicks through finds a site that matches the pitch. A reader who drives by finds the company the article described. PR firms that cannot touch the brand are hoping someone else gets it right. We make sure of it.",
     audiences: [
       "Financial firms and family offices arriving in Wall Street South",
       "Real estate developers and brokerages",
@@ -95,7 +95,7 @@ export const services: Service[] = [
       },
       {
         q: "Why not hire a big Miami or New York PR agency?",
-        a: "You can, but you will pay for their overhead and often get their most junior staff. National firms are strong at national pitching and weak at knowing that a ribbon cutting on Clematis, a feature in the Palm Beach Daily News and a table at the right gala matter more here than a wire release. We pitch nationally when the story earns it, and we can build the website and sign the story needs.",
+        a: "You can, but you will pay for their overhead and often get their most junior staff. National firms are strong at national pitching and weak at knowing that a ribbon cutting on Clematis, a feature in the Palm Beach Daily News and a table at the right gala matter more here than a wire release. We pitch nationally when the story earns it, and the brand and website the story points to are built by the same team.",
       },
       {
         q: "Do you handle crisis communications for Palm Beach County businesses?",
@@ -116,9 +116,9 @@ export const services: Service[] = [
     kicker: "Branding agency in West Palm Beach",
     metaTitle: "Branding Agency and Logo Design West Palm Beach | Epic Wolf",
     metaDescription:
-      "West Palm Beach branding agency for brand strategy, naming, logo design, identity systems and rebrands, built to work on screens, storefronts and vans alike.",
+      "Branding agency in West Palm Beach for brand strategy, naming, logo design, identity systems and rebrands. Identities built to be recognized at a glance, anywhere.",
     summary:
-      "Brand strategy, naming, logo and identity systems, guidelines and rebrands for Palm Beach County businesses, designed to hold up everywhere from a pitch deck to a channel letter sign.",
+      "Brand strategy, naming, identity systems, guidelines and rebrands, designed to be recognized at a glance and to hold up everywhere from a pitch deck to the front door.",
     intro: [
       "A brand is the promise people expect you to keep, and the identity is how they recognize you before they read a word. In Palm Beach County the bar is set by Worth Avenue storefronts, family office letterhead and restaurant groups that open with a finished look on day one. If your logo was made in an afternoon for an earlier stage of the business, people notice, even if they never say so.",
       "We start with strategy, not a mood board. Who you serve, what you do that competitors do not, how you want to sound, and what the name and mark need to survive. Then we design an identity system: logo, type, color, photography direction, voice and the rules that keep it consistent when someone else is making a flyer at nine at night.",
@@ -150,11 +150,11 @@ export const services: Service[] = [
       },
       {
         title: "Roll it out",
-        body: "Guidelines, files and a rollout plan. If you want it, we handle the rollout too: site, signs, wraps, print and merch, in the order that makes the switch look clean.",
+        body: "Guidelines, files and a rollout plan. If you want it, we manage the rollout too, in the order that makes the switch look clean and the new identity arrive everywhere at once.",
       },
     ],
     oneTeam:
-      "Most rebrands die in the rollout. The agency hands over a logo file, the sign shop redraws it, the printer shifts the color and the web developer picks a different font. Here the people who designed the mark also manage the channel letters, the van wrap, the business cards and the website, so the blue on the storefront matches the blue on the homepage, and the press release announcing the rebrand goes out the same week the new sign lights up. One set of files, one set of eyes, one launch date.",
+      "Most rebrands die in the rollout. The agency hands over a logo file, the sign shop redraws it, the printer shifts the color and the web developer picks a different font. Here the people who designed the mark also oversee every place it lands, from the website to the storefront, so the blue on the sign matches the blue on the homepage and the announcement goes out the same week the new identity goes live. A rebrand should arrive as one clear signal, not a year of mixed logos.",
     audiences: [
       "New companies and new locations that need a finished look on opening day",
       "Established businesses whose logo no longer fits the company",
@@ -217,11 +217,11 @@ export const services: Service[] = [
     kicker: "Digital marketing agency in West Palm Beach",
     metaTitle: "Digital Marketing and SEO Agency West Palm Beach | Epic Wolf",
     metaDescription:
-      "Digital marketing agency in West Palm Beach for local SEO, Google Business Profile, AI search visibility, Google Ads, social media, email and analytics.",
+      "Digital marketing agency in West Palm Beach for local SEO, Google Business Profile, AI search visibility, Google Ads, social and email, reported in revenue.",
     summary:
-      "SEO, local SEO and Google Business Profile, AI search visibility, paid search and social, content, email and analytics, run by the same team that writes your story and builds your site.",
+      "SEO and Google Business Profile, AI search visibility, paid search and social, content, email and analytics, run by the same team that shapes your brand, so the business people find is the one you built.",
     intro: [
-      "When someone in Jupiter searches for a med spa, or a property manager in Boca Raton asks ChatGPT for a sign company, the answer comes from the same few places: your Google Business Profile, your website, the directories and reviews that mention you and the articles that cite you. Digital marketing is the work of making sure those places say the right thing, and that the right thing is you.",
+      "When someone in Jupiter searches for a med spa, or a new arrival in Boca Raton asks ChatGPT which private bank to call, the answer comes from the same few places: your Google Business Profile, your website, the directories and reviews that mention you and the articles that cite you. Digital marketing is the work of making sure those places say the right thing, and that the right thing is you.",
       "We cover the full stack. Local SEO and Google Business Profile management for the map results. Technical and content SEO for the organic results. Structured data and answer-first pages so AI Overviews, ChatGPT and Perplexity can describe you accurately. Google Ads and Meta ads when paid traffic makes sense. Social content and email people actually open. And analytics that report calls, forms and booked jobs instead of vanity charts.",
       "What we will not do is spin up fifty copy-paste city pages or promise a number one ranking. Palm Beach County has 39 municipalities, and each one deserves real content or none at all. We would rather publish a handful of pages that answer real questions for customers in Wellington, Delray Beach and Palm Beach Gardens than a pile of templates search engines learn to ignore.",
     ],
@@ -255,7 +255,7 @@ export const services: Service[] = [
       },
     ],
     oneTeam:
-      "Digital marketing works best when it is not working alone. A press feature becomes a link and a citation that AI assistants trust. A rebrand updates the Google Business Profile photos the same day the new sign goes up, so the storefront in the map listing matches the one on the street. A wrapped van carries a short URL that lands on a tracked page, so the fleet shows up in the report. Search, press and the physical brand feed each other here because they are planned in the same room by the same people.",
+      "Digital marketing works best when it is not working alone. A press feature becomes a link and a citation that AI assistants trust. A rebrand reaches the Google Business Profile the same day it reaches the storefront, so the business in the map listing matches the one on the street. Every campaign lands on pages written in the brand's own voice. Search, press and brand feed each other here because they are planned in the same room by the same people.",
     audiences: [
       "Home services and trades competing for map results",
       "Healthcare practices, dentists and med spas",
@@ -293,7 +293,7 @@ export const services: Service[] = [
       },
       {
         q: "Why not hire a national SEO company?",
-        a: "National SEO shops often rank for local terms with templated city pages, then deliver the same template to you. They rarely know that Wellington's busy season follows the horse shows or that a Clematis restaurant lives on weekend nights. We know the county, we can shoot fresh photos of your actual storefront, and we connect search to your press, signs and vehicles.",
+        a: "National SEO shops often rank for local terms with templated city pages, then deliver the same template to you. They rarely know that Wellington's busy season follows the horse shows or that a Clematis restaurant lives on weekend nights. We know the county, we can shoot fresh photos of your actual business, and we connect search to your press and your brand.",
       },
       {
         q: "Do you manage Google Ads and Meta ads?",
@@ -318,9 +318,9 @@ export const services: Service[] = [
     kicker: "Business development firm in West Palm Beach",
     metaTitle: "Business Development Consultant West Palm Beach | Epic Wolf",
     metaDescription:
-      "Business development in West Palm Beach: lead generation, sales decks, CRM and pipeline setup, sponsorships, trade shows and market entry for new arrivals.",
+      "Business development consultant in West Palm Beach for lead generation, sales decks, CRM and pipeline setup, partnerships, sponsorships and market entry.",
     summary:
-      "Lead generation systems, sales decks and collateral, CRM setup, partnerships, sponsorships, trade show strategy and market entry for companies moving to Palm Beach County.",
+      "The system behind repeatable growth: target accounts, lead generation, sales decks, CRM and pipeline, partnerships, sponsorships and market entry for companies arriving in Palm Beach County.",
     intro: [
       "Plenty of Palm Beach County companies are excellent at what they do and still run on referrals and luck. Business development is the discipline of making growth repeatable: knowing who the next hundred customers are, how they will hear about you, what they will see when they do, and what happens between the first call and the signed contract.",
       "We build the parts of that machine that marketing agencies ignore and sales consultants cannot make. Target account lists and outreach sequences. Sales decks, capability statements and leave-behinds that look as good as the company is. A CRM set up so leads stop living in someone's inbox. Partnership and sponsorship plans that put you in the right rooms, from a hospitality tent at the Cognizant Classic to a table at the right gala.",
@@ -356,7 +356,7 @@ export const services: Service[] = [
       },
     ],
     oneTeam:
-      "Business development is where the rest of the house pays off. The PR side pursues the trade and business press coverage that turns a cold email warm. The design side builds the deck and the trade show booth from the same identity. The web side builds the landing pages and the CRM automations. The street side produces the leave-behinds, the event banners and the client gifts that land on a desk on Flagler Drive. Most business development consultants hand you a strategy and a list of vendors to hire. We hand you the finished kit, built by one team on one timeline.",
+      "Business development is where the rest of the work pays off. Public relations pursues the trade and business press that turns a cold email warm. The brand side builds the deck, the booth and the leave-behind that lands on a desk on Flagler Drive, all from the same identity. The digital side builds the landing pages and the CRM automations behind them. Most business development consultants hand you a strategy and a list of vendors to hire. We hand you the finished kit, built by one team on one timeline.",
     audiences: [
       "Financial firms and family offices relocating to Palm Beach County",
       "B2B service firms that have outgrown referrals",
@@ -421,9 +421,9 @@ export const services: Service[] = [
     metaDescription:
       "Web design and custom software in West Palm Beach: fast custom websites, ecommerce, landing pages, customer portals, internal tools and AI assistants.",
     summary:
-      "Custom websites, ecommerce, landing pages, web apps, customer portals, internal tools and AI assistants, designed and coded for Palm Beach County businesses that have outgrown templates.",
+      "Custom websites, ecommerce, landing pages, web apps, customer portals, internal tools and AI assistants, designed and coded for companies that have outgrown templates.",
     intro: [
-      "Your website is where every other piece of marketing sends people. The press article links to it. The van wrap prints its address. The Google profile shows it. If it loads slowly, looks dated on a phone or buries the phone number, all that attention leaks out the bottom. Too many business sites in Palm Beach County still run on bloated themes and page builders nobody on staff can safely edit.",
+      "Your website is where every other piece of marketing sends people. The press article links to it. The van wrap prints its address. The Google profile shows it. If it loads slowly, looks dated on a phone or buries the phone number, all that attention leaks out the bottom. Too many business sites still run on bloated themes and page builders nobody on staff can safely edit.",
       "We design and code websites from scratch on modern frameworks, so they load fast, rank cleanly, read clearly to search engines and AI assistants, and look like your brand instead of a theme demo. Every build includes real copy, structured data, analytics and forms that actually reach your inbox. You also get an editing setup your team can use without breaking the layout.",
       "Then there is the software most agencies cannot build. Customer portals where clients check a project or pay an invoice. Internal tools that replace the spreadsheet everyone is afraid to touch. Booking flows, quote calculators, automations between your CRM and your inbox, and AI assistants that answer common questions and hand off to a human. If it runs in a browser and saves your team time, it is in scope.",
     ],
@@ -525,7 +525,7 @@ export const services: Service[] = [
       "Storefront and channel letter signs, illuminated and blade signs, window graphics, wall graphics and murals, wayfinding, menu boards, banners and trade show displays, managed from permit to install.",
     intro: [
       "Your sign works every hour you are open and every hour you are closed. On Clematis Street, Atlantic Avenue or a plaza off Okeechobee Boulevard, it is the first piece of branding most customers ever see, and often the only one before they decide whether to walk in. A good sign reads from a moving car, looks right at night and survives a Florida summer.",
-      "We handle signs end to end: design, engineering, fabrication, permits and installation, managed by the same team that shapes the brand. The sign is designed as part of the identity, not redrawn from a logo file by someone who never met you, so the storefront reads like the brand from across the street.",
+      "We handle signs end to end as part of the brand: design, engineering, fabrication, permits and installation, managed by the team that shaped the identity. The storefront reads like the brand from across the street because the same people drew both.",
       "What separates us from a sign shop is the thinking before fabrication. We check what the landlord, the association and the city will allow, design the sign from the brand instead of redrawing your logo, choose lighting for how the street actually looks after dark, and plan the window graphics, interior signs and menu boards as one system. One team is responsible for how the whole storefront reads.",
     ],
     deliverables: [
@@ -727,8 +727,8 @@ export const services: Service[] = [
       "Business cards, stationery, menus, brochures, direct mail and EDDM, packaging, custom apparel, promotional products and event materials, designed on brand and managed from proof to delivery.",
     intro: [
       "Print is the part of marketing people hold in their hands. A menu card on the table, a cup that goes home after a beach day, a crew shirt that shows up at every job, a mailer on the kitchen counter. Done well, it is the most personal brand touch you have. Done cheaply, it is a stack of flyers in the recycling bin and a shirt nobody wears twice.",
-      "We design and manage print and promo from brief to delivery: paper and material choices, color matching, proofs, production with the right vendors and delivery to your door or your event. The goal is simple: things people keep, use and show off, in exactly your colors, so the brand keeps working long after the event.",
-      "The rule we work by is simple: make things people want to keep. That means better blanks, better decoration methods and designs that feel like merchandise rather than advertising. It also means print with a job to do. Direct mail and EDDM with a tracked offer, menus that are easy to update, and event materials that point to a page where the lead gets captured.",
+      "We design and manage print and promo from brief to delivery: paper and material choices, color matching, proofs, production with the right vendors and delivery to your door or your event. The result is things people keep, use and show off, in exactly your colors, so the brand keeps working long after the event.",
+      "Keeping is the whole test. That means better blanks, better decoration methods and designs that feel like merchandise rather than advertising. It also means print with a job to do. Direct mail and EDDM with a tracked offer, menus that are easy to update, and event materials that point to a page where the lead gets captured.",
     ],
     deliverables: [
       { name: "Business cards and stationery", detail: "Cards, letterhead, envelopes, notecards and folders, with premium paper, foil and letterpress options." },

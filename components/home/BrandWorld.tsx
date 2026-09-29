@@ -74,20 +74,21 @@ const T = {
   door: { kind: "img", src: "/img/work/door-lettering.jpg", alt: "Large vinyl lettering on a restaurant's glass door", ratio: "4/3" },
   window: { kind: "img", src: "/img/work/window-graphics.jpg", alt: "Full-window photo graphics on a rug gallery storefront", ratio: "3/4" },
   palm: { kind: "img", src: "/img/work/palm-wall.jpg", alt: "Palm tree and crest wall graphics on white stucco under a barrel-tile roof", ratio: "1/1" },
+  sedan: { kind: "img", src: "/img/work/sedan-graphics.jpg", alt: "Black electric sedan with fleet logo graphics under South Florida palms", ratio: "3/4" },
   pickup: { kind: "img", src: "/img/work/pickup-graphics.jpg", alt: "Black pickup truck with white cut-vinyl fleet graphics", ratio: "4/5" },
 } satisfies Record<string, Tile>
 
 const COLUMNS: Tile[][] = [
   [T.au, { kind: "node", node: <TypeTile />, ratio: "4/5" }, T.anzoWindows, T.pickup],
   [{ kind: "node", node: <ColorTile />, ratio: "1/1" }, T.greek, T.palm, T.lit],
-  [T.wall, T.blade, { kind: "node", node: <LineTile />, ratio: "4/3" }, T.factory],
+  [T.wall, T.blade, { kind: "node", node: <LineTile />, ratio: "4/3" }, T.sedan],
   [T.anzoSign, { kind: "node", node: <MarkTile />, ratio: "1/1" }, T.door, T.window],
 ]
 
 /* Phones: two gliding columns of five, a mix of the work and the system. */
 const MOBILE: Tile[][] = [
-  [T.au, { kind: "node", node: <TypeTile />, ratio: "4/5" }, T.greek, T.anzoWindows, T.blade],
-  [{ kind: "node", node: <ColorTile />, ratio: "1/1" }, T.anzoSign, T.door, T.lit, T.factory],
+  [T.au, { kind: "node", node: <TypeTile />, ratio: "4/5" }, T.sedan, T.greek, T.anzoWindows],
+  [{ kind: "node", node: <ColorTile />, ratio: "1/1" }, T.anzoSign, T.door, T.pickup, T.lit],
 ]
 
 export function BrandWorld() {
@@ -119,8 +120,8 @@ export function BrandWorld() {
           </h2>
         </div>
         <p className="t-body muted-light md:col-span-5">
-          A brand only works if it holds up everywhere it shows up. We design the whole world around it, then make every
-          piece ourselves: the sign over the door, the vinyl on the glass and the graphics on the truck.
+          A signal only works if it holds wherever it lands. We design the whole world around one idea, then see every
+          piece through, from the screen in your hand to the sign over the door.
         </p>
       </div>
 

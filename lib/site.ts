@@ -21,9 +21,9 @@ export const site = {
   tagline: "Impossible to ignore.",
   /** One sentence that answers "who are you" for people, Google and AI answers alike. */
   oneLiner:
-    "Epic Wolf is a West Palm Beach PR, branding and marketing agency that also builds the websites and software and prints the signs, wraps and merch, so a Palm Beach County business gets one team from the front page to the front door.",
+    "Epic Wolf is a West Palm Beach branding, digital marketing and business development agency. One partner-led team shapes the brand, gets it found and turns the attention into revenue, so companies in Palm Beach County and beyond become impossible to ignore.",
   description:
-    "West Palm Beach PR firm and branding agency for Palm Beach County. Public relations, brand identity, digital marketing, business development, websites and software, plus in-house signs, vehicle wraps and print.",
+    "West Palm Beach branding agency and PR firm. Brand, public relations, digital marketing and business development for companies that intend to lead their market.",
   url: ORIGIN,
 
   /* Display format everywhere; the hrefs stay E.164 for dialers. */
@@ -52,14 +52,14 @@ export const site = {
       first: "Jordan",
       role: "Partner, Digital and Growth",
       img: "/img/team/jordan.jpg",
-      focus: "Websites, software, search and the systems that turn attention into booked calls.",
+      focus: "Digital marketing, search, websites and the systems that turn attention into signed work.",
     },
     {
       name: "Shawn Wolf",
       first: "Shawn",
       role: "Partner, Brand and Street",
       img: "/img/team/shawn.jpg",
-      focus: "Brand, print and everything physical, from a storefront sign to a fleet of wrapped vans.",
+      focus: "Brand strategy, identity and every place the brand is seen in person, from the front door to the fleet.",
     },
   ],
 
@@ -95,7 +95,7 @@ export const pillars: Pillar[] = [
   {
     slug: "branding",
     name: "Branding",
-    line: "Who you are, said so well that people repeat it.",
+    line: "Who you are, said so clearly that people repeat it.",
     caps: [
       { name: "Brand strategy and positioning" },
       { name: "Naming and identity systems" },
@@ -109,7 +109,7 @@ export const pillars: Pillar[] = [
   {
     slug: "digital-marketing",
     name: "Digital Marketing",
-    line: "Found first, chosen fast, remembered after.",
+    line: "Found first in every place your buyers look.",
     caps: [
       { name: "Search and AI visibility" },
       { name: "Paid media" },
@@ -122,7 +122,7 @@ export const pillars: Pillar[] = [
   {
     slug: "business-development",
     name: "Business Development",
-    line: "The pipeline, the partners and the pitch that closes.",
+    line: "Where attention turns into meetings and signed work.",
     caps: [
       { name: "Go-to-market and market entry" },
       { name: "Pipeline and CRM systems" },

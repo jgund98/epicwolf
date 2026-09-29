@@ -6,12 +6,13 @@ import { useRange } from "@/lib/motion"
 
 /**
  * Chapter two. One statement, read at the speed you scroll: each word inks in
- * from a pale gray as it passes. The flare phrase is the thesis.
+ * from a pale gray as it passes. The flare phrase is the thesis; the rest
+ * answers chapter one's noise with the site's theme, the signal (VOICE.md).
  */
 const TEXT: { w: string; hot?: boolean }[] = [
   ..."Attention is rented.".split(" ").map((w) => ({ w })),
   ..."Reputation is owned.".split(" ").map((w) => ({ w, hot: true })),
-  ..."We build the kind that compounds: a brand people remember, a story people repeat and a pipeline that turns both into revenue."
+  ..."Most marketing is noise. We build the signal: a name people recognize, a story they repeat and a pipeline that turns both into revenue."
     .split(" ")
     .map((w) => ({ w })),
 ]
@@ -24,7 +25,7 @@ export function Manifesto() {
   return (
     <section data-tone="light" className="on-light relative py-28 md:py-44" aria-label="What we believe">
       <div className="shell">
-        <p className="label">Chapter two · The belief</p>
+        <p className="label">Chapter two · The signal</p>
         <div ref={ref} className="mt-8">
           <p className="t-display !normal-case !tracking-[-0.035em] max-w-[22ch] !leading-[1]" style={{ fontVariationSettings: '"wdth" 112' }}>
             {TEXT.map((t, i) => (

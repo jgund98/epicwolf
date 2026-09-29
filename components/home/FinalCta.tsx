@@ -12,7 +12,7 @@ export function FinalCta() {
         <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12">
           <div className="md:col-span-4">
             <p className="t-lead text-paper/85">
-              Tell us where the company is going. A partner reads every inquiry and replies personally.
+              Tell us where the company is going and who needs to hear about it. A partner reads every inquiry and replies personally.
             </p>
             <p className="muted-dark t-small mt-8">
               Prefer to talk?

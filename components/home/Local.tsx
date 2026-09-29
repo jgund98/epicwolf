@@ -66,9 +66,9 @@ export function Local() {
         </h2>
         <div className="md:col-span-5 md:col-start-8">
           <p className="t-lead text-paper/85">
-            Epic Wolf is based in West Palm Beach. Close enough to walk your space and sit across the table, and fluent
-            in a market where Worth Avenue, Clematis Street and the family office tower down the block all read a brand
-            differently.
+            Home is West Palm Beach, close enough to walk your space and sit across the table. Worth Avenue, Clematis
+            Street and the family office tower down the block each read a brand differently. The work is built to travel,
+            because a clear signal reads the same wherever it lands.
           </p>
           <Link href="/palm-beach-county" className="link-draw mt-8 inline-block text-lg font-semibold">
             Where we work

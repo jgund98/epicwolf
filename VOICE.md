@@ -1,12 +1,33 @@
 # Epic Wolf voice + copy laws (read before writing a single word)
 
-Epic Wolf is a brand-new West Palm Beach agency (partners Jordan Gundlach and Shawn Wolf). PR, branding, digital marketing and business development, plus websites/software, and physical: signs, vehicle wraps, print and promo. Brand line: "Front page to front door." The wedge: no firm in Palm Beach County does the story (PR/brand), the build (web/software/digital) AND the street (signs/wraps/print) under one roof. PR firms don't print, sign shops don't do strategy, digital shops outsource both.
+Epic Wolf is a brand-new West Palm Beach agency (partners Jordan Gundlach and Shawn Wolf). It leads with THREE disciplines and only three: Branding, Digital Marketing and Business Development. Public relations, signage, vehicle graphics and print live inside Branding; websites and software live inside Digital Marketing. Those capability pages exist for search, but they are never the pitch and never a menu. A prestige agency leads with a point of view, not an inventory. The wedge: one partner-led team shapes the brand, gets it found and turns the attention into revenue, so the story never changes hands.
 
 ## Voice
-- Confident, sharp, plain-spoken, a little edge. Short sentences. Talks like a senior strategist over coffee on Clematis, not a brochure.
+- Quiet confidence. The register of a firm that bills like a million-dollar agency and never needs to say so. Never shouts, never begs, never lists everything it can do.
+- Ruthless clarity (think Justin Welsh): short declaratives, one idea per sentence, specific over clever, no fluff.
+- A point of view (think Alex Cattoni): say what we believe and why, respect the reader's intelligence, persuade with truth rather than pressure.
 - Specific over generic. Every paragraph should be impossible to paste onto another agency's site.
-- Hyperlocal: use real places naturally (Clematis Street, CityPlace, Flagler Drive, Okeechobee Boulevard, Worth Avenue, Royal Poinciana Way, PGA Boulevard, Mizner Park, Atlantic Avenue in Delray, Downtown Jupiter / Harbourside, Wellington's equestrian season, I-95, Brightline). West Palm Beach is home; Palm Beach County is the territory.
+- Local is texture, never the headline: use real places naturally in body copy, FAQs, town pages and schema (Clematis Street, CityPlace, Flagler Drive, Okeechobee Boulevard, Worth Avenue, Royal Poinciana Way, PGA Boulevard, Mizner Park, Atlantic Avenue in Delray, Harbourside in Jupiter, Wellington's equestrian season, Brightline). West Palm Beach is home; the work travels. Nothing should make a prospect in Miami or Manhattan feel the site is not for them.
 - Audiences that are real here: finance and family offices ("Wall Street South"), real estate and development, hospitality and restaurants, healthcare and med spas, law firms, marine, equestrian, home services and trades, nonprofits and galas, retail on Worth Ave and Atlantic Ave.
+
+## The theme: signal over noise
+The hero promises "Make your brand impossible to ignore." Chapter one names the problem (the noise: millions of busy people who have never heard your name). Everything after it is the answer: **the signal.** A signal is not louder than the noise. It is clearer. It says one thing, the same way, everywhere it lands, until the market cannot mistake you for anyone else. That is how a prestige brand becomes impossible to ignore without ever raising its voice.
+
+The three disciplines are the signal's life: **Branding** makes it unmistakable, **Digital Marketing** makes sure it is found first, **Business Development** makes sure it gets answered (chosen, signed, closed).
+
+Moves that express it (use the idea on every page; use the word "signal" once or twice a page at most):
+1. **Name the noise, then answer it.** Open with what everyone else does (more posts, more vendors, five versions of the logo), then the one clear thing we do instead. State it; never pose it as a rhetorical question.
+2. **Clear, not loud.** Impossible to ignore is earned by clarity and consistency, never volume. Words that carry the theme: clear, unmistakable, recognize, repeat, carry, hold, lands, one.
+3. **One idea, every surface.** The same promise in the same voice wherever the brand appears: a screen, a press story, a pitch deck, the front door. "The market meets one brand, not five versions of it."
+4. **The name arrives first.** A strong signal reaches rooms you are not in: people repeat it, reporters use it, buyers have heard it before the first call.
+5. **Signal is measured.** Recognition, inquiries, pipeline and revenue. Never impressions, followers or "buzz".
+
+Never say: "cut through the noise", "cut through the clutter", "break through", "stand out from the crowd", "amplify", "make some noise", "turn up the volume", "megaphone", "go viral", "buzz", "signal boost", radio or frequency puns, or "loud" as praise. The theme should be felt more than named.
+
+## Headline shapes
+- The two-beat slogan pair ("Short. Punchy.") is not the default. The chapter headlines that already use it and work ("Attention is rented. Reputation is owned.", "Three disciplines. One point of view.", "Every surface. One standard.", "Two partners. One agency.", "Local roots. Regional reach.") stay. Do not add new ones. Default to one plain clause with a point of view ("Become the name people repeat").
+- No rule-of-three filler, no rhetorical-question openers, no exclamation points.
+- Never: "elevate", "unlock", "seamless", "leverage", "tailored solutions", "game-changer", "in today's fast-paced", "we're passionate". No press-release or newsroom cliches ("proud to announce", "industry-leading", "thrilled").
 
 ## Hard laws (violations get rejected)
 1. American English.

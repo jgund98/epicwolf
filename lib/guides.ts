@@ -10,7 +10,7 @@ const all: Guide[] = [
     slug: "vehicle-wrap-cost-palm-beach-county",
     title: "How Much Does a Vehicle Wrap Cost in Palm Beach County",
     description:
-      "Typical 2026 market ranges for car, van, truck and trailer wraps, what drives price, wrap vs paint, how long vinyl lasts in Florida sun, and fleet programs.",
+      "Typical 2026 market ranges for car, van, truck and trailer wraps in Palm Beach County, what drives price, wrap versus paint and how long vinyl lasts in the sun.",
     published: "2026-09-28",
     updated: "2026-09-28",
     summary:
@@ -161,7 +161,7 @@ const all: Guide[] = [
     slug: "choosing-a-pr-firm-west-palm-beach",
     title: "How to Choose a PR Firm in West Palm Beach",
     description:
-      "PR firm vs publicist vs marketing agency, typical retainer and project ranges, what to ask, red flags, and the West Palm Beach media landscape in 2026.",
+      "How to choose a PR firm in West Palm Beach: firm versus publicist, typical retainer ranges, the questions worth asking, the red flags and the local media landscape.",
     published: "2026-09-28",
     updated: "2026-09-28",
     summary:
@@ -307,7 +307,7 @@ const all: Guide[] = [
     slug: "branding-agency-vs-marketing-agency",
     title: "Branding Agency vs Marketing Agency and Why It Matters",
     description:
-      "What a branding agency does, what a marketing agency does, when you need each, why splitting them causes brand drift, and when integrated makes sense.",
+      "What a branding agency does, what a marketing agency does, when you need each and why splitting the two between vendors is how brands drift.",
     published: "2026-09-28",
     updated: "2026-09-28",
     summary:
@@ -432,7 +432,7 @@ const all: Guide[] = [
     slug: "business-sign-permits-palm-beach-county",
     title: "Getting a Business Sign Approved in Palm Beach County",
     description:
-      "How business sign approval generally works in Palm Beach County: who has jurisdiction, landlord and HOA sign-off, design review boards and permits.",
+      "How business sign approval works in Palm Beach County: who has jurisdiction, landlord and association sign-off, design review boards and permits.",
     published: "2026-09-28",
     updated: "2026-09-28",
     summary:
@@ -594,7 +594,7 @@ const all: Guide[] = [
     slug: "get-found-in-ai-search-local-business",
     title: "How a Palm Beach Business Gets Found in ChatGPT and Google AI Answers",
     description:
-      "A practical guide to showing up in Google AI Overviews, AI Mode and ChatGPT: Business Profile, entity consistency, reviews, answer-first pages, schema, PR.",
+      "How a local business shows up in Google AI Overviews, AI Mode and ChatGPT. No secret switch, just a clear and consistent signal across the sources AI trusts.",
     published: "2026-09-28",
     updated: "2026-09-28",
     summary:

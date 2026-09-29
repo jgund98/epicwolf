@@ -22,7 +22,7 @@ import { useRange } from "@/lib/motion"
 const PHASES = [
   {
     t: "We listen.",
-    b: "Owners, customers, the numbers and the market. Most of the answers are already inside the company. Our first job is to hear them.",
+    b: "Owners, customers, the numbers and the market. The clearest signal is usually already inside the company. Our first job is to hear it.",
   },
   {
     t: "We decide.",
@@ -30,11 +30,11 @@ const PHASES = [
   },
   {
     t: "We build.",
-    b: "Identity, story, site, campaigns and the pipeline behind them, made by one team to one standard.",
+    b: "Identity, story, site, campaigns and the pipeline behind them, made by one team so every piece says the same thing.",
   },
   {
     t: "We go live.",
-    b: "Search, press, social and the sign out front, all at once. The market meets one brand, not five versions of it.",
+    b: "Search, press, social and the front door go live together. The market meets one brand, not five versions of it.",
   },
   {
     t: "We keep score.",

@@ -7,7 +7,8 @@ Dev `npm run dev` (3640), prod `next build && next start -p 3641`.
 1. **The noise.** Hero: "Make your [brand/launch/story/pitch/name] IMPOSSIBLE TO IGNORE." A real
    South Florida coastline aerial plays through the letters (multiply-blended black layer). Scrolling
    zooms through the first I into the full footage and the chapter copy.
-2. **The belief.** "Attention is rented. Reputation is owned." Inks in word by word.
+2. **The signal.** "Attention is rented. Reputation is owned. Most marketing is noise. We build the signal..."
+   Inks in word by word. Answers chapter one's noise with the site's theme (VOICE.md, "signal over noise").
 3. **The orange band** (kinetic rows) and **The craft**: three disciplines only (Branding, Digital
    Marketing, Business Development). PR, websites/software, signs, vehicle graphics and print live
    inside them as capability pages for search, never as a menu.
@@ -41,6 +42,20 @@ Dev `npm run dev` (3640), prod `next build && next start -p 3641`.
 - Claims to approve: "A partner reads every inquiry and replies personally", the "How we work" principles on About, the investment ranges in the form.
 - Service pages include agent-written timelines ("six to ten weeks" for identity work) and one
   published market range for wraps (sourced). Review before launch.
+- Copy pass (signal over noise), items to verify:
+  - Chapter four tiles are real storefront and signage photos, and client names are legible in several. Confirm
+    the partners can show each one under the Epic Wolf name with the client's blessing. The copy no longer says
+    "we make every piece ourselves" (VOICE law 6); it says we "see every piece through".
+  - Wrap pricing disagrees between pages: the Vehicle Graphics FAQ cites a "Hyperformance Graphics 2026" guide
+    (van $3,500 to $6,500), the wrap-cost guide cites Lee's Signs and VehicleWrapCost (van $3,500 to $8,000).
+    Verify the Hyperformance source exists and align the two.
+  - Third-party facts on town pages were agent-checked 2026-09-28 (WEF $536.2M impact, Port of Palm Beach
+    ranking, Innovation Campus size, 328 Palm Beach landmarks). Riviera Beach says Rybovich opened a building
+    "this year", which will age; re-date it.
+  - Chapter one (Hero, untouched) opens with "Over six million people live in South Florida." True for the Miami
+    metro at the 2020 census; keep only if the partners are comfortable with a number on the page.
+  - Partner titles "Brand and street" / "Digital and growth" read more trade than prestige. Confirm the titles
+    the partners want (for example "Brand and experience").
 - Not yet done off-site (biggest SEO/AI-answer levers): Google Business Profile, Clutch/DesignRush/
   Yelp/BBB listings, LinkedIn, consistent name + phone everywhere, first reviews.
 

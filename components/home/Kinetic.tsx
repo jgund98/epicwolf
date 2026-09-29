@@ -14,7 +14,7 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
 const ROWS: { big: string; small: string; dir: 1 | -1; dur: number }[] = [
   { big: "Branding", small: "unmistakable", dir: -1, dur: 46 },
   { big: "Digital marketing", small: "found first", dir: 1, dur: 58 },
-  { big: "Business development", small: "closed", dir: -1, dur: 68 },
+  { big: "Business development", small: "chosen", dir: -1, dur: 68 },
 ]
 
 export function Kinetic() {

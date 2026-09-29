@@ -68,15 +68,25 @@ export function Hero() {
   const measureRef = useRef<HTMLSpanElement>(null)
 
   /* Capabilities, read once on the client. */
-  const [caps, setCaps] = useState({ native: false, phone: false })
+  const [caps, setCaps] = useState<{ native: boolean; phone: boolean } | null>(null)
   useLayoutEffect(() => {
     setCaps({
       native: typeof CSS !== "undefined" && CSS.supports("animation-timeline: view()"),
       phone: window.matchMedia("(pointer: coarse), (max-width: 767px)").matches,
     })
   }, [])
-  const native = caps.native && !reduce
-  const useLadder = caps.phone && !reduce
+  const native = !!caps?.native && !reduce
+  const useLadder = !!caps?.phone && !reduce
+
+  /* The hero is held (black) until the real font has loaded, the headline is
+     fitted and the cutout is drawn, then it arrives in one piece: the footage
+     fades up inside the letters while the copy fades in. Without this a refresh
+     flashes the fallback font, the unfitted size and a blank frame in turn. */
+  const [ready, setReady] = useState(false)
+  useLayoutEffect(() => {
+    const t = setTimeout(() => setReady(true), 2500) // never hold longer than this
+    return () => clearTimeout(t)
+  }, [])
 
   /* Fit IMPOSSIBLE to the shell width, capped so the whole headline fits the fold.
      Height-only changes are ignored: on phones the address bar collapsing
@@ -196,7 +206,7 @@ export function Hero() {
   /* Read where the page laid the big words out, size the canvases, find the zoom target. */
   const measure = useCallback(() => {
     const st = stage.current
-    if (!st || !fs) return
+    if (!st || !fs || !caps) return
     const sr = st.getBoundingClientRect()
     const face: Geo["face"] = window.matchMedia("(max-width: 767px)").matches ? "narrow" : "wide"
     const data = HERO_MASK[face]
@@ -249,8 +259,9 @@ export function Hero() {
       draw(p.get(), true)
       c.style.backgroundColor = "transparent"
     }
+    if (!document.fonts || document.fonts.status === "loaded") setReady(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fs, draw, paint, stepLadder, p, useLadder, native])
+  }, [fs, caps, draw, paint, stepLadder, p, useLadder, native])
 
   useLayoutEffect(() => {
     if (!fs) return
@@ -302,7 +313,8 @@ export function Hero() {
         </div>
 
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
+          style={{ opacity: ready ? 1 : 0 }}
           poster="/video/coast.jpg"
           autoPlay
           muted
@@ -333,7 +345,7 @@ export function Hero() {
         )}
 
         {/* The readable layer */}
-        <div className="absolute inset-0 text-paper">
+        <div className="absolute inset-0 text-paper transition-opacity duration-500 ease-out" style={{ opacity: ready ? 1 : 0 }}>
           <HeadLayout
             fs={fs}
             lineRefs={lineRefs}
