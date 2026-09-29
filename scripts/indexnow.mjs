@@ -1,7 +1,7 @@
 // Pings IndexNow (Bing, Yandex, Seznam, Naver...) with every URL in the live sitemap.
 // Run after each production deploy: node scripts/indexnow.mjs
 // ChatGPT search leans on Bing's index, so this is the fastest route into it.
-const ORIGIN = process.env.SITE_ORIGIN || "https://www.epicwolf.agency"
+const ORIGIN = process.env.SITE_ORIGIN || "https://epicwolf.epicdevsolutions.com"
 const KEY = "eeae7d324595cc7df12d721e82bdaa55"
 
 const xml = await (await fetch(`${ORIGIN}/sitemap.xml`)).text()

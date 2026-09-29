@@ -1,17 +1,3 @@
 {
-  "framework": "nextjs",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "epicwolf.agency" }],
-      "destination": "https://www.epicwolf.agency/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "epicwolf.epicdevsolutions.com" }],
-      "destination": "https://www.epicwolf.agency/:path*",
-      "permanent": true
-    }
-  ]
+  "framework": "nextjs"
 }
