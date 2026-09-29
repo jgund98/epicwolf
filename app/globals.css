@@ -505,6 +505,149 @@ header[data-htone="dark"] .btn-flare:hover {
   }
 }
 
+/* Text us (components/site/TextUs.tsx): the wordmark's period becomes a
+   message bubble in the corner on phones. Transforms and opacity only. */
+.tu {
+  position: fixed;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 80;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.tu.is-on {
+  pointer-events: auto;
+}
+.tu-dot {
+  order: 2;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-flare);
+  box-shadow: 0 0 0 3px rgb(10 10 11 / 0.9);
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tu.is-on .tu-dot {
+  transform: scale(1);
+}
+.tu-bubble {
+  order: 1;
+  position: relative;
+  display: grid;
+  min-width: 64px;
+  padding: 11px 16px 12px;
+  border-radius: 20px 20px 6px 20px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.28), inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  transform-origin: 100% 100%;
+  transform: translate3d(10px, 6px, 0) scale(0.4);
+  opacity: 0;
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.15) 0.12s,
+    opacity 0.3s ease 0.12s;
+}
+.tu.is-on .tu-bubble {
+  transform: none;
+  opacity: 1;
+}
+.tu:active .tu-bubble {
+  transform: scale(0.96);
+}
+/* typing and text share one grid cell and cross-fade */
+/* Over a dark section the bubble turns cream so it never sinks into the page. */
+.tu[data-tone-under="dark"] .tu-bubble {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+}
+.tu[data-tone-under="dark"] .tu-sub {
+  color: rgb(10 10 11 / 0.6);
+}
+.tu[data-tone-under="dark"] .tu-dot {
+  box-shadow: 0 0 0 3px var(--color-paper);
+}
+.tu-bubble {
+  transition-property: transform, opacity, background-color, color;
+}
+.tu-typing,
+.tu-text {
+  grid-area: 1 / 1;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+.tu-typing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 20px;
+  opacity: 0;
+}
+.tu-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+  animation: tu-type 1s ease-in-out infinite;
+}
+.tu-typing i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.tu-typing i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes tu-type {
+  0%, 60%, 100% { transform: translate3d(0, 0, 0); opacity: 0.35; }
+  30% { transform: translate3d(0, -4px, 0); opacity: 1; }
+}
+.tu-text {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  white-space: nowrap;
+}
+.tu-title {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.tu-sub {
+  margin-top: 2px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgb(244 242 236 / 0.62);
+}
+.tu-typing i,
+.tu-dot {
+  will-change: transform;
+}
+.tu.tu-s-typing .tu-typing {
+  opacity: 1;
+}
+.tu.tu-s-ready .tu-text {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tu-dot,
+  .tu-bubble,
+  .tu-typing,
+  .tu-text {
+    transition: none;
+  }
+  .tu-typing i {
+    animation: none;
+  }
+}
+
 /* The word that breaks over the brand-world frame. */
 .t-world {
   font-size: clamp(2.4rem, 8.6vw, 12.8rem);

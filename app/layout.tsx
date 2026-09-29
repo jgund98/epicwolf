@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Archivo } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/site/Header"
+import { TextUs } from "@/components/site/TextUs"
 import { Footer } from "@/components/site/Footer"
 import { SmoothScroll } from "@/components/site/SmoothScroll"
 import { LabelMarks } from "@/components/site/LabelMarks"
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <TextUs />
       </body>
     </html>
   )
