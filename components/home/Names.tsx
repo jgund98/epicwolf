@@ -116,10 +116,10 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
 type Half = { word: React.ReactNode; img: string; name: string; role: string; href: string }
 
 /**
- * Phones. A pinned scene staged for a tall screen: EPIC and WOLF, huge and
- * stacked, sweep in from opposite edges, the partners come in from the sides and
- * settle shoulder to shoulder in front of the words, and the ledge with their
- * names lands last.
+ * Phones. A pinned scene staged for a tall screen: epic, then wolf, huge and
+ * stacked, rise out of their masks like set type; the partners rise into place
+ * in front of the words one after the other (never cropped, never scaled, so
+ * the cutouts stay sharp); the ledge with their names lands last.
  *
  * Driven by the browser's own scroll timeline (.pm-* in globals.css), so it runs
  * on the compositor in lockstep with the finger: no JavaScript per frame, which
@@ -131,11 +131,16 @@ function MobileStage({ halves }: { halves: Half[] }) {
     <div className="pm-stage relative md:hidden">
       <div className="pm-pin h-[100svh] overflow-hidden">
         <div className="absolute inset-x-0 top-[25%] flex flex-col items-center gap-[1vw]" aria-hidden>
-          <div className="pm-epic w-[89.7vw]">
-            <StackWord word={WM_EPIC} />
+          {/* Each word rises out of its own mask, like type being set */}
+          <div className="w-[89.7vw] overflow-clip">
+            <div className="pm-epic">
+              <StackWord word={WM_EPIC} />
+            </div>
           </div>
-          <div className="pm-wolf w-[94vw]">
-            <StackWord word={WM_WOLF} />
+          <div className="w-[94vw] overflow-clip">
+            <div className="pm-wolf">
+              <StackWord word={WM_WOLF} />
+            </div>
           </div>
         </div>
 
