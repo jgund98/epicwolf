@@ -137,7 +137,11 @@ export function Hero() {
       aria-labelledby="hero-title"
     >
       {native && <style>{heroKeyframes(maxScale)}</style>}
-      <div className={reduce ? "relative min-h-[100svh] overflow-hidden" : "sticky top-0 h-[100svh] overflow-hidden"}>
+      {/* The stage fills the LARGEST viewport, so when a phone's toolbar
+          collapses mid-scroll there is never a band below the footage. The
+          readable layout inside sits in the SMALL viewport, so nothing is ever
+          hidden behind the toolbar. */}
+      <div className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
         {/* Width probe for the fit. Never visible. */}
         <div className="shell pointer-events-none invisible absolute inset-x-0 top-0" aria-hidden>
           <span ref={measureRef} className="hero-word inline-block whitespace-nowrap" style={{ fontSize: 100 }}>
@@ -255,7 +259,7 @@ function HeadLayout({
   const H1 = mask ? "div" : "h1"
 
   return (
-    <div className="shell flex h-full flex-col justify-center pb-[max(1.5rem,4svh)] pt-[calc(var(--header-h)+1rem)] md:pb-10">
+    <div className="shell flex h-[100svh] flex-col justify-center pb-[max(1.5rem,4svh)] pt-[calc(var(--header-h)+1rem)] md:pb-10">
       <H1 id={mask ? undefined : "hero-title"} className="relative">
         <motion.span style={{ y: upY, opacity: fade, ...hide }} className={`block ${native ? "hsd-up" : ""}`}>
           <span className="label mb-5 md:mb-7" style={hide}>
@@ -317,7 +321,7 @@ function Chapter({ p, scrim, native }: { p: MotionValue<number>; scrim: MotionVa
   return (
     <div className="pointer-events-none absolute inset-0">
       <motion.div className={`absolute inset-0 bg-ink ${native ? "hsd-scrim" : ""}`} style={native ? undefined : { opacity: scrim }} />
-      <div className="shell relative flex h-full flex-col justify-center gap-[0.35em]">
+      <div className="shell relative flex h-[100svh] flex-col justify-center gap-[0.35em]">
         {native ? (
           <>
             <p className="label hsd-label mb-4 text-paper">Chapter one · The noise</p>

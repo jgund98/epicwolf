@@ -5,7 +5,6 @@ import { Header } from "@/components/site/Header"
 import { Footer } from "@/components/site/Footer"
 import { SmoothScroll } from "@/components/site/SmoothScroll"
 import { LabelMarks } from "@/components/site/LabelMarks"
-import { Progress } from "@/components/site/Progress"
 import { JsonLd } from "@/components/site/JsonLd"
 import { orgSchema, websiteSchema } from "@/lib/seo"
 import { serviceIndex, site } from "@/lib/site"
@@ -54,7 +53,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <JsonLd data={[orgSchema(serviceIndex.map((s) => s.name)), websiteSchema()]} />
         <SmoothScroll />
-        <Progress />
         <LabelMarks />
         <Header />
         <main id="main">{children}</main>

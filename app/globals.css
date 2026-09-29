@@ -525,3 +525,10 @@ header[data-htone="dark"] .btn-flare:hover {
     border-radius: 22px 22px 34% 22px / 22px 22px 56% 22px;
   }
 }
+
+/* Hero stage: largest viewport where supported, so the footage always fills the
+   phone screen whatever the toolbar is doing. */
+.hero-stage {
+  height: 100vh;
+  height: 100lvh;
+}
