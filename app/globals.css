@@ -354,7 +354,9 @@ header[data-htone="dark"] .btn-flare:hover {
   place-items: center;
   background: var(--color-ink);
   pointer-events: none;
-  clip-path: inset(0 0 0 0);
+  /* Lifted with a transform, not a clip-path: transforms run on the compositor,
+     so a phone busy loading the app can never hold the curtain down. */
+  will-change: transform;
   animation: ew-lift 0.75s cubic-bezier(0.83, 0, 0.17, 1) 1.15s forwards;
 }
 .no-intro .ew-intro {
@@ -385,7 +387,7 @@ header[data-htone="dark"] .btn-flare:hover {
 }
 @keyframes ew-lift {
   to {
-    clip-path: inset(0 0 100% 0);
+    transform: translate3d(0, -100%, 0);
     visibility: hidden;
   }
 }

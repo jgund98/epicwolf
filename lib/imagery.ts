@@ -117,6 +117,7 @@ export function townImage(slug: string, index: number): Pic {
 
 /** Per guide: the lead image (also the index thumbnail) and one picture set mid-article. */
 export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
+  "how-to-choose-a-branding-agency-palm-beach": { lead: P.anzoWindows, inline: P.greek },
   "get-found-in-ai-search-local-business": { lead: P.ewDigital, inline: P.flaglerNight },
   "choosing-a-pr-firm-west-palm-beach": { lead: P.press, inline: P.worthAve },
   "branding-agency-vs-marketing-agency": { lead: P.sketch, inline: P.swatches },

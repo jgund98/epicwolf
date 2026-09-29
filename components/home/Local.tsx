@@ -50,7 +50,7 @@ export function Local() {
       <div className="relative mt-6 isolate" aria-hidden>
         <div className="absolute inset-0 overflow-hidden">
           <motion.div className="absolute inset-[-3.5%]" style={{ y: reduce ? 0 : drift, scale: reduce ? 1 : zoom }}>
-            <LazyVideo src="/video/561-hd.mp4" srcMobile="/video/561-m.mp4" poster="/video/561-hd.jpg" className="h-full w-full object-cover" />
+            <LazyVideo src="/video/561-hd.mp4" srcMobile="/video/561-m.mp4" poster="/video/561-hd.webp" className="h-full w-full object-cover" />
           </motion.div>
         </div>
         <div className="relative flex items-center justify-center mix-blend-multiply" style={{ backgroundColor: "#000" }}>

@@ -291,7 +291,7 @@ export function Hero() {
       <div ref={stage} className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          poster="/video/coast.jpg"
+          poster="/video/coast.webp"
           autoPlay
           muted
           loop

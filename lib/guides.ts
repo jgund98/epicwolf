@@ -1043,10 +1043,217 @@ const all: Guide[] = [
       { label: "Town of Palm Beach Code: Article XI Signs", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI_DIV2REDI_S134-2401SCDI" },
     ],
   },
+  {
+    /* The honest alternative to the self-ranked "best agencies" pages (raw/ai-visibility-research.md).
+       Never name, rank or disparage another agency here. */
+    slug: "how-to-choose-a-branding-agency-palm-beach",
+    title: "How to Choose a Branding Agency in Palm Beach County",
+    description:
+      "An honest buyer's guide to choosing a branding agency in Palm Beach County: types of firms, what to look for, questions to ask, red flags and how to compare proposals.",
+    published: "2026-09-28",
+    updated: "2026-09-28",
+    summary:
+      "Choose a branding agency on evidence you can check, not on who tops a list. See relevant work in the real world, meet the people who will actually do yours, and get a written process, an itemized scope and full ownership of the final files before you sign. Published 2026 guides put design studios at roughly $5,000 to $30,000 and established agencies at $15,000 or more, and Clutch reports the most common branding project at $10,000 to $49,999.",
+    sections: [
+      {
+        h2: "How do you choose a branding agency in Palm Beach County",
+        answer:
+          "Judge agencies on evidence you can check yourself. See their work in the real world, meet the people who will do yours, and get a written process, an itemized scope and full ownership of the final files before you sign. Then compare proposals line by line, not by the total at the bottom.",
+        body: [
+          "Epic Wolf wrote this guide. We are one of the agencies you might consider, so we kept it to criteria you can use with anyone. You will not find a ranked list of firms here.",
+          "That is deliberate. Many of the \"best branding agencies\" pages that rank today are published by agencies that include themselves, and AI assistants can repeat those lists as if they were independent research. A list written by a firm in the running is marketing. The criteria below work no matter who wrote the list you started from.",
+        ],
+      },
+      {
+        h2: "Which type of firm fits your project",
+        answer:
+          "Match the firm to the job. A freelancer suits a logo and a simple file package. A design studio suits a complete identity system. A branding agency suits strategy, naming and rebrands. A marketing agency suits campaigns for a brand that is already settled. A full-service agency suits a business that wants one team for both.",
+        body: [
+          "The ranges below come from published 2026 pricing guides by Splash Creative, NewMedia and dp.vision. They overlap because the labels are loose, and they are typical market ranges, not our pricing. Clutch, which builds its figures from verified client reviews, reports that the most common branding project on its platform runs $10,000 to $49,999.",
+          "If you are not sure whether the problem is the brand or the marketing, settle that first. Our guide Branding Agency vs Marketing Agency and Why It Matters walks through the split and how to tell which one you need first.",
+        ],
+        table: {
+          head: ["Type of firm", "Best for", "Typical market range", "Watch for"],
+          rows: [
+            ["Freelancer", "A logo, colors and type for a new or small business", "$500 to $10,000 or more", "Strategy is rare, and so is backup when they get busy"],
+            ["Design studio", "A complete identity system with guidelines", "$5,000 to $30,000", "Strategy depth varies; ask what happens before design"],
+            ["Branding agency", "Positioning, naming, messaging and rebrands", "$15,000 to $250,000 or more", "Senior people who sell the work but do not do it"],
+            ["Marketing agency", "Campaigns, search, social and ads for a settled brand", "Varies by retainer and channel", "Brand decisions made one ad at a time"],
+            ["Full-service agency", "One team for brand, marketing and rollout", "Varies with scope", "Real depth in each discipline, not generalists"],
+          ],
+        },
+      },
+      {
+        h2: "What to look for in a branding agency",
+        answer:
+          "Six things separate a good fit from a good pitch: relevant work you can see in person, the names of the people who will do the work, a written process, a clear scope, full ownership of what you pay for, and an honest answer to how the agency will judge whether it worked.",
+        body: [
+          "Relevant does not have to mean your exact industry. It means a similar problem: a business moving upmarket, a family firm handing over to the next generation, a practice opening a second location. Ask for a walk through one project from the first meeting to the finished pieces, and listen for how the decisions were made.",
+        ],
+        list: [
+          "Relevant work you can see: a storefront you can walk past, a truck on the road, a website you can use",
+          "Who does the work: the names and roles of the people on your project, and which parts go to subcontractors",
+          "Process: research and strategy before design, with clear points where you review and approve",
+          "Scope clarity: an itemized list of deliverables, concepts, revision rounds and file formats",
+          "Ownership: a written transfer of copyright in the final work, with font and image licenses in your name",
+          "Results: how success will be judged, in recognition, inquiries and sales rather than likes or impressions",
+        ],
+      },
+      {
+        h2: "Who owns the logo when the work is done",
+        answer:
+          "You do only if the contract says so. The US Copyright Office explains that commissioned work counts as a work made for hire only in nine specific categories, and only with a written agreement signed by all parties. A logo usually falls outside those categories, so ask for a written assignment of copyright on final payment.",
+        body: [
+          "Without that assignment, the designer can keep the copyright while you hold only permission to use the work. Fixing it later, when you want to sell the business or file a trademark, is slower and more expensive than fixing it in the contract. This is general information, not legal advice, so have an attorney review anything you are unsure about.",
+          "Trademarks are a separate step. Your business, not the agency, should be the owner on any trademark application. The US Patent and Trademark Office charges a base application fee of $350 per class of goods or services, and attorney fees are separate.",
+        ],
+        list: [
+          "A written assignment of copyright in the final, approved work",
+          "Editable source files, not only flattened images",
+          "Font and stock image licenses in your business name",
+          "Your domain, Google Business Profile, social accounts and ad accounts registered to you, with the agency added as a user",
+          "Your business named as the owner on any trademark filing",
+        ],
+      },
+      {
+        h2: "Questions to ask a branding agency",
+        answer:
+          "Ask questions that make the agency show its thinking, not its reel. A good first meeting feels like a working session: they ask about your customers, competitors and goals before they talk about themselves. Bring the list below and write down every answer so you can compare firms afterward.",
+        list: [
+          "Who will work on our project day to day, and will we meet them before we sign",
+          "Which parts of the work do you do yourselves, and which do you subcontract",
+          "Can we see a project like ours in the real world, and speak with that client",
+          "What happens before design starts, and what do we receive from that phase",
+          "How many concepts and revision rounds are included, and what does an extra round cost",
+          "Which files do we receive at the end, and in what formats",
+          "Will you assign copyright to us in writing, and whose name is on the font and image licenses",
+          "Do you screen new names for trademark conflicts, or should we bring in an attorney",
+          "What is the timeline, and what on our side most often causes delays",
+          "How will we know the new brand is working a year from now",
+          "How do you bill, and what would change the price once we start",
+          "What would make you turn down this project",
+        ],
+      },
+      {
+        h2: "Red flags when hiring a branding agency",
+        answer:
+          "The biggest red flags are promises nobody can keep and a scope nobody wrote down. Be wary of guaranteed results, a price before any questions about your business, senior people who pitch and then disappear, and a contract that leaves ownership of the work vague.",
+        list: [
+          "Guaranteed rankings, followers or sales",
+          "A quote before anyone asks about your customers or goals",
+          "Pressure to sign quickly, or a discount that expires at the end of the meeting",
+          "The people in the pitch are not the people on the project",
+          "No itemized deliverables and no revision limit in writing",
+          "Only flattened image files at handoff, or copyright kept by the agency",
+          "Your domain, profiles or ad accounts registered in the agency's name",
+          "A portfolio of mockups with no work that exists in the real world",
+          "Reviews you cannot trace to a real client or a real project",
+        ],
+      },
+      {
+        h2: "How to compare branding proposals",
+        answer:
+          "Line up proposals by what you receive, not by the total. Two quotes can differ widely because one covers a logo file and the other covers research, strategy, messaging and a full identity system. Put every line item in its own row and the gaps between proposals become obvious.",
+        body: [
+          "Timelines vary more than most buyers expect. Clutch reports a typical timeline of 8 months across the branding engagements reviewed on its platform, which include far broader scopes than a single identity project. Ask each firm for dates, not durations.",
+        ],
+        table: {
+          head: ["Line item", "What to check", "Benchmark or note"],
+          rows: [
+            ["Discovery and strategy", "Research, interviews and a written positioning you keep", "Ask what you receive from this phase, not only how long it takes"],
+            ["Concepts", "How many distinct directions you will see", "More concepts do not help if none is grounded in strategy"],
+            ["Revision rounds", "How many are included and what extra rounds cost", "Splash Creative says most studios include two or three"],
+            ["Deliverables", "Logo versions, color, type, guidelines and templates, item by item", "Assume anything not listed is excluded"],
+            ["Files and formats", "Editable source files as well as finished images", "Flattened images alone tie you to the original designer"],
+            ["Ownership", "A written copyright assignment and licenses in your name", "Commissioned work is a work made for hire only in nine categories, per the US Copyright Office"],
+            ["Timeline", "Dates for each phase and what you owe at each review", "Published guides: 4 to 8 weeks for a core identity, 8 to 16 weeks or more for a full agency engagement"],
+            ["Team", "Named people and their roles", "Compare seniority and involvement, not headcount"],
+            ["Price and billing", "Fixed fee or hourly, the payment schedule and what triggers a change order", "Clutch reports an average of $100 to $149 an hour for branding agencies on its platform"],
+            ["Rollout", "Whether signs, vehicles, print and the website are in scope", "Applying the brand is the cost budgets most often miss"],
+          ],
+        },
+      },
+      {
+        h2: "Does a local branding agency matter in Palm Beach County",
+        answer:
+          "It matters most when the brand has to live in the physical world here: storefronts, signs, vehicles and events. It matters least for strategy, naming and digital identity, which travel well. Hire for the thinking and the work first, and treat local knowledge as a real advantage rather than the deciding factor.",
+        body: [
+          "Local helps with the physical rollout because sign rules change from one city or town to the next. Delray Beach requires a sign permit for new signs and face changes, and the Town of Palm Beach requires a permit and architectural review to erect, alter or illuminate a sign. An agency that has been through those processes designs around them instead of redrawing after a rejection.",
+          "Local also helps when you want to see the work in person, sit in the same room for key decisions, or reach the county's business and civic networks. It helps less when your customers are national or online, or when your category is shaped far from here. In those cases, relevant experience matters more than an address.",
+          "Timing is worth raising with any firm, local or not. Many businesses here plan their year around the winter season, so ask how the launch date fits yours.",
+        ],
+      },
+      {
+        h2: "Where can you research branding agencies",
+        answer:
+          "Use several sources and look for agreement between them. Read Google Business Profile reviews, check directories such as Clutch, DesignRush and Sortlist, browse chamber of commerce member directories, and ask peers whose brands you admire who did their work. No single list is the whole picture.",
+        body: [
+          "Review rules help you here. Google's review policy prohibits reviews posted in exchange for incentives and bars businesses from selectively asking only happy customers. A Federal Trade Commission rule announced in August 2024 bans fake reviews, reviews paid for to express a particular opinion and undisclosed reviews by a company's own staff. Patterns that break those rules are worth noticing.",
+          "Read any \"best agencies\" list with the same care. Ask who wrote it, whether they appear on it and how the order was decided.",
+        ],
+        list: [
+          "Google Business Profile reviews: read the words, not just the stars, and look for reviewers who describe a real project",
+          "Clutch: it checks reviewers' identity and work history, and lists sponsors above other firms, so re-sort by Clutch Rank to see the organic order",
+          "DesignRush and Sortlist: useful for a long list, but note which listings are marked featured; on Sortlist, featured placement is part of a paid plan",
+          "Chamber of commerce directories: the county's chambers publish member listings, a quick way to confirm a firm is active locally",
+          "Peers: ask business owners whose brands you admire who did the work and what the process was like",
+          "Sunbiz: the Florida Division of Corporations' public records show whether a company is registered and active, and who runs it",
+        ],
+      },
+      {
+        h2: "How do you make the final decision",
+        answer:
+          "Narrow the field to two or three firms, meet the people who would do the work, call at least one past client for each, and compare proposals line by line. Then choose the team whose questions about your business were the sharpest. The questions a firm asks before the contract predict the work after it.",
+        body: [
+          "If Epic Wolf ends up on your shortlist, our partners have been building brands in South Florida since 2001, and we are glad to be measured against every question in this guide.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does it cost to hire a branding agency in Palm Beach County?",
+        a: "Published 2026 pricing guides put freelancers at roughly $500 to $10,000, design studios at $5,000 to $30,000, and established agencies from $15,000 to $250,000 or more. Clutch reports the most common branding project on its platform at $10,000 to $49,999. No survey isolates Palm Beach County, so treat these as national market ranges and compare quotes by scope.",
+      },
+      {
+        q: "Should I hire a local branding agency or a remote one?",
+        a: "Hire the firm with the most relevant thinking and work, then weigh location. A local agency helps when the brand has to live on storefronts, signs and vehicles here, because permit and design review rules vary by city and town. For strategy, naming and digital identity, a remote firm can do excellent work if communication is clear and regular.",
+      },
+      {
+        q: "Do I own my logo after a branding agency designs it?",
+        a: "Only if your contract transfers ownership in writing. The US Copyright Office explains that commissioned work counts as a work made for hire only in nine specific categories and with a written agreement signed by all parties, and a logo usually falls outside them. Ask for a written copyright assignment on final payment, plus editable source files and licenses in your name.",
+      },
+      {
+        q: "How long does it take to work with a branding agency?",
+        a: "A core identity typically takes 4 to 8 weeks and a full brand system with messaging 8 to 12 weeks, according to one studio's published timeline. Another guide puts traditional agency engagements at 8 to 16 weeks at minimum. Clutch reports a typical timeline of 8 months across the branding engagements reviewed on its platform, since many include broader work.",
+      },
+      {
+        q: "How many branding agencies should I talk to before choosing?",
+        a: "Two or three serious candidates is usually enough, after a longer list has been narrowed down. Fewer leaves you nothing to compare against, and many more turns the decision into a price contest. Ask every firm the same questions, write down the answers, and compare the proposals line by line rather than by the total.",
+      },
+    ],
+    related: ["branding", "business-development", "digital-marketing", "signs"],
+    sources: [
+      { label: "Clutch: Branding Pricing Guide (September 2026)", href: "https://clutch.co/agencies/branding/pricing" },
+      { label: "Clutch Help Center: How Does Clutch Verify Reviews", href: "https://help.clutch.co/en/knowledge/how-clutch-verifies-reviews" },
+      { label: "Clutch Help Center: Sponsor vs Non-Sponsor", href: "https://help.clutch.co/en/knowledge/difference-between-sponsor-and-non-sponsor" },
+      { label: "Splash Creative: How Much Does Branding Cost in 2026", href: "https://splashcreative.com/how-much-does-branding-cost-in-2026-agency-pricing-explained/" },
+      { label: "NewMedia: Branding Package Pricing in 2026", href: "https://newmedia.com/blog/branding-cost" },
+      { label: "dp.vision: How Much Does Branding Cost in 2026", href: "https://dpvision.agency/blog/branding-cost-breakdown-2026/" },
+      { label: "US Copyright Office: Circular 30, Works Made for Hire (PDF)", href: "https://www.copyright.gov/circs/circ30.pdf" },
+      { label: "USPTO: Summary of 2025 Trademark Fee Changes", href: "https://www.uspto.gov/trademarks/fees-payment-information/summary-2025-trademark-fee-changes" },
+      { label: "FTC: Final Rule Banning Fake Reviews and Testimonials (August 2024)", href: "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" },
+      { label: "Google Maps User Contributed Content Policy: Fake Engagement", href: "https://support.google.com/contributionpolicy/answer/7400114" },
+      { label: "Sortlist: Pricing for Agencies", href: "https://www.sortlist.com/providers/pricing" },
+      { label: "Florida Division of Corporations: Search Records", href: "https://dos.fl.gov/sunbiz/search/" },
+      { label: "City of Delray Beach: Signs", href: "https://www.delraybeachfl.gov/government/city-departments/development-services/zoning-current-planning/signage" },
+      { label: "Town of Palm Beach Code: Article XI Signs", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI_DIV2REDI_S134-2401SCDI" },
+    ],
+  },
 ]
 
 /* Lead with the strategic guides; the trade guides follow. */
 const ORDER = [
+  "how-to-choose-a-branding-agency-palm-beach",
   "get-found-in-ai-search-local-business",
   "choosing-a-pr-firm-west-palm-beach",
   "branding-agency-vs-marketing-agency",
