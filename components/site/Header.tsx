@@ -76,7 +76,7 @@ export function Header() {
       >
         <div className="shell flex h-full items-center justify-between gap-6">
           <Link href="/" aria-label="Epic Wolf home" className="logo-link group relative z-10 block shrink-0" onClick={() => setOpen(false)}>
-            <Logo className="h-[15px] w-auto transition-transform duration-500 group-hover:scale-[1.03] sm:h-[17px]" />
+            <Logo className="h-[24px] w-auto transition-transform duration-500 group-hover:scale-[1.03] sm:h-[28px]" />
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">

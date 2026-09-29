@@ -4,33 +4,29 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
-import { EPIC, EPIC_W, WOLF, WOLF_W, layout, type Glyph } from "@/components/brand/glyphs"
+import { WM_EPIC, WM_H, WM_WOLF } from "@/components/brand/wordmark"
 import { useRange } from "@/lib/motion"
-import { Marker } from "@/components/ui/Marker"
 
 /**
  * Chapter six. The two partners, each standing in front of half of the
  * wordmark on signal orange. As you scroll, the halves slide together until the page
- * reads EPIC WOLF with the two of them shoulder to shoulder.
+ * reads epic wolf with the two of them shoulder to shoulder.
  *
  * The portraits are cut from their backgrounds and normalized in
  * scripts/partners.mjs so heads, eye lines and waistlines match exactly.
  */
-/* Both halves share one letter height: WOLF fills its column, EPIC takes the
+/* Both halves share one letter height: wolf fills its column, epic takes the
    same scale (its true width ratio) and sits against the center line. */
-function Word({ glyphs, w, align }: { glyphs: Glyph[]; w: number; align: "end" | "start" }) {
+function Word({ word, align }: { word: typeof WM_EPIC; align: "end" | "start" }) {
   return (
     <svg
-      viewBox={`0 0 ${w} 100`}
+      viewBox={`0 0 ${word.w} ${WM_H}`}
       className={`block h-auto ${align === "end" ? "ml-auto" : ""}`}
-      style={{ width: `${(w / WOLF_W) * 100}%` }}
+      style={{ width: `${(word.w / WM_WOLF.w) * 100}%` }}
       aria-hidden
     >
-      {layout(glyphs).map(({ g, x }, i) => (
-        <g key={i} transform={`translate(${x} 0)`}>
-          <path d={g.body} fillRule="evenodd" fill="#0a0a0b" />
-          {g.accent && <path d={g.accent} fill="#ffffff" />}
-        </g>
+      {word.letters.map((l, i) => (
+        <path key={i} d={l.d} fill="#0a0a0b" />
       ))}
     </svg>
   )
@@ -47,14 +43,14 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
 
   const halves = [
     {
-      word: <Word glyphs={EPIC} w={EPIC_W} align="end" />,
+      word: <Word word={WM_EPIC} align="end" />,
       img: "/img/team/jordan-cut.webp",
       name: "Jordan Gundlach",
       role: "Partner. Digital and growth.",
       x: left,
     },
     {
-      word: <Word glyphs={WOLF} w={WOLF_W} align="start" />,
+      word: <Word word={WM_WOLF} align="start" />,
       img: "/img/team/shawn-cut.webp",
       name: "Shawn Wolf",
       role: "Partner. Brand and street.",
@@ -68,7 +64,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
         <div className="md:col-span-7">
           <p className="label label-paper">{label}</p>
           <h2 id="names-title" className="t-h2 mt-4 max-w-[16ch]">
-            You get <Marker kind="underline" color="#0a0a0b">both</Marker> of us
+            <span className="font-[300]">Two partners.</span> One agency.
           </h2>
         </div>
         <div className="md:col-span-5">

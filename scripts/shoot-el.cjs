@@ -6,7 +6,7 @@ const puppeteer = require("C:/Users/Lucky/gus-renny/node_modules/puppeteer")
   const W = +(process.env.W || 1440), H = +(process.env.H || 900)
   await p.setViewport({ width: W, height: H, deviceScaleFactor: 1, isMobile: W < 700, hasTouch: W < 700 })
   await p.evaluateOnNewDocument(() => { try { sessionStorage.setItem("ew:intro", "1") } catch {} })
-  await p.goto("http://localhost:3641" + (process.env.PAGE || "/"), { waitUntil: "networkidle2" })
+  await p.goto("http://localhost:" + (process.env.PORT || 3641) + (process.env.PAGE || "/"), { waitUntil: "networkidle2" })
   await new Promise((r) => setTimeout(r, 1500))
   const sels = (process.env.SEL || "section").split("|")
   let i = 0

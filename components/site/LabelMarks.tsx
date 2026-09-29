@@ -4,8 +4,8 @@ import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 
 /**
- * Turns each chapter label's E into the W the first time it scrolls into
- * view: the logo's own idea, replayed quietly at every chapter.
+ * Lands each chapter label's period (the wordmark's dot) the first time it
+ * scrolls into view.
  */
 export function LabelMarks() {
   const pathname = usePathname()

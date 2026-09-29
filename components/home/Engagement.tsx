@@ -65,7 +65,7 @@ export function Engagement() {
           <div className="flex flex-col justify-center lg:col-span-5">
             <p className="label">Chapter five · The engagement</p>
             <h2 id="engagement-title" className="t-h2 mt-3 max-w-[12ch] lg:mt-4">
-              How a brand gets built here
+              <span className="font-[300]">How a brand</span> gets built here
             </h2>
             <motion.div className="mt-8 w-[34vw] max-w-[10rem] text-paper lg:mt-12 lg:w-[min(22vw,19rem)] lg:max-w-none" style={{ rotate: turn }}>
               <Glyph className="block h-auto w-full" wolf={active === PHASES.length - 1} />
@@ -132,7 +132,7 @@ export function Engagement() {
           <div className="shell">
             <p className="label">Chapter five · The engagement</p>
             <h2 className="t-h2 mt-4 max-w-[12ch]">
-              How a brand gets built here
+              <span className="font-[300]">How a brand</span> gets built here
             </h2>
             <ol className="mt-12 border-t border-white/12">
               {PHASES.map((ph, i) => (

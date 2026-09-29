@@ -1,57 +1,38 @@
 import type { CSSProperties } from "react"
-import { EPIC, EPIC_W, LINE_W, W, WOLF, WOLF_W, WORD_GAP, layout, type Glyph } from "./glyphs"
+import { MARK_D, MARK_SIZE, WM_DOT, WM_H, WM_LETTERS, WM_W } from "./wordmark"
 
 type Props = {
   className?: string
-  /** Accent color for the shared middle stroke. Defaults to the signal orange. */
+  /** Color of the period. Defaults to the signal orange; pass "currentColor" for one-color. */
   accent?: string
   title?: string
-  /** Arrival animation: each letter rises in on its own beat (CSS, see .ew-rise). */
+  /** Arrival animation: each letter rises in on its own beat, then the period lands (see .wm-rise). */
   draw?: boolean
 }
 
-function Glyphs({ items, y = 0, accent, draw, offset = 0 }: { items: { g: Glyph; x: number }[]; y?: number; accent: string; draw?: boolean; offset?: number }) {
-  return (
-    <>
-      {items.map(({ g, x }, i) => (
-        <g key={i} transform={`translate(${x} ${y})`}>
-          <g className={draw ? "ew-rise" : undefined} style={draw ? ({ "--i": offset + i } as CSSProperties) : undefined}>
-            <path d={g.body} fillRule="evenodd" fill="currentColor" />
-            {g.accent && <path d={g.accent} fill={accent} className={g === W ? "ew-ears" + (draw ? " ew-ears-in" : "") : draw ? "ew-accent" : undefined} />}
-          </g>
-        </g>
-      ))}
-    </>
-  )
-}
-
-/** Single-line lockup: EPIC WOLF. 834 x 100. */
+/** The wordmark: epicwolf. with the wolf-ear w. Letters take currentColor. */
 export function Logo({ className, accent = "var(--color-flare)", title = "Epic Wolf", draw }: Props) {
   return (
-    <svg viewBox={`0 0 ${LINE_W} 100`} className={className} role="img" aria-label={title} overflow="visible">
-      <Glyphs items={layout(EPIC)} accent={accent} draw={draw} />
-      <Glyphs items={layout(WOLF, EPIC_W + WORD_GAP)} accent={accent} draw={draw} offset={4} />
+    <svg viewBox={`0 0 ${WM_W} ${WM_H}`} className={className} role="img" aria-label={title} overflow="visible">
+      {WM_LETTERS.map((l, i) => (
+        <path
+          key={i}
+          d={l.d}
+          fill="currentColor"
+          className={draw ? "wm-rise" : undefined}
+          style={draw ? ({ "--i": i } as CSSProperties) : undefined}
+        />
+      ))}
+      <path d={WM_DOT} fill={accent} className={draw ? "wm-dot" : undefined} />
     </svg>
   )
 }
 
-/** Stacked lockup: EPIC over WOLF, both words optically centered. */
-export function LogoStack({ className, accent = "var(--color-flare)", title = "Epic Wolf" }: Props) {
-  const w = Math.max(EPIC_W, WOLF_W)
+/** The mark alone: the w, ears up. */
+export function Mark({ className, title = "Epic Wolf" }: Props) {
   return (
-    <svg viewBox={`0 0 ${w} 222`} className={className} role="img" aria-label={title}>
-      <Glyphs items={layout(EPIC, (w - EPIC_W) / 2)} accent={accent} />
-      <Glyphs items={layout(WOLF, (w - WOLF_W) / 2)} y={122} accent={accent} />
-    </svg>
-  )
-}
-
-/** The mark alone: the W, which is the E turned a quarter turn. */
-export function Mark({ className, accent = "var(--color-flare)", title = "Epic Wolf" }: Props) {
-  return (
-    <svg viewBox="0 0 100 100" className={className} role="img" aria-label={title}>
-      <path d={W.body} fill="currentColor" />
-      <path d={W.accent} fill={accent} />
+    <svg viewBox={`0 0 ${MARK_SIZE} ${MARK_SIZE}`} className={className} role="img" aria-label={title}>
+      <path d={MARK_D} fill="currentColor" />
     </svg>
   )
 }

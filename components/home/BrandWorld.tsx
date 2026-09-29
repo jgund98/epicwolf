@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useEffect, useRef, useState, type ReactNode } from "react"
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
-import { W } from "@/components/brand/glyphs"
+import { Mark } from "@/components/brand/Logo"
 
 /**
  * Chapter four. Every surface, one standard.
@@ -47,10 +47,7 @@ function ColorTile() {
 function MarkTile() {
   return (
     <div className="grid h-full place-items-center bg-paper">
-      <svg viewBox="0 0 100 100" className="w-[42%]" aria-hidden>
-        <path d={W.body} fill="#0a0a0b" />
-        <path d={W.accent} fill="var(--color-flare)" />
-      </svg>
+      <Mark className="w-[46%] text-flare" title="" />
     </div>
   )
 }
@@ -122,12 +119,12 @@ export function BrandWorld() {
         <div className="md:col-span-7">
           <p className="label">Chapter four · The standard</p>
           <h2 id="world-title" className="t-h2 mt-4 max-w-[14ch]">
-            It has to work on a van too
+            <span className="font-[300]">Every surface.</span> One standard.
           </h2>
         </div>
         <p className="t-body muted-light md:col-span-5">
-          Your brand has to hold up on a phone screen, over a door on Clematis and on the side of a work van doing
-          seventy on I-95. We design the whole world around it, then make every piece. The one below is ours.
+          A brand only works if it holds up everywhere it shows up. We design the whole world around it, then make every
+          piece, from the first impression online to the sign over the door. This is ours.
         </p>
       </div>
 

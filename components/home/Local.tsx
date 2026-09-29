@@ -60,7 +60,9 @@ export function Local() {
 
       <div className="shell grid gap-10 pb-16 pt-12 md:grid-cols-12 md:pb-20 md:pt-16">
         <h2 id="local-title" className="t-h2 md:col-span-6">
-          We know which side of the bridge you’re on
+          <span className="font-[300]">Local roots.</span>
+          <br />
+          Regional reach.
         </h2>
         <div className="md:col-span-5 md:col-start-8">
           <p className="t-lead text-paper/85">
