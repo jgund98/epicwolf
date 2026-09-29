@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { WM_EPIC, WM_H, WM_WOLF } from "@/components/brand/wordmark"
 import { useRange } from "@/lib/motion"
@@ -121,15 +121,32 @@ type Half = { word: React.ReactNode; img: string; name: string; role: string; hr
  * in front of the words one after the other (never cropped, never scaled, so
  * the cutouts stay sharp); the ledge with their names lands last.
  *
- * Driven by the browser's own scroll timeline (.pm-* in globals.css), so it runs
- * on the compositor in lockstep with the finger: no JavaScript per frame, which
- * is what made the first version stutter on iPhone. Browsers without scroll
- * timelines, and reduced motion, get the finished scene.
+ * A timed sequence that plays once when the scene comes into view, on GPU
+ * transitions (.pm-* in globals.css), then holds. Not scroll-scrubbed: iOS
+ * Safari's scroll timelines lose their place on reverse scroll and blanked the
+ * scene. No-JS and reduced motion get the finished scene.
  */
 function MobileStage({ halves }: { halves: Half[] }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setInView(true)
+          io.disconnect() // plays once, then holds: reverse scrolling can never blank it
+        }
+      },
+      { threshold: 0.35 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
   return (
-    <div className="pm-stage relative md:hidden">
-      <div className="pm-pin h-[100svh] overflow-hidden">
+    <div ref={ref} className={`pm-stage relative md:hidden ${inView ? "is-in" : ""}`}>
+      <div className="h-[100svh] overflow-hidden">
         <div className="absolute inset-x-0 top-[25%] flex flex-col items-center gap-[1vw]" aria-hidden>
           {/* Each word rises out of its own mask, like type being set */}
           <div className="w-[89.7vw] overflow-clip">
