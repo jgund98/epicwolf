@@ -204,8 +204,8 @@ export const services: Service[] = [
       },
     ],
     related: ["public-relations", "signs", "web-design"],
-    image: "/img/disc/branding.jpg",
-    imageAlt: "A dark tower traced in lines of orange light at night",
+    image: "/img/work/au-storefront-wide.jpg",
+    imageAlt: "Branded window vinyl across the storefront of a real estate capital firm",
   },
 
   /* ------------------------------------------------------------------ */
@@ -608,8 +608,8 @@ export const services: Service[] = [
       },
     ],
     related: ["branding", "vehicle-wraps", "print"],
-    image: "/img/brand/ew-storefront-3.jpg",
-    imageAlt: "A storefront with the Epic Wolf wordmark across the sign band",
+    image: "/img/work/anzo-sign-wide.jpg",
+    imageAlt: "Dimensional letters with a backlit ring over a Mediterranean kitchen in Palm Beach Gardens",
   },
 
   /* ------------------------------------------------------------------ */
@@ -709,8 +709,8 @@ export const services: Service[] = [
       },
     ],
     related: ["signs", "branding", "print"],
-    image: "/img/brand/ew-van-us.jpg",
-    imageAlt: "A cargo van wrapped in Epic Wolf black and orange on a seawall",
+    image: "/img/work/pickup-graphics-wide.jpg",
+    imageAlt: "A black pickup with white cut-vinyl fleet graphics under South Florida trees",
   },
 
   /* ------------------------------------------------------------------ */
@@ -810,8 +810,8 @@ export const services: Service[] = [
       },
     ],
     related: ["branding", "signs", "business-development"],
-    image: "/img/brand/ew-tote-3.jpg",
-    imageAlt: "A canvas tote printed with the Epic Wolf mark",
+    image: "/img/work/event-display.jpg",
+    imageAlt: "A printed banner display at a beachfront restaurant event",
   },
 ]
 

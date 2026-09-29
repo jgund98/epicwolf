@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   formatDetection: { telephone: false },
+  /* Defaults for any page without its own; lib/seo.ts pageMeta overrides per page. */
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Epic Wolf, branding and marketing agency in West Palm Beach" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

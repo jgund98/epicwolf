@@ -9,8 +9,11 @@
 
 const ORIGIN =
   /* CONFIRM domain. epicwolf.com is registered to an unrelated owner, so the
-     real domain is still to be chosen; set NEXT_PUBLIC_SITE_ORIGIN in Vercel. */
-  globalThis.process?.env?.NEXT_PUBLIC_SITE_ORIGIN?.replace(/\/$/, "") || "https://www.epicwolf.agency"
+     real domain is still to be chosen. Until then the site lives on the
+     epicdevsolutions subdomain, and canonicals, sitemap and every link-preview
+     image must point where the site actually is. Change this default when the
+     domain is live. */
+  globalThis.process?.env?.NEXT_PUBLIC_SITE_ORIGIN?.replace(/\/$/, "") || "https://epicwolf.epicdevsolutions.com"
 
 export const site = {
   name: "Epic Wolf",
@@ -101,7 +104,7 @@ export const pillars: Pillar[] = [
       { name: "Vehicle graphics", href: "/vehicle-wraps" },
       { name: "Print and brand goods", href: "/print" },
     ],
-    img: "/img/brand/ew-van-us.jpg",
+    img: "/img/work/inch-ounce-storefront.jpg",
   },
   {
     slug: "digital-marketing",
