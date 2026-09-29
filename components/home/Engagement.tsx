@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
 import { WM_BASE, WM_EPIC, WM_DOT_C, WM_H, WM_LETTERS, WM_W, WM_WX } from "@/components/brand/wordmark"
 import { useRange } from "@/lib/motion"
@@ -186,6 +186,14 @@ export function Engagement() {
   const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
   const [active, setActive] = useState(0)
+  const [stack, setStack] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)")
+    const read = () => setStack(mq.matches)
+    read()
+    mq.addEventListener("change", read)
+    return () => mq.removeEventListener("change", read)
+  }, [])
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] })
   useMotionValueEvent(p, "change", (v) => {
     const next = Math.min(PHASES.length - 1, Math.max(0, Math.floor(v * PHASES.length * 0.999)))
@@ -253,11 +261,9 @@ export function Engagement() {
 
           {/* The wordmark, built as you scroll */}
           <div className="relative -mx-[2%] lg:mx-0">
-            <div className="hidden md:block">
-              <Construction p={p} />
-            </div>
-            <div className="mx-auto w-[92%] md:hidden">
-              <Construction p={p} stacked />
+            {/* One construction at a time: a hidden second copy still costs work every frame. */}
+            <div className={stack ? "mx-auto w-[92%]" : undefined}>
+              <Construction key={stack ? "stack" : "line"} p={p} stacked={stack} />
             </div>
           </div>
 
