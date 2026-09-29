@@ -26,6 +26,11 @@ function zoomAt(v: number, end: number) {
    the next, sharper frame takes over), so there is no drawing and no texture
    upload while the finger moves. */
 const LADDER_MAX = 8
+/* "Off" is 0.1% opacity, never 0: a layer at 0 can be dropped by the phone's
+   compositor and then has to be rasterized and uploaded the moment it turns on,
+   which is a one-frame stall mid-scroll. At 0.001 every layer is uploaded at load
+   and each handoff is free. Invisible to the eye. */
+const GHOST = 0.001
 /* A rung switches on a little before its octave (while the rung under it is
    still fully on) and off only once the next is fully on, so the black never
    thins during a handoff. Higher rungs stack on top. */
@@ -188,7 +193,7 @@ export function Hero() {
       const c = ladder.current[i]
       if (!c) return
       const on = rungOn(eased, s, b, i, g.rungs.length)
-      c.style.opacity = on ? "1" : "0"
+      c.style.opacity = on ? "1" : String(GHOST)
       c.style.transform = `scale(${Math.max(s / b, 0.001)})`
     })
   }, [])
@@ -313,7 +318,7 @@ export function Hero() {
               }}
               aria-hidden
               className={`absolute inset-0 h-full w-full ${native ? `hl-${i}` : ""}`}
-              style={{ backgroundColor: i === 0 ? "#000" : undefined, opacity: i === 0 ? 1 : 0, willChange: "transform, opacity" }}
+              style={{ backgroundColor: i === 0 ? "#000" : undefined, opacity: i === 0 ? 1 : GHOST, willChange: "transform, opacity" }}
             />
           ))
         ) : (
@@ -468,14 +473,14 @@ const pct = (v: number) => `${(v * 100).toFixed(3)}%`
 
 const CONTENT_KEYFRAMES = (() => {
   const line = (i: number, at: number) => `
-    @keyframes hsd-line-${i} { 0%, ${pct(at)} { opacity: 0; transform: translateY(40px) } ${pct(at + 0.05)} { opacity: 1 } ${pct(at + 0.06)}, 100% { opacity: 1; transform: none } }
+    @keyframes hsd-line-${i} { 0%, ${pct(at)} { opacity: ${GHOST}; transform: translateY(40px) } ${pct(at + 0.05)} { opacity: 1 } ${pct(at + 0.06)}, 100% { opacity: 1; transform: none } }
     .hsd-line-${i} { animation: hsd-line-${i} linear both; ${TL} }`
   return `
     @keyframes hsd-up { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(-40%) } }
     @keyframes hsd-down { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(60%) } }
-    @keyframes hsd-fade { 0%, 8% { opacity: 1 } 26%, 100% { opacity: 0 } }
-    @keyframes hsd-scrim { 0%, 50% { opacity: 0 } 70%, 100% { opacity: 0.55 } }
-    @keyframes hsd-label { 0%, 52% { opacity: 0 } 58%, 100% { opacity: 1 } }
+    @keyframes hsd-fade { 0%, 8% { opacity: 1 } 26%, 100% { opacity: ${GHOST} } }
+    @keyframes hsd-scrim { 0%, 50% { opacity: ${GHOST} } 70%, 100% { opacity: 0.55 } }
+    @keyframes hsd-label { 0%, 52% { opacity: ${GHOST} } 58%, 100% { opacity: 1 } }
     .hsd-up { animation: hsd-up linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
     .hsd-down { animation: hsd-down linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
     .hsd-scrim { animation: hsd-scrim linear both; ${TL} }
@@ -495,7 +500,7 @@ function ladderKeyframes(end: number, rungs: number[]) {
       const at = (v: number) => {
         const { eased, s } = zoomAt(v, end)
         const on = rungOn(eased, s, b, i, rungs.length)
-        frames.push(`${pct(v)} { transform: scale(${(s / b).toFixed(5)}); opacity: ${on ? 1 : 0} }`)
+        frames.push(`${pct(v)} { transform: scale(${(s / b).toFixed(5)}); opacity: ${on ? 1 : GHOST} }`)
       }
       at(0)
       for (let j = 0; j <= N; j++) at(Z0 + ((Z1 - Z0) * j) / N)

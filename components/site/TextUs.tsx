@@ -29,7 +29,11 @@ export function TextUs() {
     let raf = 0
     const read = () => {
       raf = 0
-      setPast(window.scrollY > window.innerHeight * 0.9)
+      /* After the hero: on the home page that is the end of the pinned hero
+         (it runs three screens); elsewhere, the first screen. */
+      const hero = document.querySelector<HTMLElement>("[aria-labelledby=hero-title]")
+      const after = hero ? hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.5 : window.innerHeight * 0.9
+      setPast(window.scrollY > after)
       const under = document
         .elementsFromPoint(window.innerWidth - 70, window.innerHeight - 40)
         .find((el) => !el.closest(".tu"))
