@@ -11,6 +11,10 @@ export const homeFaqs: Faq[] = [
     a: "Epic Wolf is based in West Palm Beach and works with companies across Palm Beach County, South Florida and beyond. We are glad to meet in person anywhere in the county, and ongoing work runs wherever our clients and their customers are.",
   },
   {
+    q: "How experienced is the Epic Wolf team?",
+    a: "The partners have been building brands in South Florida since 2001. Epic Wolf brings that experience under one name, so every client works directly with the people who have done the work for more than two decades.",
+  },
+  {
     q: "What kinds of companies do you work with?",
     a: "Companies that intend to lead their market. That includes growth-stage and established businesses in finance, real estate and development, hospitality, healthcare, professional services and consumer brands, plus select founders launching something new.",
   },

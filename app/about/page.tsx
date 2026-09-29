@@ -74,8 +74,9 @@ export default function About() {
             </p>
             <div className="prose-ew t-body muted-light mt-8 max-w-[62ch]">
               <p>
-                Epic Wolf was started to fix that. Its partners, Jordan Gundlach and Shawn Wolf, lead an agency where
-                the strategy, the story and the execution come from one place and answer to one standard.
+                Epic Wolf was started to fix that. Its partners, Jordan Gundlach and Shawn Wolf, have been building
+                brands in South Florida since 2001. Now they lead an agency where the strategy, the story and the
+                execution come from one place and answer to one standard.
               </p>
               <p>
                 We are based in {site.city} and work with companies across Palm Beach County, South Florida and

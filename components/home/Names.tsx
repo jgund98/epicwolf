@@ -69,7 +69,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
         </div>
         <div className="md:col-span-5">
         <p className="t-body">
-          Epic Wolf is led by its partners. One lives in strategy, digital and growth. The other lives in brand and
+          Epic Wolf is led by its partners, who have been building South Florida brands since 2001. One lives in strategy, digital and growth. The other lives in brand and
           everything people can see and touch. Every client gets both, at the same table, from the first conversation.
         </p>
         {cta && (

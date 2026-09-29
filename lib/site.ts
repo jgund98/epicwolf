@@ -21,7 +21,9 @@ export const site = {
   tagline: "Impossible to ignore.",
   /** One sentence that answers "who are you" for people, Google and AI answers alike. */
   oneLiner:
-    "Epic Wolf is a West Palm Beach branding, digital marketing and business development agency. One partner-led team shapes the brand, gets it found and turns the attention into revenue, so companies in Palm Beach County and beyond become impossible to ignore.",
+    "Epic Wolf is a West Palm Beach branding, digital marketing and business development agency. One partner-led team shapes the brand, gets it found and turns the attention into revenue, so companies in Palm Beach County and beyond become impossible to ignore. Its partners have been building brands in South Florida since 2001.",
+  /** The partners' track record, not the agency's founding date: never use it as foundingDate. */
+  experienceSince: 2001,
   description:
     "West Palm Beach branding agency and PR firm. Brand, public relations, digital marketing and business development for companies that intend to lead their market.",
   url: ORIGIN,
