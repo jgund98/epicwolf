@@ -66,7 +66,17 @@ export const site = {
   ],
 
   /* Add real profile URLs and every social link on the site turns on. */
+  /* Every public profile (LinkedIn, Instagram, Google Business Profile, Clutch,
+     directories...). Listed here they become schema sameAs links, which is how
+     search engines and AI assistants tie the profiles to this site as one
+     entity. See LISTINGS.md. */
   socials: [] as { label: string; href: string }[],
+  /* Site-ownership codes: paste the content value of each meta tag that Google
+     Search Console and Bing Webmaster Tools give you. Empty ones render nothing. */
+  verification: { google: "", bing: "" },
+  /* IndexNow key (public/<key>.txt). scripts/indexnow.mjs pings Bing, Yandex and
+     other IndexNow engines with every sitemap URL after a deploy. */
+  indexNowKey: "eeae7d324595cc7df12d721e82bdaa55",
 
   nav: [
     { label: "Services", href: "/services" },

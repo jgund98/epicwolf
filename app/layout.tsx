@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  ...(site.verification.google || site.verification.bing
+    ? {
+        verification: {
+          ...(site.verification.google ? { google: site.verification.google } : {}),
+          ...(site.verification.bing ? { other: { "msvalidate.01": site.verification.bing } } : {}),
+        },
+      }
+    : {}),
   robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   other: { "geo.region": "US-FL", "geo.placename": site.city, "geo.position": `${site.geo.lat};${site.geo.lng}` },
 }
