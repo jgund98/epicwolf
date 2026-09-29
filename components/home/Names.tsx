@@ -152,9 +152,9 @@ function MobileStage({ halves }: { halves: Half[] }) {
           </figure>
         ))}
 
-        <div className="pm-ledge absolute inset-x-0 bottom-0 z-10 grid grid-cols-2 bg-ink text-paper">
+        <div className="pm-ledge absolute inset-x-0 bottom-0 z-10 grid h-[84px] grid-cols-2 bg-ink text-paper">
           {halves.map((h, i) => (
-            <div key={h.name} className={`py-4 ${i === 0 ? "pl-[var(--gutter)] pr-3" : "pl-3 pr-[var(--gutter)] text-right"}`}>
+            <div key={h.name} className={`flex flex-col justify-center ${i === 0 ? "pl-[var(--gutter)] pr-3" : "items-end pl-3 pr-[var(--gutter)] text-right"}`}>
               <Link href={h.href} className="text-[1rem] font-bold tracking-[-0.01em] underline decoration-white/30 underline-offset-4">{h.name}</Link>
               <p className="mt-0.5 text-[0.78rem] text-white/60">{h.role}</p>
             </div>
