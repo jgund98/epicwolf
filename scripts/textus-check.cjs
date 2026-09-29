@@ -4,7 +4,7 @@ const sharp = require("sharp")
   const b = await puppeteer.launch({ headless: "new" }); const p = await b.newPage()
   await p.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true })
   await p.evaluateOnNewDocument(() => { try { sessionStorage.setItem("ew:intro", "1") } catch {} })
-  await p.goto("http://localhost:3640/", { waitUntil: "networkidle2" })
+  await p.goto((process.env.URL || "http://localhost:3640/"), { waitUntil: "networkidle2" })
   await new Promise((r) => setTimeout(r, 1500))
   const shots = []
   shots.push(await p.screenshot({ type: "jpeg", quality: 70 })) // hero: hidden

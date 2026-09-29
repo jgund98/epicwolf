@@ -24,16 +24,29 @@ export function TextUs() {
   /* Flip to a cream bubble over dark sections, ink over light and orange ones. */
   const [tone, setTone] = useState<"dark" | "light">("light")
 
-  // Past the first screen
+  // Past the hero. Cheap on purpose: this runs during the hero's own scroll
+  // animation, so the threshold is measured once (and on resize), and the
+  // section-under-the-bubble check only runs while the bubble is showing and the
+  // page has moved a real distance.
   useEffect(() => {
     let raf = 0
+    let after = 0
+    let lastY = -1e9
+    let showing = false
+    const measure = () => {
+      const hero = document.querySelector<HTMLElement>("[aria-labelledby=hero-title]")
+      after = hero ? hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.5 : window.innerHeight * 0.9
+    }
     const read = () => {
       raf = 0
-      /* After the hero: on the home page that is the end of the pinned hero
-         (it runs three screens); elsewhere, the first screen. */
-      const hero = document.querySelector<HTMLElement>("[aria-labelledby=hero-title]")
-      const after = hero ? hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.5 : window.innerHeight * 0.9
-      setPast(window.scrollY > after)
+      const y = window.scrollY
+      const next = y > after
+      if (next !== showing) {
+        showing = next
+        setPast(next)
+      }
+      if (!showing || Math.abs(y - lastY) < 40) return
+      lastY = y
       const under = document
         .elementsFromPoint(window.innerWidth - 70, window.innerHeight - 40)
         .find((el) => !el.closest(".tu"))
@@ -43,10 +56,17 @@ export function TextUs() {
     const on = () => {
       if (!raf) raf = requestAnimationFrame(read)
     }
+    const resize = () => {
+      measure()
+      on()
+    }
+    measure()
     read()
     window.addEventListener("scroll", on, { passive: true })
+    window.addEventListener("resize", resize)
     return () => {
       window.removeEventListener("scroll", on)
+      window.removeEventListener("resize", resize)
       if (raf) cancelAnimationFrame(raf)
     }
   }, [pathname])

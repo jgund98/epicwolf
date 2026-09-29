@@ -14,7 +14,13 @@ export function RotatingWord({ words, interval = 2400 }: { words: string[]; inte
 
   useEffect(() => {
     if (reduce) return
-    const id = setInterval(() => setI((n) => (n + 1) % words.length), interval)
+    /* Holds still once the visitor scrolls off the top. A flip mid-scroll repaints
+       the whole headline layer while the hero is animating it, a visible hitch on
+       phones; the headline is already fading away by then anyway. */
+    const id = setInterval(() => {
+      if (window.scrollY > 8) return
+      setI((n) => (n + 1) % words.length)
+    }, interval)
     return () => clearInterval(id)
   }, [reduce, words.length, interval])
 
