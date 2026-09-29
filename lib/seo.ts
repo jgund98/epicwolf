@@ -98,7 +98,12 @@ export function orgSchema(serviceNames: string[]) {
       opens: h.opens,
       closes: h.closes,
     })),
-    founder: site.founders.map((f) => ({ "@type": "Person", name: f.name, jobTitle: f.role })),
+    /* Founders point at their own pages, so search engines and AI assistants tie
+       Epic Wolf to named, experienced people (app/about/[partner]). */
+    founder: site.founders.map((f) => {
+      const slug = f.name.toLowerCase().replace(/\s+/g, "-")
+      return { "@type": "Person", "@id": `${site.url}/about/${slug}#person`, name: f.name, jobTitle: f.role, url: `${site.url}/about/${slug}` }
+    }),
     knowsAbout: [
       "Public relations",
       "Media relations",
