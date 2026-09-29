@@ -25,9 +25,6 @@ export type Partner = {
   faqs: Faq[]
 }
 
-const WHY =
-  "Most companies hire one firm for the story, another for the website, a third for the ads and someone else for the sign. Each does fine work and none of it adds up to one brand. Jordan and Shawn formed Epic Wolf to fix that: one partner-led team, one strategy and one standard from the first conversation to the front door."
-
 export const partners: Partner[] = [
   {
     slug: "jordan-gundlach",
@@ -44,7 +41,7 @@ export const partners: Partner[] = [
     background: [
       {
         label: "The marketing years",
-        body: "Jordan has worked in South Florida marketing since 2018, starting on the front lines of search, ads, social, email and reputation for a Delray Beach medical practice. From there Jordan ran marketing for a multi-location law firm in Palm Beach Gardens, growing its organic search traffic tenfold in two years and producing the design and video work behind the firm's growth into a seven-figure practice, while consulting on brand and campaigns for a national insurance group.",
+        body: "Jordan has worked in South Florida marketing since 2018, starting on the front lines of search, ads, social, email and reputation for a Delray Beach medical practice. Next came a multi-location law firm in Palm Beach Gardens. Jordan ran its marketing for three years, grew its organic search traffic tenfold in two and produced the design and video work behind its growth into a seven-figure practice. Along the way Jordan consulted on brand and campaigns for a national insurance group.",
       },
       {
         label: "The build years",
@@ -52,15 +49,18 @@ export const partners: Partner[] = [
       },
       {
         label: "What Jordan brings",
-        body: "A rare combination: a marketer who can build. Jordan has run campaigns that had to produce leads and led the teams that ship software, so digital work at Epic Wolf is designed for results, engineered properly and measured plainly.",
+        body: "Both sides of the screen. Jordan has run campaigns that had to produce leads and led the teams that ship software, so digital work at Epic Wolf is designed for results, engineered properly and measured plainly.",
       },
-      { label: "Why Epic Wolf", body: `${WHY} Jordan owns everything digital.` },
+      {
+        label: "Why Epic Wolf",
+        body: "Years of running marketing and building software for other companies point to one lesson: a website or a campaign can only perform as well as the brand behind it. Epic Wolf puts the brand and the digital work under one roof, with Shawn shaping the brand and Jordan making sure people find it, trust it and act on it.",
+      },
     ],
     facts: [
       { k: "Role", v: "Partner, Digital and Growth" },
       { k: "Based in", v: "West Palm Beach, Florida" },
       { k: "In South Florida marketing since", v: "2018" },
-      { k: "Background", v: "Marketing leadership and chief technology officer" },
+      { k: "Background", v: "Marketing lead, then chief technology officer" },
     ],
     leads: [
       { t: "Digital marketing", b: "Search, local search, paid social and content, measured against inquiries and revenue.", href: "/digital-marketing" },
@@ -78,8 +78,8 @@ export const partners: Partner[] = [
         a: "Jordan has worked in South Florida marketing since 2018, leading digital marketing for a medical practice and a multi-location law firm, where organic search traffic grew tenfold in two years. Jordan later served as chief technology officer of a health insurance technology company and in 2025 founded a West Palm Beach development studio.",
       },
       {
-        q: "Why did Jordan and Shawn start Epic Wolf?",
-        a: "Because most companies end up with a different firm for the story, the website, the ads and the sign, and the pieces never add up to one brand. Jordan and Shawn formed Epic Wolf so one partner-led team carries a single strategy from the first conversation to the front door.",
+        q: "Why did Jordan start Epic Wolf with Shawn?",
+        a: "Because digital work only performs when the brand behind it is right. After years of running marketing and building software for other companies, Jordan wanted the brand, the website and the pipeline under one partner-led team.",
       },
     ],
   },
@@ -102,15 +102,18 @@ export const partners: Partner[] = [
       },
       {
         label: "What Shawn brings",
-        body: "The eye of someone who has watched designs meet the real world for more than twenty years. A mark that looks right on a screen can fail at forty feet or across a curved van panel. Shawn knows what a design has to survive and builds the brand for it from the first sketch.",
+        body: "A production eye. A mark that looks right on a screen can fail at forty feet or across a curved van panel, and Shawn has seen what survives and what does not. Every identity is built for the real world from the first sketch.",
       },
-      { label: "Why Epic Wolf", body: `${WHY} Shawn owns the brand and everything people can see and touch.` },
+      {
+        label: "Why Epic Wolf",
+        body: "A sign, a van or a storefront can only be as strong as the identity it carries. Epic Wolf lets Shawn start where the brand actually starts, with the strategy and the identity, and carry it all the way to the front door, while Jordan makes sure the same brand gets found online.",
+      },
     ],
     facts: [
       { k: "Role", v: "Partner, Brand and Street" },
       { k: "Building brands since", v: "2001, in West Palm Beach" },
       { k: "Leads", v: "Brand strategy, identity and the physical brand" },
-      { k: "Brings", v: "Two decades of making brands real at full size" },
+      { k: "Brings", v: "A production eye for what works at full size" },
     ],
     leads: [
       { t: "Brand strategy and identity", b: "Positioning, naming and the identity system that has to hold up everywhere it shows up.", href: "/branding" },
@@ -125,11 +128,11 @@ export const partners: Partner[] = [
       },
       {
         q: "How long has Shawn Wolf been building brands in South Florida?",
-        a: "Since 2001. Shawn has spent more than two decades producing signs, fleet graphics, apparel, print and packaging for South Florida businesses, and that production experience is behind every identity Epic Wolf builds.",
+        a: "Since 2001. Shawn has produced signs, fleet graphics, apparel, print and packaging for South Florida businesses for more than 25 years, and that production experience is behind every identity Epic Wolf builds.",
       },
       {
-        q: "Why did Jordan and Shawn start Epic Wolf?",
-        a: "Because most companies end up with a different firm for the story, the website, the ads and the sign, and the pieces never add up to one brand. Jordan and Shawn formed Epic Wolf so one partner-led team carries a single strategy from the first conversation to the front door.",
+        q: "Why did Shawn start Epic Wolf with Jordan?",
+        a: "Because a sign or a vehicle wrap can only be as strong as the identity it carries. Epic Wolf lets Shawn shape the brand from the strategy up and carry it to every surface, while Jordan makes sure the same brand is found and chosen online.",
       },
     ],
   },

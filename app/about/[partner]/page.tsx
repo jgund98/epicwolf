@@ -124,11 +124,7 @@ export default async function PartnerPage({ params }: { params: Promise<{ partne
             ))}
           </div>
           <p className="t-body muted-dark mt-12 max-w-[60ch]">
-            Every client works with both partners, from West Palm Beach to{" "}
-            <Link href="/palm-beach-county/palm-beach" className="link-draw font-bold text-paper">
-              Palm Beach island
-            </Link>
-            .{" "}
+            Every client works with both partners.{" "}
             <Link href={`/about/${other.slug}`} className="link-draw font-bold text-paper">
               Meet {other.first}
             </Link>
