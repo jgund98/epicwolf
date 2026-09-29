@@ -26,18 +26,23 @@ function zoomAt(v: number, end: number) {
    the next, sharper frame takes over), so there is no drawing and no texture
    upload while the finger moves. */
 const LADDER_MAX = 8
-/* "Off" is 0.1% opacity, never 0: a layer at 0 can be dropped by the phone's
-   compositor and then has to be rasterized and uploaded the moment it turns on,
-   which is a one-frame stall mid-scroll. At 0.001 every layer is uploaded at load
-   and each handoff is free. Invisible to the eye. */
+/* A layer at opacity 0 can be dropped by the phone's compositor and then has
+   to be uploaded the moment it turns on: a one-frame stall mid-scroll. Rungs
+   next to the active one sit at 0.1% (invisible) so they are already on the
+   GPU when needed; the rest stay at 0 so the phone isn't compositing six
+   full-screen layers every frame. */
 const GHOST = 0.001
 /* A rung switches on a little before its octave (while the rung under it is
    still fully on) and off only once the next is fully on, so the black never
    thins during a handoff. Higher rungs stack on top. */
-function rungOn(eased: number, s: number, b: number, i: number, n: number) {
-  if (eased >= 1) return false
+function rungOpacity(eased: number, s: number, b: number, i: number, n: number) {
+  if (eased >= 1) return 0
   const from = i === 0 ? 0 : b / 1.12
-  return s >= from && (s < 2 * b || i === n - 1)
+  if (s >= from && (s < 2 * b || i === n - 1)) return 1
+  /* Warm, one octave either side of its own: the next rung is uploaded before it
+     is needed, and the previous one stays uploaded for scrolling back. */
+  if (s >= b / 2.5 && s < 4 * b) return GHOST
+  return 0
 }
 
 /**
@@ -192,8 +197,7 @@ export function Hero() {
     g.rungs.forEach((b, i) => {
       const c = ladder.current[i]
       if (!c) return
-      const on = rungOn(eased, s, b, i, g.rungs.length)
-      c.style.opacity = on ? "1" : String(GHOST)
+      c.style.opacity = String(rungOpacity(eased, s, b, i, g.rungs.length))
       c.style.transform = `scale(${Math.max(s / b, 0.001)})`
     })
   }, [])
@@ -318,7 +322,7 @@ export function Hero() {
               }}
               aria-hidden
               className={`absolute inset-0 h-full w-full ${native ? `hl-${i}` : ""}`}
-              style={{ backgroundColor: i === 0 ? "#000" : undefined, opacity: i === 0 ? 1 : GHOST, willChange: "transform, opacity" }}
+              style={{ backgroundColor: i === 0 ? "#000" : undefined, opacity: i === 0 ? 1 : i === 1 ? GHOST : 0, willChange: "transform, opacity" }}
             />
           ))
         ) : (
@@ -479,7 +483,7 @@ const CONTENT_KEYFRAMES = (() => {
     @keyframes hsd-up { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(-40%) } }
     @keyframes hsd-down { 0%, 4% { transform: translateY(0) } 30%, 100% { transform: translateY(60%) } }
     @keyframes hsd-fade { 0%, 8% { opacity: 1 } 26%, 100% { opacity: ${GHOST} } }
-    @keyframes hsd-scrim { 0%, 50% { opacity: ${GHOST} } 70%, 100% { opacity: 0.55 } }
+    @keyframes hsd-scrim { 0%, 50% { opacity: 0 } 70%, 100% { opacity: 0.55 } }
     @keyframes hsd-label { 0%, 52% { opacity: ${GHOST} } 58%, 100% { opacity: 1 } }
     .hsd-up { animation: hsd-up linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
     .hsd-down { animation: hsd-down linear both, hsd-fade linear both; animation-timeline: --hero, --hero; animation-range: contain 0% contain 100%, contain 0% contain 100%; }
@@ -499,8 +503,7 @@ function ladderKeyframes(end: number, rungs: number[]) {
       const frames: string[] = []
       const at = (v: number) => {
         const { eased, s } = zoomAt(v, end)
-        const on = rungOn(eased, s, b, i, rungs.length)
-        frames.push(`${pct(v)} { transform: scale(${(s / b).toFixed(5)}); opacity: ${on ? 1 : GHOST} }`)
+        frames.push(`${pct(v)} { transform: scale(${(s / b).toFixed(5)}); opacity: ${rungOpacity(eased, s, b, i, rungs.length)} }`)
       }
       at(0)
       for (let j = 0; j <= N; j++) at(Z0 + ((Z1 - Z0) * j) / N)
