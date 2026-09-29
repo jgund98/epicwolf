@@ -8,12 +8,11 @@
  */
 
 const ORIGIN =
-  /* CONFIRM domain. epicwolf.com is registered to an unrelated owner, so the
-     real domain is still to be chosen. Until then the site lives on the
-     epicdevsolutions subdomain, and canonicals, sitemap and every link-preview
-     image must point where the site actually is. Change this default when the
-     domain is live. */
-  globalThis.process?.env?.NEXT_PUBLIC_SITE_ORIGIN?.replace(/\/$/, "") || "https://epicwolf.epicdevsolutions.com"
+  /* The live domain (bought 2026-09-28; epicwolf.com belongs to an unrelated
+     owner). www is primary; the bare domain and the old epicdevsolutions
+     subdomain 308 to it in Vercel. Canonicals, sitemap, schema and every
+     link-preview image read this. */
+  globalThis.process?.env?.NEXT_PUBLIC_SITE_ORIGIN?.replace(/\/$/, "") || "https://www.epicwolf.agency"
 
 export const site = {
   name: "Epic Wolf",
