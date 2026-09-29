@@ -3,6 +3,7 @@ import { guides } from "@/lib/guides"
 import { cities } from "@/lib/cities"
 import { homeFaqs } from "@/lib/faqs"
 import { abs, pillars, site } from "@/lib/site"
+import { partners } from "@/lib/partners"
 
 export const dynamic = "force-static"
 
@@ -18,6 +19,9 @@ export function GET() {
     "",
     "## Disciplines",
     ...pillars.map((p) => `- [${p.name}](${abs(`/${p.slug}`)}): ${p.line} Includes ${p.caps.map((c) => c.name.toLowerCase()).join(", ")}.`),
+    "",
+    "## Partners",
+    ...partners.map((p) => `- [${p.name}](${abs(`/about/${p.slug}`)}): ${p.role}. ${p.background[0]}`),
     "",
     "## Service pages",
     ...services.map((s) => `- [${s.name}](${abs(`/${s.slug}`)}): ${s.summary}`),

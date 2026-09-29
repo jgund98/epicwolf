@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { breadcrumbSchema, pageMeta } from "@/lib/seo"
 import { site } from "@/lib/site"
 import { JsonLd } from "@/components/site/JsonLd"
@@ -74,7 +75,8 @@ export default function About() {
             </p>
             <div className="prose-ew t-body muted-light mt-8 max-w-[62ch]">
               <p>
-                Epic Wolf was started to fix that. Its partners, Jordan Gundlach and Shawn Wolf, have been building
+                Epic Wolf was started to fix that. Its partners, <Link href="/about/jordan-gundlach" className="link-draw font-semibold text-ink">Jordan Gundlach</Link> and{" "}
+                <Link href="/about/shawn-wolf" className="link-draw font-semibold text-ink">Shawn Wolf</Link>, have been building
                 brands in South Florida since 2001. Now they lead an agency where the strategy, the story and the
                 execution come from one place and answer to one standard.
               </p>

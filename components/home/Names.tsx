@@ -46,6 +46,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
       word: <Word word={WM_EPIC} align="end" />,
       img: "/img/team/jordan-cut.webp",
       name: "Jordan Gundlach",
+      href: "/about/jordan-gundlach",
       role: "Partner. Digital and growth.",
       x: left,
     },
@@ -53,6 +54,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
       word: <Word word={WM_WOLF} align="start" />,
       img: "/img/team/shawn-cut.webp",
       name: "Shawn Wolf",
+      href: "/about/shawn-wolf",
       role: "Partner. Brand and street.",
       x: right,
     },
@@ -101,7 +103,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
         <div className="grid grid-cols-2">
           {halves.map((h, i) => (
             <motion.div key={h.name} style={{ opacity: reduce ? 1 : glow }} className={`py-5 md:py-7 ${i === 0 ? "pl-[var(--gutter)] pr-4 text-left md:text-right md:pr-[9vw]" : "pl-4 pr-[var(--gutter)] md:pl-[9vw]"}`}>
-              <p className="text-[clamp(0.95rem,1.7vw,1.4rem)] font-bold tracking-[-0.01em]">{h.name}</p>
+              <Link href={h.href} className="link-draw text-[clamp(0.95rem,1.7vw,1.4rem)] font-bold tracking-[-0.01em]">{h.name}</Link>
               <p className="mt-0.5 text-[clamp(0.78rem,1.1vw,0.95rem)] text-white/60">{h.role}</p>
             </motion.div>
           ))}
@@ -111,7 +113,7 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
   )
 }
 
-type Half = { word: React.ReactNode; img: string; name: string; role: string }
+type Half = { word: React.ReactNode; img: string; name: string; role: string; href: string }
 
 /**
  * Phones. A pinned scene staged for a tall screen: EPIC and WOLF, huge and
@@ -148,7 +150,7 @@ function MobileStage({ halves }: { halves: Half[] }) {
         <div className="pm-ledge absolute inset-x-0 bottom-0 z-10 grid grid-cols-2 bg-ink text-paper">
           {halves.map((h, i) => (
             <div key={h.name} className={`py-4 ${i === 0 ? "pl-[var(--gutter)] pr-3" : "pl-3 pr-[var(--gutter)] text-right"}`}>
-              <p className="text-[1rem] font-bold tracking-[-0.01em]">{h.name}</p>
+              <Link href={h.href} className="text-[1rem] font-bold tracking-[-0.01em] underline decoration-white/30 underline-offset-4">{h.name}</Link>
               <p className="mt-0.5 text-[0.78rem] text-white/60">{h.role}</p>
             </div>
           ))}

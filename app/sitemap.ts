@@ -3,6 +3,7 @@ import { services } from "@/lib/services"
 import { cities } from "@/lib/cities"
 import { guides } from "@/lib/guides"
 import { abs } from "@/lib/site"
+import { partners } from "@/lib/partners"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date("2026-09-28")
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/services", 0.9),
     ...services.map((s) => page(`/${s.slug}`, ["branding", "digital-marketing", "business-development"].includes(s.slug) ? 0.9 : 0.7)),
     page("/about", 0.7),
+    ...partners.map((p) => page(`/about/${p.slug}`, 0.6)),
     page("/contact", 0.7),
     page("/insights", 0.7),
     ...guides.map((g) => page(`/insights/${g.slug}`, 0.6, new Date(g.updated))),
