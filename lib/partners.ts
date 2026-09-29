@@ -38,25 +38,29 @@ export const partners: Partner[] = [
     cut: "/img/team/jordan-cut.webp",
     metaTitle: "Jordan Gundlach | Partner, Digital and Growth | Epic Wolf",
     metaDescription:
-      "Jordan Gundlach leads digital marketing, websites and growth at Epic Wolf in West Palm Beach, bringing an engineer's rigor to how a brand gets found.",
-    headline: "Marketing built like software",
+      "Jordan Gundlach leads digital and growth at Epic Wolf: a South Florida marketer since 2018 and a former chief technology officer.",
+    headline: "A marketer who can build",
     lead: "Jordan leads digital at Epic Wolf: the website, the search presence and the systems that turn attention into signed work.",
     background: [
       {
-        label: "The background",
-        body: "Jordan came to marketing from the build side: websites, apps, custom software and automation for businesses across South Florida. That shapes how digital runs at Epic Wolf. A site is treated as a product, a campaign as a system, and every claim gets measured.",
+        label: "The marketing years",
+        body: "Jordan has worked in South Florida marketing since 2018, starting on the front lines of search, ads, social, email and reputation for a Delray Beach medical practice. From there Jordan ran marketing for a multi-location law firm in Palm Beach Gardens, growing its organic search traffic tenfold in two years and producing the design and video work behind the firm's growth into a seven-figure practice, while consulting on brand and campaigns for a national insurance group.",
+      },
+      {
+        label: "The build years",
+        body: "Then came the technology side. As chief technology officer of a health insurance technology company, Jordan led engineering and product teams and launched a first-of-its-kind mobile app that modernized how people enroll. In 2025 Jordan founded a West Palm Beach development studio building websites, apps, custom platforms and AI automation.",
       },
       {
         label: "What Jordan brings",
-        body: "The part of a brand most agencies hand off. The search presence people find, the site that turns a visit into an inquiry and the follow-up that turns an inquiry into a meeting. Built fast, measured plainly and owned by the client.",
+        body: "A rare combination: a marketer who can build. Jordan has run campaigns that had to produce leads and led the teams that ship software, so digital work at Epic Wolf is designed for results, engineered properly and measured plainly.",
       },
       { label: "Why Epic Wolf", body: `${WHY} Jordan owns everything digital.` },
     ],
     facts: [
       { k: "Role", v: "Partner, Digital and Growth" },
       { k: "Based in", v: "West Palm Beach, Florida" },
-      { k: "Leads", v: "Digital marketing, websites and growth systems" },
-      { k: "Brings", v: "An engineer's rigor to marketing" },
+      { k: "In South Florida marketing since", v: "2018" },
+      { k: "Background", v: "Marketing leadership and chief technology officer" },
     ],
     leads: [
       { t: "Digital marketing", b: "Search, local search, paid social and content, measured against inquiries and revenue.", href: "/digital-marketing" },
@@ -70,8 +74,8 @@ export const partners: Partner[] = [
         a: "Jordan Gundlach is the partner who leads digital and growth at Epic Wolf. That covers digital marketing, search and paid programs, the website and the systems behind every inquiry, from instant follow-up to the reporting that shows which work is paying off.",
       },
       {
-        q: "What does Jordan bring to a brand?",
-        a: "A builder's discipline. Jordan came to marketing from websites, software and automation, so digital work at Epic Wolf is engineered to be found, to convert and to be measured, and it always matches the brand the client sees everywhere else.",
+        q: "What is Jordan Gundlach's background?",
+        a: "Jordan has worked in South Florida marketing since 2018, leading digital marketing for a medical practice and a multi-location law firm, where organic search traffic grew tenfold in two years. Jordan later served as chief technology officer of a health insurance technology company and in 2025 founded a West Palm Beach development studio.",
       },
       {
         q: "Why did Jordan and Shawn start Epic Wolf?",
