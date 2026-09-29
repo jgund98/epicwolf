@@ -445,6 +445,28 @@ header[data-htone="dark"] .btn-flare:hover {
   padding: 0.04em 0.04em 0;
 }
 
+/* Hero type size in pure CSS, so the headline paints at its final size before
+   any JavaScript runs. IMPOSSIBLE is the widest line: 7.7311em wide at wdth 125,
+   5.4991em at wdth 82 (measured). Same fit the old script did: 99% of the
+   shell, capped by height. */
+.hero-fit {
+  container-type: inline-size;
+  --hero-fs: min(calc(99cqw / 7.7311), 20vh);
+}
+@media (max-width: 767px) {
+  .hero-fit {
+    --hero-fs: min(calc(99cqw / 5.4991), 12svh);
+  }
+}
+/* The hero copy is held only until the brand font is in (font gate in the
+   root layout), then fades up. */
+.hero-copy {
+  transition: opacity 0.45s ease-out;
+}
+html.js:not(.fonts-ready) .hero-copy {
+  opacity: 0;
+}
+
 /* The word that breaks over the brand-world frame. */
 .t-world {
   font-size: clamp(2.4rem, 8.6vw, 12.8rem);

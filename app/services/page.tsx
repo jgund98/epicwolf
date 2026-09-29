@@ -10,7 +10,7 @@ import { ParallaxImage } from "@/components/ui/ParallaxImage"
 import { Kinetic } from "@/components/home/Kinetic"
 
 export const metadata = pageMeta({
-  title: "Services | Branding, Digital Marketing and Business Development | Epic Wolf",
+  title: "Branding, Marketing and Business Development | Epic Wolf",
   description:
     "Epic Wolf works in three disciplines: branding and public relations, digital marketing, and business development, for companies in West Palm Beach, Palm Beach County and South Florida.",
   path: "/services",

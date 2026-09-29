@@ -65,7 +65,6 @@ export function Hero() {
   const lineRefs = [useRef<HTMLSpanElement>(null), useRef<HTMLSpanElement>(null)]
   const probeRefs = [useRef<HTMLSpanElement>(null), useRef<HTMLSpanElement>(null)]
   const [fs, setFs] = useState<number | null>(null)
-  const measureRef = useRef<HTMLSpanElement>(null)
 
   /* Capabilities, read once on the client. */
   const [caps, setCaps] = useState<{ native: boolean; phone: boolean } | null>(null)
@@ -101,20 +100,12 @@ export function Hero() {
       if (!force && vwNow === lastW && Math.abs(vhNow - lastH) < 180) return
       lastW = vwNow
       lastH = vhNow
-      const m = measureRef.current
-      if (!m) return
-      const box = m.parentElement!
-      const cs = getComputedStyle(box)
-      const shell = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
-      const probes = m.parentElement!.querySelectorAll<HTMLElement>("[data-probe]")
-      const perEm = Math.max(
-        m.getBoundingClientRect().width / 100,
-        probes[0].getBoundingClientRect().width / 100,
-        probes[1].getBoundingClientRect().width / 100,
-      )
-      const byWidth = (shell / perEm) * 0.99
-      const byHeight = vwNow < 768 ? vhNow * 0.12 : vhNow * 0.2
-      setFs(Math.floor(Math.min(byWidth, byHeight)))
+      /* The size itself is pure CSS (.hero-fit in globals.css), so the headline
+         paints at its final size before any JavaScript runs. Here we only read
+         it back for the canvas. */
+      const big = lineRefs[0].current?.closest<HTMLElement>(".hero-word")
+      if (!big) return
+      setFs(parseFloat(getComputedStyle(big).fontSize))
     }
     fit(true)
     document.fonts?.ready.then(() => fit(true))
@@ -299,19 +290,6 @@ export function Hero() {
           readable layout inside sits in the SMALL viewport, so nothing is ever
           hidden behind the toolbar. */}
       <div ref={stage} className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
-        {/* Width probe for the fit. Never visible. */}
-        <div className="shell pointer-events-none invisible absolute inset-x-0 top-0" aria-hidden>
-          <span ref={measureRef} className="hero-word inline-block whitespace-nowrap" style={{ fontSize: 100 }}>
-            IMPOSSIBLE
-          </span>
-          <span data-probe className="hero-word inline-block whitespace-nowrap" style={{ fontSize: 100 }}>
-            TO IGNORE.
-          </span>
-          <span data-probe className="hero-word inline-block whitespace-nowrap" style={{ fontSize: 44 }}>
-            MAKE YOUR LAUNCH
-          </span>
-        </div>
-
         <video
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
           style={{ opacity: ready ? 1 : 0 }}
@@ -345,9 +323,9 @@ export function Hero() {
         )}
 
         {/* The readable layer */}
-        <div className="absolute inset-0 text-paper transition-opacity duration-500 ease-out" style={{ opacity: ready ? 1 : 0 }}>
+        <div className="hero-copy absolute inset-0 text-paper">
           <HeadLayout
-            fs={fs}
+            solid={!ready}
             lineRefs={lineRefs}
             probeRefs={probeRefs}
             native={native}
@@ -365,7 +343,7 @@ export function Hero() {
 }
 
 function HeadLayout({
-  fs,
+  solid,
   lineRefs,
   probeRefs,
   native,
@@ -373,7 +351,8 @@ function HeadLayout({
   downY,
   fade,
 }: {
-  fs: number | null
+  /** Big words in solid paper until the canvas cutout is ready, then they clear to show the footage. */
+  solid: boolean
   lineRefs: React.RefObject<HTMLSpanElement | null>[]
   probeRefs: React.RefObject<HTMLSpanElement | null>[]
   native: boolean
@@ -381,16 +360,14 @@ function HeadLayout({
   downY?: MotionValue<string>
   fade?: MotionValue<number>
 }) {
-  const size = fs ?? 120
-  const small = size * 0.44
   const big = ["Impossible", "To ignore."]
 
   return (
     <div className="shell flex h-[100svh] flex-col justify-center pb-[max(1.5rem,4svh)] pt-[calc(var(--header-h)+1rem)] md:pb-10">
-      <h1 id="hero-title" className="relative">
+      <h1 id="hero-title" className="hero-fit relative">
         <motion.span style={{ y: upY, opacity: fade }} className={`block will-change-transform ${native ? "hsd-up" : ""}`}>
           <span className="label mb-5 md:mb-7">West Palm Beach branding and marketing agency</span>
-          <span className="hero-word block whitespace-nowrap text-paper" style={{ fontSize: small }}>
+          <span className="hero-word block whitespace-nowrap text-paper" style={{ fontSize: "calc(var(--hero-fs) * 0.44)" }}>
             Make your{" "}
             <span className="inline-block align-top text-flare">
               <RotatingWord words={WORDS} />
@@ -399,7 +376,7 @@ function HeadLayout({
         </motion.span>
 
         {/* The big words: laid out for real, drawn by the canvas. */}
-        <span className="hero-word my-[0.04em] block" style={{ fontSize: size, color: "transparent" }}>
+        <span className="hero-word my-[0.04em] block" style={{ fontSize: "var(--hero-fs)", color: solid ? "var(--color-paper)" : "transparent", transition: "color .7s ease-out" }}>
           {big.map((w, i) => (
             <span key={w} className="block whitespace-nowrap">
               <span ref={lineRefs[i]} className="inline-block">

@@ -64,6 +64,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-US" className={archivo.variable} suppressHydrationWarning>
       <body>
+        {/* Font gate: runs before the hero is parsed. The hero copy waits only for
+            the (preloaded) brand font, never for the app to hydrate, capped at 1.5s. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var d=document.documentElement;d.classList.add('js');var done=function(){d.classList.add('fonts-ready')};setTimeout(done,1500);try{var f=getComputedStyle(document.body).fontFamily.split(',')[0];document.fonts.load('900 1em '+f).then(done,done)}catch(e){done()}})()",
+          }}
+        />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-flare focus:px-4 focus:py-2 focus:text-ink">
           Skip to content
         </a>

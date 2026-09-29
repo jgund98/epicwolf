@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const g = guideBySlug(slug)
   if (!g) return {}
-  return pageMeta({ title: `${g.title} | Epic Wolf`, description: g.description, path: `/insights/${g.slug}`, type: "article" })
+  /* Brand suffix only when the whole title still fits in search results (~65 chars). */
+  const title = `${g.title} | Epic Wolf`.length <= 65 ? `${g.title} | Epic Wolf` : g.title
+  return pageMeta({ title, description: g.description, path: `/insights/${g.slug}`, type: "article" })
 }
 
 const fmt = (d: string) => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
