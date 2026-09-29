@@ -716,6 +716,333 @@ const all: Guide[] = [
       { label: "AOL: How to Tell if You Live in Lake Worth or Lake Worth Beach", href: "https://www.aol.com/articles/tell-live-lake-worth-lake-190318000.html" },
     ],
   },
+  {
+    slug: "branding-cost-palm-beach-county",
+    title: "What Does Branding Cost in Palm Beach County in 2026",
+    description:
+      "Published 2026 price ranges for brand strategy, logos, identity systems, naming, guidelines and rebrands, plus what drives cost and the red flags in a quote.",
+    published: "2026-09-28",
+    updated: "2026-09-28",
+    summary:
+      "Published 2026 pricing guides put a logo on its own at roughly $500 to $5,000, a core identity system at about $5,000 to $12,000, and a full brand system with strategy and messaging at $12,000 to $75,000 or more. Clutch reports that the most common branding project on its platform runs $10,000 to $49,999. No survey isolates Palm Beach County, so these are national ranges, and scope decides where you land.",
+    sections: [
+      {
+        h2: "How much does branding cost in Palm Beach County",
+        answer:
+          "Published 2026 pricing guides put a logo alone at roughly $500 to $5,000, a core identity system at about $5,000 to $12,000, and a full brand system with strategy at $12,000 to $75,000 or more. Full rebrands commonly run $20,000 to $100,000 or more. No survey isolates Palm Beach County, so these are national ranges.",
+        body: [
+          "There is no official price list for branding, and the published guides do not agree. The table combines agency pricing guides from Splash Creative, dp.vision, NewMedia and Blankboard with naming fees from Tungsten Branding. Where they differ, we show the combined span and note who sits at which end. These are typical market ranges, not our pricing.",
+        ],
+        table: {
+          head: ["Deliverable", "Typical market range", "Notes"],
+          rows: [
+            ["Logo only", "$500 to $5,000", "One guide puts freelancers at $500 to $3,000 and agencies at $3,000 to $15,000"],
+            ["Brand strategy and positioning", "$5,000 to $20,000 or more", "Research, audience, competitors and a positioning statement"],
+            ["Brand messaging", "$2,500 to $20,000 or more", "Voice, key messages and taglines"],
+            ["Visual identity system", "$2,000 to $40,000", "Freelancers $2,000 to $8,000; agencies $8,000 to $40,000"],
+            ["Brand guidelines", "$3,000 to $15,000", "Often bundled into an identity package"],
+            ["Naming", "$3,000 to $50,000 or more", "Specialist naming firms start at $15,000 to $25,000 with trademark screening"],
+            ["Full brand system", "$12,000 to $75,000 or more", "Strategy, messaging, identity and guidelines together"],
+            ["Brand plus website", "$15,000 to $35,000", "One studio's published range for identity and site together"],
+            ["Full rebrand", "$20,000 to $100,000 or more", "Scales with company size and how much has to change"],
+          ],
+        },
+      },
+      {
+        h2: "How does price change from freelancer to boutique to agency",
+        answer:
+          "Price tracks the size and depth of the team. Published guides put freelancers at roughly $500 to $10,000, boutique and mid-size studios at $5,000 to $30,000, and established agencies from $15,000 to well past $100,000. At the higher tiers you pay for strategy, senior attention and process as much as for design files.",
+        body: [
+          "The ranges overlap because the labels are loose. dp.vision puts traditional agencies at $15,000 to $100,000 or more, NewMedia puts premium agencies at $20,000 to $100,000 or more, and Splash Creative puts premium agencies at $50,000 to $250,000 or more. Freelance ranges run from $500 to $5,000 at NewMedia up to $500 to $10,000 or more at Splash.",
+          "Clutch, which builds its figures from verified client reviews, reports that US branding agencies on its platform typically bill $100 to $149 an hour and that the most common project size is $10,000 to $49,999. Its average project cost is $71,651.70, far above that common range, so a smaller number of very large engagements pull the average up. Plan around the range, not the average.",
+        ],
+        table: {
+          head: ["Provider", "Typical market range", "What you usually get", "Typical timeline"],
+          rows: [
+            ["Freelancer", "$500 to $10,000", "Logo, colors, type and a file package; strategy is rare", "2 to 4 weeks"],
+            ["Boutique or mid-size studio", "$5,000 to $30,000", "Discovery, identity system and guidelines, sometimes messaging", "4 to 12 weeks"],
+            ["Established agency", "$15,000 to $250,000 or more", "Research, strategy workshops, brand architecture, messaging and full identity", "8 to 16 weeks or more"],
+          ],
+        },
+      },
+      {
+        h2: "What drives the cost of a branding project",
+        answer:
+          "Scope drives most of the price: how much strategy and research come before design, how many deliverables you need and how many places the brand has to work. After that come the number of decision makers, revision rounds, deadlines, naming and trademark work, and the seniority of the team doing it.",
+        body: [
+          "Naming is where scope can jump. Tungsten Branding lists the geographic reach of trademark clearance and the number of decision makers among the main variables in its naming fees. A name that only has to work in one county is a different project from one that has to clear nationally.",
+        ],
+        list: [
+          "Strategy depth: research, interviews and positioning before any design",
+          "Deliverables: a logo alone versus a full system with messaging and guidelines",
+          "Touchpoints: how many screens, documents, signs and vehicles the brand must work on",
+          "Decision makers: more stakeholders mean more meetings and review rounds",
+          "Revision rounds: Splash Creative says standard projects include two to three",
+          "Timeline: rush projects carry a premium",
+          "Naming: trademark clearance grows with the geographic reach you need",
+          "Team: senior strategists and larger agencies carry more overhead",
+        ],
+      },
+      {
+        h2: "What should a branding package include",
+        answer:
+          "A core identity package should include primary and secondary logo versions, a color palette, a type system, a brand guidelines document and basic templates, according to one studio's published package. You should also receive editable source files and clear ownership of the final work. Strategy and messaging are often separate line items.",
+        list: [
+          "Primary and secondary logo versions, in full color, one color and reversed",
+          "A color palette with values for screen, print and vinyl",
+          "A typography system with the licensed fonts identified",
+          "Brand guidelines that show correct and incorrect use",
+          "Templates for the pieces you use most, such as proposals and social posts",
+          "Editable source files, not just flattened images",
+          "A written transfer of ownership or usage rights",
+        ],
+      },
+      {
+        h2: "Does a website belong in the branding budget",
+        answer:
+          "It usually should, because the website is where most buyers meet the brand first. Splash Creative publishes $15,000 to $35,000 for brand and website together. On Clutch, most web design projects reviewed come in under $10,000, while the average project is $38,105. Planning both together avoids building a site twice.",
+        body: [
+          "Sequencing matters more than bundling. If the identity is still moving, a website built in parallel gets rebuilt when the brand settles. The cleanest order is strategy, then identity, then a website built on the finished system. Clutch reports that US web design firms on its platform typically bill $100 to $149 an hour, the same band it reports for branding agencies.",
+        ],
+      },
+      {
+        h2: "What costs come after the brand is designed",
+        answer:
+          "Rollout is the cost most budgets miss. One agency guide suggests setting aside 30 to 50 percent of the branding fee to apply the new brand, and another lists rollout support at $5,000 to $20,000 or more. Signs, vehicles, print, uniforms and trademark filings all come after the design is approved.",
+        body: [
+          "Federal trademark registration has its own fees. The US Patent and Trademark Office charges a base application fee of $350 per class of goods or services, with surcharges for incomplete or free-form applications. Attorney fees are separate.",
+          "Physical pieces carry local rules. In Palm Beach County, sign changes can need permits and design review depending on the city or town. Delray Beach requires a sign permit for new signs and for face changes, and the Town of Palm Beach requires a permit and architectural review to erect, alter or illuminate a sign. Check before you order anything.",
+        ],
+        list: [
+          "Exterior and interior signs, plus any permits",
+          "Vehicle graphics and wraps",
+          "Business cards, stationery, proposals and forms",
+          "Uniforms and branded goods",
+          "Website, social profiles and business listings",
+          "Trademark filings",
+        ],
+      },
+      {
+        h2: "Is branding more expensive in Palm Beach County",
+        answer:
+          "No published survey measures branding prices in Palm Beach County, so national ranges are the honest benchmark. Clutch reports the same $100 to $149 hourly band for branding agencies in the United States, Canada and Australia. Local quotes move with the same factors as anywhere else: scope, team and timeline.",
+        body: [
+          "Location still shows up in overhead. Splash Creative, a New York studio, names location and overhead as a cost driver and notes that New York studios command higher rates. A Palm Beach County business can hire anywhere, so compare proposals on scope and team rather than zip code.",
+          "What is local is the physical side. A brand here often has to work on a storefront in a plaza with a master sign plan, on vehicles that live in the sun, and in categories like real estate, hospitality and finance where the competition is often national. Those factors change the rollout more than the design fee.",
+        ],
+      },
+      {
+        h2: "What are the red flags in a branding quote",
+        answer:
+          "Be wary of quotes that do not list deliverables, studios that price before any discovery, work delivered without editable source files, and prices so low they suggest a template. Also watch for unclear ownership, no revision limit in writing, and a new name offered with no trademark screening.",
+        body: [
+          "If you already have proposals in hand, lay them side by side by deliverable, not by total. Epic Wolf is glad to walk through that comparison with you, whoever you end up hiring.",
+        ],
+        list: [
+          "No itemized list of deliverables",
+          "A price given before anyone asks about your business",
+          "Only flattened image files, with no editable sources",
+          "No written transfer of ownership or usage rights",
+          "A price so low the work is likely a template",
+          "Unlimited concepts promised with no strategy behind them",
+          "A new name with no trademark screening",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does a logo cost for a small business?",
+        a: "Most published 2026 guides put a professionally designed logo at roughly $500 to $5,000, with freelancers at the lower end and agencies charging $3,000 to $15,000 for logo work. A logo alone is rarely the best value. Without colors, type and usage rules, the logo gets stretched and recolored as soon as other vendors start using it.",
+      },
+      {
+        q: "How long does a branding project take?",
+        a: "A core identity typically takes 4 to 8 weeks and a full brand system with messaging 8 to 12 weeks, according to one studio's published timeline. Freelance projects can finish in 2 to 4 weeks, while traditional agencies quote 8 to 16 weeks. Clutch reports a typical timeline of 8 months across the branding engagements reviewed on its platform, so bigger scopes run far longer.",
+      },
+      {
+        q: "Why do branding quotes vary so much?",
+        a: "Quotes vary because providers are pricing different work under the same word. One quote may cover a logo file, while another covers research, positioning, messaging, a full identity system and guidelines. Compare proposals line by line: what research happens, how many concepts and revision rounds are included, which files you receive and who owns them.",
+      },
+      {
+        q: "Should I trademark my new brand name?",
+        a: "If the name matters to the business long term, talk to a trademark attorney before you commit to it. The US Patent and Trademark Office base application fee is $350 per class of goods or services, and attorney fees are separate. Screening a name before you design around it costs far less than renaming after the signs and vehicles are done.",
+      },
+      {
+        q: "Do these branding prices apply in West Palm Beach?",
+        a: "Yes, as a starting point. No published survey isolates West Palm Beach or Palm Beach County, so the national ranges in this guide are the honest benchmark. Local quotes follow the same drivers: scope, strategy depth, team seniority and timeline. Local context changes the budget most in the rollout, such as sign permits and vehicle graphics.",
+      },
+    ],
+    related: ["branding", "web-design", "signs", "digital-marketing"],
+    sources: [
+      { label: "Clutch: Branding Pricing Guide (September 2026)", href: "https://clutch.co/agencies/branding/pricing" },
+      { label: "Clutch: Web Design Company Pricing Guide (September 2026)", href: "https://clutch.co/web-designers/pricing" },
+      { label: "Splash Creative: How Much Does Branding Cost in 2026", href: "https://splashcreative.com/how-much-does-branding-cost-in-2026-agency-pricing-explained/" },
+      { label: "dp.vision: How Much Does Branding Cost in 2026", href: "https://dpvision.agency/blog/branding-cost-breakdown-2026/" },
+      { label: "NewMedia: Branding Package Pricing in 2026", href: "https://newmedia.com/blog/branding-cost" },
+      { label: "Blankboard: Cost of Brand Refresh vs Rebrand", href: "https://www.blankboard.studio/originals/blog/brand-refresh-vs-rebrand-vs-website-redesign-cost-roi" },
+      { label: "Tungsten Branding: Cost for Naming a Company", href: "https://www.tungstenbranding.com/cost-for-naming-a-company/" },
+      { label: "USPTO: Summary of 2025 Trademark Fee Changes", href: "https://www.uspto.gov/trademarks/fees-payment-information/summary-2025-trademark-fee-changes" },
+      { label: "City of Delray Beach: Signs", href: "https://www.delraybeachfl.gov/government/city-departments/development-services/zoning-current-planning/signage" },
+      { label: "Town of Palm Beach Code: Article XI Signs", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI_DIV2REDI_S134-2401SCDI" },
+    ],
+  },
+  {
+    slug: "rebrand-vs-refresh",
+    title: "Does Your Business Need a Rebrand or a Refresh",
+    description:
+      "How to tell a brand refresh from a full rebrand: the signs of each, risks to recognition, search and signage, published timelines and costs, and a checklist.",
+    published: "2026-09-28",
+    updated: "2026-09-28",
+    summary:
+      "Refresh when your strategy still works and only the look has aged. Rebrand when the business itself has changed: a merger, a new name, a new market or a reputation you need to leave behind. Published agency guides put a small-business refresh at roughly $7,500 to $25,000 over one to three months, and a full rebrand at $20,000 to $150,000 or more over two to six months or longer, before the cost of new signs, vehicles and print.",
+    sections: [
+      {
+        h2: "What is the difference between a rebrand and a refresh",
+        answer:
+          "A refresh updates how an existing brand looks and sounds: a cleaner logo, tighter colors, better type. The positioning, name and promise stay. A rebrand changes the foundation itself, including positioning, audience, values and sometimes the name. One modernizes a strategy that works. The other replaces a strategy that no longer fits.",
+        body: [
+          "Splash Creative, a New York branding studio, frames them as different decisions solving different problems, not two points on one scale. Both mistakes are expensive. A refresh on a broken strategy produces a better-looking version of the same problem. A rebrand on a sound strategy throws away recognition you spent years building.",
+        ],
+        table: {
+          head: ["", "Brand refresh", "Full rebrand"],
+          rows: [
+            ["What changes", "Logo refinements, color, type, imagery and tone", "Positioning, messaging, visual identity and sometimes the name"],
+            ["What stays", "Name, strategy, audience and core recognition", "Often little beyond the business itself"],
+            ["Typical triggers", "A dated look, inconsistent use, a new website", "Merger, new name, new market, strategic pivot, reputation problem"],
+            ["Published timeline", "About 1 to 3 months", "About 2 to 6 months or longer"],
+            ["Published cost, small business", "$7,500 to $25,000", "$20,000 to $150,000 or more"],
+            ["Main risk", "Fixing the surface when the strategy is the problem", "Losing recognition customers already have"],
+          ],
+        },
+      },
+      {
+        h2: "When is a brand refresh enough",
+        answer:
+          "A refresh is enough when customers still understand what you do and why they choose you, but the look has aged or drifted. If people recognize you, refer you and describe you correctly, protect that. Update the execution and keep the equity you already have.",
+        list: [
+          "The logo looks dated or breaks down at small sizes and on phones",
+          "Several versions of the logo and colors are in circulation",
+          "A new website is coming and the identity needs to work on it",
+          "The strategy and the audience are unchanged",
+          "Customers describe the business accurately",
+          "The name has no legal or reputation problems",
+        ],
+      },
+      {
+        h2: "When does a business need a full rebrand",
+        answer:
+          "Rebrand when the business has fundamentally changed and the current brand cannot carry it where it is going. Common triggers are a merger or acquisition, a name change, a strategic pivot, a move into a new market or audience, and negative perceptions that a new coat of paint will not fix.",
+        list: [
+          "A merger, acquisition or change of ownership",
+          "A name that is confusing, generic, easily mistaken for a competitor or legally risky",
+          "A move upmarket or into a different audience",
+          "Services that have changed so much the brand describes a company that no longer exists",
+          "A reputation problem attached to the name itself",
+          "Expansion beyond the market the name and identity were built for",
+        ],
+      },
+      {
+        h2: "What are the risks of changing a brand",
+        answer:
+          "The biggest risk is losing recognition people already have. Customers find you by what they remember: a color, a shape, a name. Change too much at once and loyal buyers can stop recognizing you. A rebrand also carries search, signage, print and vehicle costs that the design fee does not show.",
+        body: [
+          "Two well documented cases show how fast it happens. Ad Age reported that sales of Tropicana Pure Premium fell 20 percent in roughly the first two months after its 2009 carton redesign, and the company announced a return to the old packaging. In October 2010, Gap replaced its logo and went back to the original six days later after public backlash.",
+          "Neither was a small business, and neither story means change is dangerous. They show that recognition is an asset. A refresh that keeps the recognizable elements, or a rebrand explained to customers before it lands, protects it.",
+        ],
+      },
+      {
+        h2: "How does a rebrand affect SEO",
+        answer:
+          "A new name alone rarely breaks search, but a new domain or new page addresses can cause temporary drops while Google recrawls. Google says rankings may fluctuate during a site move and that a small to medium site can take a few weeks for most pages to move. Permanent redirects and consistent listings keep the dip short.",
+        body: [
+          "Google's site move guidance recommends permanent 301 or 308 redirects from every old address to its new one, kept for as long as possible and generally at least one year. It also recommends updating internal links right away and asking the sites that link to you to update theirs.",
+          "Search is not only your website. Your Google Business Profile, directory listings, social profiles and reviews all carry the old name. Update them together so search engines and AI tools can tell that the old and new names describe the same business.",
+        ],
+        list: [
+          "Map every old URL to its new address before launch",
+          "Use permanent redirects and keep them at least a year",
+          "Update your Google Business Profile name and details",
+          "Update directories, social profiles and state records",
+          "Tell customers and partners before the change goes live",
+        ],
+      },
+      {
+        h2: "What does a rebrand cost beyond the design fee",
+        answer:
+          "The rollout: everything the old brand appears on. Signs, vehicle graphics, uniforms, stationery, packaging, the website and listings all have to change. One agency guide suggests budgeting 30 to 50 percent of the branding fee for rollout. A refresh can often be phased in as pieces wear out. A rebrand usually cannot.",
+        body: [
+          "Vehicles and signs are the big physical line items. Published 2026 pricing guides put a full cargo van wrap at roughly $3,500 to $8,000 and spot lettering at $300 to $1,000, so a rebrand across even a small fleet adds up. A federal trademark filing adds the US Patent and Trademark Office base fee of $350 per class, before attorney fees.",
+          "Palm Beach County adds a permitting layer. In unincorporated areas, changing the copy or graphics on an existing permitted sign is not treated as an alteration under the county code, but enlarging, relocating or structurally changing it is. Delray Beach requires a sign permit for face changes, and the Town of Palm Beach requires architectural review to alter a sign. A refresh that fits existing sign faces can be far simpler than a rebrand that changes their size or shape.",
+        ],
+      },
+      {
+        h2: "How long does a refresh or rebrand take",
+        answer:
+          "Published agency timelines put a refresh at about four to twelve weeks and a full rebrand at two to six months or more. The sources differ: one says four to eight weeks for a refresh, another six to twelve, and a UK agency says two to three months. Rollout across signs and vehicles comes after that.",
+        body: [
+          "For rebrands, Blankboard lists 8 to 24 weeks, Metabrand says four to six months at minimum, and Canny Creative says six months or longer. Larger organizations with several locations, product lines or stakeholders run longer. Build in time for trademark screening if the name is changing, and for sign permits if the physical brand is changing.",
+        ],
+      },
+      {
+        h2: "How do you decide between a rebrand and a refresh",
+        answer:
+          "Start with strategy, not design. If your positioning, audience and name still fit where the business is going, refresh. If any of them no longer fit, rebrand. Then list everything the change will touch, from the website to the trucks, and budget for the rollout before you commit.",
+        body: [
+          "Answer the questions below honestly and the choice usually makes itself. If it does not, a short brand audit will settle it, and Epic Wolf can be that second set of eyes if it helps.",
+        ],
+        list: [
+          "Do customers describe what we do accurately today",
+          "Is our name still right for where we are going, legally and strategically",
+          "Has our audience, market or ownership changed",
+          "Is the problem how we look or what we stand for",
+          "Which elements do people recognize us by, and can we keep them",
+          "What has to change: website, domain, listings, signs, vehicles, print and uniforms",
+          "Do our signs need permits or design review to change",
+          "Have we budgeted for rollout as well as design",
+          "Who tells customers and staff before the change goes public",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Will a rebrand hurt my Google rankings?",
+        a: "It can cause a temporary dip if your domain or page addresses change, but it does not have to cause lasting damage. Google says rankings may fluctuate during a site move and settle over time. Use permanent redirects from every old URL, keep them at least a year, and update your Business Profile and listings at the same time.",
+      },
+      {
+        q: "Can I refresh my logo without replacing my signs?",
+        a: "Often yes, if the refresh keeps the logo's proportions and colors close enough that old and new read as the same brand. Many businesses phase in a refresh, updating digital pieces first and physical ones as they wear out. A full rebrand rarely works that way, because an old name and a new one in public at the same time confuse customers.",
+      },
+      {
+        q: "How much does a brand refresh cost?",
+        a: "Published agency guides put a small-business brand refresh at roughly $7,500 to $25,000, with freelance refreshes from about $2,500 and mid-market refreshes at $25,000 to $60,000 or more. Another guide says most refreshes fall between $15,000 and $60,000. The spread reflects scope: a logo tune-up costs far less than new guidelines, messaging and templates.",
+      },
+      {
+        q: "Is changing my business name a rebrand?",
+        a: "Yes. A name change is a full rebrand even if the logo style stays similar, because it resets recognition, search listings, legal records and every physical piece that carries the name. Screen the new name for trademarks before designing around it, and plan the announcement so customers hear it from you before they see a new sign.",
+      },
+      {
+        q: "How do I keep customers from being confused by a rebrand?",
+        a: "Tell them before it happens and explain why. Keep something recognizable where you can, such as a color or a shape, and mention the former name in announcements and on the website for a while. Change every touchpoint on a planned schedule so the old brand does not linger on a truck or a sign for months.",
+      },
+    ],
+    related: ["branding", "signs", "vehicle-wraps", "web-design"],
+    sources: [
+      { label: "Splash Creative: Brand Refresh vs Rebrand (July 2026)", href: "https://splashcreative.com/brand-refresh-vs-rebrand-how-to-know-which-one-your-business-actually-needs/" },
+      { label: "Blankboard: Cost of Brand Refresh vs Rebrand vs Website Redesign", href: "https://www.blankboard.studio/originals/blog/brand-refresh-vs-rebrand-vs-website-redesign-cost-roi" },
+      { label: "Metabrand: Brand Refresh vs Rebrand", href: "https://www.metabrand.digital/learn/brand-refresh-vs-rebrand-complete-guide" },
+      { label: "Canny Creative: Brand Refresh vs Full Rebrand", href: "https://www.canny-creative.com/blog/brand-refresh-vs-rebrand-a-decision-making-guide/" },
+      { label: "dp.vision: How Much Does Branding Cost in 2026", href: "https://dpvision.agency/blog/branding-cost-breakdown-2026/" },
+      { label: "Ad Age: Tropicana Line's Sales Plunge 20% Post-Rebranding", href: "https://adage.com/article/news/tropicana-line-s-sales-plunge-20-post-rebranding/135735/" },
+      { label: "The Branding Journal: Tropicana's Packaging Redesign Failure", href: "https://www.thebrandingjournal.com/2015/05/what-to-learn-from-tropicanas-packaging-redesign-failure/" },
+      { label: "The Branding Journal: Learning From the Gap Logo Redesign", href: "https://www.thebrandingjournal.com/2021/04/learnings-gap-logo-redesign-fail/" },
+      { label: "Google Search Central: Site Moves With URL Changes", href: "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" },
+      { label: "Lee's Signs: Vehicle Wrap Cost Guide 2026", href: "https://www.leessign.com/blog/vehicle-wrap-cost" },
+      { label: "VehicleWrapCost.com: Vehicle Wrap Cost 2026", href: "https://vehiclewrapcost.com/" },
+      { label: "USPTO: Summary of 2025 Trademark Fee Changes", href: "https://www.uspto.gov/trademarks/fees-payment-information/summary-2025-trademark-fee-changes" },
+      { label: "Palm Beach County ULDC Article 8: Signage (PDF)", href: "https://pbc.gov/uldc/pdf/Article8.pdf" },
+      { label: "City of Delray Beach: Signs", href: "https://www.delraybeachfl.gov/government/city-departments/development-services/zoning-current-planning/signage" },
+      { label: "Town of Palm Beach Code: Article XI Signs", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI_DIV2REDI_S134-2401SCDI" },
+    ],
+  },
 ]
 
 /* Lead with the strategic guides; the trade guides follow. */
@@ -723,6 +1050,8 @@ const ORDER = [
   "get-found-in-ai-search-local-business",
   "choosing-a-pr-firm-west-palm-beach",
   "branding-agency-vs-marketing-agency",
+  "branding-cost-palm-beach-county",
+  "rebrand-vs-refresh",
   "business-sign-permits-palm-beach-county",
   "vehicle-wrap-cost-palm-beach-county",
 ]

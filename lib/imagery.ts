@@ -20,6 +20,7 @@ const P = {
   anzoWide: { src: "/img/work/anzo-sign-wide.jpg", alt: "Dimensional channel letters over a Mediterranean restaurant entrance" },
   anzoWindows: { src: "/img/work/anzo-windows.jpg", alt: "Full-color food photography printed on storefront windows" },
   auStore: { src: "/img/work/au-storefront.jpg", alt: "Branded window graphics running across an office storefront" },
+  auStoreWide: { src: "/img/work/au-storefront-wide.jpg", alt: "Navy window bands carrying one logo system across an office storefront and its doors" },
   blade: { src: "/img/work/blade-sign.jpg", alt: "A hanging blade sign over a shaded sidewalk arcade" },
   door: { src: "/img/work/door-lettering.jpg", alt: "Oversized white lettering across a glass storefront" },
   event: { src: "/img/work/event-display.jpg", alt: "A printed backdrop and banner stand at an evening event" },
@@ -119,6 +120,8 @@ export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
   "get-found-in-ai-search-local-business": { lead: P.ewDigital, inline: P.flaglerNight },
   "choosing-a-pr-firm-west-palm-beach": { lead: P.press, inline: P.worthAve },
   "branding-agency-vs-marketing-agency": { lead: P.sketch, inline: P.swatches },
+  "branding-cost-palm-beach-county": { lead: P.auStoreWide, inline: P.motivo },
+  "rebrand-vs-refresh": { lead: P.inchOunce, inline: P.wallSign },
   "business-sign-permits-palm-beach-county": { lead: P.anzoWide, inline: P.factoryWide },
   "vehicle-wrap-cost-palm-beach-county": { lead: P.pickupWide, inline: P.wrapInstall },
 }
