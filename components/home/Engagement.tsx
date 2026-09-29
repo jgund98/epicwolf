@@ -191,7 +191,18 @@ export function Engagement() {
               </h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
-              <div className="flex items-baseline gap-4">
+              {/* All five phases as real text for screen readers and crawlers (search
+                  and AI engines read the HTML, not the animation). The animated
+                  lines below show one phase at a time and are hidden from them. */}
+              <ol className="sr-only">
+                {PHASES.map((ph) => (
+                  <li key={ph.t}>
+                    <h3>{ph.t}</h3>
+                    <p>{ph.b}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="flex items-baseline gap-4" aria-hidden>
                 <span className="w-[2.2ch] shrink-0 text-sm font-bold tabular-nums text-flare">0{active + 1}</span>
                 <div className="relative h-[clamp(2.3rem,5vw,4.4rem)] flex-1 overflow-hidden">
                   <AnimatePresence mode="popLayout" initial={false}>
@@ -209,7 +220,7 @@ export function Engagement() {
                   </AnimatePresence>
                 </div>
               </div>
-              <div className="relative mt-3 min-h-[6.5rem] pl-[calc(2.2ch+1rem)] lg:min-h-[5.5rem]">
+              <div className="relative mt-3 min-h-[6.5rem] pl-[calc(2.2ch+1rem)] lg:min-h-[5.5rem]" aria-hidden>
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={active}
