@@ -6,17 +6,19 @@ const glyphs = (items, color, accent = FLARE) =>
   items.map(({ g, x }) => `<g transform="translate(${x} 0)"><path d="${g.body}" fill-rule="evenodd" fill="${color}"/>${g.accent ? `<path d="${g.accent}" fill="${accent}"/>` : ""}</g>`).join("")
 const wordmark = (color, accent) => glyphs(layout(EPIC), color, accent) + glyphs(layout(WOLF, EPIC_W + WORD_GAP), color, accent)
 
-// Van: the cargo side is nearly orthographic, so a flat graphic multiplied onto it reads as film.
+// Van: an American Ram ProMaster in side profile. The cargo side is flat and
+// square to camera, so a graphic multiplied onto it reads as film, with the
+// door seam, track and handle showing through.
 {
-  const x = 836, y = 466, w = 690, h = 392
-  const s = (w * 0.62) / LINE_W
+  const x = 338, y = 532, w = 808, h = 346
+  const s = (w * 0.43) / LINE_W
   const wrap = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
     <rect width="${w}" height="${h}" fill="#1a1a1d"/>
-    <polygon points="${w * 0.66},0 ${w},0 ${w},${h} ${w * 0.5},${h}" fill="${FLARE}"/>
-    <g transform="translate(${w * 0.07} ${h * 0.4}) scale(${s})">${wordmark("#ffffff", FLARE)}</g>
-    <rect x="${w * 0.07}" y="${h * 0.4 + 100 * s + 22}" width="${w * 0.18}" height="6" fill="#ffffff" opacity=".85"/>
+    <polygon points="${w * 0.64},0 ${w},0 ${w},${h} ${w * 0.5},${h}" fill="${FLARE}"/>
+    <g transform="translate(${w * 0.07} ${h * 0.36}) scale(${s})">${wordmark("#ffffff", FLARE)}</g>
+    <rect x="${w * 0.07}" y="${h * 0.36 + 100 * s + 20}" width="${w * 0.16}" height="6" fill="#ffffff" opacity=".85"/>
   </svg>`
-  await sharp("public/img/stock/van.jpg").composite([{ input: Buffer.from(wrap), left: x, top: y, blend: "multiply" }]).jpeg({ quality: 82, mozjpeg: true }).toFile("public/img/brand/ew-van-3.jpg")
+  await sharp("public/img/stock/usvan.jpg").composite([{ input: Buffer.from(wrap), left: x, top: y, blend: "multiply" }]).jpeg({ quality: 84, mozjpeg: true }).toFile("public/img/brand/ew-van-us.jpg")
 }
 // Storefront: white letters on the dark fascia band, the mark on the glass.
 {

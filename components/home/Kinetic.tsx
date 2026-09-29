@@ -12,9 +12,9 @@ import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } f
  * giant type to a finger's momentum scroll stutters; a steady glide never does.
  */
 const ROWS: { big: string; small: string; dir: 1 | -1; dur: number }[] = [
-  { big: "Branding", small: "unmistakable", dir: -1, dur: 26 },
-  { big: "Digital marketing", small: "found first", dir: 1, dur: 34 },
-  { big: "Business development", small: "closed", dir: -1, dur: 40 },
+  { big: "Branding", small: "unmistakable", dir: -1, dur: 46 },
+  { big: "Digital marketing", small: "found first", dir: 1, dur: 58 },
+  { big: "Business development", small: "closed", dir: -1, dur: 68 },
 ]
 
 export function Kinetic() {
@@ -60,8 +60,9 @@ function Words({ row }: { row: (typeof ROWS)[number] }) {
 }
 
 function Row({ row, p, mode, index }: { row: (typeof ROWS)[number]; p: MotionValue<number>; mode: "scroll" | "glide" | "still"; index: number }) {
-  const from = row.dir === -1 ? "-4%" : "-46%"
-  const to = row.dir === -1 ? "-46%" : "-4%"
+  /* A gentle travel: enough to feel alive, never enough to make you dizzy. */
+  const from = row.dir === -1 ? "-8%" : "-28%"
+  const to = row.dir === -1 ? "-28%" : "-8%"
   const x = useTransform(p, [0, 1], [from, to])
 
   if (mode === "glide") {

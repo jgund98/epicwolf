@@ -109,7 +109,10 @@ export function Hero() {
       const x = ox + stem.center
       const y = oy + l.offsetHeight * 0.5
       setOrigin(`${x}px ${y}px`)
-      setMaxScale((Math.max(window.innerWidth, window.innerHeight) / stem.width) * 1.6)
+      /* Capped: a black layer scaled 80x becomes a texture too large to raster
+         whole, and scrolling back up then shows stale partial tiles. The zoom
+         stops at 14x and the layer dissolves into the footage instead. */
+      setMaxScale(Math.min(14, (Math.max(window.innerWidth, window.innerHeight) / stem.width) * 1.6))
     }
     read()
     const t = setTimeout(read, 300)
@@ -127,6 +130,7 @@ export function Hero() {
   const downY = useTransform(p, [0.04, 0.3], ["0%", "60%"])
   const contentOpacity = useRange(p, [0.08, 0.26], [1, 0])
   const scrim = useRange(p, [0.5, 0.7], [0, 0.55])
+  const maskOpacity = useRange(p, [0.34, 0.54], [1, 0])
 
   return (
     <section
@@ -174,7 +178,7 @@ export function Hero() {
           data-mask-layer
           aria-hidden
           className={`absolute inset-0 mix-blend-multiply ${native ? "hsd-mask" : ""}`}
-          style={{ scale: reduce || native ? undefined : scale, transformOrigin: origin, willChange: touch || native ? "transform" : "auto", backgroundColor: "#000" }}
+          style={{ scale: reduce || native ? undefined : scale, opacity: reduce || native ? undefined : maskOpacity, transformOrigin: origin, willChange: touch || native ? "transform" : "auto", backgroundColor: "#000" }}
         >
           <HeadLayout mode="mask" fs={fs} headRef={maskHead} lRef={maskL} />
         </motion.div>
@@ -377,13 +381,17 @@ function ChapterLine({ p, at, text, flare }: { p: MotionValue<number>; at: numbe
  */
 function heroKeyframes(maxScale: number) {
   const pct = (v: number) => `${(v * 100).toFixed(2)}%`
-  const zoom: string[] = ["0% { transform: scale(1) }", "6% { transform: scale(1) }"]
+  /* Zoom into the I, and over the last stretch dissolve the black layer into
+     the footage (opacity 1 until 34%, 0 by 54%). */
+  const op = (v: number) => (v <= 0.34 ? 1 : v >= 0.54 ? 0 : 1 - (v - 0.34) / 0.2)
+  const zoom: string[] = ["0% { transform: scale(1); opacity: 1 }", "6% { transform: scale(1); opacity: 1 }"]
   for (let i = 1; i <= 40; i++) {
     const t = i / 40
     const eased = t * t * (3 - 2 * t)
-    zoom.push(`${pct(0.06 + t * 0.5)} { transform: scale(${Math.exp(eased * Math.log(maxScale)).toFixed(4)}) }`)
+    const at = 0.06 + t * 0.5
+    zoom.push(`${pct(at)} { transform: scale(${Math.exp(eased * Math.log(maxScale)).toFixed(4)}); opacity: ${op(at).toFixed(3)} }`)
   }
-  zoom.push(`100% { transform: scale(${maxScale.toFixed(4)}) }`)
+  zoom.push(`100% { transform: scale(${maxScale.toFixed(4)}); opacity: 0 }`)
   const tl = "animation-timeline: --hero; animation-range: contain 0% contain 100%;"
   const line = (i: number, at: number) => `
     @keyframes hsd-line-${i} { 0%, ${pct(at)} { opacity: 0; transform: translateY(40px) } ${pct(at + 0.05)} { opacity: 1 } ${pct(at + 0.06)}, 100% { opacity: 1; transform: none } }

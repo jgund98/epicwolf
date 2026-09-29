@@ -67,7 +67,7 @@ function LineTile() {
 
 const COLUMNS: Tile[][] = [
   [
-    { kind: "img", src: "/img/brand/ew-van-3.jpg", alt: "A cargo van wrapped in Epic Wolf black and orange", ratio: "4/3", pos: "62% 55%" },
+    { kind: "img", src: "/img/brand/ew-van-us.jpg", alt: "A cargo van wrapped in Epic Wolf black and orange", ratio: "4/3", pos: "62% 55%" },
     { kind: "node", node: <TypeTile />, ratio: "4/5" },
     { kind: "img", src: "/img/stock/press.jpg", alt: "West Palm Beach across the Intracoastal", ratio: "4/5" },
     { kind: "img", src: "/img/disc/palm-shadow.jpg", alt: "Palm fronds casting shadows on a white wall", ratio: "4/3" },

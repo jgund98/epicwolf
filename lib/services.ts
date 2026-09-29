@@ -709,7 +709,7 @@ export const services: Service[] = [
       },
     ],
     related: ["signs", "branding", "print"],
-    image: "/img/brand/ew-van-3.jpg",
+    image: "/img/brand/ew-van-us.jpg",
     imageAlt: "A cargo van wrapped in Epic Wolf black and orange on a seawall",
   },
 
