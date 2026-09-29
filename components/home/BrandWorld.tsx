@@ -8,9 +8,9 @@ import { Mark } from "@/components/brand/Logo"
 /**
  * Chapter four. Every surface, one standard.
  *
- * Epic Wolf's own identity, living in the world: on a van, over a door, on a
- * tote and a tee, on screens, as type and color, against West Palm Beach
- * light. Columns of tiles drift at different speeds inside one wave-cut frame
+ * Real work in the world, made in house: fleet graphics, embroidery, screen
+ * print, storefront and wall signage, window graphics and print, set among the
+ * pieces of a brand system. Columns of tiles drift at different speeds inside one wave-cut frame
  * while a single enormous word breaks over its edge. Nothing to click. It
  * just has to look like the work of people who sweat every surface.
  */
@@ -62,31 +62,32 @@ function LineTile() {
   )
 }
 
+const T = {
+  pickup: { kind: "img", src: "/img/work/pickup-graphics.jpg", alt: "Black pickup truck with white cut-vinyl fleet graphics", ratio: "4/5" },
+  sedan: { kind: "img", src: "/img/work/sedan-graphics.jpg", alt: "Black sedan with logo decals under South Florida palms", ratio: "3/4" },
+  window: { kind: "img", src: "/img/work/window-graphics.jpg", alt: "Full-window photo graphics on a rug gallery storefront", ratio: "3/4" },
+  tee: { kind: "img", src: "/img/work/screenprint-tee.jpg", alt: "Orange crew tee with a two-color screen print on the back", ratio: "4/5" },
+  shirt: { kind: "img", src: "/img/work/embroidered-shirt.jpg", alt: "Embroidered logo on the pocket of a gray work shirt", ratio: "4/5" },
+  palm: { kind: "img", src: "/img/work/palm-wall.jpg", alt: "Palm tree and crest wall graphics on white stucco under a barrel-tile roof", ratio: "1/1" },
+  lit: { kind: "img", src: "/img/work/lit-sign.jpg", alt: "Illuminated storefront sign over a gallery at night", ratio: "4/5" },
+  wall: { kind: "img", src: "/img/work/wall-sign.jpg", alt: "White dimensional lettering on a navy building wall", ratio: "1/1" },
+  aframes: { kind: "img", src: "/img/work/aframes.jpg", alt: "A stack of printed open house A-frame signs", ratio: "4/5" },
+  cap: { kind: "img", src: "/img/work/puff-cap.jpg", alt: "Raised puff embroidery on the crown of a black cap", ratio: "1/1" },
+  door: { kind: "img", src: "/img/work/door-lettering.jpg", alt: "Large vinyl lettering on a restaurant's glass door", ratio: "4/3" },
+  koozies: { kind: "img", src: "/img/work/koozies.jpg", alt: "A box of custom printed koozies for a school event", ratio: "4/5" },
+} satisfies Record<string, Tile>
+
 const COLUMNS: Tile[][] = [
-  [
-    { kind: "img", src: "/img/brand/ew-van-us.jpg", alt: "A cargo van wrapped in Epic Wolf black and orange", ratio: "4/3", pos: "62% 55%" },
-    { kind: "node", node: <TypeTile />, ratio: "4/5" },
-    { kind: "img", src: "/img/stock/press.jpg", alt: "West Palm Beach across the Intracoastal", ratio: "4/5" },
-    { kind: "img", src: "/img/disc/palm-shadow.jpg", alt: "Palm fronds casting shadows on a white wall", ratio: "4/3" },
-  ],
-  [
-    { kind: "node", node: <ColorTile />, ratio: "1/1" },
-    { kind: "img", src: "/img/brand/ew-storefront-3.jpg", alt: "The Epic Wolf wordmark on a storefront sign band", ratio: "4/3", pos: "50% 20%" },
-    { kind: "img", src: "/img/brand/ew-tee-3.jpg", alt: "A black tee printed with the Epic Wolf wordmark", ratio: "4/5", pos: "52% 40%" },
-    { kind: "img", src: "/img/disc/bizdev.jpg", alt: "The West Palm Beach marina from above at blue hour", ratio: "1/1", pos: "50% 80%" },
-  ],
-  [
-    { kind: "img", src: "/img/stock/ew-web.jpg", alt: "The Epic Wolf website on desktop and phone", ratio: "16/10" },
-    { kind: "img", src: "/img/brand/ew-tote-3.jpg", alt: "A tote printed with the Epic Wolf mark", ratio: "3/4", pos: "50% 55%" },
-    { kind: "node", node: <LineTile />, ratio: "4/3" },
-    { kind: "img", src: "/img/disc/pb-arcade.jpg", alt: "A pink Mediterranean arcade and palms in Palm Beach", ratio: "4/5" },
-  ],
-  [
-    { kind: "img", src: "/img/stock/worth-ave.jpg", alt: "Palms along Worth Avenue in Palm Beach", ratio: "3/4" },
-    { kind: "node", node: <MarkTile />, ratio: "1/1" },
-    { kind: "img", src: "/img/stock/ew-digital.jpg", alt: "Epic Wolf web pages", ratio: "16/10" },
-    { kind: "img", src: "/img/disc/arches.jpg", alt: "White arches in hard light", ratio: "4/5", pos: "40% 50%" },
-  ],
+  [T.pickup, { kind: "node", node: <TypeTile />, ratio: "4/5" }, T.window, T.tee],
+  [{ kind: "node", node: <ColorTile />, ratio: "1/1" }, T.shirt, T.palm, T.lit],
+  [T.wall, T.aframes, { kind: "node", node: <LineTile />, ratio: "4/3" }, T.sedan],
+  [T.cap, { kind: "node", node: <MarkTile />, ratio: "1/1" }, T.door, T.koozies],
+]
+
+/* Phones: two gliding columns of five, a mix of the work and the system. */
+const MOBILE: Tile[][] = [
+  [T.pickup, { kind: "node", node: <TypeTile />, ratio: "4/5" }, T.aframes, T.window, T.tee],
+  [{ kind: "node", node: <ColorTile />, ratio: "1/1" }, T.shirt, T.wall, T.lit, T.door],
 ]
 
 export function BrandWorld() {
@@ -106,12 +107,7 @@ export function BrandWorld() {
   /* Phones: two columns of five tiles that glide on their own (pure CSS on the
      GPU, nothing tied to the scroll), so it stays smooth on any phone. */
   const mobile = cols === 2
-  const columns = mobile
-    ? [
-        [COLUMNS[0][0], COLUMNS[0][1], COLUMNS[2][1], COLUMNS[0][2], COLUMNS[2][2]],
-        [COLUMNS[1][0], COLUMNS[1][1], COLUMNS[3][0], COLUMNS[1][2], COLUMNS[3][1]],
-      ]
-    : COLUMNS
+  const columns = mobile ? MOBILE : COLUMNS
 
   return (
     <section ref={ref} data-tone="light" className="on-light relative overflow-hidden pt-24 md:pt-36" aria-labelledby="world-title">
@@ -124,7 +120,7 @@ export function BrandWorld() {
         </div>
         <p className="t-body muted-light md:col-span-5">
           A brand only works if it holds up everywhere it shows up. We design the whole world around it, then make every
-          piece, from the first impression online to the sign over the door. This is ours.
+          piece ourselves: the truck, the shirt, the sign over the door and the lettering on the glass.
         </p>
       </div>
 

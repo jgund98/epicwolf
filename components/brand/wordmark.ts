@@ -40,6 +40,9 @@ export const WM_LETTERS: { ch: string; d: string }[] = [
     "d": "M4384 737L4384 347L4289 347L4289 209L4384 209L4384 191Q4384 119 4411 77.5Q4438 36 4485.5 18Q4533 0 4594 0Q4613 0 4637.5 2.5Q4662 5 4686.5 9Q4711 13 4728 18L4728 138L4673 138Q4628 138 4611.5 150Q4595 162 4595 191L4595 209L4728 209L4728 347L4595 347L4595 737Z"
   }
 ]
+/** Left edge of the w's drawing space, and the round period, for pieces that rebuild them. */
+export const WM_WX = 2304
+export const WM_DOT_C = {"cx":4897,"cy":619,"r":118}
 /** The period, drawn separately so it can carry the accent color. */
 export const WM_DOT = "M4779 619a118 118 0 1 0 236 0a118 118 0 1 0 -236 0Z"
 

@@ -28,7 +28,7 @@ function word(text, x0 = 0) {
   const letters = []
   for (const ch of text) {
     const adv = ch === "w" ? w.adv : gl(ch).advanceWidth
-    letters.push({ ch, d: ch === "w" ? wPath(x) : glyph(ch, x) })
+    letters.push({ ch, d: ch === "w" ? wPath(x) : glyph(ch, x), x })
     x += adv + TRACK
   }
   return { letters, end: x - TRACK }
@@ -40,6 +40,9 @@ const R = 118
 const cx = full.end + 40 + R
 const dot = `M${f(cx - R)} ${ASC - R}a${R} ${R} 0 1 0 ${2 * R} 0a${R} ${R} 0 1 0 ${-2 * R} 0Z`
 const WM_W = Math.ceil(cx + R)
+const WX = f(full.letters.find((l) => l.ch === "w").x)
+const DOT = { cx: f(cx), cy: ASC - R, r: R }
+
 
 const epic = word("epic", -first)
 const wolf = word("wolf", -w.segs.reduce((m, g) => Math.min(m, g[1]), 1e9))
@@ -67,13 +70,16 @@ export const WM_W = ${WM_W}
 export const WM_H = ${H}
 export const WM_BASE = ${ASC}
 /** Letters of "epicwolf" in order, absolute paths inside 0 0 WM_W WM_H. */
-export const WM_LETTERS: { ch: string; d: string }[] = ${JSON.stringify(full.letters, null, 2)}
+export const WM_LETTERS: { ch: string; d: string }[] = ${JSON.stringify(full.letters.map(({ ch, d }) => ({ ch, d })), null, 2)}
+/** Left edge of the w's drawing space, and the round period, for pieces that rebuild them. */
+export const WM_WX = ${WX}
+export const WM_DOT_C = ${JSON.stringify(DOT)}
 /** The period, drawn separately so it can carry the accent color. */
 export const WM_DOT = ${JSON.stringify(dot)}
 
 /** The two words on their own, same scale and baseline, for the partners chapter. */
-export const WM_EPIC = { w: ${epicW}, letters: ${JSON.stringify(epic.letters)} }
-export const WM_WOLF = { w: ${wolfW_}, letters: ${JSON.stringify(wolf.letters)} }
+export const WM_EPIC = { w: ${epicW}, letters: ${JSON.stringify(epic.letters.map(({ ch, d }) => ({ ch, d })))} }
+export const WM_WOLF = { w: ${wolfW_}, letters: ${JSON.stringify(wolf.letters.map(({ ch, d }) => ({ ch, d })))} }
 
 /** The mark: the wolf-ear w, centered in a ${MARK_S} square. */
 export const MARK_SIZE = ${MARK_S}
