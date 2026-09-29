@@ -125,7 +125,7 @@ export function BrandWorld() {
       </div>
 
       <div className="relative mt-12 md:mt-16">
-        <div className="shell">
+        <div className="shell relative max-md:z-[1]">
           <div className="cut-md relative h-[86svh] overflow-hidden rounded-[22px] bg-ink md:h-[108svh]">
             {mobile ? (
               <div className="absolute inset-x-[3%] top-0 grid grid-cols-2 gap-3">
@@ -141,11 +141,20 @@ export function BrandWorld() {
               </div>
             )}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-ink via-ink/75 to-transparent" />
+            {/* Phones: the light half of the word, clipped by the frame itself. It sits
+                exactly over the dark copy outside the frame, so the word flips color
+                along the wave cut like the desktop blend does, with no blend mode. */}
+            <p
+              aria-hidden
+              className="t-mega t-world pointer-events-none absolute bottom-[-0.1em] left-[calc(-1*var(--gutter))] right-[calc(-1*var(--gutter))] whitespace-nowrap text-center text-paper md:hidden"
+            >
+              Unmistakable.
+            </p>
           </div>
         </div>
         <p
           aria-hidden
-          className="t-mega t-world pointer-events-none absolute bottom-[0.45em] left-0 right-0 whitespace-nowrap text-center text-paper md:bottom-[-0.1em] md:mix-blend-difference"
+          className="t-mega t-world pointer-events-none absolute bottom-[-0.1em] left-0 right-0 whitespace-nowrap text-center text-ink md:text-paper md:mix-blend-difference"
         >
           Unmistakable.
         </p>
