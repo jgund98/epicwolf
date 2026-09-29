@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react"
-import { WM_BASE, WM_DOT_C, WM_H, WM_LETTERS, WM_W, WM_WX } from "@/components/brand/wordmark"
+import { WM_BASE, WM_EPIC, WM_DOT_C, WM_H, WM_LETTERS, WM_W, WM_WX } from "@/components/brand/wordmark"
 import { useRange } from "@/lib/motion"
 
 /**
@@ -92,7 +92,11 @@ function Letter({ p, i, d, ch }: { p: MotionValue<number>; i: number; d?: string
   )
 }
 
-function Construction({ p }: { p: MotionValue<number> }) {
+/* Phones stack the lockup (epic over wolf) so the letters build at twice the size. */
+const LINE2 = WM_H - 40
+const STACK_W = Math.max(WM_EPIC.w, WM_W - WM_WX)
+
+function Construction({ p, stacked = false }: { p: MotionValue<number>; stacked?: boolean }) {
   const guide = useRange(p, [0.03, 0.15], [0, 1])
   const guideFade = useRange(p, [0.82, 0.95], [1, 0.0])
   const guideOpacity = useTransform(() => 0.22 * guideFade.get())
@@ -108,15 +112,21 @@ function Construction({ p }: { p: MotionValue<number> }) {
   const tipX = WM_WX + EARS.tip
   const tipY = WM_BASE - EARS.T
 
+  const W = stacked ? STACK_W : WM_W
+  const pad = stacked ? PAD / 2 : PAD
+  const lines = stacked ? [0, LINE2] : [0]
+  const wolf = stacked ? `translate(${-WM_WX} ${LINE2})` : undefined
+  const viewBox = stacked ? `${-pad} -120 ${W + pad * 2} ${WM_H + LINE2 + 240}` : `${-PAD} -120 ${WM_W + PAD * 2} ${WM_H + 240}`
+
   return (
-    <svg viewBox={`${-PAD} -120 ${WM_W + PAD * 2} ${WM_H + 240}`} className="block h-auto w-full overflow-visible" aria-hidden>
+    <svg viewBox={viewBox} className="block h-auto w-full overflow-visible" aria-hidden>
       {/* Guides */}
       <motion.g style={{ opacity: guideOpacity }}>
-        {GUIDES.map((g) => (
+        {lines.flatMap((dy) => GUIDES.map((g) => ({ ...g, y: g.y + dy, key: g.name + dy }))).map((g) => (
           <motion.line
-            key={g.name}
-            x1={-PAD}
-            x2={WM_W + PAD}
+            key={g.key}
+            x1={-pad}
+            x2={W + pad}
             y1={g.y}
             y2={g.y}
             stroke="var(--color-paper)"
@@ -125,8 +135,8 @@ function Construction({ p }: { p: MotionValue<number> }) {
             style={{ pathLength: guide }}
           />
         ))}
-        {[0, WM_W].map((x) => (
-          <motion.line key={x} x1={x} x2={x} y1={-120} y2={WM_H + 120} stroke="var(--color-paper)" strokeWidth={1} strokeDasharray="6 6" vectorEffect="non-scaling-stroke" style={{ opacity: guide }} />
+        {[0, W].map((x) => (
+          <motion.line key={x} x1={x} x2={x} y1={-120} y2={WM_H + (stacked ? LINE2 : 0) + 120} stroke="var(--color-paper)" strokeWidth={1} strokeDasharray="6 6" vectorEffect="non-scaling-stroke" style={{ opacity: guide }} />
         ))}
       </motion.g>
       <motion.g style={{ opacity: labels }} className="max-lg:hidden" fill="var(--color-paper)" fillOpacity={0.5} fontSize={74} fontWeight={600} letterSpacing={2}>
@@ -139,17 +149,21 @@ function Construction({ p }: { p: MotionValue<number> }) {
 
       {/* The letters */}
       {WM_LETTERS.map((l, i) => (
-        <Letter key={i} p={p} i={i} d={l.d} ch={l.ch} />
+        <g key={i} transform={i >= 4 ? wolf : undefined}>
+          <Letter p={p} i={i} d={l.d} ch={l.ch} />
+        </g>
       ))}
 
       {/* The period */}
-      <motion.circle
-        cx={WM_DOT_C.cx}
-        cy={WM_DOT_C.cy}
-        r={WM_DOT_C.r}
-        fill="var(--color-flare)"
-        style={{ scale: dot, transformBox: "fill-box", transformOrigin: "50% 50%" }}
-      />
+      <g transform={wolf}>
+        <motion.circle
+          cx={WM_DOT_C.cx}
+          cy={WM_DOT_C.cy}
+          r={WM_DOT_C.r}
+          fill="var(--color-flare)"
+          style={{ scale: dot, transformBox: "fill-box", transformOrigin: "50% 50%" }}
+        />
+      </g>
 
       {/* Callout on the ears */}
       <motion.g style={{ opacity: call }} className="max-lg:hidden">
@@ -239,7 +253,12 @@ export function Engagement() {
 
           {/* The wordmark, built as you scroll */}
           <div className="relative -mx-[2%] lg:mx-0">
-            <Construction p={p} />
+            <div className="hidden md:block">
+              <Construction p={p} />
+            </div>
+            <div className="mx-auto w-[92%] md:hidden">
+              <Construction p={p} stacked />
+            </div>
           </div>
 
           <div className="flex gap-2" aria-hidden>

@@ -84,10 +84,8 @@ export function Local() {
                 {PLACES.map((pl) => (
                   <span key={pl + k} className="flex items-center whitespace-nowrap text-[clamp(1rem,1.6vw,1.35rem)] font-semibold text-white/50">
                     <span className="px-6">{pl}</span>
-                    <svg viewBox="0 0 100 100" className="h-2.5 w-2.5" aria-hidden>
-                      <path d="M0 0H22V78H78V0H100V100H0Z" fill="currentColor" />
-                      <path d="M39 34H61V78H39Z" fill="var(--color-flare)" />
-                    </svg>
+                    {/* The wordmark's period as the separator */}
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-flare" aria-hidden />
                   </span>
                 ))}
               </span>
