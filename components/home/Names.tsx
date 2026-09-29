@@ -114,62 +114,45 @@ export function Names({ label = "Chapter six · The names", cta = true }: { labe
 type Half = { word: React.ReactNode; img: string; name: string; role: string }
 
 /**
- * Phones. The desktop move (two halves sliding together) is too small at 390px,
- * so the scene is pinned and oversized: epic and wolf on one line, bigger than
- * the screen, sweep in from opposite edges, then the partners come in from the
- * sides and settle shoulder to shoulder in front of the words, and the ledge
- * with their names lands last. Transforms and opacity only.
+ * Phones. A pinned scene staged for a tall screen: EPIC and WOLF, huge and
+ * stacked, sweep in from opposite edges, the partners come in from the sides and
+ * settle shoulder to shoulder in front of the words, and the ledge with their
+ * names lands last.
+ *
+ * Driven by the browser's own scroll timeline (.pm-* in globals.css), so it runs
+ * on the compositor in lockstep with the finger: no JavaScript per frame, which
+ * is what made the first version stutter on iPhone. Browsers without scroll
+ * timelines, and reduced motion, get the finished scene.
  */
 function MobileStage({ halves }: { halves: Half[] }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const reduce = useReducedMotion()
-  const { scrollYProgress: q } = useScroll({ target: ref, offset: ["start start", "end end"] })
-  const epicX = useTransform(q, [0.02, 0.45], ["-70vw", "0vw"])
-  const wolfX = useTransform(q, [0.08, 0.5], ["70vw", "0vw"])
-  const words = useRange(q, [0.02, 0.35], [0.15, 1])
-  const jX = useTransform(q, [0.25, 0.72], ["-60vw", "0vw"])
-  const sX = useTransform(q, [0.3, 0.78], ["60vw", "0vw"])
-  const rise = useTransform(q, [0.25, 0.78], ["14%", "0%"])
-  const grow = useTransform(q, [0.25, 0.78], [1.14, 1])
-  const ledge = useRange(q, [0.78, 0.92], [0, 1])
-  const ledgeY = useRange(q, [0.78, 0.92], [24, 0])
-  const still = !!reduce
-
   return (
-    <div ref={ref} className={`relative md:hidden ${still ? "" : "h-[240svh]"}`}>
-      <div className={`${still ? "relative" : "sticky top-0"} h-[100svh] overflow-hidden`}>
-        {/* One line, like desktop: epic behind Jordan, wolf behind Shawn, oversized
-            and running off both edges, set at head height (tied to the figures'
-            size, so it lines up on any phone). */}
-        <div className="absolute inset-x-0 flex justify-center gap-[3vw] whitespace-nowrap" style={{ bottom: "calc(84px + 84vw * 1.12 * 0.6)" }} aria-hidden>
-          <motion.div className="w-[66vw] shrink-0 will-change-transform" style={{ x: still ? 0 : epicX, opacity: still ? 1 : words }}>
+    <div className="pm-stage relative md:hidden">
+      <div className="pm-pin h-[100svh] overflow-hidden">
+        <div className="absolute inset-x-0 top-[25%] flex flex-col items-center gap-[1vw]" aria-hidden>
+          <div className="pm-epic w-[89.7vw]">
             <StackWord word={WM_EPIC} />
-          </motion.div>
-          <motion.div className="w-[69.2vw] shrink-0 will-change-transform" style={{ x: still ? 0 : wolfX, opacity: still ? 1 : words }}>
+          </div>
+          <div className="pm-wolf w-[94vw]">
             <StackWord word={WM_WOLF} />
-          </motion.div>
+          </div>
         </div>
 
         {halves.map((h, i) => (
-          <motion.figure
-            key={h.name}
-            className={`absolute bottom-[84px] w-[84vw] will-change-transform ${i === 0 ? "left-[-14vw]" : "right-[-14vw]"}`}
-            style={{ x: still ? 0 : i === 0 ? jX : sX, y: still ? 0 : rise, scale: still ? 1 : grow, transformOrigin: "50% 100%" }}
-          >
+          <figure key={h.name} className={`${i === 0 ? "pm-j left-[-14vw]" : "pm-s right-[-14vw]"} absolute bottom-[84px] w-[84vw]`}>
             <div className="relative aspect-[1000/1120] w-full">
               <Image src={h.img} alt={`${h.name}, ${h.role.replace(/.$/, "")} at Epic Wolf`} fill sizes="84vw" className="object-contain object-bottom" />
             </div>
-          </motion.figure>
+          </figure>
         ))}
 
-        <motion.div className="absolute inset-x-0 bottom-0 z-10 grid grid-cols-2 bg-ink text-paper" style={{ opacity: still ? 1 : ledge, y: still ? 0 : ledgeY }}>
+        <div className="pm-ledge absolute inset-x-0 bottom-0 z-10 grid grid-cols-2 bg-ink text-paper">
           {halves.map((h, i) => (
             <div key={h.name} className={`py-4 ${i === 0 ? "pl-[var(--gutter)] pr-3" : "pl-3 pr-[var(--gutter)] text-right"}`}>
               <p className="text-[1rem] font-bold tracking-[-0.01em]">{h.name}</p>
               <p className="mt-0.5 text-[0.78rem] text-white/60">{h.role}</p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   )

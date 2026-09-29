@@ -460,6 +460,68 @@ header[data-htone="dark"] .btn-flare:hover {
     --hero-fs: min(calc(99cqw / 5.4991), 12svh);
   }
 }
+/* Partners scene on phones (Names.tsx MobileStage). Scroll-timeline driven so it
+   runs on the compositor; without support it simply shows the finished scene. */
+.pm-epic,
+.pm-wolf,
+.pm-j,
+.pm-s {
+  will-change: transform;
+}
+.pm-j,
+.pm-s {
+  transform-origin: 50% 100%;
+}
+@supports (animation-timeline: view()) {
+  @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+    .pm-stage {
+      height: 240svh;
+      view-timeline-name: --pm;
+    }
+    .pm-pin {
+      position: sticky;
+      top: 0;
+    }
+    .pm-epic,
+    .pm-wolf,
+    .pm-j,
+    .pm-s,
+    .pm-ledge {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --pm;
+      animation-range: contain 0% contain 100%;
+    }
+    .pm-epic { animation-name: pm-epic; }
+    .pm-wolf { animation-name: pm-wolf; }
+    .pm-j { animation-name: pm-j; }
+    .pm-s { animation-name: pm-s; }
+    .pm-ledge { animation-name: pm-ledge; }
+  }
+}
+@keyframes pm-epic {
+  0%, 2% { transform: translate3d(-70vw, 0, 0); opacity: 0.15; }
+  35% { opacity: 1; }
+  45%, 100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+@keyframes pm-wolf {
+  0%, 8% { transform: translate3d(70vw, 0, 0); opacity: 0.15; }
+  35% { opacity: 1; }
+  50%, 100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+@keyframes pm-j {
+  0%, 25% { transform: translate3d(-60vw, 14%, 0) scale(1.14); }
+  72%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes pm-s {
+  0%, 30% { transform: translate3d(60vw, 14%, 0) scale(1.14); }
+  78%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes pm-ledge {
+  0%, 78% { transform: translate3d(0, 24px, 0); opacity: 0; }
+  92%, 100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+
 /* The word that breaks over the brand-world frame. */
 .t-world {
   font-size: clamp(2.4rem, 8.6vw, 12.8rem);
