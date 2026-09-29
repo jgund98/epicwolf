@@ -51,7 +51,9 @@ export function Footer() {
           </nav>
         ))}
 
-        <div>
+        {/* Three groups on a two-column phone grid would strand an empty cell,
+            so on phones Contact takes the full row under its own rule. */}
+        <div className="col-span-2 border-t border-white/12 pt-8 sm:col-span-1 sm:border-0 sm:pt-0">
           <p className="text-lg font-bold">Contact.</p>
           <ul className="mt-4 space-y-2.5">
             <li>

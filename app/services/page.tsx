@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { pillars } from "@/lib/site"
 import { serviceBySlug } from "@/lib/services"
@@ -7,6 +6,8 @@ import { JsonLd } from "@/components/site/JsonLd"
 import { PageHero } from "@/components/site/PageHero"
 import { CtaBand } from "@/components/site/CtaBand"
 import { Reveal } from "@/components/ui/Reveal"
+import { ParallaxImage } from "@/components/ui/ParallaxImage"
+import { Kinetic } from "@/components/home/Kinetic"
 
 export const metadata = pageMeta({
   title: "Services | Branding, Digital Marketing and Business Development | Epic Wolf",
@@ -25,11 +26,13 @@ export default function Services() {
         lines={["Three disciplines.", "One point of view."]}
         lead={
           <p>
-            We keep the list short on purpose. Every engagement is built from the same three disciplines, and all three
-            answer to one strategy.
+            We keep the list short on purpose. Every engagement draws on the same three disciplines, and all three carry
+            one idea to the market.
           </p>
         }
       />
+
+      <Kinetic />
 
       {pillars.map((p, i) => {
         const s = serviceBySlug(p.slug)!
@@ -38,9 +41,15 @@ export default function Services() {
           <section key={p.slug} data-tone={dark ? "dark" : "light"} className={`${dark ? "on-dark" : "on-light"} py-24 md:py-36`}>
             <div className="shell grid gap-12 md:grid-cols-12 md:items-center">
               <Reveal className={`md:col-span-6 ${i % 2 ? "md:order-2 md:col-start-7" : ""}`} y={40}>
-                <div className={`relative aspect-[4/3] overflow-hidden bg-ink-3 ${i % 2 ? "cut-flip" : "cut"}`}>
-                  <Image src={s.image} alt={s.imageAlt} fill sizes="(min-width: 768px) 46vw, 92vw" className="object-cover object-top" />
-                </div>
+                <ParallaxImage
+                  src={s.image}
+                  alt={s.imageAlt}
+                  frame={i % 2 ? "cut-flip" : "cut"}
+                  travel={6}
+                  position="50% 20%"
+                  sizes="(min-width: 768px) 46vw, 92vw"
+                  className="aspect-[4/3] md:aspect-[4/5] lg:aspect-[4/3]"
+                />
               </Reveal>
               <div className={`md:col-span-5 ${i % 2 ? "md:order-1" : "md:col-start-8"}`}>
                 <h2 className="t-poster !text-[clamp(2.4rem,5vw,4.8rem)]">{p.name}</h2>

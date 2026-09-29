@@ -1,12 +1,16 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { cities, cityBySlug } from "@/lib/cities"
-import { pillars } from "@/lib/site"
 import { breadcrumbSchema, faqSchema, pageMeta, serviceSchema } from "@/lib/seo"
 import { JsonLd } from "@/components/site/JsonLd"
 import { PageHero } from "@/components/site/PageHero"
 import { CtaBand } from "@/components/site/CtaBand"
 import { FaqList } from "@/components/ui/FaqList"
+import { ParallaxImage } from "@/components/ui/ParallaxImage"
+import { Reveal } from "@/components/ui/Reveal"
+import { KineticBand } from "@/components/site/KineticBand"
+import { townImage } from "@/lib/imagery"
+import { PillarCards } from "@/components/site/PillarCards"
 
 export const dynamicParams = false
 export function generateStaticParams() {
@@ -25,6 +29,7 @@ export default async function Town({ params }: { params: Promise<{ town: string 
   const c = cityBySlug(town)
   if (!c) notFound()
   const path = `/palm-beach-county/${c.slug}`
+  const photo = townImage(c.slug, cities.indexOf(c))
 
   return (
     <>
@@ -61,48 +66,42 @@ export default async function Town({ params }: { params: Promise<{ town: string 
         </div>
       </section>
 
+      <section data-tone="light" className="on-light pb-24 md:pb-32">
+        <div className="shell">
+          <Reveal y={40}>
+            <ParallaxImage src={photo.src} alt={photo.alt} className="aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9]" />
+          </Reveal>
+        </div>
+      </section>
+
       <section data-tone="dark" className="on-dark py-24 md:py-32">
         <div className="shell grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
             <h2 className="t-h2">The market</h2>
             <p className="t-body muted-dark mt-6">{c.angle}</p>
           </div>
-          <div className="grid gap-10 sm:grid-cols-2 md:col-span-6 md:col-start-7">
-            <div>
-              <p className="font-semibold">Where business happens</p>
-              <ul className="mt-4 border-t border-white/12">
-                {c.corridors.map((x) => (
-                  <li key={x} className="muted-dark border-b border-white/12 py-3">
-                    {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold">Who we see there</p>
-              <ul className="mt-4 border-t border-white/12">
-                {c.industries.map((x) => (
-                  <li key={x} className="muted-dark border-b border-white/12 py-3">
-                    {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* One list, not two side by side: corridor and industry counts differ
+              by town, and two uneven columns leave a hole under the shorter one.
+              The corridors get the orange band below instead. */}
+          <div className="md:col-span-6 md:col-start-7">
+            <p className="font-semibold">Who we see there</p>
+            <ul className="mt-4 border-t border-white/12">
+              {c.industries.map((x, i) => (
+                <Reveal as="li" key={x} y={16} delay={i * 0.04} className="t-lead border-b border-white/12 py-4 text-paper/85">
+                  {x}
+                </Reveal>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
+      <KineticBand label={`Where business happens in ${c.name}`} rows={[{ items: c.corridors, dir: -1, dur: 60 }]} size="lg" />
+
       <section data-tone="light" className="on-light py-24 md:py-32">
         <div className="shell">
           <h2 className="t-h2 max-w-[18ch]">What we bring to {c.name}</h2>
-          <div className="mt-12 border-t border-ink/12">
-            {pillars.map((p) => (
-              <Link key={p.slug} href={`/${p.slug}`} className="group grid gap-2 border-b border-ink/12 py-7 md:grid-cols-12 md:gap-10">
-                <span className="t-h3 transition-colors group-hover:text-flare-deep md:col-span-5">{p.name}</span>
-                <span className="t-body muted-light md:col-span-6 md:col-start-7">{p.line}</span>
-              </Link>
-            ))}
-          </div>
+          <PillarCards className="mt-12 md:mt-16" />
         </div>
       </section>
 

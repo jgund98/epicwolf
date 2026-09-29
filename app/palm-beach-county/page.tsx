@@ -6,6 +6,10 @@ import { PageHero } from "@/components/site/PageHero"
 import { CtaBand } from "@/components/site/CtaBand"
 import { Reveal } from "@/components/ui/Reveal"
 import { LazyVideo } from "@/components/ui/LazyVideo"
+import { LineReveal } from "@/components/ui/Reveal"
+import { KineticBand } from "@/components/site/KineticBand"
+import { PhotoPair } from "@/components/site/PhotoPair"
+import { pageImagery } from "@/lib/imagery"
 
 export const metadata = pageMeta({
   title: "Branding and Marketing Agency for Palm Beach County | Epic Wolf",
@@ -15,6 +19,7 @@ export const metadata = pageMeta({
 })
 
 export default function County() {
+  const half = Math.ceil(cities.length / 2)
   return (
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Where we work", path: "/palm-beach-county" }])} />
@@ -28,6 +33,14 @@ export default function County() {
             has its own market, its own corridors and its own way of reading a brand.
           </p>
         }
+      />
+
+      <KineticBand
+        label="From Jupiter to Boca Raton"
+        rows={[
+          { items: cities.slice(0, half).map((c) => c.name), dir: -1 },
+          { items: cities.slice(half).map((c) => c.name), dir: 1 },
+        ]}
       />
 
       <section data-tone="dark" className="on-dark relative isolate overflow-hidden">
@@ -46,6 +59,22 @@ export default function County() {
               </Reveal>
             ))}
           </ul>
+        </div>
+      </section>
+      <section data-tone="light" className="on-light py-24 md:py-36">
+        <div className="shell">
+          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-6">
+              <p className="label">Why the town matters</p>
+              <LineReveal as="h2" className="t-h2 mt-4 max-w-[14ch]" lines={["Every town is its own market"]} />
+            </div>
+            <p className="t-lead muted-light md:col-span-5 md:col-start-8 md:self-end">
+              A gallery on Worth Avenue, a restaurant on Atlantic Avenue and a family office on Flagler Drive need
+              different things from the same agency. We start with the street the business sits on and the customers
+              who actually walk it.
+            </p>
+          </div>
+          <PhotoPair pics={pageImagery.countyPair} className="mt-14 md:mt-20" />
         </div>
       </section>
       <CtaBand />

@@ -2,7 +2,9 @@ import { breadcrumbSchema, pageMeta } from "@/lib/seo"
 import { site } from "@/lib/site"
 import { JsonLd } from "@/components/site/JsonLd"
 import { ContactForm } from "@/components/ui/ContactForm"
-import { LineReveal } from "@/components/ui/Reveal"
+import { LineReveal, Reveal } from "@/components/ui/Reveal"
+import { ParallaxImage } from "@/components/ui/ParallaxImage"
+import { pageImagery } from "@/lib/imagery"
 
 export const metadata = pageMeta({
   title: "Contact Epic Wolf | Start a Project in West Palm Beach",
@@ -47,8 +49,40 @@ export default function Contact() {
                   {site.city}, {site.regionName}. Working across Palm Beach County, South Florida and beyond.
                 </p>
               </div>
+              {/* The photograph fills the column out to the form's length, so the aside never ends in a void. */}
+              <Reveal y={32} className="mt-10">
+                <ParallaxImage
+                  src={pageImagery.contact.src}
+                  alt={pageImagery.contact.alt}
+                  frame="cut-sm"
+                  travel={8}
+                  sizes="(min-width: 768px) 30vw, 92vw"
+                  className="aspect-[4/3]"
+                />
+              </Reveal>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section data-tone="light" className="relative overflow-hidden bg-flare py-20 text-ink md:py-28">
+        <div className="shell">
+          <p className="label label-paper">Prefer to talk</p>
+          <Reveal y={36} className="mt-6">
+            <a
+              href={site.phoneHref}
+              className="group inline-flex items-center gap-[0.25em] whitespace-nowrap text-[clamp(2.1rem,10.4vw,9rem)] font-[900] uppercase leading-[0.9] tracking-[-0.04em] tabular-nums"
+              style={{ fontVariationSettings: '"wdth" 100' }}
+            >
+              {site.phone}
+              <span aria-hidden className="text-paper transition-transform duration-500 group-hover:translate-x-2">
+                →
+              </span>
+            </a>
+          </Reveal>
+          <p className="t-lead mt-8 max-w-[44ch] font-semibold">
+            {site.hoursLabel}. Call or text and a partner picks up the conversation.
+          </p>
         </div>
       </section>
     </>

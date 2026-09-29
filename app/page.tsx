@@ -16,7 +16,7 @@ import { homeFaqs } from "@/lib/faqs"
 export const metadata = pageMeta({
   title: "Epic Wolf | Branding and Marketing Agency in West Palm Beach",
   description:
-    "Epic Wolf is a West Palm Beach branding, digital marketing and business development agency for South Florida companies that intend to lead their market.",
+    "Epic Wolf is a West Palm Beach branding, digital marketing and business development agency for companies that intend to lead their market.",
   path: "/",
 })
 

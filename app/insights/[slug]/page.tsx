@@ -7,7 +7,9 @@ import { breadcrumbSchema, faqSchema, ORG_ID, pageMeta } from "@/lib/seo"
 import { JsonLd } from "@/components/site/JsonLd"
 import { CtaBand } from "@/components/site/CtaBand"
 import { FaqList } from "@/components/ui/FaqList"
-import { LineReveal } from "@/components/ui/Reveal"
+import { LineReveal, Reveal } from "@/components/ui/Reveal"
+import { ParallaxImage } from "@/components/ui/ParallaxImage"
+import { guideImagery } from "@/lib/imagery"
 
 export const dynamicParams = false
 export function generateStaticParams() {
@@ -29,6 +31,9 @@ export default async function Guide({ params }: { params: Promise<{ slug: string
   const g = guideBySlug(slug)
   if (!g) notFound()
   const path = `/insights/${g.slug}`
+  const pics = guideImagery[g.slug]
+  /* The second photograph lands halfway through, where a long read needs a breath. */
+  const breakAfter = Math.floor(g.sections.length / 2) - 1
 
   return (
     <>
@@ -68,9 +73,20 @@ export default async function Guide({ params }: { params: Promise<{ slug: string
         </div>
       </section>
 
+      {pics && (
+        <section data-tone="dark" className="on-dark pb-4">
+          <div className="shell">
+            <ParallaxImage src={pics.lead.src} alt={pics.lead.alt} className="aspect-[16/10] md:aspect-[21/9]" priority />
+          </div>
+        </section>
+      )}
+
       <article data-tone="light" className="on-light py-20 md:py-28">
         <div className="shell grid gap-14 lg:grid-cols-12">
+          {/* Sticky, so the contents column travels with the article instead of
+              leaving a tall empty strip beside it. */}
           <aside className="hidden lg:col-span-3 lg:block">
+            <div className="sticky top-[calc(var(--header-h)+2rem)]">
             <p className="font-semibold">In this guide</p>
             <ol className="mt-4 space-y-3 text-[0.95rem]">
               {g.sections.map((s) => (
@@ -81,15 +97,26 @@ export default async function Guide({ params }: { params: Promise<{ slug: string
                 </li>
               ))}
             </ol>
+            <div className="cut-sm mt-10 bg-ink p-6 text-paper">
+              <p className="text-lg font-bold leading-snug tracking-[-0.01em]">Rather talk it through?</p>
+              <p className="t-small muted-dark mt-2">A partner will answer the version of this question that fits your business.</p>
+              <a href={site.phoneHref} className="link-draw mt-5 inline-block text-lg font-bold tabular-nums">
+                {site.phone}
+              </a>
+              <Link href="/contact" className="btn btn-flare mt-5 !h-11 !px-5 !text-[0.95rem]">
+                Start a project <span className="arrow" aria-hidden>→</span>
+              </Link>
+            </div>
+            </div>
           </aside>
 
           <div className="min-w-0 lg:col-span-8 lg:col-start-5">
-            <div className="rounded-[22px] bg-paper-2 p-7 md:p-10">
-              <p className="label">The short answer</p>
+            <Reveal y={24} className="cut-sm bg-flare p-7 text-ink md:p-10">
+              <p className="label label-paper">The short answer</p>
               <p className="t-lead mt-4 font-semibold">{g.summary}</p>
-            </div>
+            </Reveal>
 
-            {g.sections.map((s) => (
+            {g.sections.map((s, si) => (
               <section key={s.h2} id={id(s.h2)} className="scroll-mt-28 pt-16">
                 <h2 className="t-h3 !text-[clamp(1.5rem,2.4vw,2.2rem)]">{s.h2}</h2>
                 <p className="t-lead mt-5 font-semibold">{s.answer}</p>
@@ -132,6 +159,11 @@ export default async function Guide({ params }: { params: Promise<{ slug: string
                       </tbody>
                     </table>
                   </div>
+                )}
+                {pics && si === breakAfter && (
+                  <Reveal as="figure" y={32} className="mt-16">
+                    <ParallaxImage src={pics.inline.src} alt={pics.inline.alt} frame="cut-flip" travel={8} sizes="(min-width: 1024px) 62vw, 92vw" className="aspect-[16/10]" />
+                  </Reveal>
                 )}
               </section>
             ))}

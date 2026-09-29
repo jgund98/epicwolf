@@ -4,8 +4,9 @@ import { JsonLd } from "@/components/site/JsonLd"
 import { PageHero } from "@/components/site/PageHero"
 import { CtaBand } from "@/components/site/CtaBand"
 import { Names } from "@/components/home/Names"
-import { Reveal } from "@/components/ui/Reveal"
+import { LineReveal, Reveal } from "@/components/ui/Reveal"
 import { ParallaxImage } from "@/components/ui/ParallaxImage"
+import { PillarCards } from "@/components/site/PillarCards"
 
 export const metadata = pageMeta({
   title: "About Epic Wolf | West Palm Beach Branding and Marketing Agency",
@@ -82,6 +83,14 @@ export default function About() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section data-tone="light" className="bg-paper-2 py-24 text-ink md:py-32">
+        <div className="shell">
+          <p className="label">What we do</p>
+          <LineReveal as="h2" className="t-h2 mt-4 max-w-[16ch]" lines={["One idea on every surface"]} />
+          <PillarCards className="mt-12 md:mt-16" />
         </div>
       </section>
 
