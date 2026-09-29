@@ -8,18 +8,13 @@ const icon = (size) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" 
 fs.writeFileSync("public/favicon.svg", icon(64))
 for (const [f, s] of [["icon-32.png", 32], ["icon-192.png", 192], ["icon-512.png", 512], ["apple-icon.png", 180]]) await sharp(Buffer.from(icon(s))).png().toFile(`public/${f}`)
 
-// OG / link-preview card: bold and nearly wordless. The hero's coastline
-// full bleed, the wordmark huge in paper, the orange period. Nothing else.
+// OG / link-preview card: pure vector, so it is razor sharp at any size.
+// Signal orange, the wordmark in ink, a cream period. Nothing else.
 {
   const Wd = 1200, H = 630
   const { WM_LETTERS, WM_DOT } = await import("../components/brand/wordmark.ts")
-  const w = 1080, s = w / WM_W, x0 = (Wd - w) / 2, y0 = (H - WM_H * s) / 2 + 8
-  const g = (body) => `<g transform="translate(${x0} ${y0}) scale(${s})">${body}</g>`
-  const art = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${Wd}" height="${H}">
-    <rect width="${Wd}" height="${H}" fill="#000" fill-opacity=".28"/>
-    ${g(WM_LETTERS.map((l) => `<path d="${l.d}" fill="#fbf9f4"/>`).join("") + `<path d="${WM_DOT}" fill="${FLARE}"/>`)}
-  </svg>`)
-  const coast = await sharp("public/video/coast.jpg").resize(Wd, H, { fit: "cover" }).modulate({ saturation: 1.35, brightness: 1.05 }).toBuffer()
-  await sharp(coast).composite([{ input: art }]).jpeg({ quality: 90, mozjpeg: true }).toFile("public/og.jpg")
+  const w = 1000, s = w / WM_W, x0 = (Wd - w) / 2, y0 = (H - WM_H * s) / 2 + 10
+  const card = `<svg xmlns="http://www.w3.org/2000/svg" width="${Wd}" height="${H}"><rect width="${Wd}" height="${H}" fill="${FLARE}"/><g transform="translate(${x0} ${y0}) scale(${s})">${WM_LETTERS.map((l) => `<path d="${l.d}" fill="#0a0a0b"/>`).join("")}<path d="${WM_DOT}" fill="#fbf9f4"/></g></svg>`
+  await sharp(Buffer.from(card)).jpeg({ quality: 92, mozjpeg: true }).toFile("public/og.jpg")
 }
 console.log("brand assets ok")
