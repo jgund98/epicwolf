@@ -458,15 +458,6 @@ header[data-htone="dark"] .btn-flare:hover {
     --hero-fs: min(calc(99cqw / 5.4991), 12svh);
   }
 }
-/* The hero copy is held only until the brand font is in (font gate in the
-   root layout), then fades up. */
-.hero-copy {
-  transition: opacity 0.45s ease-out;
-}
-html.js:not(.fonts-ready) .hero-copy {
-  opacity: 0;
-}
-
 /* The word that breaks over the brand-world frame. */
 .t-world {
   font-size: clamp(2.4rem, 8.6vw, 12.8rem);

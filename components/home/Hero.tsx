@@ -77,10 +77,9 @@ export function Hero() {
   const native = !!caps?.native && !reduce
   const useLadder = !!caps?.phone && !reduce
 
-  /* The hero is held (black) until the real font has loaded, the headline is
-     fitted and the cutout is drawn, then it arrives in one piece: the footage
-     fades up inside the letters while the copy fades in. Without this a refresh
-     flashes the fallback font, the unfitted size and a blank frame in turn. */
+  /* The headline paints at once in solid paper (CSS size, font-display block),
+     and turns clear once the canvas cutout is drawn, so the footage fades up
+     inside the letters. Nothing waits on hydration to become visible. */
   const [ready, setReady] = useState(false)
   useLayoutEffect(() => {
     const t = setTimeout(() => setReady(true), 2500) // never hold longer than this
@@ -291,8 +290,7 @@ export function Hero() {
           hidden behind the toolbar. */}
       <div ref={stage} className={reduce ? "hero-stage relative overflow-hidden" : "hero-stage sticky top-0 overflow-hidden"}>
         <video
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
-          style={{ opacity: ready ? 1 : 0 }}
+          className="absolute inset-0 h-full w-full object-cover"
           poster="/video/coast.jpg"
           autoPlay
           muted
