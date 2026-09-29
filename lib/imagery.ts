@@ -128,6 +128,9 @@ export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
   "vehicle-wrap-cost-palm-beach-county": { lead: P.pickupWide, inline: P.wrapInstall },
 }
 
+/** Every real work photo (signage, vinyl, fleet, print), for the home page's brand world and the image sitemap. */
+export const workPhotos: Pic[] = Object.values(P).filter((x) => x.src.startsWith("/img/work/"))
+
 export const pageImagery = {
   countyPair: [P.deal, P.worthAve] as [Pic, Pic],
   contact: P.flaglerNight,
