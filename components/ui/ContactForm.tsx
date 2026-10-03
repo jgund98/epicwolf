@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { useBrandName, setBrandName } from "@/lib/nameStore"
 import { pillars, site } from "@/lib/site"
@@ -21,7 +21,6 @@ export function ContactForm({ tone = "dark", source = "contact" }: { tone?: "dar
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle")
   const [error, setError] = useState("")
   const [first, setFirst] = useState("")
-  const done = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("business")
@@ -33,9 +32,16 @@ export function ContactForm({ tone = "dark", source = "contact" }: { tone?: "dar
     if (i && INTERESTS.includes(i)) setInterest(i)
   }, [brand])
 
-  useEffect(() => {
-    if (state === "sent") done.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-  }, [state])
+  // The thank-you only mounts after the form's exit finishes (mode="wait"), so
+  // bring it into view from its ref callback, not from an effect on state.
+  const done = useCallback((el: HTMLDivElement | null) => {
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const top = Math.max(0, r.top + window.scrollY - (window.innerHeight - r.height) / 2)
+    const lenis = (window as unknown as { __lenis?: { scrollTo: (t: number) => void } }).__lenis
+    if (lenis) lenis.scrollTo(top)
+    else window.scrollTo({ top, behavior: "smooth" })
+  }, [])
 
   const dark = tone === "dark"
   const field = `w-full border-0 border-b-2 bg-transparent px-0 py-3 text-[1.15rem] font-semibold outline-none transition-colors placeholder:font-normal ${

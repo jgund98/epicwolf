@@ -5,7 +5,7 @@
 //
 // Env vars:
 //   BREVO_API_KEY    (required)  your Brevo v3 API key  (xkeysib-…)
-//   LEAD_TO_EMAIL    (required)  where THIS client's leads go (their inbox)
+//   LEAD_TO_EMAIL    (optional)  default jordan@epicdevsolutions.com
 //   LEAD_FROM_EMAIL  (optional)  default noreply@epicdevsolutions.com
 //   LEAD_FROM_NAME   (optional)  default "Website"
 //   LEAD_SITE_NAME   (optional)  shown as "via <site>" in the email
@@ -15,8 +15,8 @@ const BREVO_ENDPOINT = "https://api.brevo.com/v3/smtp/email";
 
 const FROM_EMAIL = process.env.LEAD_FROM_EMAIL || "noreply@epicdevsolutions.com";
 const FROM_NAME = process.env.LEAD_FROM_NAME || "Epic Wolf website";
-// CONFIRM: the partners' inbox for new inquiries (overridable in env).
-const TO_EMAIL = process.env.LEAD_TO_EMAIL || "";
+// Where new inquiries land (overridable in env).
+const TO_EMAIL = process.env.LEAD_TO_EMAIL || "jordan@epicdevsolutions.com";
 const SITE_NAME = process.env.LEAD_SITE_NAME || "Epic Wolf";
 
 export type LeadField = [label: string, value: string | undefined | null];
