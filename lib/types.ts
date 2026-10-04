@@ -59,6 +59,10 @@ export type City = {
   industries: string[]
   /** One paragraph on what marketing actually has to do in this town. */
   angle: string
+  /** Verified local facts an owner can act on, each with its primary source. */
+  ground: { title: string; body: string; source: { label: string; href: string } }[]
+  /** Slugs of the guides most useful to a business in this town. */
+  guides: string[]
   faqs: Faq[]
   nearby: string[]
   /** Approximate coordinates, for the county map and schema. */

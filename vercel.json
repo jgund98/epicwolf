@@ -2,27 +2,27 @@
   "framework": "nextjs",
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "epicwolf.agency" }],
-      "destination": "https://www.epicwolf.agency/:path*",
+      "destination": "https://www.epicwolf.agency/$1",
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "epicwolf.epicdevsolutions.com" }],
-      "destination": "https://www.epicwolf.agency/:path*",
+      "destination": "https://www.epicwolf.agency/$1",
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "epicwolf.vercel.app" }],
-      "destination": "https://www.epicwolf.agency/:path*",
+      "destination": "https://www.epicwolf.agency/$1",
       "permanent": true
     }
   ],
   "headers": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "missing": [{ "type": "host", "value": "www.epicwolf.agency" }],
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }

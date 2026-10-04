@@ -38,6 +38,29 @@ export const cities: City[] = [
     ],
     angle:
       "West Palm has two audiences living on the same streets. One arrived recently, works in a glass tower and judges you on polish and discretion. The other has been here for decades and judges you on whether you are real. The work is to hold both at once: a brand that reads institutional enough for a family office CFO and warm enough for Clematis foot traffic, press aimed at the Palm Beach Post and the Business Journal, a digital presence that performs on a phone on the train, and a street presence designed to the city's sign code from the first sketch.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "West Palm Beach regulates signs in Article XIII of Chapter 94, its zoning code. Billboards and off-premises signs are prohibited. Banners, pennants and portable signs are barred unless a planned development's adopted sign program allows them. A wall sign cannot project more than 18 inches from the building. Murals are allowed anywhere in the city, but only with a mural permit from the building official.",
+        source: { label: "City of West Palm Beach sign regulations", href: "https://online.encodeplus.com/regs/westpalmbeach-fl/doc-viewer.aspx?secid=687" },
+      },
+      {
+        title: "Local press",
+        body: "Stet News is a nonprofit newsroom focused only on Palm Beach County, started in 2023 by former Palm Beach Post journalists, and its reporting also runs in partnership with WLRN public radio. WPTV broadcasts from Banyan Boulevard in West Palm Beach and covers the Palm Beaches and the Treasure Coast. Both are places a West Palm story with real news value could land. Neither is a promise.",
+        source: { label: "Stet News", href: "https://stetnews.org/about/" },
+      },
+      {
+        title: "Timing",
+        body: "The downtown calendar is public and predictable. The city's GreenMarket, more than thirty seasons in, returns to the waterfront on Saturdays each October. Clematis by Night fills the Great Lawn every Thursday from 6 to 9 p.m. The Palm Beach International Boat Show takes over Flagler Drive each March. Plan openings and storefront installs around those crowds, not against them.",
+        source: { label: "City of West Palm Beach GreenMarket", href: "https://wpb.org/greenmarket" },
+      },
+      {
+        title: "Who to know",
+        body: "Four bodies matter here. The Downtown Development Authority, created by the Florida Legislature in 1967, cleans and markets downtown and offers opening help and improvement grants. The Community Redevelopment Agency funds redevelopment in the Downtown/City Center and Northwood/Pleasant City districts. The Chamber of Commerce of the Palm Beaches runs networking and advocacy. The Business Development Board handles relocation and expansion countywide.",
+        source: { label: "West Palm Beach Downtown Development Authority", href: "https://downtownwpb.com/dda/" },
+      },
+    ],
+    guides: ["choosing-a-pr-firm-west-palm-beach", "business-sign-permits-palm-beach-county", "branding-cost-palm-beach-county"],
     faqs: [
       {
         q: "Is Epic Wolf based in West Palm Beach?",
@@ -50,6 +73,14 @@ export const cities: City[] = [
       {
         q: "Can a West Palm Beach PR firm get my business into the local press?",
         a: "A good one can put a real story in front of the right editors, but no honest firm guarantees coverage. The local targets include the Palm Beach Post, the Palm Beach Daily News, the South Florida Business Journal, Stet News and the local TV stations. What earns a spot is news value, timing and a spokesperson who is ready. We build all three before we pitch anyone.",
+      },
+      {
+        q: "Can a new business in West Palm Beach put up grand opening signs?",
+        a: "Yes, for a limited time. The city's sign code permits temporary signs and displays announcing a new business or a change in ownership for no more than 30 days, starting when the business opens. The allowance does not apply on lots with more than one business establishment, so a tenant in a shared center should check with the landlord and the city first. Sale signs inside a window are limited to 30 days and 25 percent of the window area.",
+      },
+      {
+        q: "Are there grants for storefront signs in downtown West Palm Beach?",
+        a: "Yes, inside the Downtown Development Authority district. The DDA's Facade Improvement program offers grants to business or property owners toward a share of the cost of exterior improvements such as awnings, signs and landscaping. The DDA also lists Grand Opening Assistance for newly opened businesses. Programs open and close, so confirm availability with the DDA before you budget. Epic Wolf designs the sign to the city's code either way.",
       },
     ],
     nearby: ["palm-beach", "riviera-beach", "lake-worth-beach"],
@@ -88,6 +119,29 @@ export const cities: City[] = [
     ],
     angle:
       "On the island, the market already knows who everyone is, so the work is to be recognized rather than seen. That means fewer touchpoints held to a higher standard. A storefront designed for ARCOM before it is designed for attention, with a mark that still reads inside the Town's limits: 10 square feet of business signage for a frontage under 18 feet, 20 at 18 feet or more, and a logo that fits a 12-inch square. Invitations and gala materials whose paper and finish match the address. A real story for the Palm Beach Daily News or Palm Beach Illustrated. A website and Google profile that answer the quiet search every referral triggers. And a calendar built around the season: the Town limits construction from November through April, so storefront work belongs in summer and approvals belong on the fall hearing calendar.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Signs fall under Article XI of Chapter 134, the Town's zoning code. Beyond the size limits, the details are strict. Lettering may state only the business name as it appears on the business tax receipt, a logo and the nature of the business. Each sign must carry its maker's name in small legible letters. Neon or strip lighting may not outline a building. Merchandise and mannequins cannot be placed outside the store.",
+        source: { label: "Town of Palm Beach sign code", href: "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH134ZO_ARTXISI" },
+      },
+      {
+        title: "Local press",
+        body: "Palm Beach Illustrated debuted in 1952 and publishes 11 times a year from Palm Beach Media Group, covering personalities, dining, interiors and the social scene. The Worth Avenue Association publishes its own Worth Avenue Magazine. Stet News, a nonprofit newsroom, lists Palm Beach among the towns it reports on. Each is a place an island story could land when it has real substance. None can be promised.",
+        source: { label: "Palm Beach Illustrated", href: "https://www.palmbeachillustrated.com/about-us/" },
+      },
+      {
+        title: "Timing",
+        body: "The island keeps a published clock. A temporary display sign for a sale or event may go up no earlier than 15 days before it and must come down within 24 hours after. The Worth Avenue Association runs Wednesday historical walking tours through the season, from November into April. The Palm Beach International Boat Show sits directly across the water each March.",
+        source: { label: "Worth Avenue Association", href: "https://worth-avenue.com/events/historical-walking-tour-of-worth-avenue-3/" },
+      },
+      {
+        title: "Who to know",
+        body: "The Palm Beach Chamber of Commerce, founded in 1929, calls itself the voice of business in the Town and runs industry councils, breakfasts and an annual awards luncheon. The Worth Avenue Association, a not-for-profit formed in 1938, promotes and preserves the Avenue's business district and holds monthly member breakfasts. The Palm Beach Civic Association, founded in 1944, engages residents and the Town on civic affairs.",
+        source: { label: "Palm Beach Chamber of Commerce", href: "https://www.palmbeachchamber.com/about" },
+      },
+    ],
+    guides: ["market-a-palm-beach-business-without-looking-loud", "business-sign-permits-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach"],
     faqs: [
       {
         q: "Do you work with businesses on the island of Palm Beach?",
@@ -108,6 +162,14 @@ export const cities: City[] = [
       {
         q: "Can a Palm Beach storefront use a banner or a sale sign?",
         a: "Not a banner, and a sale sign only from April through October. The Town's code prohibits banner signs of any kind, along with flashing or animated signs. A temporary sign for a special sale or event is allowed only from April 1 to October 31, on an easel inside the display window rather than taped to the glass, at no more than two square feet for each 18 feet of frontage.",
+      },
+      {
+        q: "Can a shop inside a Worth Avenue via have its own sign?",
+        a: "Yes. The Town's code treats via frontage as street frontage when it sets the size and number of business signs. A licensed first-floor business inside a via may also have one hanging sign perpendicular to the building. It can carry only the business name, needs at least eight feet of clearance, cannot exceed two square feet and counts toward the total sign area allowed. Building identification signs are not allowed in vias.",
+      },
+      {
+        q: "What must a vacant or under-construction storefront in Palm Beach display?",
+        a: "It must screen the interior with an attractive display within ten business days of the vacancy or the start of construction. The Town's summary of business regulations lists approved themes, including historical pictures, black and white sketches and enlarged historical postcards of Palm Beach. The same image should not repeat within 200 linear feet. For a brand opening on the island, that makes the build-out period a design question worth settling with the Town's planning staff early.",
       },
     ],
     nearby: ["west-palm-beach", "lake-worth-beach", "riviera-beach"],
@@ -144,6 +206,29 @@ export const cities: City[] = [
     ],
     angle:
       "In the Gardens, the comparison happens before the call. Prospects line you up against two competitors on their phone, and the one with the sharper site, the fuller Google profile and the most credible story wins. Marketing here has to be complete and consistent more than clever. For corporate and professional firms, it also has to survive procurement: clear capabilities, case studies you can actually share, and a brand that looks right in a boardroom deck. Tournament week adds a spike of visitors and hospitality spending, which rewards businesses that plan their activation early.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Palm Beach Gardens regulates signs in Division 7 of Article V of Chapter 78, its land development code. Every permanent sign needs a building permit. The prohibited list is long: painted wall signs, portable signs, sandwich boards, exposed neon, and murals unless the City Council approves. For planned developments, the growth management department may require a master sign program covering location, number, size, font and illumination.",
+        source: { label: "City of Palm Beach Gardens sign code", href: "https://library.municode.com/fl/palm_beach_gardens/codes/code_of_ordinances?nodeId=SPBLADERE_CH78LADE_ARTVSUDIRE_DIV7SI" },
+      },
+      {
+        title: "Local press",
+        body: "Stet News, a nonprofit newsroom covering Palm Beach County, lists Palm Beach Gardens among the cities it reports on. Florida Weekly publishes a weekly Palm Beach edition. WPTV covers the Palm Beaches and the Treasure Coast from West Palm Beach. A Gardens story with real news value, such as a headquarters move or a notable opening, has places to land. Coverage is earned, never promised.",
+        source: { label: "Stet News", href: "https://stetnews.org/about/" },
+      },
+      {
+        title: "Timing",
+        body: "February is the crowded month. The ArtiGras Fine Arts Festival fills Gardens North County District Park early in the month, and the Cognizant Classic returns to PGA National at the end of it. The Gardens GreenMarket runs Sundays from 8 a.m. to 1 p.m. at the City Hall Municipal Campus, with a new season starting each October. Launch ahead of those dates.",
+        source: { label: "City of Palm Beach Gardens GreenMarket", href: "https://pbgfl.gov/422/GreenMarket" },
+      },
+      {
+        title: "Who to know",
+        body: "The Palm Beach North Chamber of Commerce serves the 11 municipalities that make up Palm Beach North and was formed in 2007 from two older chambers. It focuses on business development and retention and counts ArtiGras among its events. The PGA Corridor Association has spoken for business and property owners in Palm Beach Gardens since 2000. The Business Development Board is the county's official economic development organization.",
+        source: { label: "Palm Beach North Chamber of Commerce", href: "https://www.pbnchamber.com/" },
+      },
+    ],
+    guides: ["get-found-in-ai-search-local-business", "business-sign-permits-palm-beach-county", "branding-agency-vs-marketing-agency"],
     faqs: [
       {
         q: "Do you work with businesses in Palm Beach Gardens?",
@@ -156,6 +241,14 @@ export const cities: City[] = [
       {
         q: "What marketing matters most for professional firms in Palm Beach Gardens?",
         a: "Credibility signals matter most. That means a complete Google Business Profile, recent reviews, a website that explains exactly what you do and for whom, and bylines or press that show expertise. Hold the office and every printed piece to the same standard, and you give a cautious buyer every reason to shortlist you and none to drop you.",
+      },
+      {
+        q: "Can I use an A-frame sign or a grand opening banner in Palm Beach Gardens?",
+        a: "An A-frame is prohibited, but a grand opening banner can be approved for a short window. The city's sign code lists sandwich board, A-frame and portable signs among its prohibited signs. Its temporary sign table allows a grand opening or new business sign of up to 32 square feet, which may be a banner, from 7 days before the event until 10 days after opening. Temporary signs need city approval, cannot be illuminated and must sit at least eight feet back from the right-of-way line.",
+      },
+      {
+        q: "Does Palm Beach Gardens fast-track permits for companies moving in?",
+        a: "Yes, for companies that qualify. The city's targeted expedited permitting program is open to firms in listed industry clusters, including medical and pharmaceutical, aerospace and engineering, information technology, and business and financial services. A company must show it can create at least 50 new positions in the city within its first two years, or be a project sanctioned by the state or the Business Development Board of Palm Beach County. Accepted companies get a single point of contact at the city.",
       },
     ],
     nearby: ["jupiter", "juno-beach", "riviera-beach"],
@@ -192,6 +285,29 @@ export const cities: City[] = [
     ],
     angle:
       "Jupiter customers are loyal once they trust you and skeptical before they do. They know boats, they know the water and they spot a fake quickly. Marketing here works when it is specific: real photos of real work, captains and owners who show up in the content, reviews that mention the job, and a brand that stays consistent on every vessel and vehicle crossing the county. For the science side, the job is translation. Make complex work understandable to donors, recruits and local press without dumbing it down.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Signs in Jupiter fall under Chapter 27, Article XIII of the town code. The Department of Planning and Zoning issues the sign permit, and most signs also need a building permit before they go up. The prohibited list is long. It includes A-frame signs, portable signs, pennants, painted wall signs, roof signs and permanent banners. The US 1 and Intracoastal corridor, Inlet Village and Indiantown Road overlay districts carry their own sign rules.",
+        source: { label: "Town of Jupiter sign code", href: "https://library.municode.com/fl/jupiter/codes/code_of_ordinances?nodeId=SPBLADERE_CH27ZO_ARTXIIISI" },
+      },
+      {
+        title: "Local press",
+        body: "Jupiter has its own city magazine. Jupiter Magazine, published by Palm Beach Media Group, covers dining, shopping and community leaders across the northern Palm Beaches. Stet News, a nonprofit newsroom focused on Palm Beach County, keeps a dedicated Jupiter section. Those are realistic targets for an opening, a new hire or a founder profile. Neither is a guarantee. A story earns its place on news value.",
+        source: { label: "Jupiter Magazine", href: "https://www.jupitermag.com/about-us/" },
+      },
+      {
+        title: "Timing",
+        body: "Two recurring dates shape a Jupiter launch calendar. The town hosts Jupiter Jubilee at its municipal campus on Military Trail in early February, a full day of music and cultural displays. In October the Palm Beach North Chamber of Commerce produces Jupiter HarbourFest at Harbourside Place, with live music and free admission. Have signage permitted and installed well ahead of either weekend, because the crowds arrive on schedule.",
+        source: { label: "Town of Jupiter", href: "https://www.jupiter.fl.us/jubilee" },
+      },
+      {
+        title: "Who to know",
+        body: "The Palm Beach North Chamber of Commerce is the business chamber here. It formed in 2007 from a merger that included the Jupiter Tequesta Juno Beach Chamber, founded in 1948, and it reports more than 750 business members. The Jupiter Community Redevelopment Agency is separate. The town created it in 2003 to manage the waterfront area from Inlet Village south to Ocean Way, funded mainly by tax increment revenue and grants.",
+        source: { label: "Palm Beach North Chamber of Commerce", href: "https://www.pbnchamber.com/about-the-chamber/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "vehicle-wrap-cost-palm-beach-county", "get-found-in-ai-search-local-business"],
     faqs: [
       {
         q: "Do you work with businesses in Jupiter?",
@@ -204,6 +320,14 @@ export const cities: City[] = [
       {
         q: "How should a Jupiter marine business market itself?",
         a: "Lead with proof. Show the boats you have worked on, the captains who trust you and the turnaround you actually deliver. Keep your Google Business Profile complete, ask every satisfied owner for a review, keep every truck and vessel on brand, and make booking or quoting simple from a phone. In this market, reputation travels dock to dock.",
+      },
+      {
+        q: "Are A-frame sidewalk signs allowed in Jupiter?",
+        a: "No. Jupiter's sign code lists A-frame signs among its prohibited signs, along with portable signs, pennants, streamers, painted wall signs and permanent banners. Temporary banners are not prohibited, but the code regulates them as temporary signs. If sidewalk visibility matters to your storefront, the better route is a permitted permanent sign designed to be read on foot. Epic Wolf checks the prohibited list before a concept is drawn.",
+      },
+      {
+        q: "What does Jupiter require with a sign permit application?",
+        a: "Jupiter asks for a completed Planning and Zoning application, written authorization from the property owner or lessee, and elevations of every sign face showing dimensions, lettering size, colors and lighting. Freestanding signs over 24 square feet need calculations from a registered engineer. Permanent freestanding signs also need their exact location certified on a survey within one year of the permit. Epic Wolf designs the sign and coordinates the permit as part of the brand work.",
       },
     ],
     nearby: ["juno-beach", "palm-beach-gardens", "riviera-beach"],
@@ -240,6 +364,29 @@ export const cities: City[] = [
     ],
     angle:
       "Boca buyers are sophisticated and process driven. Corporate teams write RFPs, check references and hold vendors to brand standards. Consumers compare everything and expect polish. Marketing here fails when it looks like a template, and it fails again when the physical presence drifts from the digital one. The answer is integrated work with discipline: a brand system with real rules, PR that gives executives a credible platform, and every physical touchpoint produced to the same standard and designed to pass the city's appearance review the first time.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Chapter 24 of Boca Raton's Code of Ordinances governs signs. Standard sign permits are approved administratively. The Community Appearance Board approves master sign plans, which the code requires for nonresidential developments designed for multiple occupancies. The unlawful list includes neon signs, roof signs, vehicle signs and sandwich or sidewalk signs. Window signs are limited to the ground floor, with letters no taller than 6 inches.",
+        source: { label: "City of Boca Raton sign code", href: "https://library.municode.com/fl/boca_raton/codes/code_of_ordinances?nodeId=VOII_CH24SI" },
+      },
+      {
+        title: "Local press",
+        body: "Boca has a media layer of its own. Boca magazine covers local issues, dining and style, and its publisher also produces the Boca Chamber Annual. The Boca Raton Tribune takes story tips and press releases through its newsroom. The Coastal Star, a monthly, covers the coastal neighborhoods of Boca Raton and Highland Beach. WPTV runs a Boca Raton and Delray Beach section. Each is a target, never a given.",
+        source: { label: "Boca magazine", href: "https://www.bocamag.com/about/" },
+      },
+      {
+        title: "Timing",
+        body: "Downtown's calendar shapes street-level work. The city's Holiday Street Parade runs along Federal Highway in early December, and the city posts route changes when road work affects it. Festival of the Arts BOCA, established in 2007, fills the first half of March. Both draw the audience a downtown business wants in front of a finished storefront. Schedule installs and launch events to land before them, not during them.",
+        source: { label: "City of Boca Raton Holiday Street Parade", href: "https://www.myboca.us/1465/Holiday-Street-Parade" },
+      },
+      {
+        title: "Who to know",
+        body: "The Greater Boca Raton Chamber of Commerce states its mission as promoting and sustaining economic prosperity in Boca Raton and South Palm Beach County. Its programs include Leadership Boca and a Young Professionals Network. Downtown sits inside the Boca Raton Community Redevelopment Agency, established when the City Council designated 344 downtown acres in 1980. The CRA's stated mission includes assisting downtown property owners and businesses.",
+        source: { label: "Greater Boca Raton Chamber of Commerce", href: "https://www.bocachamber.com/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach", "branding-agency-vs-marketing-agency"],
     faqs: [
       {
         q: "Do you work with companies in Boca Raton?",
@@ -252,6 +399,14 @@ export const cities: City[] = [
       {
         q: "Can one agency handle PR and the brand rollout for a multi-location company?",
         a: "Yes, and it usually saves money and mistakes. When the same team writes the launch story, runs the digital campaign and manages the rollout of every location's signage and printed materials, the identity and message stay consistent. We manage production and install through vetted partners, track approvals by jurisdiction, and keep one set of brand files as the source of truth.",
+      },
+      {
+        q: "Are neon signs or sidewalk sandwich boards allowed in Boca Raton?",
+        a: "No. Section 24-6 of Boca Raton's sign code lists neon signs and sandwich or sidewalk signs among the signs that are unlawful in the city, along with animated, inflatable, roof and vehicle signs. The same section says any sign not specifically permitted under the chapter is prohibited. If a brand concept depends on one of these, change it at the design stage, before anything is fabricated.",
+      },
+      {
+        q: "Can a new Boca Raton tenant hang a banner while the permanent sign is in review?",
+        a: "Yes, within limits. The city says its sign code lets commercial tenants display a temporary banner while a permit application for a permanent tenant sign is in review. The banner can be no greater than 32 square feet or the size of an allowable permanent sign, whichever is less. A sign permit is valid for 180 days once issued, so plan fabrication, install and the final inspection inside that window.",
       },
     ],
     nearby: ["delray-beach", "boynton-beach", "lake-worth-beach"],
@@ -287,6 +442,29 @@ export const cities: City[] = [
     ],
     angle:
       "On Atlantic Avenue, you are competing with every other door on the block for the same evening. Atmosphere is the product, and marketing has to capture it: photography that shows the room, a menu and website that load instantly on a phone, a Google profile full of current photos, and a storefront that reads from across the street at night. Off the avenue, Delray's service businesses and wellness brands need the opposite: steady search visibility and reviews that keep the phone ringing through the slower summer months.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Section 4.6.7 of Delray Beach's Land Development Regulations governs signs. The Chief Building Official or a designee reviews permit applications within 30 days of submission. Banners, wind signs, roof signs and snipe signs are on the prohibited list. One exception helps a new business: a single grand opening banner of up to 50 square feet, placed on the front of the building for no more than four weeks.",
+        source: { label: "Delray Beach LDR Section 4.6.7", href: "https://library.municode.com/fl/delray_beach/codes/land_development_regulations?nodeId=CH4ZORE_ART4.6SUDIRE_S4.6.7SI" },
+      },
+      {
+        title: "Local press",
+        body: "Delray has titles of its own. Delray magazine comes from the publisher of Boca magazine. The Coastal Star, a monthly based in Ocean Ridge, covers Delray's coastal neighborhoods. WPTV keeps a dedicated Delray Beach news section. The Greater Delray Beach Chamber of Commerce films a program called Delray Morning Live. A restaurant opening or a seasonal launch is a fair pitch to any of them, with no placement promised.",
+        source: { label: "The Coastal Star", href: "https://thecoastalstar.com/contact-us" },
+      },
+      {
+        title: "Timing",
+        body: "Delray's year has fixed peaks. The Delray Beach Open, an ATP 250 tournament, is played each February. The Delray Affair, produced by the Greater Delray Beach Chamber of Commerce, runs for three days each April across seven downtown blocks. The CRA's winter GreenMarket fills Old School Square on Saturdays from October through May. Finish storefront work before those crowds arrive.",
+        source: { label: "Delray Affair", href: "https://www.delrayaffair.com/" },
+      },
+      {
+        title: "Who runs downtown",
+        body: "Three bodies share downtown Delray. The Delray Beach Downtown Development Authority works on the economic vitality of downtown and runs a Safety Ambassadors program. The Delray Beach Community Redevelopment Agency, created in 1985, covers more than 1,900 acres including the entire Central Business District. The Greater Delray Beach Chamber of Commerce reports more than 800 members and hosts Leadership Delray each year.",
+        source: { label: "Delray Beach CRA", href: "https://delraycra.org/who-we-are-mission/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "market-a-palm-beach-business-without-looking-loud", "get-found-in-ai-search-local-business"],
     faqs: [
       {
         q: "Do you work with businesses in Delray Beach?",
@@ -299,6 +477,14 @@ export const cities: City[] = [
       {
         q: "How do Delray Beach restaurants stand out on Atlantic Avenue?",
         a: "They sell the room, not just the menu. Show real photos of the space at night, keep the Google profile current with hours and fresh images, make the menu fast to load on a phone, and invest in a storefront and lighting that read from across the street. Then give local press and creators a reason to come in, like a chef story or a seasonal launch.",
+      },
+      {
+        q: "How much of a storefront window can signs cover in Delray Beach?",
+        a: "Twenty percent. Delray Beach's sign code limits plastic or painted window signs to 20 percent of the aggregate glass area per tenant space or main use. Paper signs set two feet or more inside the glass but visible from outside are held to 20 percent of the aggregate window area as well. On Atlantic Avenue the window is the storefront, so the quality of the lettering matters more than its size.",
+      },
+      {
+        q: "Does the Delray Beach CRA help businesses with exterior signage?",
+        a: "It lists a program for it. The Delray Beach Community Redevelopment Agency's funding assistance page describes a Paint-Up and Signage Program meant to improve the exterior of existing commercial buildings through fresh paint and signage, available to businesses throughout the CRA District. That district covers more than 1,900 acres, including the entire Central Business District. Confirm current terms and eligibility with the CRA before you budget, because program details can change.",
       },
     ],
     nearby: ["boca-raton", "boynton-beach", "lake-worth-beach"],
@@ -335,6 +521,29 @@ export const cities: City[] = [
     ],
     angle:
       "Boynton is a practical market. Customers want the business that looks reliable, answers fast and shows up nearby. Marketing here should be built around that moment of choice: a Google Business Profile with every field filled, recent reviews that mention real jobs, a website that loads fast and puts the phone number up top, and a fleet that makes your name familiar on every street you work. For the marina businesses, add easy online booking and photography that sells the trip before the customer ever reaches the dock.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Boynton Beach's City Sign Code is Chapter 4, Article IV of its Land Development Regulations. Any multi-tenant commercial or mixed use development needs a sign program, processed with site plan review, and no individual sign permit is issued unless the sign conforms to it. Roof signs and animated signs are prohibited. Painted wall signs are too, though a mural approved by the Art Advisory Board is treated as art.",
+        source: { label: "City of Boynton Beach sign code", href: "https://codehub.gridics.com/us/fl/boynton-beach#/b52a8681-8ec5-4491-a61e-6975897761fa" },
+      },
+      {
+        title: "Local press",
+        body: "Boynton Beach is covered mostly by outlets based around it. WPTV keeps a dedicated Boynton Beach news section. The Boca Raton Tribune lists Boynton Beach among the communities it covers and takes press releases through its newsroom. The Boynton Beach CRA also spotlights businesses inside its area through its own social media campaigns. None of these is a promised placement. Each is a fair target for a real local story.",
+        source: { label: "WPTV Boynton Beach", href: "https://www.wptv.com/news/region-s-palm-beach-county/boynton-beach" },
+      },
+      {
+        title: "Timing",
+        body: "The city's Pirate Fest takes over downtown around Halloween weekend, at Centennial Park and East Ocean Avenue, with full road closures that start days earlier. The city says it runs more than 60 events a year, including a holiday parade and tree lighting and the monthly First Friday @ 5 concerts. The CRA adds Rock the Marina and the Boynton Beach Night Market.",
+        source: { label: "City of Boynton Beach Pirate Fest", href: "https://www.boynton-beach.org/874/Know-Before-You-Go" },
+      },
+      {
+        title: "Who to know",
+        body: "The Boynton Beach Community Redevelopment Agency, the BBCRA, covers 1,650 acres of eastern Boynton Beach and owns Boynton Harbor Marina. It offers business grants for property improvement, first-year rent, marketing and relocation. The chamber works differently here. The Boynton Beach Chamber of Commerce merged with the Boca Raton chamber in 2019, and the Greater Boca Raton Chamber of Commerce now staffs a Boynton Beach market.",
+        source: { label: "Boynton Beach CRA", href: "https://www.boyntonbeachcra.com/" },
+      },
+    ],
+    guides: ["vehicle-wrap-cost-palm-beach-county", "get-found-in-ai-search-local-business", "business-sign-permits-palm-beach-county"],
     faqs: [
       {
         q: "Do you work with businesses in Boynton Beach?",
@@ -347,6 +556,14 @@ export const cities: City[] = [
       {
         q: "Can you help charter and marina businesses in Boynton Beach?",
         a: "Yes. Charter, dive and rental operators need three things: photos and video that sell the day on the water, a booking flow that works on a phone, and reviews that mention the captain and crew by name. We build all three and carry the brand onto the dock and into every printed piece, so the whole experience feels like one operation.",
+      },
+      {
+        q: "Does the Boynton Beach CRA offer a marketing grant for local businesses?",
+        a: "Yes. The BBCRA's Commercial Business Marketing Grant Program reimburses marketing and branding costs for businesses in commercial properties inside the BBCRA area. Listed eligible expenses include digital marketing campaigns, website development, branding and graphic design services, and print advertising, up to a capped amount per business. Applicants need valid city and county business tax receipts and must show a need for marketing help. Funding is at the BBCRA Board's discretion and is not guaranteed.",
+      },
+      {
+        q: "Can I put an A-frame sign outside my business in Boynton Beach?",
+        a: "Yes, under conditions in the City Sign Code. One A-frame sign may be permitted per business, no taller than 42 inches, close to the entrance and positioned to leave a 5 foot unobstructed pedestrian corridor on the sidewalk. It can be displayed only during business hours and must be stored inside when the business is closed or winds are high. In a multi-tenant development it has to be included in the approved sign program.",
       },
     ],
     nearby: ["delray-beach", "lake-worth-beach", "boca-raton"],
@@ -382,6 +599,29 @@ export const cities: City[] = [
     ],
     angle:
       "In Wellington, timing is the strategy. The seasonal audience decides where to board, who to hire and where to eat within their first weeks in town, and much of that happens through referrals and what they see around the showgrounds. Marketing that starts in February is late. The work is to be visible before they arrive: a polished brand and website, press in the equestrian and local outlets, business development through the referral circles the horse world runs on, and a brand presence that holds up at the barn, on the trailer and in the VIP tent. The off-season is for the local market and for getting ready.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Wellington's sign rules sit in Article 7, Chapter 9 of its Land Development Regulations. Any development with more than one building or parcel needs a master sign plan approved by the Architectural Review Board before a sign permit is issued. Pole signs, roof signs, inflatable signs, human signs and signs painted on a building wall are prohibited. Sign lighting must be white. The village reviews a complete permit application within ten business days.",
+        source: { label: "Wellington Land Development Regulations, Article 7, Chapter 9", href: "https://library.municode.com/fl/wellington/codes/unified_land_development_code?nodeId=ART7SIDEST_CH9SIRE" },
+      },
+      {
+        title: "Local press",
+        body: "The Town-Crier, founded in 1980 and published every other Friday, covers Wellington along with Royal Palm Beach, Loxahatchee Groves, The Acreage and Westlake. A sister title under the same ownership, Wellington The Magazine, is a lifestyle magazine with a particular focus on the equestrian community. Both are realistic first targets for a local business story. Coverage is earned with a real news angle, so we build the story before we pitch it.",
+        source: { label: "Town-Crier, About", href: "https://gotowncrier.com/about-us/" },
+      },
+      {
+        title: "Timing",
+        body: "The Architectural Review Board meets on the fourth Wednesday of each month, and a master sign plan application is due at least four weeks before the meeting. The Greater Wellington Chamber holds its equestrian kickoff events in October and November. The Wellington Holiday Parade, past its fortieth year, runs along Forest Hill Boulevard in December. Storefront work that needs board approval belongs on the calendar in early fall.",
+        source: { label: "Village of Wellington, Architectural Review Board", href: "https://www.wellingtonfl.gov/303/Architectural-Review-Board" },
+      },
+      {
+        title: "Two chambers",
+        body: "Two chambers work in Wellington. The Greater Wellington Chamber, founded in 1996, a year after the village was established, runs monthly luncheons and breakfasts, Flavors of Wellington and Winterfest. The Central Palm Beach County Chamber of Commerce keeps its office on Forest Hill Boulevard and covers a wider region that includes Royal Palm Beach and Westlake. It partners with the village on the Holiday Parade. Know which room you are joining.",
+        source: { label: "Greater Wellington Chamber", href: "https://www.wellingtonchamber.com/about" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "vehicle-wrap-cost-palm-beach-county", "market-a-palm-beach-business-without-looking-loud"],
     faqs: [
       {
         q: "Do you work with equestrian businesses in Wellington?",
@@ -394,6 +634,14 @@ export const cities: City[] = [
       {
         q: "Does the brand carry onto horse trailers and barns?",
         a: "Yes. We design and manage production and install for horse trailers, tow vehicles, farm trucks and barn signage as part of the brand environment. A trailer is a large, flat surface that sits at the showgrounds all day, so the design should read from a distance and carry a clear name. Restraint wins here, because the best equestrian brands look like they belong in the tack room.",
+      },
+      {
+        q: "Who approves business signs in Wellington?",
+        a: "The village issues sign permits, and the Architectural Review Board approves master sign plans. Under Article 7 of the Land Development Regulations, a development with more than one building or parcel needs a board-approved master sign plan before any sign permit is issued. Permit applications are filed electronically with a scaled drawing signed and sealed by a Florida architect or engineer. The village then has ten business days to review a complete application.",
+      },
+      {
+        q: "Can a Wellington business paint a sign or mural on its building?",
+        a: "No, not under the current sign code. Wellington lists painted signs and murals painted on a wall, side or roof of a building among its prohibited signs, along with pole signs, roof signs, inflatable signs and human signs. The Architectural Review Board can grant a technical deviation on size, location or appearance, but it cannot approve a sign type the code prohibits. Confirm any plan with the Planning and Zoning Division before design begins.",
       },
     ],
     nearby: ["royal-palm-beach", "west-palm-beach", "lake-worth-beach"],
@@ -429,6 +677,29 @@ export const cities: City[] = [
     ],
     angle:
       "Lake Worth Beach rewards the real thing. Marketing works when it shows the owner, the craft and the neighborhood: a storefront with character that still meets code, social content shot in the actual space, local events and collaborations with the businesses next door. There is also a practical trap. The Postal Service still uses Lake Worth for several ZIP codes that sit outside the city, so customers, maps and directories often mix up the city with its neighbors. Getting your name, address and city consistent everywhere is basic hygiene that pays off in search and in AI answers.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Signs fall under Section 23.5-1 of the city's Land Development Regulations, and the building official issues the permit. A-frame, sandwich and sidewalk signs are prohibited, along with pole signs and pylon signs. Window signage may cover no more than 25 percent of any one window. Applications must be filed by a licensed contractor. In historic districts, waivers and appeals go to the Historic Resources Preservation Board.",
+        source: { label: "Lake Worth Beach Land Development Regulations, Sec. 23.5-1", href: "https://library.municode.com/fl/lake_worth_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH23LADERE_ART5SURE_S23.5-1SI" },
+      },
+      {
+        title: "A thinner press",
+        body: "The Lake Worth Herald published its final issue on January 2, 2025, after 112 years as the city's weekly. That leaves fewer local desks to pitch. ByJoeCapozzi.com, the work of a reporter based in Lake Worth Beach, covers city news. The Cultural Council for Palm Beach County, headquartered on Lake Avenue, publishes art&culture Magazine. County outlets such as the Palm Beach Post remain targets when a story carries beyond the city.",
+        source: { label: "ByJoeCapozzi.com", href: "https://www.byjoecapozzi.com/post/homage-to-a-local-newspaper-dynasty-after-112-years-lake-worth-herald-publishes-final-issue" },
+      },
+      {
+        title: "February belongs to chalk",
+        body: "The Street Painting Festival takes over downtown every February, a two-day event with more than 200 street paintings on the pavement. Plan openings and storefront installs around it, not during it. The CRA takes commercial grant applications in a window that opens in the fall and closes in late spring. A city sign permit becomes void if work has not started within 90 days or finished within 180 days of issue.",
+        source: { label: "Lake Worth Beach CRA, Street Painting Festival", href: "https://www.lakeworthbeachcra.org/agendas_minutes___calendar/signature_events/street_painting_festival/index.php" },
+      },
+      {
+        title: "Who to know",
+        body: "The Lake Worth Beach Community Redevelopment Agency, created in 1989, is the body most downtown owners should know first. Its commercial programs include a facade grant and a signage grant for professionally installed exterior signs inside the CRA district. LULA Lake Worth Arts, the CRA's arts program, takes its name from Lucerne and Lake avenues. The Central Palm Beach County Chamber of Commerce lists Lake Worth in its service area.",
+        source: { label: "Lake Worth Beach CRA, Commercial Grants", href: "https://www.lakeworthbeachcra.org/resources/commercial_grant_applications.php" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "rebrand-vs-refresh", "get-found-in-ai-search-local-business"],
     faqs: [
       {
         q: "Do you work with businesses in Lake Worth Beach?",
@@ -441,6 +712,14 @@ export const cities: City[] = [
       {
         q: "How can an independent business in Lake Worth Beach compete with chains?",
         a: "Compete on what a chain cannot fake. Show the owner, the craft and the neighborhood in your photos and posts, make the storefront feel personal while still reading clearly, collect reviews that tell a story, and partner with neighboring businesses on events. Then make sure your Google profile and website are fast and complete so the interest turns into visits.",
+      },
+      {
+        q: "Can I put a sidewalk sign outside my Lake Worth Beach shop?",
+        a: "No. The city's sign code lists A-frame, sandwich, sidewalk and curb signs as prohibited. There is one narrow exception downtown: eating and drinking establishments with outdoor cafe seating in the core area may display a menu board that does not impede pedestrians and is removed daily, with a permit and approval from the Department for Community Sustainability. For everyone else, the work has to be done by the window, the awning and the wall sign.",
+      },
+      {
+        q: "Are there grants for storefront signs in Lake Worth Beach?",
+        a: "Yes, for businesses inside the CRA district. The Lake Worth Beach Community Redevelopment Agency runs a Commercial Signage Grant Program that assists with the fabrication and installation of new, professionally installed exterior signage. A separate Commercial Facade Grant Program covers exterior improvements and requires a match from the applicant. The CRA takes applications in a window that opens in the fall and closes in late spring. Epic Wolf can design the sign. The application itself goes to the CRA.",
       },
     ],
     nearby: ["palm-beach", "west-palm-beach", "boynton-beach"],
@@ -476,6 +755,29 @@ export const cities: City[] = [
     ],
     angle:
       "Royal Palm Beach is a drive-by, search-first market. Most customers find you in a plaza they already pass or in a map result on their phone, then check reviews and call. Marketing here is less about big campaigns and more about being unmistakable where decisions happen: a storefront that reads from State Road 7 traffic, a Google profile that answers every question, reviews from real neighbors, and a presence at the youth sports, school and community events that families actually attend.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Chapter 20 of the Village Code governs signs. Every shopping center and planned commercial development must have a master signage plan approved by the Planning and Zoning Commission, covering size, font, color and logo allowances. A sign that matches the approved plan can be permitted by the building official without another commission review. Roof signs, portable signs and flashing or animated signs are prohibited.",
+        source: { label: "Royal Palm Beach Code of Ordinances, Chapter 20, Signs", href: "https://library.municode.com/fl/royal_palm_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH20SI" },
+      },
+      {
+        title: "Local press",
+        body: "The Town-Crier, a community newspaper founded in 1980, publishes every other Friday and counts Royal Palm Beach among the communities it covers. A sister title under the same ownership, Royal Palm The Magazine, is a lifestyle magazine serving the village. Both are sensible targets for an opening, an expansion or a community partnership. The paper also covers Wellington and Westlake, so the angle has to be specific to the village.",
+        source: { label: "Town-Crier, About", href: "https://gotowncrier.com/about-us/" },
+      },
+      {
+        title: "Timing",
+        body: "Village events cluster at Commons Park. The village calendar lists Rock N Fall Fest in late October and Winter Fest in early December, with Food Truck Expo concerts on Friday evenings in the fall. The Green Market and Bazaar runs Saturday mornings at 1050 Royal Palm Beach Boulevard. The Planning and Zoning Commission meets on the fourth Tuesday of each month, which sets the pace for a new master signage plan.",
+        source: { label: "Village of Royal Palm Beach, Calendar of Events", href: "https://www.royalpalmbeachfl.gov/484/Calendar-Events" },
+      },
+      {
+        title: "Who to know",
+        body: "Start with the village. Every business needs zoning approval from Planning and Zoning and a village Business Tax Receipt, and receipt holders are listed in the village's Local Business Directory. Royal Palm Beach also falls inside the service area of the Central Palm Beach County Chamber of Commerce, whose office is in Wellington. Sign contractors working in the village must hold a business tax receipt and file proof of insurance with the building official.",
+        source: { label: "Central Palm Beach County Chamber of Commerce, Chamber Area", href: "https://cpbchamber.com/chamber-information/chamber-area/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "get-found-in-ai-search-local-business", "vehicle-wrap-cost-palm-beach-county"],
     faqs: [
       {
         q: "Do you work with businesses in Royal Palm Beach?",
@@ -488,6 +790,14 @@ export const cities: City[] = [
       {
         q: "Do you also serve The Acreage, Loxahatchee and Westlake?",
         a: "Yes. We work across the western communities, including The Acreage, Loxahatchee Groves, Westlake and Wellington, as well as Royal Palm Beach. Service areas matter for search, so we help businesses describe where they actually work on their websites and Google profiles, without creating the thin, copy-paste town pages that search engines and customers both ignore.",
+      },
+      {
+        q: "Can I use an A-frame sign outside my Royal Palm Beach business?",
+        a: "Yes, within limits. The Village Code allows one A-frame sign per business in non-residential zoning districts, no larger than two feet wide and three feet tall, displayed only during the posted hours the business is open. In a multi-tenant plaza it must sit adjacent to the business it advertises and leave at least five feet of clear pedestrian passage. Illumination, animation, reflective materials and attachments such as balloons are not allowed.",
+      },
+      {
+        q: "Can I hang a grand opening banner in Royal Palm Beach?",
+        a: "Yes, with a permit. The Village Code allows temporary grand opening signage for a new business or a change of owner for up to thirty days, at no more than thirty-two square feet. It can be a banner on the exterior wall, column or parapet of the business, but flags and pennants are excluded. A permit is required and the code assesses no fee for it. Design the banner alongside the permanent sign so the opening reads as one brand.",
       },
     ],
     nearby: ["wellington", "west-palm-beach", "lake-worth-beach"],
@@ -523,6 +833,29 @@ export const cities: City[] = [
     ],
     angle:
       "Marketing in Riviera Beach has to speak three languages. Marine and logistics firms sell business to business, where the audience is a captain, a yacht manager or a freight buyer who wants capability, certifications and response time, not slogans. Singer Island hospitality sells an experience to visitors. And new businesses opening around the redeveloping marina need launch PR and community relations that respect a city with deep roots. The common thread is credibility: real photos, clear capabilities and a brand that looks as serious as the work.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Riviera Beach regulates signs in Chapter 28 of the city code. Permit applications are filed with the building and zoning department, and anyone in the business of installing signs must hold a city license. Banners, snipe signs, swinging signs and sidewalk A-frame or sandwich signs are prohibited. So is any sign in or on the waters of Lake Worth. The Marina Upland Area has its own sign overlay district with landmark and wayfinding sign types.",
+        source: { label: "City of Riviera Beach sign code", href: "https://library.municode.com/fl/riviera_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH28SI" },
+      },
+      {
+        title: "Local press",
+        body: "Riviera Beach gets steady local coverage. Stet News, a nonprofit newsroom focused on Palm Beach County, keeps a dedicated Riviera Beach section. WPTV has reported on the Marina Village redevelopment. Those are realistic targets for a marina opening or a hiring story. Redevelopment is the running theme, so a pitch should connect to it.",
+        source: { label: "Stet News", href: "https://stetnews.org/city-government/riviera-beach/" },
+      },
+      {
+        title: "Timing",
+        body: "Storefront work on Broadway should account for construction. The Riviera Beach CRA has been burying about 4,200 linear feet of overhead utility lines along the east side of Broadway, from East 11th Street to East 27th Street. Read its construction notices before you schedule an install there. The CRA board meets on the second and fourth Wednesdays of each month at the Marina Event Center.",
+        source: { label: "Riviera Beach CRA construction notice", href: "https://rbcra.com/in-the-news/utility-burial-notice-of-construction/" },
+      },
+      {
+        title: "Who to know",
+        body: "The Riviera Beach Community Redevelopment Agency is the body most owners here should know first. Formed by the City Council in 1984, it guides the city's redevelopment and lists commercial grant programs. Its Core Gateway Signage Grant targets commercial property signage along Blue Heron Boulevard and Broadway. Grant programs open and close, so check status before budgeting. The Palm Beach North Chamber of Commerce shows Riviera Beach among the municipalities it serves.",
+        source: { label: "Riviera Beach CRA", href: "https://rbcra.com/programs/signage-improvement-grant-program/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "vehicle-wrap-cost-palm-beach-county", "choosing-a-pr-firm-west-palm-beach"],
     faqs: [
       {
         q: "Do you work with businesses in Riviera Beach?",
@@ -535,6 +868,14 @@ export const cities: City[] = [
       {
         q: "Can you help a business launch in the Riviera Beach Marina District?",
         a: "Yes. A launch there needs a brand ready before the doors open, local press and community outreach that introduce the owners, signage approved and installed on time, and a Google profile live from day one. The district is being redeveloped, so we confirm current sign and permit requirements with the city early and plan the launch around construction timelines.",
+      },
+      {
+        q: "Does Riviera Beach offer grants for business signage?",
+        a: "Yes, through the Riviera Beach CRA. Its Core Gateway Signage Grant awards funds to improve commercial property signage under ranking criteria, with a focus on properties along Blue Heron Boulevard and Broadway inside the CRA. The CRA also lists two commercial grant programs for property improvement and beautification. Those programs open and close with the fiscal year. Confirm status with the CRA before you design around a grant.",
+      },
+      {
+        q: "Are banners and sidewalk signs allowed in Riviera Beach?",
+        a: "No. Chapter 28 of the city code makes it unlawful to erect or use any banner, any snipe sign, or any sidewalk, A-frame or sandwich sign. Animated signs are prohibited too, with exceptions for time and temperature displays, digital signs and fuel price signs that meet the chapter's requirements. Most other signs need a permit filed with the building and zoning department. Plan an opening around permitted signage instead of temporary banners.",
       },
     ],
     nearby: ["west-palm-beach", "palm-beach-gardens", "juno-beach"],
@@ -570,6 +911,29 @@ export const cities: City[] = [
     ],
     angle:
       "Juno Beach is small, so every touchpoint counts. For restaurants and shops along US 1, the corporate lunch hour and the weekend beach crowd are two different customers, and the marketing should speak to each with its own offers, hours and photos. For vendors hoping to sell to large corporate buyers in the area, the work is business development: a tight capability statement, the right certifications and case studies, and patience with procurement. Near the beach, design any lit storefront with nesting season lighting rules in mind.",
+    ground: [
+      {
+        title: "Signs and storefronts",
+        body: "Juno Beach regulates signs in Chapter 34, Article IV, Division 6 of its code. Sign plans go to the Planning and Zoning Department, and the town may also send a sign to the Planning and Zoning Board and Town Council. Internally lit individual letters are not permitted. Lit signs use backlit reverse channel letters or an opaque cabinet with translucent copy. Permanent window signs are capped at 20 percent of the window area.",
+        source: { label: "Town of Juno Beach sign code", href: "https://library.municode.com/fl/juno_beach/codes/code_of_ordinances?nodeId=PTIICOOR_CH34ZO_ARTIVSURE_DIV6SI" },
+      },
+      {
+        title: "Local press",
+        body: "Juno Beach is small, but it is covered. Stet News, a nonprofit newsroom focused on Palm Beach County, keeps a dedicated Juno Beach section. CBS12 News reports on the Town Council. Jupiter Magazine covers the northern Palm Beaches from a lifestyle angle. Those are places a Juno Beach story could land. In a town of about 3,800 people, a specific local angle travels further than a broad announcement.",
+        source: { label: "Stet News", href: "https://stetnews.org/city-government/juno-beach/" },
+      },
+      {
+        title: "Festival weekends",
+        body: "Two free festivals bring crowds to Juno Beach late in the winter season. Loggerhead Marinelife Center holds TurtleFest at Loggerhead Park in February, an event with more than two decades behind it. The Palm Beach North Chamber of Commerce presents ArtFest by the Sea in March, with over 250 artists. A storefront refresh or an opening finished just before those weekends puts a new sign in front of festival crowds.",
+        source: { label: "Loggerhead Marinelife Center", href: "https://marinelife.org/turtlefest/" },
+      },
+      {
+        title: "Chamber and town",
+        body: "The Palm Beach North Chamber of Commerce is the chamber for Juno Beach. One of its two predecessor chambers was the Jupiter Tequesta Juno Beach Chamber, founded in 1948, and it still lists ArtFest by the Sea at Juno Beach among its events. On the town side, the Planning and Zoning Department reviews sign plans, and the town website posts business tax receipt applications and a grand opening banner permit form.",
+        source: { label: "Palm Beach North Chamber of Commerce", href: "https://www.pbnchamber.com/about-the-chamber/" },
+      },
+    ],
+    guides: ["business-sign-permits-palm-beach-county", "get-found-in-ai-search-local-business", "branding-cost-palm-beach-county"],
     faqs: [
       {
         q: "Do you work with businesses in Juno Beach?",
@@ -582,6 +946,14 @@ export const cities: City[] = [
       {
         q: "Does sea turtle nesting season affect business signs in Juno Beach?",
         a: "It can if your sign or storefront lighting is visible from the beach. Nesting season runs March 1 through October 31, and beachfront property owners are expected to shield, redirect or turn off lights that reach the beach. If you plan an illuminated sign near the coast, confirm the town's lighting rules before choosing LEDs, and design the sign to read well without spilling light.",
+      },
+      {
+        q: "Can I hang a grand opening banner in Juno Beach?",
+        a: "Yes, in the commercial general, medical commercial and commercial office zoning districts, with limits. The town code allows one banner per business, no larger than 20 square feet, attached to the building face or columns, and it cannot stand in for a permanent wall sign. Before it goes up, the business submits a letter to the director of planning and zoning stating the start date, size, material and wording. Banner signs are prohibited in the other districts.",
+      },
+      {
+        q: "Are A-frame signs or painted wall signs allowed in Juno Beach?",
+        a: "No. Juno Beach prohibits portable, folding and movable signs, including A-frame and sandwich board signs, and it also prohibits painted wall signs and roof signs. Flashing or moving neon is out, though nonmoving, nonflashing neon is permitted. A vehicle used primarily as an advertising display is prohibited too, which matters if you plan to park a wrapped van out front. Lettering limited to the business name, address, phone number and products is not the target of that rule.",
       },
     ],
     nearby: ["jupiter", "palm-beach-gardens", "riviera-beach"],
