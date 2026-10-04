@@ -103,3 +103,37 @@ scenes, intro, chapter five).
 - To verify before reuse: Boca downtown sign authority is under revision (Ordinance 4035 may be replaced);
   DDA and CRA grant amounts are deliberately not quoted; the Palm Beach Daily News and Business Journal
   sites block automated reading, so only their help centers were checked.
+
+## Website, photography and video clusters (2026-10-04)
+- `/[service]/[topic]` (data: `lib/topics-*.ts`, joined in `lib/topics.ts`, images in `topicImagery`): 17 web
+  topics (9 builds, 8 sectors), 6 photography, 6 video. Hubs `/photography` and `/video-production` are
+  Service entries in `lib/services-media.ts`, listed under Branding.
+- Town pages added through `LocalService`: web design for 10 more towns (`lib/local-web-north.ts`,
+  `lib/local-web-south.ts`), photography and video for Palm Beach and Boca (`lib/local-media.ts`).
+- Guides: `lib/guides-web.ts` (6) and `lib/guides-media.ts` (3).
+- The writing brief every page followed: `raw/cluster-brief.md`. Reuse it for any new page.
+- Checks: `node scripts/local-audit.mjs [--links]`, `node scripts/content-check.cjs [origin]`
+  (crawl, broken links, share of copy unique to each page), `node scripts/lead-test.cjs <page url>`
+  (submits the real form; sends one test lead), `MSYS_NO_PATHCONV=1 node scripts/page-shots.cjs <origin> <dir> <paths>`.
+- Imagery: web pages use mockups of our own site (`node scripts/local-mockups.cjs` reshoots them from
+  live). Photo and video pages use Epic Wolf brand scenes and signage work, never third-party stock,
+  because no shoot samples exist yet. Replace with real work as soon as there is some.
+
+### Claims the partners must confirm (written as practice, not yet verified with them)
+- Mobile apps for iPhone and Android, store submission and ongoing app maintenance.
+- CRM work: configuring existing platforms, custom CRMs, data cleanup and import, staff training.
+- Care plans: managed hosting, urgent security updates, tested backups, monitoring, email
+  authentication upkeep, a monthly summary.
+- Custom software handover: documentation, credentials in the client's name, code ownership stated.
+- A free first look in most calls to action (crawl the old site, review a spreadsheet or an ad).
+- Second-language pages checked by a fluent reader before launch (Lake Worth Beach page).
+- Regulated sectors: a "claims log", compliance review before design, locked approved text,
+  a tracking plan for medical sites. We never claim to be lawyers or compliance consultants.
+- Photo and video: shoots are planned, directed and produced through vetted partners; a partner is
+  on set; an FAA-certified pilot flies every drone job and Epic Wolf does not fly drones itself;
+  usage and ownership in writing before every shoot; releases collected; permits filed by us.
+- Facts that can go stale: insurance minimums quoted from the Town of Palm Beach and the county film
+  commission, the Town's 20-business-day filing deadline, Seyfarth's ADA lawsuit counts, Clutch and
+  WebFX price ranges, the Boynton Beach CRA grant.
+- `lib/cities.ts` says the Winter Equestrian Festival runs thirteen weeks through March; the venue's
+  site says 12 weeks, January through April. Reconcile.
