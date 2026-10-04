@@ -240,7 +240,7 @@ export const localGuides: Guide[] = [
 
   {
     slug: "opening-a-business-downtown-boca-raton",
-    title: "Opening a Business in Downtown Boca Raton: The Marketing Checklist",
+    title: "Opening a Business in Downtown Boca Raton: A Checklist",
     description:
       "A marketing checklist for opening in downtown Boca Raton: licensing before advertising, storefront and sign rules, Google, press lead times and timing.",
     published: "2026-10-04",
@@ -350,7 +350,7 @@ export const localGuides: Guide[] = [
 
   {
     slug: "opening-a-business-downtown-west-palm-beach",
-    title: "Opening on Clematis Street or at CityPlace: The West Palm Beach Marketing Checklist",
+    title: "Opening a Business in Downtown West Palm Beach: A Checklist",
     description:
       "A marketing checklist for opening in downtown West Palm Beach: tax receipts, DDA grants and free promotion, sign and cafe rules, permits, Google and press.",
     published: "2026-10-04",
@@ -463,7 +463,7 @@ export const localGuides: Guide[] = [
 
   {
     slug: "getting-press-palm-beach-county",
-    title: "Getting Press in Palm Beach County: The Outlets and How They Take Stories",
+    title: "How to Get Press in Palm Beach County",
     description:
       "Where local stories run in Boca Raton, West Palm Beach and Palm Beach, and how each outlet takes pitches, from Palm Beach Illustrated to WPTV and Stet News.",
     published: "2026-10-04",
@@ -581,7 +581,7 @@ export const localGuides: Guide[] = [
 
   {
     slug: "boca-west-palm-palm-beach-marketing-differences",
-    title: "Boca Raton vs West Palm Beach vs Palm Beach: Marketing to Three Different Markets",
+    title: "Marketing in Boca Raton vs West Palm Beach vs Palm Beach",
     description:
       "How marketing differs across Boca Raton, West Palm Beach and the Town of Palm Beach: who decides, what the street allows, the press and the timing.",
     published: "2026-10-04",
