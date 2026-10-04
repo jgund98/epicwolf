@@ -60,7 +60,7 @@ export const cities: City[] = [
         source: { label: "West Palm Beach Downtown Development Authority", href: "https://downtownwpb.com/dda/" },
       },
     ],
-    guides: ["choosing-a-pr-firm-west-palm-beach", "business-sign-permits-palm-beach-county", "branding-cost-palm-beach-county"],
+    guides: ["opening-a-business-downtown-west-palm-beach", "choosing-a-pr-firm-west-palm-beach", "getting-press-palm-beach-county"],
     faqs: [
       {
         q: "Is Epic Wolf based in West Palm Beach?",
@@ -141,7 +141,7 @@ export const cities: City[] = [
         source: { label: "Palm Beach Chamber of Commerce", href: "https://www.palmbeachchamber.com/about" },
       },
     ],
-    guides: ["market-a-palm-beach-business-without-looking-loud", "business-sign-permits-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach"],
+    guides: ["palm-beach-sign-approval", "market-a-palm-beach-business-without-looking-loud", "boca-west-palm-palm-beach-marketing-differences"],
     faqs: [
       {
         q: "Do you work with businesses on the island of Palm Beach?",
@@ -386,7 +386,7 @@ export const cities: City[] = [
         source: { label: "Greater Boca Raton Chamber of Commerce", href: "https://www.bocachamber.com/" },
       },
     ],
-    guides: ["business-sign-permits-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach", "branding-agency-vs-marketing-agency"],
+    guides: ["boca-raton-sign-approval", "opening-a-business-downtown-boca-raton", "boca-west-palm-palm-beach-marketing-differences"],
     faqs: [
       {
         q: "Do you work with companies in Boca Raton?",

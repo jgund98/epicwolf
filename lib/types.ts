@@ -93,3 +93,30 @@ export type Guide = {
   related: ServiceSlug[]
   sources?: { label: string; href: string }[]
 }
+
+/** A discipline in one priority town: /palm-beach-county/[town]/[service]. */
+export type LocalService = {
+  town: string
+  service: ServiceSlug
+  metaTitle: string
+  metaDescription: string
+  /** The SEO phrase inside the h1, e.g. "Sign company in Boca Raton, FL". */
+  kicker: string
+  /** Visible H1. No commas, no dashes. */
+  headline: string
+  /** 40 to 80 words that answer "who does this in this town" on their own. Quoted by AI answers. */
+  answer: string
+  /** Two or three paragraphs only true of this discipline in this town. */
+  intro: string[]
+  /** Verified facts for this discipline in this town, each with its primary source. */
+  ground: { title: string; body: string; source: { label: string; href: string } }[]
+  /** How the work runs here. Three beats. */
+  plan: { title: string; body: string }[]
+  /** Mid-page call to action. */
+  cta: { line: string; body: string }
+  faqs: Faq[]
+  guides: string[]
+  image: { src: string; alt: string }
+  /** Deliverable names from the service that this town restricts or bans, left off the scope list. */
+  omit?: string[]
+}

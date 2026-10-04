@@ -13,10 +13,20 @@ const BUDGETS = ["Under $10k", "$10k to $25k", "$25k to $75k", "$75k and up", "N
  * nothing else. Prefills the company from the name the visitor typed into the
  * homepage showpiece, or from ?business= on the URL.
  */
-export function ContactForm({ tone = "dark", source = "contact" }: { tone?: "dark" | "light"; source?: string }) {
+export function ContactForm({
+  tone = "dark",
+  source = "contact",
+  defaultInterest,
+}: {
+  tone?: "dark" | "light"
+  source?: string
+  /** Preselects a discipline chip, e.g. on a local service page. */
+  defaultInterest?: string
+}) {
   const brand = useBrandName()
   const [company, setCompany] = useState("")
-  const [interest, setInterest] = useState<string | null>(null)
+  const [interest, setInterest] = useState<string | null>(defaultInterest && INTERESTS.includes(defaultInterest) ? defaultInterest : null)
+  const [from, setFrom] = useState("")
   const [budget, setBudget] = useState<string | null>(null)
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle")
   const [error, setError] = useState("")
@@ -30,6 +40,8 @@ export function ContactForm({ tone = "dark", source = "contact" }: { tone?: "dar
     } else if (brand) setCompany((c) => c || brand)
     const i = new URLSearchParams(window.location.search).get("interest")
     if (i && INTERESTS.includes(i)) setInterest(i)
+    const f = new URLSearchParams(window.location.search).get("from")
+    if (f) setFrom(f.slice(0, 120))
   }, [brand])
 
   // The thank-you only mounts after the form's exit finishes (mode="wait"), so
@@ -78,7 +90,7 @@ export function ContactForm({ tone = "dark", source = "contact" }: { tone?: "dar
           website: fd.get("website"),
           interest,
           budget,
-          source,
+          source: from ? `${source} (from ${from})` : source,
         }),
       })
       const j = await res.json().catch(() => ({}))

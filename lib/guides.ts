@@ -1,4 +1,5 @@
 import type { Guide } from "./types"
+import { localGuides } from "./guides-local"
 
 /**
  * Long-form, answer-first guides. Every figure is a published market range with a source,
@@ -1441,16 +1442,22 @@ const all: Guide[] = [
 
 /* Lead with the strategic guides; the trade guides follow. */
 const ORDER = [
+  "boca-west-palm-palm-beach-marketing-differences",
   "how-to-choose-a-branding-agency-palm-beach",
+  "getting-press-palm-beach-county",
   "market-a-palm-beach-business-without-looking-loud",
+  "opening-a-business-downtown-west-palm-beach",
+  "opening-a-business-downtown-boca-raton",
   "get-found-in-ai-search-local-business",
   "choosing-a-pr-firm-west-palm-beach",
   "branding-agency-vs-marketing-agency",
   "branding-cost-palm-beach-county",
   "rebrand-vs-refresh",
   "business-sign-permits-palm-beach-county",
+  "boca-raton-sign-approval",
+  "palm-beach-sign-approval",
   "vehicle-wrap-cost-palm-beach-county",
 ]
-export const guides: Guide[] = [...all].sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug))
+export const guides: Guide[] = [...all, ...localGuides].sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug))
 
 export const guideBySlug = (s: string) => guides.find((g) => g.slug === s)

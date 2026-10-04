@@ -89,3 +89,17 @@ Jordan supplied a new block logo (EPIC WOLF with a wolf's head carved into the W
 ear). A by-eye recreation is parked in `components/brand/glyphs-draft.ts` (not imported). Next
 step: trace the original art file, then swap it into glyphs.ts (header, footer, favicon, OG,
 scenes, intro, chapter five).
+
+## Town x discipline pages (2026-10-04)
+- `/palm-beach-county/[town]/[service]`: Boca Raton (signs, branding, public-relations, digital-marketing,
+  web-design) and Palm Beach (signs, branding, public-relations, digital-marketing). West Palm Beach is
+  covered by the main service pages. Data in `lib/local-boca.ts` and `lib/local-palm-beach.ts`, joined in
+  `lib/local-services.ts`. Each page: answer capsule under the h1, sourced "On the ground" facts, a
+  three-beat plan, the service scope list (minus anything the town bans, via `omit`), FAQs, guide links
+  and the inquiry form on the page itself (`#start`, lead email shows the page it came from).
+- Six guides for the three priority markets in `lib/guides-local.ts`.
+- `node scripts/local-audit.mjs --links` lints the copy laws and checks every source URL.
+  `node scripts/local-shots.cjs [origin]` audits and screenshots the pages (restart the prod server after a build).
+- To verify before reuse: Boca downtown sign authority is under revision (Ordinance 4035 may be replaced);
+  DDA and CRA grant amounts are deliberately not quoted; the Palm Beach Daily News and Business Journal
+  sites block automated reading, so only their help centers were checked.

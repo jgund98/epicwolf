@@ -12,6 +12,8 @@ import { Reveal } from "@/components/ui/Reveal"
 import { KineticBand } from "@/components/site/KineticBand"
 import { townImage } from "@/lib/imagery"
 import { PillarCards } from "@/components/site/PillarCards"
+import { localForTown } from "@/lib/local-services"
+import { serviceBySlug } from "@/lib/services"
 
 export const dynamicParams = false
 export function generateStaticParams() {
@@ -31,6 +33,7 @@ export default async function Town({ params }: { params: Promise<{ town: string 
   if (!c) notFound()
   const path = `/palm-beach-county/${c.slug}`
   const photo = townImage(c.slug, cities.indexOf(c))
+  const local = localForTown(c.slug)
 
   return (
     <>
@@ -138,6 +141,33 @@ export default async function Town({ params }: { params: Promise<{ town: string 
           </div>
         </div>
       </section>
+
+      {local.length > 0 && (
+        <section data-tone="dark" className="on-dark py-24 md:py-32">
+          <div className="shell grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="label">In {c.name}</p>
+              <h2 className="t-h2 mt-4 max-w-[12ch]">The work we do here</h2>
+            </div>
+            <ul className="border-t border-white/12 md:col-span-8">
+              {local.map((l) => {
+                const x = serviceBySlug(l.service)
+                return x ? (
+                  <li key={l.service} className="border-b border-white/12">
+                    <Link href={`${path}/${l.service}`} className="group flex items-start justify-between gap-6 py-6">
+                      <span>
+                        <span className="t-h3 block transition-colors group-hover:text-flare">{x.name} in {c.name}</span>
+                        <span className="t-small muted-dark mt-1.5 block max-w-[58ch]">{l.metaDescription}</span>
+                      </span>
+                      <span aria-hidden className="mt-1 text-2xl text-flare transition-transform duration-500 group-hover:translate-x-1.5">→</span>
+                    </Link>
+                  </li>
+                ) : null
+              })}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section data-tone="light" className="bg-paper-2 py-24 text-ink md:py-32">
         <div className="shell">

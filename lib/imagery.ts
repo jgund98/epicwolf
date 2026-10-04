@@ -126,6 +126,12 @@ export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
   "rebrand-vs-refresh": { lead: P.inchOunce, inline: P.wallSign },
   "business-sign-permits-palm-beach-county": { lead: P.anzoWide, inline: P.factoryWide },
   "vehicle-wrap-cost-palm-beach-county": { lead: P.pickupWide, inline: P.wrapInstall },
+  "boca-raton-sign-approval": { lead: P.litSign, inline: P.door },
+  "palm-beach-sign-approval": { lead: P.pbArcade, inline: P.wallSign },
+  "opening-a-business-downtown-boca-raton": { lead: P.arches, inline: P.anzoWide },
+  "opening-a-business-downtown-west-palm-beach": { lead: P.flaglerNight, inline: P.auStore },
+  "getting-press-palm-beach-county": { lead: P.press, inline: P.pbArcade },
+  "boca-west-palm-palm-beach-marketing-differences": { lead: P.waterfront, inline: P.palmShadow },
 }
 
 /** Every real work photo (signage, vinyl, fleet, print), for the home page's brand world and the image sitemap. */

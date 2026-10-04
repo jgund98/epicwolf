@@ -15,6 +15,8 @@ import { PhotoPair } from "@/components/site/PhotoPair"
 import { Filmstrip } from "@/components/site/Filmstrip"
 import { KineticBand } from "@/components/site/KineticBand"
 import { guides } from "@/lib/guides"
+import { localForService } from "@/lib/local-services"
+import { cityBySlug } from "@/lib/cities"
 
 export const dynamicParams = false
 
@@ -268,6 +270,19 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           </div>
         </div>
       </section>
+
+      {localForService(s.slug).length > 0 && (
+        <section data-tone="light" className="on-light pt-16">
+          <div className="shell flex flex-wrap items-baseline gap-x-8 gap-y-3">
+            <p className="font-semibold">{s.name} near you</p>
+            {localForService(s.slug).map((l) => (
+              <Link key={l.town} href={`/palm-beach-county/${l.town}/${s.slug}`} className="link-draw muted-light">
+                {s.name} in {cityBySlug(l.town)?.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {!isPillar && s.related.length > 0 && (
         <section data-tone="light" className="on-light py-16">

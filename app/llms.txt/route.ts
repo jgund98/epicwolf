@@ -1,6 +1,8 @@
 import { services } from "@/lib/services"
 import { guides } from "@/lib/guides"
-import { cities } from "@/lib/cities"
+import { cities, cityBySlug } from "@/lib/cities"
+import { localServices } from "@/lib/local-services"
+import { serviceBySlug } from "@/lib/services"
 import { homeFaqs } from "@/lib/faqs"
 import { abs, pillars, site } from "@/lib/site"
 import { partners } from "@/lib/partners"
@@ -31,6 +33,10 @@ export function GET() {
     "",
     "## Where we work",
     ...cities.map((c) => `- [${c.name}](${abs(`/palm-beach-county/${c.slug}`)})`),
+    "",
+    "## Local services in Boca Raton, West Palm Beach and Palm Beach",
+    ...services.map((sv) => `- [${sv.name} in West Palm Beach](${abs(`/${sv.slug}`)})`),
+    ...localServices.map((l) => `- [${serviceBySlug(l.service)?.name} in ${cityBySlug(l.town)?.name}](${abs(`/palm-beach-county/${l.town}/${l.service}`)}): ${l.answer}`),
     "",
     "## Common questions",
     ...homeFaqs.flatMap((f) => [`### ${f.q}`, f.a, ""]),
