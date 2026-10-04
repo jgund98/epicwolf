@@ -11,8 +11,6 @@ import type { LocalService } from "./types"
 const CODE = "https://library.municode.com/fl/palm_beach/codes/code_of_ordinances?nodeId="
 const TOWN_REPORT = "https://townofpalmbeach.com/DocumentCenter/View/28941"
 
-const beyond = (what: string) =>
-  `Yes. Epic Wolf is based across the bridge in West Palm Beach and works with companies across Palm Beach County, South Florida and the rest of the country. The island has its own page because the Town's rules and its seasonal, private audience change how ${what} should be done there. Wherever the project is, the same partners lead it and one team carries the brand from the storefront to the screen.`
 
 export const palmBeachServices: LocalService[] = [
   {
@@ -102,10 +100,6 @@ export const palmBeachServices: LocalService[] = [
         q: "When is the best time to install a sign on the island?",
         a: "May through October. From November 1 through April, permitted construction work, which includes sign installs and storefront build-outs, can run only from 8 a.m. to 5 p.m. on weekdays and not on weekends or holidays. Off-season hours are longer, and the Worth Avenue district allows work from 8 a.m. to 8 p.m. except Sundays and legal holidays. File early enough to install before the season.",
       },
-      {
-        q: "Do you design signs for businesses outside Palm Beach?",
-        a: beyond("a storefront"),
-      },
     ],
     guides: ["palm-beach-sign-approval", "market-a-palm-beach-business-without-looking-loud", "business-sign-permits-palm-beach-county"],
     image: { src: "/img/work/motivo-letters.jpg", alt: "Painted lettering and a monkey crest on an interior design showroom wall" },
@@ -186,11 +180,7 @@ export const palmBeachServices: LocalService[] = [
       },
       {
         q: "Can I photograph my Palm Beach storefront for a brand launch?",
-        a: "Yes, with the right permit. The Town requires a filming permit from the Town Council for commercial filming or photography on Town property, which includes streets, sidewalks, parks and beaches, and its definition covers still photography and drones. The exemptions are narrow. Interior shoots on private property generally avoid the issue, and outdoor shoots should be scheduled around the permit.",
-      },
-      {
-        q: "Do you take branding projects outside Palm Beach?",
-        a: beyond("a brand"),
+        a: "Yes, with the right permit. The Town requires a filming permit from the Town Council for commercial filming or photography on Town property, which includes streets, sidewalks, parks and beaches, and still photography counts. The Town says filming by drone does not need this permit but must follow state and FAA rules. The exemptions are narrow. Interior shoots on private property generally avoid the issue, and outdoor shoots should be scheduled around the permit.",
       },
     ],
     guides: ["market-a-palm-beach-business-without-looking-loud", "how-to-choose-a-branding-agency-palm-beach", "boca-west-palm-palm-beach-marketing-differences"],
@@ -230,8 +220,8 @@ export const palmBeachServices: LocalService[] = [
       },
       {
         title: "Filming on Town property",
-        body: "Commercial filming or photography on Town property, including streets, sidewalks, parks and beaches, requires a filming permit from the Town Council. The definition covers still photography and drones, and the exemptions for personal, student and news shoots are narrow.",
-        source: { label: "Town Code Sec. 22-151", href: `${CODE}PTIICOOR_CH22BU_ARTIVFIOP_DIV2FIPE_S22-151RE` },
+        body: "Commercial filming or photography on Town property, including streets, sidewalks, parks and beaches, requires a filming permit from the Town Council. Still photography counts, and the exemptions for personal, student and news shoots are narrow. The Town says filming by drone does not require this permit but must follow state and FAA rules.",
+        source: { label: "Town of Palm Beach: Permits and Licenses", href: "https://www.townofpalmbeach.com/423/Permits-and-Licenses" },
       },
       {
         title: "The Daily News",
@@ -273,10 +263,6 @@ export const palmBeachServices: LocalService[] = [
       {
         q: "How do you handle clients who want privacy?",
         a: "Privacy is the default. We get written permission before naming a client, quoting anyone or photographing a home, an event or a guest, and we keep donor and guest lists out of marketing systems. Outdoor commercial shoots on Town property also need a Town Council filming permit. Some of the best Palm Beach PR is one well-placed story and a great deal that never runs.",
-      },
-      {
-        q: "Do you run public relations outside Palm Beach?",
-        a: beyond("public relations"),
       },
     ],
     guides: ["market-a-palm-beach-business-without-looking-loud", "getting-press-palm-beach-county", "choosing-a-pr-firm-west-palm-beach"],
@@ -359,10 +345,6 @@ export const palmBeachServices: LocalService[] = [
       {
         q: "Does Bing matter for a Palm Beach business?",
         a: "Yes, and it takes little effort. Bing Places for Business is free, can import an existing Google listing directly and asks businesses to keep their name, address, phone and website consistent everywhere. Many local competitors never claim their Bing listing, which leaves search results and the tools that draw on them working from incomplete details.",
-      },
-      {
-        q: "Do you run digital marketing for businesses outside Palm Beach?",
-        a: beyond("digital marketing"),
       },
     ],
     guides: ["get-found-in-ai-search-local-business", "market-a-palm-beach-business-without-looking-loud", "boca-west-palm-palm-beach-marketing-differences"],

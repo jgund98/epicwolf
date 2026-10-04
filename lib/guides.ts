@@ -1,5 +1,7 @@
 import type { Guide } from "./types"
 import { localGuides } from "./guides-local"
+import { webGuides } from "./guides-web"
+import { mediaGuides } from "./guides-media"
 
 /**
  * Long-form, answer-first guides. Every figure is a published market range with a source,
@@ -1457,7 +1459,16 @@ const ORDER = [
   "boca-raton-sign-approval",
   "palm-beach-sign-approval",
   "vehicle-wrap-cost-palm-beach-county",
+  "website-cost-palm-beach-county",
+  "how-to-choose-a-web-design-company-palm-beach-county",
+  "custom-website-vs-website-builder",
+  "website-vs-web-app-vs-custom-software",
+  "website-redesign-checklist",
+  "website-accessibility-ada-florida",
+  "planning-a-brand-shoot-palm-beach-county",
+  "filming-and-photo-permits-palm-beach-county",
+  "drone-rules-palm-beach-county",
 ]
-export const guides: Guide[] = [...all, ...localGuides].sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug))
+export const guides: Guide[] = [...all, ...localGuides, ...webGuides, ...mediaGuides].sort((a, b) => ORDER.indexOf(a.slug) - ORDER.indexOf(b.slug))
 
 export const guideBySlug = (s: string) => guides.find((g) => g.slug === s)

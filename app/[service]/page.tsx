@@ -17,6 +17,7 @@ import { KineticBand } from "@/components/site/KineticBand"
 import { guides } from "@/lib/guides"
 import { localForService } from "@/lib/local-services"
 import { cityBySlug } from "@/lib/cities"
+import { topicsFor } from "@/lib/topics"
 
 export const dynamicParams = false
 
@@ -166,6 +167,45 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           </div>
         </section>
       )}
+
+      {/* Topic pages under this hub: specific work, then the same work by sector. */}
+      {(["service", "industry"] as const).map((kind) => {
+        const list = topicsFor(s.slug, kind)
+        return list.length ? (
+          <section key={kind} data-tone="light" className="bg-paper-2 py-24 text-ink md:py-32">
+            <div className="shell grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <p className="label">{kind === "service" ? "In detail" : "By sector"}</p>
+                <h2 className="t-h2 mt-4 max-w-[12ch]">{kind === "service" ? "Each kind of work in detail" : "Built for how your sector buys"}</h2>
+              </div>
+              <ul className="grid border-t border-ink/12 sm:grid-cols-2 sm:gap-x-12 md:col-span-8">
+                {list.map((x) => (
+                  <li key={x.slug} className="border-b border-ink/12">
+                    <Link href={`/${s.slug}/${x.slug}`} className="group flex items-start justify-between gap-4 py-5">
+                      <span>
+                        <span className="block text-lg font-bold tracking-[-0.01em] group-hover:text-flare-deep">{x.name}</span>
+                        <span className="t-small muted-light mt-1 block">{x.kicker}</span>
+                      </span>
+                      <span aria-hidden className="mt-1 text-flare">→</span>
+                    </Link>
+                  </li>
+                ))}
+                {list.length % 2 === 1 && (
+                  <li className="py-3 sm:py-2.5">
+                    <Link href={contactHref} className="cut-sm group flex h-full items-center justify-between gap-4 bg-ink px-6 py-5 text-paper">
+                      <span>
+                        <span className="block text-lg font-bold tracking-[-0.01em]">Not sure which one fits?</span>
+                        <span className="t-small mt-1 block text-paper/70">Tell us the goal and a partner will point you to it.</span>
+                      </span>
+                      <span aria-hidden className="text-flare transition-transform duration-500 group-hover:translate-x-1.5">→</span>
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </section>
+        ) : null
+      })}
 
       {strip.length >= 4 && (
         <section data-tone="dark" className="on-dark py-20 md:py-28">

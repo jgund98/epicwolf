@@ -1,4 +1,5 @@
 import type { Service } from "./types"
+import { mediaServices } from "./services-media"
 
 /**
  * Service page content. Obeys VOICE.md: no em or en dashes, no commas in
@@ -508,7 +509,7 @@ export const services: Service[] = [
     ],
     related: ["digital-marketing", "branding", "business-development"],
     image: "/img/stock/ew-web.jpg",
-    imageAlt: "Epic Wolf web pages shown across several phone screens",
+    imageAlt: "The Epic Wolf home page in a browser window and on a phone",
   },
 
   /* ------------------------------------------------------------------ */
@@ -813,6 +814,7 @@ export const services: Service[] = [
     image: "/img/work/event-display.jpg",
     imageAlt: "A printed banner display at a beachfront restaurant event",
   },
+  ...mediaServices,
 ]
 
 export const serviceBySlug = (slug: string) => services.find((s) => s.slug === slug)

@@ -2,6 +2,7 @@ import { services } from "@/lib/services"
 import { guides } from "@/lib/guides"
 import { cities, cityBySlug } from "@/lib/cities"
 import { localServices } from "@/lib/local-services"
+import { topics } from "@/lib/topics"
 import { serviceBySlug } from "@/lib/services"
 import { homeFaqs } from "@/lib/faqs"
 import { abs, pillars, site } from "@/lib/site"
@@ -27,6 +28,9 @@ export function GET() {
     "",
     "## Service pages",
     ...services.map((s) => `- [${s.name}](${abs(`/${s.slug}`)}): ${s.summary}`),
+    "",
+    "## Specific work and sectors",
+    ...topics.map((t) => `- [${t.name}](${abs(`/${t.service}/${t.slug}`)}): ${t.answer}`),
     "",
     "## Guides",
     ...guides.map((g) => `- [${g.title}](${abs(`/insights/${g.slug}`)}): ${g.description}`),

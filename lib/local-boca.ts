@@ -11,8 +11,6 @@ const CODE = "https://library.municode.com/fl/boca_raton/codes/code_of_ordinance
 const CENSUS = "https://www.census.gov/quickfacts/fact/table/bocaratoncityflorida/PST045224"
 const GBP = "https://support.google.com/business/answer/3038177?hl=en"
 
-const beyond = (what: string) =>
-  `Yes. Epic Wolf is based in West Palm Beach and works with companies across Palm Beach County, South Florida and the rest of the country. Boca Raton has its own page because its rules and its audience are specific enough to change how ${what} should be done here. Wherever the project is, the same partners lead it, and the brand, the marketing and the physical presence come from one team.`
 
 export const bocaServices: LocalService[] = [
   {
@@ -87,7 +85,7 @@ export const bocaServices: LocalService[] = [
       },
       {
         q: "How much of a storefront window can signs cover in Boca Raton?",
-        a: "Less than most owners expect. Window signs are allowed only on the ground floor and may cover 20 percent of a window or 9 square feet, whichever is less. Only 3 square feet per business may be printed on paper or vinyl, and window signs cannot be lit. Full-window printed graphics are out, so the window has to work with letters, logos and restraint.",
+        a: "Less than most owners expect. Window signs are allowed only on the ground floor and may cover 20 percent of a window or 9 square feet, whichever is less. Only 3 square feet per business may be printed on paper or vinyl, and window signs cannot be lit. Anything beyond that needs a waiver from the appearance board, so plan the window around letters, logos and restraint.",
       },
       {
         q: "How many colors can a business sign have in Boca Raton?",
@@ -96,10 +94,6 @@ export const bocaServices: LocalService[] = [
       {
         q: "Does a Boca Raton address mean the city sign code applies?",
         a: "Not always. The city says a Boca Raton address does not necessarily mean a property is inside city limits, and large areas to the west are unincorporated Palm Beach County. Look up the parcel control number: city parcels begin with 06 and unincorporated parcels begin with 00. County properties follow the county's sign rules in Article 8 of its land development code.",
-      },
-      {
-        q: "Do you make signs for businesses outside Boca Raton?",
-        a: beyond("a storefront"),
       },
     ],
     guides: ["boca-raton-sign-approval", "opening-a-business-downtown-boca-raton", "business-sign-permits-palm-beach-county"],
@@ -183,10 +177,6 @@ export const bocaServices: LocalService[] = [
         q: "Should a Boca Raton brand look Mediterranean?",
         a: "Not literally. Boca's downtown development order has long encouraged Addison Mizner's ideas as a design influence while asking for reinterpretation rather than copies. For most brands the lesson is restraint and craft, not arches in the logo. We look at where the business sits, who it serves and what its competitors already look like, then design something that belongs without blending in.",
       },
-      {
-        q: "Do you take branding projects outside Boca Raton?",
-        a: beyond("a brand"),
-      },
     ],
     guides: ["branding-cost-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach", "boca-west-palm-palm-beach-marketing-differences"],
     image: { src: "/img/work/au-band.jpg", alt: "Navy window bands carrying one logo system across an office storefront" },
@@ -268,10 +258,6 @@ export const bocaServices: LocalService[] = [
       {
         q: "Does charity work help a Boca Raton company's reputation?",
         a: "It can, when it is real and sustained. Boca's charity season is organized and widely covered, and Boca magazine publishes a Charity Register each September as the guide to local organizations and their major fundraisers. Businesses that support a cause for years build standing that coverage reflects. One-time sponsorships bought for exposure rarely do, and editors can tell the difference.",
-      },
-      {
-        q: "Do you handle public relations outside Boca Raton?",
-        a: beyond("public relations"),
       },
     ],
     guides: ["choosing-a-pr-firm-west-palm-beach", "getting-press-palm-beach-county", "boca-west-palm-palm-beach-marketing-differences"],
@@ -355,10 +341,6 @@ export const bocaServices: LocalService[] = [
         q: "Can you help a Boca Raton business show up in ChatGPT?",
         a: "Yes, by working on what those assistants read. ChatGPT and Google's AI answers lean on sources that describe a business clearly and consistently: its own website, its Google and Bing profiles, reviews and credible local coverage. We structure every page to answer a real question directly, keep business details identical everywhere and build the outside mentions assistants cite. No one can guarantee a mention.",
       },
-      {
-        q: "Do you run digital marketing for companies outside Boca Raton?",
-        a: beyond("digital marketing"),
-      },
     ],
     guides: ["get-found-in-ai-search-local-business", "boca-west-palm-palm-beach-marketing-differences", "opening-a-business-downtown-boca-raton"],
     image: { src: "/img/stock/ew-digital.jpg", alt: "The Epic Wolf website in a browser window and on a phone" },
@@ -435,10 +417,6 @@ export const bocaServices: LocalService[] = [
       {
         q: "Will a new website help my Boca business show up in Google and ChatGPT?",
         a: "It should, if it is built for it. We give every service and location a page that answers a real question directly, add structured data describing the business, keep pages fast on phones and match the name, address and phone to your Google profile. That makes the site easy for Google to rank and for AI assistants to cite, though no one can guarantee placement.",
-      },
-      {
-        q: "Do you build websites for companies outside Boca Raton?",
-        a: beyond("a website"),
       },
     ],
     guides: ["get-found-in-ai-search-local-business", "boca-west-palm-palm-beach-marketing-differences", "rebrand-vs-refresh"],

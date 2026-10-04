@@ -114,6 +114,8 @@ export const pillars: Pillar[] = [
       { name: "Signage and storefronts", href: "/signs" },
       { name: "Vehicle graphics", href: "/vehicle-wraps" },
       { name: "Print and brand goods", href: "/print" },
+      { name: "Photography", href: "/photography" },
+      { name: "Video production", href: "/video-production" },
     ],
     img: "/img/work/inch-ounce-storefront.jpg",
   },
@@ -153,6 +155,8 @@ export const serviceIndex = [
   { slug: "signs", name: "Signage and Storefronts", pillar: "branding" },
   { slug: "vehicle-wraps", name: "Vehicle Graphics", pillar: "branding" },
   { slug: "print", name: "Print and Brand Goods", pillar: "branding" },
+  { slug: "photography", name: "Photography", pillar: "branding" },
+  { slug: "video-production", name: "Video Production", pillar: "branding" },
   { slug: "web-design", name: "Websites and Software", pillar: "digital-marketing" },
 ] as const
 

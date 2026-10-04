@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { services } from "@/lib/services"
 import { cities } from "@/lib/cities"
 import { localServices } from "@/lib/local-services"
+import { topics } from "@/lib/topics"
 import { guides } from "@/lib/guides"
 import { partners } from "@/lib/partners"
 import { abs, pillars } from "@/lib/site"
@@ -40,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guides.map((g) => page(`/insights/${g.slug}`, 0.6, imgs(guideImagery[g.slug]?.lead.src, guideImagery[g.slug]?.inline.src), new Date(g.updated))),
     page("/palm-beach-county", 0.6, imgs(...pageImagery.countyPair.map((p) => p.src))),
     ...cities.map((c, i) => page(`/palm-beach-county/${c.slug}`, 0.5, imgs(townImage(c.slug, i).src))),
+    ...topics.map((t) => page(`/${t.service}/${t.slug}`, 0.7, imgs(t.image.src))),
     ...localServices.map((l) => page(`/palm-beach-county/${l.town}/${l.service}`, 0.7, imgs(l.image.src))),
     page("/privacy", 0.2),
   ]

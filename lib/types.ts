@@ -9,6 +9,8 @@ export type ServiceSlug =
   | "signs"
   | "vehicle-wraps"
   | "print"
+  | "photography"
+  | "video-production"
 
 export type Service = {
   slug: ServiceSlug
@@ -119,4 +121,40 @@ export type LocalService = {
   image: { src: string; alt: string }
   /** Deliverable names from the service that this town restricts or bans, left off the scope list. */
   omit?: string[]
+}
+
+/**
+ * A page one level under a service hub: /[service]/[topic].
+ * kind "service" is a specific thing we build or make (ecommerce, brand films);
+ * kind "industry" is that service for one kind of client (law firms, builders).
+ */
+export type Topic = {
+  service: ServiceSlug
+  slug: string
+  kind: "service" | "industry"
+  /** Short label for lists and breadcrumbs, e.g. "Law firm websites". */
+  name: string
+  metaTitle: string
+  metaDescription: string
+  /** The SEO phrase inside the h1, e.g. "Law firm website design in Palm Beach County". */
+  kicker: string
+  /** Visible H1. No commas, no dashes. */
+  headline: string
+  /** 40 to 80 words that answer "who does this here and what is it" on their own. */
+  answer: string
+  /** Two or three paragraphs specific to this topic. */
+  intro: string[]
+  /** Verified facts a buyer can act on, each with its primary source. */
+  ground: { title: string; body: string; source: { label: string; href: string } }[]
+  /** What the work includes. Six to eight items, written for this topic only. */
+  includes: { name: string; detail: string }[]
+  /** How the work runs. Three beats. */
+  plan: { title: string; body: string }[]
+  cta: { line: string; body: string }
+  faqs: Faq[]
+  /** Guide slugs. */
+  guides: string[]
+  /** Other topic slugs under the same service. */
+  related: string[]
+  image: { src: string; alt: string }
 }
