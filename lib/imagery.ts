@@ -41,6 +41,16 @@ const P = {
   wallSign: { src: "/img/work/wall-sign.jpg", alt: "A script and serif logo painted on a dark wall" },
   windowGfx: { src: "/img/work/window-graphics.jpg", alt: "A full-height window graphic of stacked vintage rugs" },
 
+  /* Tight crops cut from the originals by scripts/local-photos.mjs: the sign and its wall, nothing else. */
+  anzoLetters: { src: "/img/work/anzo-letters.jpg", alt: "Dimensional letters lit by gooseneck lamps over a restaurant entrance" },
+  auBand: { src: "/img/work/au-band.jpg", alt: "Navy window bands carrying one logo system across an office storefront" },
+  motivoLetters: { src: "/img/work/motivo-letters.jpg", alt: "Painted lettering and a monkey crest on an interior design showroom wall" },
+  heirWall: { src: "/img/work/heirlooms-wall.jpg", alt: "White serif and script lettering on a navy showroom wall" },
+  heirNightWide: { src: "/img/work/heirlooms-night.jpg", alt: "An illuminated sign over a rug gallery storefront at night" },
+  whiteHorse: { src: "/img/work/whitehorse-mural.jpg", alt: "A palm mural and crest painted on a white stucco wall" },
+  heirWindow: { src: "/img/work/heirlooms-window.jpg", alt: "A full-height window graphic of stacked vintage rugs" },
+  lagoonDusk: { src: "/img/disc/lagoon-dusk.jpg", alt: "The Lake Worth Lagoon at dusk" },
+
   ewVan: { src: "/img/brand/ew-van-us.jpg", alt: "A work van wrapped in Epic Wolf graphics" },
   ewTote: { src: "/img/brand/ew-tote-3.jpg", alt: "A canvas tote printed with the Epic Wolf mark" },
 
@@ -126,12 +136,12 @@ export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
   "rebrand-vs-refresh": { lead: P.inchOunce, inline: P.wallSign },
   "business-sign-permits-palm-beach-county": { lead: P.anzoWide, inline: P.factoryWide },
   "vehicle-wrap-cost-palm-beach-county": { lead: P.pickupWide, inline: P.wrapInstall },
-  "boca-raton-sign-approval": { lead: P.litSign, inline: P.door },
-  "palm-beach-sign-approval": { lead: P.pbArcade, inline: P.wallSign },
-  "opening-a-business-downtown-boca-raton": { lead: P.arches, inline: P.anzoWide },
-  "opening-a-business-downtown-west-palm-beach": { lead: P.flaglerNight, inline: P.auStore },
+  "boca-raton-sign-approval": { lead: P.heirNightWide, inline: P.whiteHorse },
+  "palm-beach-sign-approval": { lead: P.pbArcade, inline: P.motivoLetters },
+  "opening-a-business-downtown-boca-raton": { lead: P.arches, inline: P.anzoLetters },
+  "opening-a-business-downtown-west-palm-beach": { lead: P.flaglerNight, inline: P.auBand },
   "getting-press-palm-beach-county": { lead: P.press, inline: P.pbArcade },
-  "boca-west-palm-palm-beach-marketing-differences": { lead: P.waterfront, inline: P.palmShadow },
+  "boca-west-palm-palm-beach-marketing-differences": { lead: P.lagoonDusk, inline: P.palmShadow },
 }
 
 /** Every real work photo (signage, vinyl, fleet, print), for the home page's brand world and the image sitemap. */

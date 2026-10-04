@@ -108,7 +108,7 @@ export const palmBeachServices: LocalService[] = [
       },
     ],
     guides: ["palm-beach-sign-approval", "market-a-palm-beach-business-without-looking-loud", "business-sign-permits-palm-beach-county"],
-    image: { src: "/img/work/motivo-wall.jpg", alt: "A painted wall sign for an interior design showroom" },
+    image: { src: "/img/work/motivo-letters.jpg", alt: "Painted lettering and a monkey crest on an interior design showroom wall" },
   },
 
   {
@@ -194,7 +194,7 @@ export const palmBeachServices: LocalService[] = [
       },
     ],
     guides: ["market-a-palm-beach-business-without-looking-loud", "how-to-choose-a-branding-agency-palm-beach", "boca-west-palm-palm-beach-marketing-differences"],
-    image: { src: "/img/stock/worth-ave.jpg", alt: "Palms and storefronts along Worth Avenue in Palm Beach" },
+    image: { src: "/img/work/heirlooms-wall.jpg", alt: "White serif and script lettering on a navy showroom wall" },
   },
 
   {

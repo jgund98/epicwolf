@@ -103,7 +103,7 @@ export const bocaServices: LocalService[] = [
       },
     ],
     guides: ["boca-raton-sign-approval", "opening-a-business-downtown-boca-raton", "business-sign-permits-palm-beach-county"],
-    image: { src: "/img/work/anzo-sign-wide.jpg", alt: "Dimensional channel letters over a Mediterranean restaurant entrance" },
+    image: { src: "/img/work/anzo-letters.jpg", alt: "Dimensional letters lit by gooseneck lamps over a restaurant entrance" },
   },
 
   {
@@ -189,7 +189,7 @@ export const bocaServices: LocalService[] = [
       },
     ],
     guides: ["branding-cost-palm-beach-county", "how-to-choose-a-branding-agency-palm-beach", "boca-west-palm-palm-beach-marketing-differences"],
-    image: { src: "/img/work/au-storefront-wide.jpg", alt: "Navy window bands carrying one logo system across an office storefront and its doors" },
+    image: { src: "/img/work/au-band.jpg", alt: "Navy window bands carrying one logo system across an office storefront" },
   },
 
   {
@@ -361,7 +361,7 @@ export const bocaServices: LocalService[] = [
       },
     ],
     guides: ["get-found-in-ai-search-local-business", "boca-west-palm-palm-beach-marketing-differences", "opening-a-business-downtown-boca-raton"],
-    image: { src: "/img/stock/ew-digital.jpg", alt: "The Epic Wolf website on a laptop and a phone" },
+    image: { src: "/img/stock/ew-digital.jpg", alt: "The Epic Wolf website in a browser window and on a phone" },
   },
 
   {
@@ -442,6 +442,6 @@ export const bocaServices: LocalService[] = [
       },
     ],
     guides: ["get-found-in-ai-search-local-business", "boca-west-palm-palm-beach-marketing-differences", "rebrand-vs-refresh"],
-    image: { src: "/img/stock/ew-web.jpg", alt: "Epic Wolf web pages on a desktop screen" },
+    image: { src: "/img/stock/ew-web.jpg", alt: "The Epic Wolf home page in a browser window and on a phone" },
   },
 ]
