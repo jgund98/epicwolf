@@ -60,7 +60,6 @@ const P = {
   ewTee: { src: "/img/brand/ew-tee-3.jpg", alt: "A black T-shirt printed with the Epic Wolf wordmark" },
   ewStorefront: { src: "/img/brand/ew-storefront-3.jpg", alt: "A storefront window carrying the Epic Wolf mark" },
 
-  ewVan: { src: "/img/brand/ew-van-us.jpg", alt: "A work van wrapped in Epic Wolf graphics" },
   ewTote: { src: "/img/brand/ew-tote-3.jpg", alt: "A canvas tote printed with the Epic Wolf mark" },
 
   press: { src: "/img/stock/press.jpg", alt: "The West Palm Beach skyline across the Intracoastal from the Royal Park Bridge" },
@@ -102,7 +101,7 @@ export const serviceImagery: Record<string, { pair: [Pic, Pic]; side: Pic; strip
     stripLabel: "Storefronts, windows and walls",
     strip: [P.litSign, P.windowGfx, P.greek, P.wallSign, P.door, P.auStore, P.menu, P.motivo, P.palmWall, P.anzoWindows],
   },
-  "vehicle-wraps": { pair: [P.wrapInstall, P.sedan], side: P.ewVan },
+  "vehicle-wraps": { pair: [P.wrapInstall, P.sedan], side: P.pickup },
   print: {
     pair: [P.ewTote, P.tee],
     side: P.koozies,
@@ -155,7 +154,7 @@ export const guideImagery: Record<string, { lead: Pic; inline: Pic }> = {
   "website-redesign-checklist": { lead: P.ewSiteCounty, inline: P.ewWeb },
   "filming-and-photo-permits-palm-beach-county": { lead: P.pbArcade, inline: P.heirNightWide },
   "drone-rules-palm-beach-county": { lead: P.lagoonDusk, inline: P.palmShadow },
-  "planning-a-brand-shoot-palm-beach-county": { lead: P.ewTote, inline: P.ewVan },
+  "planning-a-brand-shoot-palm-beach-county": { lead: P.ewTote, inline: P.heirWall },
   "boca-raton-sign-approval": { lead: P.heirNightWide, inline: P.whiteHorse },
   "palm-beach-sign-approval": { lead: P.pbArcade, inline: P.motivoLetters },
   "opening-a-business-downtown-boca-raton": { lead: P.arches, inline: P.anzoLetters },
@@ -196,8 +195,8 @@ export const topicImagery: Record<string, Pic> = {
   "photography/architectural-and-interior-photography": P.heirNightWide,
   "photography/product-photography": P.heirWindow,
   "photography/event-and-gala-photography": P.ewStorefront,
-  "photography/aerial-and-drone-photography": P.ewVan,
-  "video-production/brand-films": P.ewVan,
+  "photography/aerial-and-drone-photography": P.motivoLetters,
+  "video-production/brand-films": P.heirWall,
   "video-production/commercials-and-social-video": P.ewSitePhones,
   "video-production/testimonial-and-case-study-video": P.ewTee,
   "video-production/event-video": P.ewStorefront,
@@ -220,5 +219,5 @@ export const localImagery: Record<string, Pic> = {
   "palm-beach/photography": P.motivoLetters,
   "palm-beach/video-production": P.ewStorefront,
   "boca-raton/photography": P.ewTote,
-  "boca-raton/video-production": P.ewVan,
+  "boca-raton/video-production": P.auBand,
 }

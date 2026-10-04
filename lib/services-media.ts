@@ -205,7 +205,7 @@ export const mediaServices: Service[] = [
       },
     ],
     related: ["branding", "photography", "public-relations", "web-design"],
-    image: "/img/brand/ew-van-us.jpg",
-    imageAlt: "A work van wrapped in Epic Wolf graphics",
+    image: "/img/brand/ew-storefront-3.jpg",
+    imageAlt: "A storefront window carrying the Epic Wolf mark",
   },
 ]

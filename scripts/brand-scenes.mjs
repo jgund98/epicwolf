@@ -1,3 +1,4 @@
+// The van scene was rejected by Jordan (2026-10-04): do not regenerate or use public/img/brand/ew-van-us.jpg.
 // Put the Epic Wolf brand onto real photographed surfaces for service imagery.
 import sharp from "sharp"
 import { FLARE, WM_W, WM_H, MARK_SIZE, wordmark, mark } from "./brand-shared.mjs"
